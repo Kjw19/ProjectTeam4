@@ -1,0 +1,274 @@
+@charset "UTF-8";
+
+/* 전체 레이아웃
+------------------------*/
+body{
+	width:960px;
+	margin:0 auto;
+	background:#E6E6E6;
+}
+a:link{
+	text-decoration:none;
+	color:#000000;
+}
+a:visited{
+	text-decoration:none;
+	color:#000000;
+}
+a:hover{
+	text-decoration:none;
+	color:#6C6C6C;
+}
+
+/* 페이지 레이아웃
+--------------------- */
+.page-main{
+	background:#FFFFFF;
+	margin:40px 0;
+	border-radius:5px;
+	box-shadow:0 2px 6px rgba(100,100,100,0.3);
+	min-height:650px;
+}
+.content-main{
+	padding:10px 20px;
+}
+
+/* 공통 메시지
+-------------------- */
+.result-display{
+	width:400px;
+	height:200px;
+	margin:50px auto;
+	border:1px solid #000;
+	display:flex;/*하위 요소를 수직으로 쌓을 수 있는 공간을 만듬*/
+	align-items:center;/*세로 정렬*/
+	justify-content:center;/*가로 정렬*/
+}
+
+/* 공통 정렬
+-------------------- */
+.align-center{
+	text-align:center;
+}
+.align-right{
+	text-align:right;
+}
+
+/* 메뉴
+------------------- */
+#main_logo{
+	padding-top:20px;
+}
+#main_nav{
+	padding:2px 10px 20px 10px;
+	height:20px;
+	background-color:#C1BFBF;
+}
+#main_nav ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+#main_nav ul li{
+	display:inline-block;
+	width:100px;
+	text-align:center;
+	vertical-align:middle;
+	padding-top:8px;
+}
+#main_nav ul li img.my-photo{
+	vertical-align:middle;
+}
+#main_nav ul li.menu-profile{
+	padding-top:5px;
+	width:25px;
+}
+#main_nav ul li.menu-logout{
+	width:150px;
+	text-align:left;
+}
+
+/* 메인
+---------------------- */
+
+/* 공통 등록, 수정 폼
+---------------------- */
+form{
+	width:600px;
+	margin:0 auto;
+	border:1px solid #000;
+	padding:10px 10px 10px 30px;
+}
+form ul li{
+	clear:both;
+}
+form ul li label{
+	width:130px;
+	float:left; /*태그를 왼쪽으로 정렬*/
+}
+ul{
+	list-style:none;
+}
+input{
+	margin-top:4px;
+}
+input[type="text"],input[type="password"],input[type="email"]{
+	width:310px;
+}
+#register_form input[id="id"]{
+	width:223px;
+}
+input[id="zipcode"]{
+	width:205px;
+}
+input[type="number"]{
+	width:100px;
+}
+.form-notice{
+	margin-left:130px;
+}
+
+/* 로그인
+------------------- */
+#login_form #id,#login_form #passwd{
+	width:200px;
+}
+
+/* MY페이지
+------------------- */
+.mypage-div{
+	width:48%;
+	float:left;
+	padding:5px;
+}
+.mypage-end{
+	clear:both;
+}
+.my-photo{
+	object-fit:cover;
+	/*정사각형이 아니라 직사각형일 경우 원 안에 보여지게 할 중심 이미지의 위치를 지정*/
+	object-position:top;
+	/*사각형의 모서리 둥근 정도를 지정하는 속성. 50%를 지정하면 완전한 원*/
+	border-radius:50%;
+}
+
+/* 공통 목록
+------------------- */
+form#search_form{
+	border:none;
+}
+ul.search{
+	width:340px;
+	list-style:none;
+	padding:0;
+	margin:0 auto;
+}
+ul.search li{
+	margin:0 0 9px 0;
+	padding:0;
+	display:inline;
+}
+.list-space{
+	margin-bottom:10px;
+}
+table{
+	width:100%;
+	border:1px solid #000;
+	border-collapse:collapse;
+	margin-top:5px;
+}
+table td,table th{
+	border:1px solid #000;
+	padding:5px;
+}
+
+/* 회원관리 목록
+------------------- */
+
+/* 게시판 글 상세
+------------------- */
+ul.detail-info{
+	list-style:none;
+}
+ul.detail-info li{
+	display:inline-block;
+}
+.detail-img{
+	max-width:500px;
+}
+ul.detail-sub{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+ul.detail-sub li{
+	display:inline-block;
+	width:49%;
+	height:50px;
+	vertical-align:middle;
+}
+ul.detail-sub li:first-child img{
+	vertical-align:middle;
+}
+ul.detail-sub li:last-child{
+	text-align:right;
+	line-height:250%;
+}
+#output_fav{
+	cursor:pointer;
+}
+div#reply_div {
+	padding: 5px 10px 40px 10px;
+	margin-top: 10px;
+	background-color: #EEEEEE;
+}
+form#re_form {
+	width: 650px;
+	border: none;
+}
+span.re-title {
+	coler: #000;
+	font-size: 12pt;
+	line-height: 200%;
+}
+span.letter-count {
+	font-size: 10pt;
+	color: #999;
+}
+textarea.re_content {
+	width: 90%;
+	height: 50%;
+	margin: 10px 10px;
+}
+div#re_first, div#mre_first {
+	float: left;
+	width: 70%;
+	padding-left: 15px;
+	margin-bottom: 10px;
+}
+div#re_second, div#mre_second {
+	float: left;
+	width: 19%;
+	margin-bottom: 10px;
+}
+div#loading{
+	text-align: center;
+}
+div.paging-button{
+	text-align: right;
+}
+div#output {
+	clear: both;
+}
+form#mre_form {
+	border: none;
+	margin: 5px;
+}
+
+
+
+
+
+
+
+
