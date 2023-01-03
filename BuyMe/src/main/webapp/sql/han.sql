@@ -1,4 +1,4 @@
----공지 게시판 추천 테이블
+---공지 게시판 추천 테이블 및 시퀀스 작성
 create notice_like(
 like_num number not null,
 noti_num number not null,
@@ -10,7 +10,7 @@ constraint notice_like_fk2 foreign key(mem_num) references member(mem_num)
 
 create sequence notice_like_seq;
 
---공지게시판 댓글 테이블
+--공지게시판 댓글 테이블 및 시퀀스 작성
 create notice_comment
 comment_num number not null,
 comm_content varchar2(300) not null,
