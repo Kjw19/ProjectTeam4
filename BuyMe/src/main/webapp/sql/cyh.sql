@@ -13,4 +13,4 @@ create table notice_board(
 	constraint notice_board_fk foreign key (mem_num) references member (mem_num)
 );
 
-create sequence noticeboard_seq;
+create sequence notice_board_seq;
