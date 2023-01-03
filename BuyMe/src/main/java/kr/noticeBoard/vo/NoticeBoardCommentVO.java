@@ -16,7 +16,7 @@ public class NoticeBoardCommentVO {
 
 	public void setCommnet_num(int commnet_num) {
 		this.commnet_num = commnet_num;
-	}
+	} 
 
 	public int getMem_num() {
 		return mem_num;
