@@ -7,7 +7,7 @@ creat table fund_board(
  fund_reg_date date default sysdate not null,
  fund_modify_date date default sysdate
  fund_ip varchar2(40) not null,
- fund_filename varchar2(150),/*파일명*/
+ fund_filename varchar2(150),/*파일*/
  category_num number not null,/*카테고리 번호*/
  mem_num number not null,/*회원번호*/
  constraint fund_board_pk primary key (fund_num),
