@@ -21,6 +21,7 @@ public class FundCommentDAO {
 	
 	private FundCommentDAO() {}
 	
+	// 댓글 삽입
 	public void insertFuntComment(FundCommentVO comment) throws Exception{
 		
 		Connection conn = null;
@@ -57,7 +58,7 @@ public class FundCommentDAO {
 	
 	
 	
-		//댓글 개수
+	//댓글 개수
 	public int getFundCommentCount(int fund_num) throws Exception{
 		
 		Connection conn = null;
@@ -101,7 +102,7 @@ public class FundCommentDAO {
 	
 	
 	
-		//댓글 목록
+	//댓글 목록
 	public List<FundCommentVO> getListFundComment(int start,int end, int fund_num)throws Exception{
 			
 		Connection conn = null;
