@@ -10,6 +10,8 @@ public class RequestCommentVO {
 	private int mem_num;
 	private int request_num;
 	
+	private String id;
+
 	public int getComment_num() {
 		return comment_num;
 	}
@@ -39,5 +41,11 @@ public class RequestCommentVO {
 	}
 	public void setRequest_num(int request_num) {
 		this.request_num = request_num;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 }

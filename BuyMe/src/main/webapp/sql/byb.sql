@@ -12,7 +12,7 @@ create table REQUEST_BOARD(
  
  constraint REQUEST_BOARD_pk primary key (req_num),
  constraint REQUEST_BOARD_fk1 foreign key (mem_num)
-                            references MEM_NUM (mem_num)
+                            references member (mem_num)
                             
 );
 create sequence requestboard_seq;
