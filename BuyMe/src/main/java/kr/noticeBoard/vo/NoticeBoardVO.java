@@ -9,7 +9,7 @@ public class NoticeBoardVO {
 	private int noti_hit;
 	private Date noti_reg_date;
 	private Date noti_modify_date;
-	private String noti_link;
+	private String noti_filename;
 	private String noti_ip;
 	private int mem_num;
 	
@@ -49,11 +49,11 @@ public class NoticeBoardVO {
 	public void setNoti_modify_date(Date noti_modify_date) {
 		this.noti_modify_date = noti_modify_date;
 	}
-	public String getNoti_link() {
-		return noti_link;
+	public String getNoti_filename() {
+		return noti_filename;
 	}
-	public void setNoti_link(String noti_link) {
-		this.noti_link = noti_link;
+	public void setNoti_filename(String noti_filename) {
+		this.noti_filename = noti_filename;
 	}
 	public String getNoti_ip() {
 		return noti_ip;
