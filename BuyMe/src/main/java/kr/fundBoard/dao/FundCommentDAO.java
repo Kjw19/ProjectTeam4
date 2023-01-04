@@ -21,7 +21,7 @@ public class FundCommentDAO {
 	
 	private FundCommentDAO() {}
 	
-	public void insertFuntComment(FundCommentVO boardComment) throws Exception{
+	public void insertFuntComment(FundCommentVO comment) throws Exception{
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -40,9 +40,9 @@ public class FundCommentDAO {
 		pstmt = conn.prepareStatement(sql);
 		
 		//?에 데이터 바인딩
-		pstmt.setString(1, boardComment.getComm_content());
-		pstmt.setInt(2, boardComment.getMem_num());
-		pstmt.setInt(3, boardComment.getFund_num());
+		pstmt.setString(1, comment.getComm_content());
+		pstmt.setInt(2, comment.getMem_num());
+		pstmt.setInt(3, comment.getFund_num());
 		
 		//SQL문 실행
 		pstmt.executeUpdate();
