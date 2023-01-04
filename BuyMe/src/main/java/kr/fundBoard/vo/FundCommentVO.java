@@ -5,7 +5,7 @@ import java.sql.Date;
 public class FundCommentVO {
 	private int comment_num;
 	private String comm_content;
-	private Date comm_reg_date;
+	private String comm_reg_date;
 	
 	private int mem_num;
 	
@@ -29,11 +29,11 @@ public class FundCommentVO {
 		this.comm_content = comm_content;
 	}
 
-	public Date getComm_reg_date() {
+	public String getComm_reg_date() {
 		return comm_reg_date;
 	}
 
-	public void setComm_reg_date(Date comm_reg_date) {
+	public void setComm_reg_date(String comm_reg_date) {
 		this.comm_reg_date = comm_reg_date;
 	}
 
