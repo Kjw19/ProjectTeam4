@@ -11,6 +11,7 @@ public class NoticeBoardVO {
 	private Date noti_modify_date;
 	private String noti_link;
 	private String noti_ip;
+	
 	private int mem_num;
 	
 	public int getNoti_num() {
