@@ -1,7 +1,7 @@
 package kr.requestBoard.vo;
 
 import java.util.Date;
-
+   
 public class RequestBoardVO {
 	private int req_num;
 	
