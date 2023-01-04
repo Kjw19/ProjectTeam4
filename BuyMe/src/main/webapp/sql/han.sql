@@ -6,7 +6,7 @@ mem_num  number not null,
 constraint notice_like_pk primary key(like_num),
 constraint notice_like_fk1 foreign key(noti_num) references notice_board (noti_num),
 constraint notice_like_fk2 foreign key(mem_num) references member(mem_num)
-);
+); 
 
 create sequence notice_like_seq;
 
