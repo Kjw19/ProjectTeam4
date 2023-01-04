@@ -9,7 +9,7 @@ import kr.requestBoard.vo.RequestCommentVO;
 import kr.util.DBUtil;
 
 public class RequestCommentDAO {
-	/*
+	/* 
 	 	문의게시판 상세페이지 -- ui에서 삭제 
 	 	문의게시판 메뉴는 총 두 개로 1. 댓글&응원 2. 문의게시판
 	 	1. 댓글&응원
