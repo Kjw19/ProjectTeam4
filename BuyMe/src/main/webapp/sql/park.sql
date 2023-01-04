@@ -3,7 +3,7 @@
 create table request_comment(
  comment_num number not null,
  comm_content varchar2(300) not null,
- comm_reg_date date not null,
+ comm_reg_date date default sysdate not null,
  mem_num number not null,
  req_num number not null,
  constraint request_comment_pk primary key (comment_num),
@@ -18,7 +18,7 @@ create table request_inquiry(
  inquiry_num number not null,
  inqu_title varchar2(150) not null,
  inqu_content clob not null,
- inqu_reg_date date not null,
+ inqu_reg_date date default sysdate not null,
  re_inqu_is_ok varchar2(500),
  mem_num number not null,
  req_num number not null,

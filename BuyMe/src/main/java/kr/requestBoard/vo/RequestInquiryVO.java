@@ -10,7 +10,7 @@ public class RequestInquiryVO {
 	private String re_inqu_is_ok;
 	
 	private int mem_num;
-	private int request_num;
+	private int req_num;
 	
 	public int getInquiry_num() {
 		return inquiry_num;
@@ -48,10 +48,10 @@ public class RequestInquiryVO {
 	public void setMem_num(int mem_num) {
 		this.mem_num = mem_num;
 	}
-	public int getRequest_num() {
-		return request_num;
+	public int getReq_num() {
+		return req_num;
 	}
-	public void setRequest_num(int request_num) {
-		this.request_num = request_num;
+	public void setReq_num(int req_num) {
+		this.req_num = req_num;
 	}
 }
