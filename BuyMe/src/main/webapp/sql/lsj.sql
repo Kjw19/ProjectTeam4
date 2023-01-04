@@ -5,7 +5,7 @@ creat table fund_board(
  fund_content clob not null,
  fund_hit number(5)  default 0 not null,
  fund_reg_date date default sysdate not null,
- fund_modify_date date default sysdate
+ fund_modify_date date,
  fund_ip varchar2(40) not null,
  fund_filename varchar2(150),/*파일*/
  category_num number not null,/*카테고리 번호*/
