@@ -18,7 +18,7 @@ public class RequestBoardDAO {
 		public static RequestBoardDAO getInstance() {
 			return instance;
 		}
-		private RequestBoardDAO() {}
+		private RequestBoardDAO(){}
 		
 		//글등록
 		public void insertBoard(RequestBoardVO board)throws Exception{
