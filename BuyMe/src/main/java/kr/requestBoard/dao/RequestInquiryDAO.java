@@ -1,6 +1,14 @@
 package kr.requestBoard.dao;
 
 public class RequestInquiryDAO {
+	/*
+	 	문의게시판 상세페이지 -- ui에서 삭제 
+	 	문의게시판 메뉴는 총 두 개로 1. 댓글&응원 2. 문의게시판
+	 	1. 댓글&응원
+	 	2. 문의게시판(main) : 상단 - 자주 묻는 질문, 하단 - 메이커에게 1:1 문의하기
+	 	3. 1:1 문의 목록 : 관리자, 해당 메이커, 해당 서포터에게만 보인다. 
+	*/
+	
 	// 싱글턴 패턴
 	private static RequestInquiryDAO instance = new RequestInquiryDAO();
 	public static RequestInquiryDAO getInstance() {
@@ -8,13 +16,6 @@ public class RequestInquiryDAO {
 	}
 	private RequestInquiryDAO() {}
 	
-	/*
-	 	문의게시판 상세페이지 -- ui에서 삭제 
-	 	문의게시판 메뉴는 총 두 개로 1. 댓글&응원 2. 문의게시판
-	 	1. 댓글&응원
-	 	2. 문의게시판(main) : 상단 - 자주 묻는 질문, 하단 - 메이커에게 1:1 문의하기
-	 	3. 1:1 문의 목록 : 관리자, 해당 메이커, 해당 서포터에게만 보인다. 
-	 */
 	
 	// 2. 문의게시판(main)
 	// 2-1. 관리자만 가능
