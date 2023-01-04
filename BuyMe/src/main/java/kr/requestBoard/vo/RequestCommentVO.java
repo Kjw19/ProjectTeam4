@@ -1,7 +1,5 @@
 package kr.requestBoard.vo;
 
-import java.sql.Date;
-
 public class RequestCommentVO {
 	private int comment_num;
 	private String comm_content;
