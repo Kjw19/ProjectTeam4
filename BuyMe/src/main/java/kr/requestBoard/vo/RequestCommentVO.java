@@ -1,14 +1,12 @@
 package kr.requestBoard.vo;
 
-import java.sql.Date;
-
 public class RequestCommentVO {
 	private int comment_num;
 	private String comm_content;
-	private Date comm_reg_date;
+	private String comm_reg_date;
 	
 	private int mem_num;
-	private int request_num;
+	private int req_num;
 	
 	private String id;
 
@@ -24,10 +22,10 @@ public class RequestCommentVO {
 	public void setComm_content(String comm_content) {
 		this.comm_content = comm_content;
 	}
-	public Date getComm_reg_date() {
+	public String getComm_reg_date() {
 		return comm_reg_date;
 	}
-	public void setComm_reg_date(Date comm_reg_date) {
+	public void setComm_reg_date(String comm_reg_date) {
 		this.comm_reg_date = comm_reg_date;
 	}
 	public int getMem_num() {
@@ -36,11 +34,11 @@ public class RequestCommentVO {
 	public void setMem_num(int mem_num) {
 		this.mem_num = mem_num;
 	}
-	public int getRequest_num() {
-		return request_num;
+	public int getReq_num() {
+		return req_num;
 	}
-	public void setRequest_num(int request_num) {
-		this.request_num = request_num;
+	public void setReq_num(int req_num) {
+		this.req_num = req_num;
 	}
 	public String getId() {
 		return id;

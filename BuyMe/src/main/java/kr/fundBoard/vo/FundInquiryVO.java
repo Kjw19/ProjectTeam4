@@ -7,11 +7,13 @@ public class FundInquiryVO {
 	private int inquiry_num;
 	private String inqu_title;
 	private String inqu_content;
-	private Date inqu_reg_date;
+	private String inqu_reg_date;
 	private String re_inqu_is_ok;
 	
 	private int mem_num;
 	private int fund_num;
+	
+	private String id;
 	
 	
 	public int getInquiry_num() {
@@ -32,10 +34,10 @@ public class FundInquiryVO {
 	public void setInqu_content(String inqu_content) {
 		this.inqu_content = inqu_content;
 	}
-	public Date getInqu_reg_date() {
+	public String getInqu_reg_date() {
 		return inqu_reg_date;
 	}
-	public void setInqu_reg_date(Date inqu_reg_date) {
+	public void setInqu_reg_date(String inqu_reg_date) {
 		this.inqu_reg_date = inqu_reg_date;
 	}
 	public String getRe_inqu_is_ok() {
@@ -55,6 +57,12 @@ public class FundInquiryVO {
 	}
 	public void setFund_num(int fund_num) {
 		this.fund_num = fund_num;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	
 

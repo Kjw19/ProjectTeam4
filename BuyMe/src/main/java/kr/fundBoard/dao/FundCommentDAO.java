@@ -21,7 +21,8 @@ public class FundCommentDAO {
 	
 	private FundCommentDAO() {}
 	
-	public void insertFuntComment(FundCommentVO boardComment) throws Exception{
+	// 댓글 삽입
+	public void insertFuntComment(FundCommentVO comment) throws Exception{
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -40,9 +41,9 @@ public class FundCommentDAO {
 		pstmt = conn.prepareStatement(sql);
 		
 		//?에 데이터 바인딩
-		pstmt.setString(1, boardComment.getComm_content());
-		pstmt.setInt(2, boardComment.getMem_num());
-		pstmt.setInt(3, boardComment.getFund_num());
+		pstmt.setString(1, comment.getComm_content());
+		pstmt.setInt(2, comment.getMem_num());
+		pstmt.setInt(3, comment.getFund_num());
 		
 		//SQL문 실행
 		pstmt.executeUpdate();
@@ -57,7 +58,7 @@ public class FundCommentDAO {
 	
 	
 	
-		//댓글 개수
+	//댓글 개수
 	public int getFundCommentCount(int fund_num) throws Exception{
 		
 		Connection conn = null;
@@ -101,7 +102,7 @@ public class FundCommentDAO {
 	
 	
 	
-		//댓글 목록
+	//댓글 목록
 	public List<FundCommentVO> getListFundComment(int start,int end, int fund_num)throws Exception{
 			
 		Connection conn = null;
