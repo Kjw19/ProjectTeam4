@@ -2,7 +2,7 @@
 create table notice_inquiry(
  inquiry_num number not null,
  inqu_title varchar2(150) not null,
- inqu_content crob not null,
+ inqu_content clob not null,
  inqu_reg_date date default sysdate not null,
  re_inqu_is_ok varchar2(500),
  mem_num number not null,
