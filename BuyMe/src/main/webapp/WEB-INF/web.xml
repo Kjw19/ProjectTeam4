@@ -6,7 +6,7 @@
   	<servlet-class>kr.controller.DispatcherServlet</servlet-class>
   	<init-param>
   		<param-name>propertiesPath</param-name>
-  		<param-value>/WEB-INF/byb.properties,/WEB-INF/adjfjsdf13.properties,/WEB-INF/cyh.properties,/WEB-INF/han.properties,/WEB-INF/kjw.properties,/WEB-INF/kys.properties,/WEB-INF/lsj.properties,/WEB-INF/park.properties</param-value>
+  		<param-value>/WEB-INF/byb.properties,/WEB-INF/adjfjsdf.properties,/WEB-INF/cyh.properties,/WEB-INF/han.properties,/WEB-INF/kjw.properties,/WEB-INF/kys.properties,/WEB-INF/lsj.properties,/WEB-INF/park.properties</param-value>
   	</init-param>
   </servlet>
   <servlet-mapping>
