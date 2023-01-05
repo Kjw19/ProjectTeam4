@@ -13,36 +13,30 @@ import kr.controller.Action;
 import kr.requestBoard.dao.RequestCommentDAO;
 import kr.requestBoard.vo.RequestCommentVO;
 
-public class UpdateCommentAction implements Action{
+public class DeleteCommentAction implements Action{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 전송된 데이터 인코딩 처리
 		request.setCharacterEncoding("utf-8");
-		// 댓글 번호
+		// 전송된 데이터 반환 : comment_num을 받으면 로그인 회원번호와 작성자 회원번호를 확인할 수 있다.
 		int comment_num = Integer.parseInt(request.getParameter("comment_num"));
 		
+		Map<String, String> mapAjax = new HashMap<String, String>();
 		RequestCommentDAO dao = RequestCommentDAO.getInstance();
-		// 작성자의 회원번호 구하기
+		// 작성자 회원번호 구하기
 		RequestCommentVO db_comment = dao.getRequestComment(comment_num);
 		
-		// 로그인 체크
 		HttpSession session = request.getSession();
 		Integer user_num = (Integer)session.getAttribute("user_num");
-		
-		Map<String, String> mapAjax = new HashMap<String, String>();
 		if(user_num==null) { // 로그인이 되지 않은 경우
 			mapAjax.put("result", "logout");
 		}else if(user_num!=null && user_num==db_comment.getMem_num()) {
-			// 로그인이 되어 있고, 로그인한 회원번호와 작성자 회원번호가 일치
-			RequestCommentVO comment = new RequestCommentVO();
-			comment.setComment_num(comment_num);
-			comment.setComm_content(request.getParameter("comm_content"));
-			
-			// 댓글 수정
-			dao.updateRequestComment(comment);
+			// 로그인이 되어 있고, 작성자 회원번호와 로그인 회원번호가 일치
+			dao.deleteRequestComment(comment_num);
 			
 			mapAjax.put("result", "success");
-		}else { // 로그인이 되어 있고, 로그인한 회원번호와 작성자 회원번호가 불일치
+		}else {
+			// 로그인이 되어 있고, 작성자 회원번호와 로그인 회원번호가 불일치
 			mapAjax.put("result", "wrongAccess");
 		}
 		

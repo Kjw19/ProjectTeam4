@@ -176,8 +176,75 @@ $(function(){
 		$('#mcomm_form').remove();
 	}
 	// 댓글 수정
+	$(document).on('submit','#mcomm_form',function(event){ // 미래($(document).on())의 태그에 동적으로 연결
+		// 기본 이벤트 제거 : 주소가 바뀌면 안 되기 때문에
+		event.preventDefault();
+		
+		if($('#mcomm_content').val().trim()==''){
+			alert('내용을 입력하세요.');
+			$('#mcomm_content').val('').focus();
+			return false;
+		}
+		
+		// 폼에 입력한 데이터 반환 = serialize() : 폼 이하의 태그들을 한번에 읽어온다.
+		// serialize() : parameter name과 value의 쌍으로 불러온다.
+		// this : textarea를 감싸고 있는 form
+		let form_data = $(this).serialize();
+		
+		// 서버와 통신
+		$.ajax({
+			url:'updateComment.do',
+			type:'post',
+			data:form_data,
+			dataType:'json',
+			success:function(param){
+				if(param.result=='logout'){
+					alert('로그인해야 수정할 수 있습니다.');
+				}else if(param.result=='success'){ // 화면 제어
+					$('#mcomm_form').parent().find('p').html($('#mcomm_content').val().replace(/</g,'&lt;')
+																				      .replace(/>/g,'&gt;')
+																				      .replace(/\n/g,'<br>'));
+					// 수정폼 삭제 및 초기화 → 바로 화면 갱신
+					initModifyForm();
+				}else if(param.result=='wrongAccess'){
+					alert('타인의 글을 수정할 수 없습니다.');
+				}else{
+					alert('댓글 수정 오류 발생');
+				}
+			},
+			error:function(){
+				alert('네트워크 오류 발생');
+			}
+		});
+	}); 
 	// 댓글 삭제
-	
+	$(document).on('click','.delete-btn',function(){
+		// 댓글 번호
+		let comm_num = $(this).attr('data-commnum');
+		
+		// 서버와 통신
+		$.ajax({
+			url:'deleteComment.do',
+			type:'post',
+			data:{comm_num:comm_num},
+			dataType:'json',
+			success:function(param){
+				if(param.result=='logout'){
+					alert('로그인해야 삭제할 수 있습니다.');
+				}else if(param.result=='success'){
+					alert('삭제 완료!');
+					selectList(1);
+				}else if(param.result=='wrongAccess'){
+					alert('타인의 댓글을 삭제할 수 없습니다.');
+				}else{
+					alert('댓글 삭제 오류 발생');
+				}
+			},
+			error:function(){
+				alert('네트워크 오류 발생'); // 이클립스 콘솔 확인
+			}
+		});
+	});
 	// 초기 데이터(목록) 호출
 	selectList(1);
 });
