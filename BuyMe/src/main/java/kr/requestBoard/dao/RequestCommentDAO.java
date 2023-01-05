@@ -12,13 +12,6 @@ import kr.util.DurationFromNow;
 import kr.util.StringUtil;
 
 public class RequestCommentDAO {
-	/* 
-	 	문의게시판 상세페이지 -- ui에서 삭제 
-	 	문의게시판 메뉴는 총 두 개로 1. 댓글&응원 2. 문의게시판
-	 	1. 댓글&응원
-	 	2. 문의게시판(main) : 상단 - 자주 묻는 질문, 하단 - 메이커에게 1:1 문의하기 
-	 	3. 1:1 문의 목록 : 관리자&해당 메이커에게만 보인다.
-	*/
 	/* 댓글 등록·개수·목록·상세·수정·삭제 */
 	
 	// 싱글턴 패턴
