@@ -157,6 +157,7 @@ public class FundCommentDAO {
 		}
 			return list;
 	}
+	
 		
 	//댓글 상세
 	public FundCommentVO getFundComment(int comment_num) throws Exception{
