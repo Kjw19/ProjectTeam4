@@ -8,7 +8,6 @@ import java.util.List;
 
 import kr.requestBoard.vo.RequestInquiryVO;
 import kr.util.DBUtil;
-import kr.util.DurationFromNow;
 import kr.util.StringUtil;
 
 public class RequestInquiryDAO {
