@@ -10,6 +10,8 @@ public class RequestInquiryVO {
 	private int mem_num;
 	private int req_num;
 	
+	private String id;
+	
 	public int getInquiry_num() {
 		return inquiry_num;
 	}
@@ -51,5 +53,11 @@ public class RequestInquiryVO {
 	}
 	public void setReq_num(int req_num) {
 		this.req_num = req_num;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 }
