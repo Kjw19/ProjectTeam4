@@ -19,20 +19,20 @@
 						<input type="submit" id="search_item_button" value="검색">
 					</li>
 				</form>
-				<c:if test="${!empty mem_num && auth == 1}">
+				<c:if test="${!empty user_num && auth == 1}">
 				<li class="myPage"><a href="#">MY페이지</a></li>
 				</c:if>
-				<c:if test="${!empty mem_num && auth == 5}">
+				<c:if test="${!empty user_num && auth == 5}">
 				<li class="managerPage"><a href="#">관리자페이지</a></li>
 				</c:if>
 
-				<c:if test="${!empty mem_num}">
+				<c:if test="${!empty user_num}">
 				<li class="logout">
 					[<span>${mem_id}</span>]
 					<a href="#">로그아웃</a>
 				</li>
 				</c:if>
-				<c:if test="${empty mem_num}">
+				<c:if test="${empty user_num}">
 				<li class="mem_join"><a href="#">회원가입</a></li>
 				<li class="signin"><a href="#">로그인</a></li>
 				</c:if>
