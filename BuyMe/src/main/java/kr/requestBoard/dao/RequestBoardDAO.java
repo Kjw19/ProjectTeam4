@@ -11,7 +11,7 @@ import kr.requestBoard.vo.RequestBoardVO;
 import kr.util.DBUtil;
 import kr.util.StringUtil;
 
-public class RequestBoardDAO {
+public class RequestBoardDAO { 
 	//싱글턴 패턴
 		private static RequestBoardDAO instance = new RequestBoardDAO();
 		
