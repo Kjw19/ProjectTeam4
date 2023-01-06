@@ -1,4 +1,4 @@
-package kr.requestBoard.action2;
+package kr.requestBoard.action;
 
 import java.util.HashMap;
 import java.util.Map;
