@@ -86,7 +86,7 @@ public class RequestBoardDAO {
 					count = rs.getInt(1);
 				}
 			}catch(Exception e) {
-				throw new Exception(e);
+				throw new Exception(e); 
 			}finally {
 				DBUtil.executeClose(rs, pstmt, conn);
 			}
