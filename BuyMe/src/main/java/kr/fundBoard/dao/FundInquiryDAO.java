@@ -95,7 +95,7 @@ public class FundInquiryDAO {
 	
 	
 	//문의 목록 상세
-	public List<FundInquiryVO> getListFundInquiry(int start,int end, int inquiry_num) throws Exception{
+	public List<FundInquiryVO> getListFundInquiry(int start,int end, int fund_num) throws Exception{
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -117,7 +117,7 @@ public class FundInquiryDAO {
 			pstmt = conn.prepareStatement(sql);
 			
 			//?에 데이터 바인딩
-			pstmt.setInt(1, inquiry_num);
+			pstmt.setInt(1, fund_num);
 			pstmt.setInt(2, start);
 			pstmt.setInt(3, end);
 			
@@ -135,7 +135,7 @@ public class FundInquiryDAO {
 				inqu.setRe_inqu_is_ok(StringUtil.useBrNoHtml(
 				           rs.getString("re_inqu_is_ok")));
 				inqu.setFund_num(rs.getInt("fund_num"));
-				inqu.setMem_num(rs.getInt("inquiry_num"));
+				inqu.setMem_num(rs.getInt("mem_num"));
 				inqu.setId(rs.getString("id"));
 				
 				list.add(inqu);
@@ -226,7 +226,7 @@ public class FundInquiryDAO {
 	}
 	
 	
-	//댓글 삭제
+	//문의 삭제
 	public void deleteFundInquiry(int inquiry_num) throws Exception{
 		
 		Connection conn = null;
@@ -261,6 +261,37 @@ public class FundInquiryDAO {
 			DBUtil.executeClose(null, pstmt, conn);
 		}
 		
+	}
+	
+	//총 문의 수
+	public int getFundInquCount() throws Exception{
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		int count = 0;
+		
+		try {
+			//커넥셔풀로부터 커넥션 할당
+			conn = DBUtil.getConnection();
+			
+			//SQL문 작성
+			sql = "SELECT COUNT(*) FROM fund b JOIN member m USING(mem_num) ";
+			//PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			
+			//SQL문을 실행하고 결과행을 ResultSet 담음
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return count;
 	}
 			
 	
