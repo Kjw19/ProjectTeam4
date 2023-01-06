@@ -1,4 +1,4 @@
-package kr.requestBoardComment.action;
+package kr.requestBoard.action;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -16,7 +16,7 @@ import kr.requestBoard.dao.RequestCommentDAO;
 import kr.requestBoard.vo.RequestCommentVO;
 import kr.util.PagingUtil;
 
-public class ListCommentAction implements Action{
+public class CommentListAction implements Action{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 전송된 데이터 인코딩 처리 : post 방식

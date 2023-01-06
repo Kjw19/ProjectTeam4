@@ -11,7 +11,7 @@ $(function(){
 		// 로딩 이미지 노출 (?) 일단 뺌
 		// 서버에 통신
 		$.ajax({
-			url:'listComment.do',
+			url:'commentList.do',
 			type:'post',
 			data:{pageNum:pageNum,req_num:$('#req_num').val()}, // key:value, detail.jsp의 (id)req_num을 사용
 			dataType:'json',
@@ -82,7 +82,7 @@ $(function(){
 		
 		// 서버에 연결 - 댓글 등록
 		$.ajax({
-			url:'writeComment.do',
+			url:'commentWrite.do',
 			type:'post',
 			data:form_data,
 			dataType:'json',
@@ -193,7 +193,7 @@ $(function(){
 		
 		// 서버와 통신
 		$.ajax({
-			url:'updateComment.do',
+			url:'commentUpdate.do',
 			type:'post',
 			data:form_data,
 			dataType:'json',
@@ -224,7 +224,7 @@ $(function(){
 		
 		// 서버와 통신
 		$.ajax({
-			url:'deleteComment.do',
+			url:'commentDelete.do',
 			type:'post',
 			data:{comm_num:comm_num},
 			dataType:'json',

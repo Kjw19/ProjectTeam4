@@ -1,4 +1,4 @@
-package kr.requestBoard.action2;
+package kr.requestBoard.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

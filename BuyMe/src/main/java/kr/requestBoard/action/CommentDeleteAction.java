@@ -1,4 +1,4 @@
-package kr.requestBoardComment.action;
+package kr.requestBoard.action;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +13,7 @@ import kr.controller.Action;
 import kr.requestBoard.dao.RequestCommentDAO;
 import kr.requestBoard.vo.RequestCommentVO;
 
-public class DeleteCommentAction implements Action{
+public class CommentDeleteAction implements Action{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 전송된 데이터 인코딩 처리

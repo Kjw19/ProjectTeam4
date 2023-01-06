@@ -1,4 +1,4 @@
-package kr.requestBoardComment.action;
+package kr.requestBoard.action;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +13,7 @@ import kr.controller.Action;
 import kr.requestBoard.dao.RequestCommentDAO;
 import kr.requestBoard.vo.RequestCommentVO;
 
-public class WriteCommentAction implements Action{
+public class CommentWriteAction implements Action{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Map<String, String> mapAjax = new HashMap<String, String>();
