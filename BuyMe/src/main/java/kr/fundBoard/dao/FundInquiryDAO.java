@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import kr.fundBoard.vo.FundInquiryVO;
 import kr.util.DBUtil;
 import kr.util.DurationFromNow;
@@ -128,7 +127,7 @@ public class FundInquiryDAO {
 			while(rs.next()) {
 				FundInquiryVO inqu = new FundInquiryVO();
 				inqu.setInquiry_num(rs.getInt("inquiry_num"));
-				inqu.setInqu_reg_date(DurationFromNow.getTimeDiffLabel(rs.getString("inqu_reg_date")));
+				inqu.setInqu_reg_date(rs.getDate("inqu_reg_date"));
 				
 				inqu.setInqu_content(StringUtil.useBrNoHtml(
 						           rs.getString("inqu_content")));
@@ -146,6 +145,46 @@ public class FundInquiryDAO {
 			DBUtil.executeClose(rs, pstmt, conn);
 		}
 		return list;
+	}
+	
+	//문의 목록 상세
+	public FundInquiryVO getFundInquiry(int inquiry_num)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		FundInquiryVO inquiry = null;
+		String sql = null;
+		
+		try {
+			//커넥션풀로부터 커넥션을 할당
+			conn = DBUtil.getConnection();
+			//SQL문 작성
+			sql = "SELECT * FROM fund_inquiry f JOIN member m "
+				+ "USING(mem_num) JOIN member_detail d "
+				+ "USING(mem_num) WHERE f.inquiry_num=?";
+			
+			//PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			//?에 데이터 바인딩
+			pstmt.setInt(1, inquiry_num);
+			//SQL문을 실행해서 결과행을 ResultSet에 담음
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				inquiry = new FundInquiryVO();
+				inquiry.setInquiry_num(rs.getInt("inquiry_num"));
+				inquiry.setInqu_title(rs.getString("inqu_title"));
+				inquiry.setInqu_content(rs.getString("inqu_content"));
+				inquiry.setRe_inqu_is_ok(rs.getString("re_inqu_is_ok"));
+				inquiry.setInqu_reg_date(rs.getDate("inqu_reg_date"));
+				inquiry.setMem_num(rs.getInt("mem_num"));
+			}
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return inquiry;
 	}
 	
 	//문의 수정

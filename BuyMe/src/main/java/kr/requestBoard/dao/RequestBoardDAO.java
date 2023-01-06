@@ -11,7 +11,7 @@ import kr.requestBoard.vo.RequestBoardVO;
 import kr.util.DBUtil;
 import kr.util.StringUtil;
 
-public class RequestBoardDAO {
+public class RequestBoardDAO { 
 	//싱글턴 패턴
 		private static RequestBoardDAO instance = new RequestBoardDAO();
 		
@@ -67,9 +67,9 @@ public class RequestBoardDAO {
 				
 				if(keyword !=null&&!"".equals(keyword)) {
 					//검색글 개수
-					if(keyfield.equals("1"))sub_sql+="where b.title like ?";
+					if(keyfield.equals("1"))sub_sql+="where req_title like ?";
 					else if(keyfield.equals("2"))sub_sql+="where m.id like ?";
-					else if(keyfield.equals("3"))sub_sql+="where b.content like ?";
+					else if(keyfield.equals("3"))sub_sql+="where req_content like ?";
 				}
 				
 				//SQL문 작성
@@ -86,7 +86,7 @@ public class RequestBoardDAO {
 					count = rs.getInt(1);
 				}
 			}catch(Exception e) {
-				throw new Exception(e);
+				throw new Exception(e); 
 			}finally {
 				DBUtil.executeClose(rs, pstmt, conn);
 			}
@@ -110,9 +110,9 @@ public class RequestBoardDAO {
 				
 				if(keyword !=null&&!"".equals(keyword)) {
 					//검색글 보기
-					if(keyfield.equals("1"))sub_sql+="where b.title like ?";
+					if(keyfield.equals("1"))sub_sql+="where req_title like ?";
 					else if(keyfield.equals("2"))sub_sql+="where m.id like ?";
-					else if(keyfield.equals("3"))sub_sql+="where b.content like ?";
+					else if(keyfield.equals("3"))sub_sql+="where req_content like ?";
 				}
 				
 				//SQL문 작성
@@ -161,9 +161,9 @@ public class RequestBoardDAO {
 				//커넥션풀로부터 커넥션을 할당
 				conn = DBUtil.getConnection();
 				//SQL문 작성
-				sql = "SELECT * FROM zboard b JOIN zmember m "
-					+ "USING(mem_num) JOIN zmember_detail d "
-					+ "USING(mem_num) WHERE b.board_num=?";
+				sql = "SELECT * FROM request_board b JOIN member m "
+					+ "USING(mem_num) JOIN member_detail d "
+					+ "USING(mem_num) WHERE b.req_num=?";
 				//PreparedStatement 객체 생성
 				pstmt = conn.prepareStatement(sql);
 				//?에 데이터 바인딩
@@ -202,7 +202,7 @@ public class RequestBoardDAO {
 				//커넥션풀로부터 커넥션을 할당
 				conn = DBUtil.getConnection();
 				//SQL문 작성
-				sql = "UPDATE request_board SET hit=hit+1 WHERE request_board_num=?";
+				sql = "UPDATE request_board SET hit=hit+1 WHERE req_num=?";
 				//PreparedStatement 객체 생성
 				pstmt = conn.prepareStatement(sql);
 				//?에 데이터를 바인딩
@@ -225,7 +225,7 @@ public class RequestBoardDAO {
 				//커넥션풀로부터 커넥션을 할당
 				conn = DBUtil.getConnection();
 				//SQL문 작성
-				sql = "UPDATE request_board SET filename='' WHERE request_board_num=?";
+				sql = "UPDATE request_board SET filename='' WHERE req_num=?";
 				//PreparedStatement 객체 생성
 				pstmt = conn.prepareStatement(sql);
 				//?에 데이터를 바인딩
@@ -257,7 +257,7 @@ public class RequestBoardDAO {
 				//SQL문 작성
 				sql = "UPDATE request_board SET req_title=?,req_content=?,"
 						+"req_modify_date=SYSDATE" + sub_sql
-						+",req_ip=? WHERE board_num=?";
+						+",req_ip=? WHERE req_num=?";
 				//PreparedStatement 객체 생성
 				pstmt = conn.prepareStatement(sql);
 				//?에 데이터를 바인딩
@@ -290,7 +290,7 @@ public class RequestBoardDAO {
 				//오토커밋 해체
 				conn.setAutoCommit(false);
 				//부모글 삭제
-				sql="delete from zboard where board_num=?";
+				sql="delete from request_board where req_num=?";
 				pstmt3=conn.prepareStatement(sql);
 				pstmt3.setInt(1, request_board_num);
 				pstmt3.executeUpdate();

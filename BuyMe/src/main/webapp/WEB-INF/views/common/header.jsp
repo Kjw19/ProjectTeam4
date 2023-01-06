@@ -9,7 +9,7 @@
 			<ul>
 				<li class="noti"><a href="#">공지게시판</a></li>
 				<li class="fund"><a href="#">펀딩게시판</a></li>
-				<li class="req"><a href="#">문의게시판</a></li>
+				<li class="req"><a href="${pageContext.request.contextPath}/testRequestBoard/myList.do">문의게시판</a></li> <!-- 임시 링크, 자주 묻는 질문으로 변경할 예정 -->
 				<form id="search_form" action="#" method="get">
 					<li>
 						<input type="search" size="16" name="search_item"
@@ -40,6 +40,7 @@
 		</nav>
 	</header>
 </div>
+<hr size="1" noshade="noshade" width="90%">
 <!-- header 끝 -->
 
 
