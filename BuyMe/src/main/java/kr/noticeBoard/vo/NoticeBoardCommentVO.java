@@ -1,6 +1,5 @@
 package kr.noticeBoard.vo;
 
-import java.sql.Date;
 
 public class NoticeBoardCommentVO {
 
@@ -8,8 +7,9 @@ public class NoticeBoardCommentVO {
 	private int mem_num;
 	private int notice_num;
 	private String comm_content;
-	private Date comm_reg_date;
-
+	private String comm_reg_date;
+	private String id;
+ 
 	public int getCommnet_num() {
 		return commnet_num;
 	}
@@ -20,7 +20,7 @@ public class NoticeBoardCommentVO {
 
 	public int getMem_num() {
 		return mem_num;
-	}  
+	}   
 
 	public void setMem_num(int mem_num) {
 		this.mem_num = mem_num;
@@ -42,12 +42,20 @@ public class NoticeBoardCommentVO {
 		this.comm_content = comm_content;
 	}
 
-	public Date getComm_reg_date() {
+	public String getComm_reg_date() {
 		return comm_reg_date;
 	}
 
-	public void setComm_reg_date(Date comm_reg_date) {
-		this.comm_reg_date = comm_reg_date;
+	public void setComm_reg_date(String string) {
+		this.comm_reg_date = string;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 }
