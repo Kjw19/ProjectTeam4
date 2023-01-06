@@ -19,7 +19,7 @@ public class RequestInquiryDAO {
 	private RequestInquiryDAO() {}
 	
 	// 2. 문의게시판(main)
-	// 문의 등록
+	// 문의에 대한 문의 등록
 	public void insertRequestInquiry(RequestInquiryVO Inquiry) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -244,4 +244,83 @@ public class RequestInquiryDAO {
 			DBUtil.executeClose(null, pstmt, conn);
 		}
 	}
+	
+	// 3. 문의 게시판 - 내 문의
+	// 내 문의 등록
+	public void insertMyInquiryBoard(RequestInquiryVO myInquiryBoard) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		
+		try {
+			// 커넥션풀로부터 커넥션을 할당 받는다.
+			conn = DBUtil.getConnection();
+			// SQL문 작성
+			sql = "INSERT INTO request_inquiry (inquiry_num,inqu_title,inqu_content,inqu_reg_date,inqu_filename,inqu_ip,mem_num) "
+					+ "VALUES (req_inqu_seq.nextval,?,?,SYSDATE,?,?,?)";
+			// PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			// ?에 데이터 바인딩
+			pstmt.setString(1, myInquiryBoard.getInqu_title());
+			pstmt.setString(2, myInquiryBoard.getInqu_content());
+			pstmt.setString(3, myInquiryBoard.getInqu_filename());
+			pstmt.setString(4, myInquiryBoard.getInqu_ip());
+			pstmt.setInt(5, myInquiryBoard.getMem_num());
+			// SQL문 실행
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+	}
+	// 내 문의 상세
+	public RequestInquiryVO getMyInquiryBoard(int inquiry_num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		RequestInquiryVO myInquiry = null;
+		String sql = null;
+		
+		try {
+			// 커넥션풀로부터 커넥션을 할당 받는다.
+			conn = DBUtil.getConnection();
+			// SQL문 작성
+			sql = "SELECT * FROM request_inquiry i JOIN member m USING(mem_num) JOIN member_detail d "
+					+ "USING(mem_num) WHERE i.inquiry_num=?";
+			// PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			// ?에 데이터 바인딩
+			pstmt.setInt(1, inquiry_num);
+			// SQL문을 실행해서 결과행을 ResultSet에 담는다.
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				myInquiry = new RequestInquiryVO(); // 한 건의 레코드를 자바빈에 담아서 전달한다.
+				myInquiry.setInquiry_num(rs.getInt(inquiry_num));
+				myInquiry.setInqu_title(rs.getString("inqu_title"));
+				myInquiry.setInqu_content(rs.getString("inqu_content"));
+				myInquiry.setInqu_reg_date(rs.getString("inqu_reg_date"));
+				myInquiry.setInqu_filename(rs.getString("inqu_filename"));
+				myInquiry.setMem_num(rs.getInt("mem_num"));
+				myInquiry.setId(rs.getString("id"));
+				myInquiry.setPhoto(rs.getString("photo"));
+			}
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return myInquiry;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
