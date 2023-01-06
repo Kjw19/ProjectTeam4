@@ -29,8 +29,8 @@ public class ListCommentAction implements Action{
 			pageNum = "1";
 		}
 		
-		int fund_num = Integer.parseInt(
-				         request.getParameter("fund_num"));
+		int fund_num= Integer.parseInt(
+				         request.getParameter("comment_num"));
 		
 		FundCommentDAO dao = FundCommentDAO.getInstance();
 		int count = dao.getFundCommentCount(fund_num);
