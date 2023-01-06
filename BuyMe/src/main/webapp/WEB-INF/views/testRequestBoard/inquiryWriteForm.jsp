@@ -17,23 +17,23 @@
 	<jsp:include page="/WEB-INF/views/common/requestBoardHeader.jsp"/>
 	<div class="content-main">
 		<h2>1:1 문의하기</h2>
-		<form id="myWrite_form" action="myWrite.do" method="post" enctype="multipart/form-data">
+		<form id="inquiryWrite_form" action="inquiryWrite.do" method="post" enctype="multipart/form-data">
 		<ul>
 			<li>
-				<label for="inqu_title">문의 제목</label>
-				<input type="text" name="inqu_title" id="inqu_title" maxlength="50">
+				<label for="title">문의 제목</label>
+				<input type="text" name="inqu_title" id="title" maxlength="50">
 			</li>
 			<li>
-				<label for="inqu_content">문의 내용</label>
-				<textarea rows="5" cols="50" name="inqu_content" id="inqu_content"></textarea>
+				<label for="content">문의 내용</label>
+				<textarea rows="5" cols="50" name="inqu_content" id="content"></textarea>
 			</li>
 			<li>
 				<label for="filename">파일</label>
-				<input type="file" name="filename" id="filename" accept="image/gif,image/png,image/jpeg,image/jpg">
+				<input type="file" name="inqu_filename" id="filename" accept="image/gif,image/png,image/jpeg,image/jpg">
 			</li>
 		</ul>
 		<div class="align-center">
-			<input type="button" value="문의 등록">
+			<input type="submit" value="문의 등록">
 			<input type="button" value="문의 목록으로" onclick="location.href='myList.do'">
 		</div>
 		</form>

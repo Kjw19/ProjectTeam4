@@ -16,13 +16,16 @@
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
-	<h2>${myInquiry.inqu_title}</h2>
+	<h2>${inquiry.inqu_title}</h2>
 	<ul class="detail-info">
 		<li>
 			<!-- 프로필 사진 삽입  없으면 코드 삭제 -->
 		</li>
 		<li>
-			작성일 : ${myInquiry.inqu_reg_date}
+			아이디 : ${inquiry.id}
+		</li>
+		<li>
+			작성일 : ${inquiry.inqu_reg_date}
 		</li>
 		<li>
 			${myInquiry.id}<br>
@@ -30,20 +33,20 @@
 		</li>
 	</ul>
 	<hr size="1" noshade="noshade" width="100%">
-	<c:if test="${!empty myInquiry.inqu_filename}">
+	<c:if test="${!empty inquiry.inqu_filename}">
 	<div class="align-center">
-		<img src="${pageContext.request.contextPath}/upload/${myInquiry.inqu_filename}" class="detail-img">
+		<img src="${pageContext.request.contextPath}/upload/${inquiry.inqu_filename}" class="detail-img">
 	</div>
 	</c:if>
 	<p>
-		${myInquiry.inqu_content}
+		${inquiry.inqu_content}
 	</p>
 	<hr size="1" noshade="noshade" width="100%">
 	<ul class="detail-sub">
 		<li>
 			<%-- 로그인한 회원번호와 작성자 회원번호가 일치해야 수정, 삭제 가능 + 관리자 불가능 --%>
-			<c:if test="${user_num==myInquiry.mem_num}">
-			<input type="button" value="수정" onclick="location.href='myUpdateForm.do?inquiry_num=${myInquiry.inquiry_num}'">
+			<c:if test="${user_num==inquiry.mem_num}">
+			<input type="button" value="수정" onclick="location.href='inquiryUpdateForm.do?inquiry_num=${inquiry.inquiry_num}'">
 			<input type="button" value="삭제" id="delete_btn">
 			<script type="text/javascript">
 				let delete_btn = document.getElementById('delete_btn');
@@ -51,7 +54,7 @@
 				delete_btn.onclick = function(){
 					let choice = confirm('문의 내역을 삭제하시겠습니까?');
 					if(choice){
-						location.replace('delete.do?inquiry_num=${myInquiry.inquiry_num}'); /* replace : 히스토리 정보를 지워버린다. */
+						location.replace('delete.do?inquiry_num=${inquiry.inquiry_num}'); /* replace : 히스토리 정보를 지워버린다. */
 					}
 				};
 			</script>

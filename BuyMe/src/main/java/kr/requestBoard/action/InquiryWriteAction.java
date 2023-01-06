@@ -11,7 +11,7 @@ import kr.requestBoard.dao.RequestInquiryDAO;
 import kr.requestBoard.vo.RequestInquiryVO;
 import kr.util.FileUtil;
 
-public class MyWriteAction implements Action{
+public class InquiryWriteAction implements Action{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		/*
@@ -29,13 +29,20 @@ public class MyWriteAction implements Action{
 		RequestInquiryVO myInquiry = new RequestInquiryVO();
 		myInquiry.setInqu_title(multi.getParameter("inqu_title"));
 		myInquiry.setInqu_content(multi.getParameter("inqu_content"));
-		myInquiry.setInqu_ip(request.getRemoteAddr());
 		myInquiry.setInqu_filename(multi.getFilesystemName("inqu_filename"));
+		myInquiry.setInqu_ip(request.getRemoteAddr());
+		
+		//테스트용으로 사용하다가 연동하는 프로그램 구현히 제거할 것
+		myInquiry.setReq_num(200);
+		//myInquiry.setReq_num(Integer.parseInt(multi.getParameter("req_num")));
+		
+		//테스트용으로 사용하다가 연동하는 프로그램 구현히 제거할 것
+		myInquiry.setMem_num(100);
 		//myInquiry.setMem_num(user_num); // 세션에서 가져온 데이터
 		
 		RequestInquiryDAO dao = RequestInquiryDAO.getInstance();
-		dao.insertMyInquiryBoard(myInquiry);
+		dao.insertInquiryBoard(myInquiry);
 		
-		return "/WEB-INF/views/testRequestBoard/myWrite.jsp";
+		return "/WEB-INF/views/testRequestBoard/inquiryWrite.jsp";
 	}
 }

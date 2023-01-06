@@ -17,14 +17,14 @@ public class RequestInquiryDAO {
 		return instance;
 	}
 	private RequestInquiryDAO() {}
-	
+
 	// 2. 문의게시판(main)
 	// 문의에 대한 문의 등록
-	public void insertRequestInquiry(RequestInquiryVO Inquiry) throws Exception{
+	public void insertRequestInquiry123123123123(RequestInquiryVO Inquiry) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
-		
+
 		try {
 			// 커넥션풀로부터 커넥션을 할당 받음
 			conn = DBUtil.getConnection();
@@ -51,7 +51,7 @@ public class RequestInquiryDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
-		
+
 		try {
 			// 커넥션풀로부터 커넥션을 할당 받음
 			conn = DBUtil.getConnection();
@@ -82,7 +82,7 @@ public class RequestInquiryDAO {
 		String sql = null;
 		String sub_sql = "";
 		int count = 0;
-		
+
 		try {
 			// 커넥션풀로부터 커넥션 할당
 			conn = DBUtil.getConnection();
@@ -124,7 +124,7 @@ public class RequestInquiryDAO {
 		String sql = null;
 		String sub_sql = ""; // 검색 시 사용
 		int cnt = 0; // 동적 변수
-		
+
 		try {
 			// 커넥션풀로부터 커넥션을 할당
 			conn = DBUtil.getConnection();
@@ -167,13 +167,13 @@ public class RequestInquiryDAO {
 		return list;
 	}
 	// 문의 상세
-	public RequestInquiryVO getRequestInquiry(int inquiry_num) throws Exception{
+	public RequestInquiryVO getRequestInquiry123123123(int inquiry_num) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		RequestInquiryVO Inquiry = null;
 		String sql = null;
-		
+
 		try {
 			// 커넥션풀로부터 커넥션을 할당 받음
 			conn = DBUtil.getConnection();
@@ -202,7 +202,7 @@ public class RequestInquiryDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
-		
+
 		try {
 			// 커넥션풀로부터 커넥션을 할당 받음
 			conn = DBUtil.getConnection();
@@ -226,7 +226,7 @@ public class RequestInquiryDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
-		
+
 		try {
 			// 커넥션풀로부터 커넥션을 할당 받음
 			conn = DBUtil.getConnection();
@@ -244,28 +244,30 @@ public class RequestInquiryDAO {
 			DBUtil.executeClose(null, pstmt, conn);
 		}
 	}
-	
-	// 3. 문의 게시판 - 내 문의
-	// 내 문의 등록
-	public void insertMyInquiryBoard(RequestInquiryVO myInquiryBoard) throws Exception{
+
+
+	// 2. 문의 게시판 - 자주 묻는 질문에 대한 내 문의 등록
+	// 문의 등록
+	public void insertInquiryBoard(RequestInquiryVO inquiryBoard) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
-		
+
 		try {
 			// 커넥션풀로부터 커넥션을 할당 받는다.
 			conn = DBUtil.getConnection();
 			// SQL문 작성
-			sql = "INSERT INTO request_inquiry (inquiry_num,inqu_title,inqu_content,inqu_reg_date,inqu_filename,inqu_ip,mem_num) "
-					+ "VALUES (req_inqu_seq.nextval,?,?,SYSDATE,?,?,?)";
+			sql = "INSERT INTO request_inquiry (inquiry_num,inqu_title,inqu_content,inqu_reg_date,inqu_filename,inqu_ip,mem_num,req_num) "
+					+ "VALUES (req_inqu_seq.nextval,?,?,SYSDATE,?,?,?,?)";
 			// PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			// ?에 데이터 바인딩
-			pstmt.setString(1, myInquiryBoard.getInqu_title());
-			pstmt.setString(2, myInquiryBoard.getInqu_content());
-			pstmt.setString(3, myInquiryBoard.getInqu_filename());
-			pstmt.setString(4, myInquiryBoard.getInqu_ip());
-			pstmt.setInt(5, myInquiryBoard.getMem_num());
+			pstmt.setString(1, inquiryBoard.getInqu_title());
+			pstmt.setString(2, inquiryBoard.getInqu_content());
+			pstmt.setString(3, inquiryBoard.getInqu_filename());
+			pstmt.setString(4, inquiryBoard.getInqu_ip());
+			pstmt.setInt(5, inquiryBoard.getMem_num());
+			pstmt.setInt(6, inquiryBoard.getReq_num());
 			// SQL문 실행
 			pstmt.executeUpdate();
 		}catch(Exception e) {
@@ -274,14 +276,14 @@ public class RequestInquiryDAO {
 			DBUtil.executeClose(null, pstmt, conn);
 		}
 	}
-	// 내 문의 상세
-	public RequestInquiryVO getMyInquiryBoard(int inquiry_num) throws Exception{
+	// 문의 상세
+	public RequestInquiryVO getDetailInquiryBoard(int inquiry_num) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		RequestInquiryVO myInquiry = null;
+		RequestInquiryVO inquiry = null;
 		String sql = null;
-		
+
 		try {
 			// 커넥션풀로부터 커넥션을 할당 받는다.
 			conn = DBUtil.getConnection();
@@ -295,32 +297,21 @@ public class RequestInquiryDAO {
 			// SQL문을 실행해서 결과행을 ResultSet에 담는다.
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				myInquiry = new RequestInquiryVO(); // 한 건의 레코드를 자바빈에 담아서 전달한다.
-				myInquiry.setInquiry_num(rs.getInt(inquiry_num));
-				myInquiry.setInqu_title(rs.getString("inqu_title"));
-				myInquiry.setInqu_content(rs.getString("inqu_content"));
-				myInquiry.setInqu_reg_date(rs.getString("inqu_reg_date"));
-				myInquiry.setInqu_filename(rs.getString("inqu_filename"));
-				myInquiry.setMem_num(rs.getInt("mem_num"));
-				myInquiry.setId(rs.getString("id"));
-				myInquiry.setPhoto(rs.getString("photo"));
+				inquiry = new RequestInquiryVO(); // 한 건의 레코드를 자바빈에 담아서 전달한다.
+				inquiry.setInquiry_num(rs.getInt("inquiry_num"));
+				inquiry.setInqu_title(rs.getString("inqu_title"));
+				inquiry.setInqu_content(rs.getString("inqu_content"));
+				inquiry.setInqu_reg_date(rs.getString("inqu_reg_date"));
+				inquiry.setInqu_filename(rs.getString("inqu_filename"));
+				inquiry.setMem_num(rs.getInt("mem_num"));
+				inquiry.setId(rs.getString("id"));
+				inquiry.setPhoto(rs.getString("photo"));
 			}
 		}catch(Exception e) {
 			throw new Exception(e);
 		}finally {
 			DBUtil.executeClose(rs, pstmt, conn);
 		}
-		return myInquiry;
+		return inquiry;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
