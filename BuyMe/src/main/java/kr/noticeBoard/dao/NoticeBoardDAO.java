@@ -135,7 +135,8 @@ public class NoticeBoardDAO {
 				noticeboard.setNoti_title(StringUtil.useNoHtml(rs.getString("noti_title")));
 				noticeboard.setNoti_hit(rs.getInt("noti_hit"));
 				noticeboard.setNoti_reg_date(rs.getDate("noti_reg_date"));
-				//아이디
+				noticeboard.setNoti_filename(rs.getString("noti_filename"));
+				noticeboard.setId(rs.getString("id"));
 				
 				list.add(noticeboard);
 			}
@@ -179,7 +180,7 @@ public class NoticeBoardDAO {
 				noticeboard.setNoti_modify_date(rs.getDate("noti_modify_date"));
 				noticeboard.setNoti_filename(rs.getString("noti_filename"));
 				noticeboard.setMem_num(rs.getInt("mem_num"));
-				//+아이디
+				noticeboard.setId(rs.getString("id"));
 			}
 			
 		}catch(Exception e) {
