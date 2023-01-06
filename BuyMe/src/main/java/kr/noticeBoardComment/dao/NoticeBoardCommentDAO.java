@@ -22,7 +22,7 @@ public class NoticeBoardCommentDAO {
 	private NoticeBoardCommentDAO() {
 	//생성자는 외부에서 호출하지 못하도록 private 지정함으로써 new 연산자에 제약 부여 
 	}
-
+ 
 //댓글 등록 메소드
 public void insertNoticeBoardComment(NoticeBoardCommentVO noticeBoardComment) throws Exception {
 	Connection conn = null;
