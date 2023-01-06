@@ -20,6 +20,9 @@ create table request_inquiry(
  inqu_content clob not null, --문의 내용
  re_inqu_is_ok varchar2(500), --문의에 대한 답글 → 댓글로 대체하면 될 것 같기도
  inqu_reg_date date default sysdate not null,
+ inqu_modify_date date,
+ inqu_filename varchar2(150),
+ inqu_ip varchar2(40) not null,
  mem_num number not null,
  req_num number not null,
  constraint request_inquiry_pk primary key (inquiry_num),
