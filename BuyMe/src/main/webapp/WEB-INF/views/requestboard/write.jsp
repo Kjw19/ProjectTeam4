@@ -3,4 +3,4 @@
 <script>
 	alert('글쓰기 완료!');
 	location.href='list.do';
-</script>
+</script> 
