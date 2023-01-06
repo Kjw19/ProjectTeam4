@@ -15,7 +15,6 @@
 </head>
 <body>
 <div class="page-main">
-	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<!-- 댓글 내용 시작 -->
 	<div id="comment_div">
 		<span class="comm-title">댓글 달기</span>
