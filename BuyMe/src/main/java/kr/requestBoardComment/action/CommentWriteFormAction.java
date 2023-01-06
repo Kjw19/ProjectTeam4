@@ -8,7 +8,7 @@ import kr.requestBoard.dao.RequestBoardDAO;
 import kr.requestBoard.vo.RequestBoardVO;
 import kr.util.StringUtil;
 
-public class WriteCommentFormAction implements Action{
+public class CommentWriteFormAction implements Action{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 글번호 반환

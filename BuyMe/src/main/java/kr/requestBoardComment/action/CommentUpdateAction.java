@@ -13,7 +13,7 @@ import kr.controller.Action;
 import kr.requestBoard.dao.RequestCommentDAO;
 import kr.requestBoard.vo.RequestCommentVO;
 
-public class UpdateCommentAction implements Action{
+public class CommentUpdateAction implements Action{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 전송된 데이터 인코딩 처리
