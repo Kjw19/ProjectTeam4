@@ -13,6 +13,14 @@ public class NoticeBoardVO {
 	private String noti_ip;
 	private int mem_num;
 	
+	private String id;
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public int getNoti_num() {
 		return noti_num;
 	}
