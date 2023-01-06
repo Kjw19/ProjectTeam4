@@ -242,6 +242,38 @@ public List<NoticeInquiryVO> getListNoticeInquiry(int start,int end, int inquiry
 				DBUtil.executeClose(null, pstmt, conn);
 	}
 		}
+		//공지사항 게시판 총 문의 수
+		public int getNoticeInquCount() throws Exception{
+			
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = null;
+			int count = 0;
+			
+			try {
+				//커넥셔풀로부터 커넥션 할당
+				conn = DBUtil.getConnection();
+				
+				//SQL문 작성
+				sql = "SELECT COUNT(*) FROM notice b JOIN member m USING(mem_num) ";
+				//PreparedStatement 객체 생성
+				pstmt = conn.prepareStatement(sql);
+				
+				//SQL문을 실행하고 결과행을 ResultSet 담음
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					count = rs.getInt(1);
+				}
+			}catch(Exception e) {
+				throw new Exception(e);
+			}finally {
+				DBUtil.executeClose(rs, pstmt, conn);
+			}
+			return count;
+		}
+				
+		
 	}
 	
 	
