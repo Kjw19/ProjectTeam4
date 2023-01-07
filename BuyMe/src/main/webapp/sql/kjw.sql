@@ -23,11 +23,15 @@ create table fund_inquiry(
 	re_inqu_is_ok varchar2(500),
 	mem_num number not null,
 	fund_num number not null,
+	fund_mem_num not null,
+	
 	constraint fund_inquiry_pk primary key (inquiry_num),
 	constraint fund_inquiry_fk foreign key (mem_num)
                             references member (mem_num),
     constraint fund_inquiry_fk2 foreign key (fund_num)
-                            references fund_board (fund_num)
+                            references fund_board (fund_num),
+    constraint fund_inquiry_fk3 foreign key (fund_mem_num)
+                            references fund_board (mem_num)
 );
 create sequence fund_inquiry_seq;
 
