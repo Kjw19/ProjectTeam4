@@ -21,7 +21,7 @@ public class RequestCommentDAO {
 	}
 	private RequestCommentDAO() {}
 	
-	// 1. 댓글&응원 - 보기 편하게 댓글로 명시
+	// 2. 문의 게시판에 댓글 작성
 	// 댓글 등록
 	public void insertRequestComment(RequestCommentVO requestComment) throws Exception{
 		Connection conn = null;
