@@ -2,7 +2,7 @@
 /* 구글 폰트 가져오기*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
 
-/* 문의게시판 서브 헤더 */
+/* 댓글&응원 게시판 - 서브 헤더 */
 .sub-header ul{
 	list-style:none;
 }

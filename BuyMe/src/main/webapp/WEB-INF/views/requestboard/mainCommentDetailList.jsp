@@ -6,12 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>댓글·응원 목록</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css">
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/requestBoard.mainComment.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/requestBoard.mainComment.js"></script>
 </head>
 <body>
 	<div class="page-main">
@@ -38,7 +35,7 @@
 			<!-- 댓글 폼 끝 -->
 			<!-- 댓글 목록 출력 시작 -->
 			<c:if test="${count==0}">
-				<div class="result-display">등록된 댓글이 없습니다. 응원 한 마디 어떻게 생각하세요?</div>
+				<div class="result-display">등록된 댓글이 없습니다.</div>
 			</c:if>
 			<c:if test="${count>0}">
 				<ul>
@@ -74,14 +71,11 @@
 					</c:forEach>
 				</ul>
 				<div class="align-center">
-					${pagingHtml}
-					<!-- 페이지 번호 -->
+					${pagingHtml} <!-- 페이지 번호 -->
 				</div>
 			</c:if>
 			<!-- 댓글 목록 출력 끝 -->
-		</div>
-		<!-- end of .content-main -->
-	</div>
-	<!-- end of .page-main -->
+		</div> <!-- end of .content-main -->
+	</div> <!-- end of .page-main -->
 </body>
 </html>
