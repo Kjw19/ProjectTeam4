@@ -37,7 +37,7 @@
 		</form>
 		<!-- 검색 폼 끝 -->
 		<div class="myInquList-space align-right">
-			<input type="button" value="글쓰기" onclick="location.href='myWriteForm.do'"
+			<input type="button" value="글쓰기" onclick="location.href='inquiryWriteForm.do'"
 				<%-- 로그인 됐을 경우에만 활성화되게 
 				<c:if test="${empty user_num}">disabled="disabled"</c:if>--%>/>
 			<input type="button" value="내 문의 목록" onclick="location.href='myList.do'">
@@ -56,12 +56,12 @@
 				<th>작성일</th>
 				<th>답변 여부</th>
 			</tr>
-			<c:forEach var="myRequestInquiry" items="${list}">
+			<c:forEach var="inquiry" items="${list}">
 			<tr>
-				<td>${myRequestInquiry.inqu_title}</td>
-				<td>${myRequestInquiry.inqu_content}</td>
-				<td>${myRequestInquiry.inqu_reg_date}</td>
-				<td>${myRequestInquiry.re_inqu_is_ok}</td>
+				<td><a href="inquiryDetail.do?inquiry_num=${inquiry.inquiry_num}">${inquiry.inqu_title}</a></td>
+				<td><a href="inquiryDetail.do?inquiry_num=${inquiry.inquiry_num}">${inquiry.id}</a></td>
+				<td>${inquiry.inqu_reg_date}</td>
+				<td>${inquiry.re_inqu_is_ok}</td>
 			</tr>
 			</c:forEach>
 		</table>

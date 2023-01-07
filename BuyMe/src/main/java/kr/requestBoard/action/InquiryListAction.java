@@ -10,7 +10,7 @@ import kr.requestBoard.dao.RequestInquiryDAO;
 import kr.requestBoard.vo.RequestInquiryVO;
 import kr.util.PagingUtil;
 
-public class MyListAction implements Action{
+public class InquiryListAction implements Action{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String pageNum = request.getParameter("pageNum");

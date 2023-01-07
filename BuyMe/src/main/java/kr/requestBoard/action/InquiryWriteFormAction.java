@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import kr.controller.Action;
 
-public class MyWriteFormAction implements Action{
+public class InquiryWriteFormAction implements Action{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		/*
@@ -20,6 +20,6 @@ public class MyWriteFormAction implements Action{
 		*/
 		
 		// 로그인 된 경우
-		return "/WEB-INF/views/testRequestBoard/myWriteForm.jsp";
+		return "/WEB-INF/views/testRequestBoard/inquiryWriteForm.jsp";
 	}
 }
