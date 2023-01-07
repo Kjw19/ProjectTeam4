@@ -2,7 +2,7 @@ $(function(){
 	// 목록 작업 시 필요한 변수들
 	let currentPage;
 	let count;
-	let rewCount; // 한 페이지에 몇 개의 레코드를 보여줄 것이냐
+	let rowCount; // 한 페이지에 몇 개의 레코드를 보여줄 것이냐
 	
 	// 초기 데이터(목록) 호출
 	//selectMainList(1);
