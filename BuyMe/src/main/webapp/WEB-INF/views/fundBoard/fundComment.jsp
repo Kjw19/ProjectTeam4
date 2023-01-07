@@ -21,7 +21,7 @@
 				<input type="hidden" name="fund_num" 
 				       value="${fund_Board.fund_num}" id="fund_num">
 				<textarea rows="3" cols="50" name="comm_content" 
-				  id="comm_content" class="rep-content"
+				  id="comm_content" class="comm-content"
 				  <c:if test="${empty user_num}">disabled="disabled"</c:if>
 				  ><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다.</c:if></textarea>       
 				<c:if test="${!empty user_num}">
