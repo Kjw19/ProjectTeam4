@@ -12,7 +12,8 @@ public class FundInquiryVO {
 	
 	private int mem_num;
 	private int fund_num;
-	
+	private int fund_mem_num;
+
 	private String id;
 	
 	
@@ -64,6 +65,11 @@ public class FundInquiryVO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+	public int getFund_mem_num() {
+		return fund_mem_num;
+	}
+	public void setFund_mem_num(int fund_mem_num) {
+		this.fund_mem_num = fund_mem_num;
+	}
 
 }
