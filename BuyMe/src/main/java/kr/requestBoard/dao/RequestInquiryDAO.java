@@ -8,6 +8,7 @@ import java.util.List;
 
 import kr.requestBoard.vo.RequestInquiryVO;
 import kr.util.DBUtil;
+import kr.util.DurationFromNow;
 import kr.util.StringUtil;
 
 public class RequestInquiryDAO {
@@ -20,7 +21,7 @@ public class RequestInquiryDAO {
 
 	// 2. 문의게시판(main)
 	// 문의에 대한 문의 등록
-	public void insertRequestInquiry123123123123(RequestInquiryVO Inquiry) throws Exception{
+	public void insertRequestInquiry(RequestInquiryVO Inquiry) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
@@ -74,39 +75,28 @@ public class RequestInquiryDAO {
 			DBUtil.executeClose(null, pstmt, conn);
 		}
 	}
-	// 문의 총 레코드 수(검색 레코드 수)
-	public int getRequestInquiryCount(String keyfield, String keyword) throws Exception{
-		Connection conn = null;;
+	// 문의 개수
+	public int getRequestInquiryCount(int req_num) throws Exception{
+		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = null;
-		String sub_sql = "";
 		int count = 0;
 
 		try {
-			// 커넥션풀로부터 커넥션 할당
+			// 커넥션풀로부터 커넥션을 할당 받음
 			conn = DBUtil.getConnection();
-
-			if(keyword!=null && !"".equals(keyword)) {
-				// 검색글 개수
-				if(keyfield.equals("1")) sub_sql += "WHERE i.inqu_title LIKE ?";
-				else if(keyfield.equals("2")) sub_sql += "WHERE m.id LIKE ?"; // 지울 수도 있음. 필요 없어 보임.
-				else if(keyfield.equals("3")) sub_sql += "WHERE i.inqu_content LIKE ?";
-			}
-
 			// SQL문 작성
-			sql = "SELECT COUNT(*) FROM request_inquiry i JOIN member m USING(mem_num) " + sub_sql;
-
+			sql = "SELECT COUNT(*) FROM request_inquiry i "
+					+ "JOIN member m ON i.mem_num=m.mem_num WHERE i.req_num=?";
 			// PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
-			if(keyword!=null && !"".equals(keyword)) {
-				pstmt.setString(1, "%" + keyword + "%"); // 가변문자
-			}
-
-			// SQL문을 실행하고 결과행을 ResultSet에 담음
+			// ?에 데이터 바인딩
+			pstmt.setInt(1, req_num);
+			// SQL문을 실행하여 결과행을 ResultSet에 담음
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				count = rs.getInt(1); // 컬럼 인덱스
+				count = rs.getInt(1);
 			}
 		}catch(Exception e) {
 			throw new Exception(e);
@@ -115,59 +105,50 @@ public class RequestInquiryDAO {
 		}
 		return count;
 	}
-	// 문의 목록 (검색 글 목록)
-	public List<RequestInquiryVO> getListRequestInquiry(int start, int end, String keyfield, String keyword) throws Exception{
+	// 문의 목록 : 부모글 식별을 위해 req_num(부모 글번호)를 넘긴다. / mem_num = 작성자
+	public List<RequestInquiryVO> getListRequestInquiry(int start, int end, int req_num) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<RequestInquiryVO> list = null;
 		String sql = null;
-		String sub_sql = ""; // 검색 시 사용
-		int cnt = 0; // 동적 변수
 
 		try {
-			// 커넥션풀로부터 커넥션을 할당
+			// 커넥션풀로부터 커넥션을 할당 받음
 			conn = DBUtil.getConnection();
-			if(keyword!=null && !"".equals(keyword)) {
-				// 검색글 보기
-				if(keyfield.equals("1")) sub_sql += "WHERE i.inqu_title LIKE ?";
-				else if(keyfield.equals("2")) sub_sql += "WHERE m.id LIKE ?"; // 지울 수도 있음. 필요 없어 보임.
-				else if(keyfield.equals("3")) sub_sql += "WHERE i.inqu_content LIKE ?";
-			}
-
-			// SQL문 작성 : 앞뒤공백 조심
-			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM request_inquiry i "
-					+ "JOIN member m USING(mem_num) " + sub_sql + " ORDER BY i.req_num DESC)a) "
-					+ "WHERE rnum>=? AND rnum<=?";
-
+			// SQL문 작성 : 댓글(c)와 id정보(m)을 읽어 온다. → 조인
+			sql = "SELECT * FROM (SELECT a.*, rownum rnum "
+					+ "FROM (SELECT * FROM request_inquiry i JOIN member m "
+					+ "USING(mem_num) WHERE i.req_num=? "
+					+ "ORDER BY i.inquiry_num DESC)a) WHERE rnum>=? AND rnum<=?";
 			// PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			// ?에 데이터 바인딩
-			if(keyword!=null && !"".equals(keyword)) {
-				pstmt.setString(++cnt, "%" + keyword + "%");
-			}
-			pstmt.setInt(++cnt, start);
-			pstmt.setInt(++cnt, end);
-			// SQL문을 실행해서 결과행들을 ResultSet에 담음
+			pstmt.setInt(1, req_num);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			// SQL문을 실행하여 결과행을 ResultSet에 담음
 			rs = pstmt.executeQuery();
 			list = new ArrayList<RequestInquiryVO>();
 			while(rs.next()) {
 				RequestInquiryVO inquiry = new RequestInquiryVO();
+				inquiry.setInquiry_num(rs.getInt("inquiry_num"));
+				inquiry.setInqu_content(StringUtil.useBrNoHtml(rs.getString("inqu_content")));
+				inquiry.setInqu_reg_date(DurationFromNow.getTimeDiffLabel(rs.getString("inqu_reg_date")));
+				inquiry.setMem_num(rs.getInt("mem_num"));
 				inquiry.setReq_num(rs.getInt("req_num"));
-				inquiry.setInqu_title(StringUtil.useNoHtml(rs.getString("inqu_title")));
-				inquiry.setId(rs.getString("id"));
 
 				list.add(inquiry);
 			}
 		}catch(Exception e) {
 			throw new Exception(e);
 		}finally {
-			DBUtil.executeClose(null, pstmt, conn);
+			DBUtil.executeClose(rs, pstmt, conn);
 		}
 		return list;
 	}
 	// 문의 상세
-	public RequestInquiryVO getRequestInquiry123123123(int inquiry_num) throws Exception{
+	public RequestInquiryVO getRequestInquiry(int inquiry_num) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

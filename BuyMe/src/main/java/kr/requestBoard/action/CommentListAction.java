@@ -19,7 +19,7 @@ import kr.util.PagingUtil;
 public class CommentListAction implements Action{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// 전송된 데이터 인코딩 처리 : post 방식
+		// js에서 전송된 데이터 인코딩 처리 : post
 		request.setCharacterEncoding("utf-8");
 		
 		String pageNum = request.getParameter("pageNum");
@@ -33,18 +33,17 @@ public class CommentListAction implements Action{
 		int count = dao.getRequestCommentCount(req_num);
 		
 		/*
-		 	ajax 방식으로 목록을 표시하기 때문에 PagingUtil은 페이지수 표시가 목적이 아니라,
-		 	목록 데이터 페이지 처리를 위한 rownum 번호를 구하는 것이 목적이다.
+		 	ajax 방식으로 목록을 표시하기 때문에 PagingUtil은 페이지수 표시가 목적이 아니라 
+		 	목록 데이터 페이지 처리를 위한 rownum 번호를 구하는 것이 목적임
 		 */
-		// (currentPage, count, rowCount, pageCount, url)
 		int rowCount = 5;
 		PagingUtil page = new PagingUtil(Integer.parseInt(pageNum), count, rowCount, 1, null);
 		
 		List<RequestCommentVO> list = null;
 		if(count>0) {
 			list = dao.getListRequestComment(page.getStartRow(), page.getEndRow(), req_num);
-		}else { // null일 때 = 댓글이 없는 경우
-			list = Collections.emptyList(); // 빈 List 생성 = 비어있는 배열로 인식
+		}else { // 댓글이 없는 경우
+			list = Collections.emptyList();
 		}
 		
 		// 로그인 체크
