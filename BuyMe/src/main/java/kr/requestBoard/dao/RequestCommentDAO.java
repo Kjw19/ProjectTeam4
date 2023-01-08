@@ -13,7 +13,6 @@ import kr.util.StringUtil;
 
 public class RequestCommentDAO {
 	/* 댓글 등록·개수·목록·상세·수정·삭제 */
-	
 	// 싱글턴 패턴
 	private static RequestCommentDAO instance = new RequestCommentDAO();
 	public static RequestCommentDAO getInstance() {
@@ -21,8 +20,8 @@ public class RequestCommentDAO {
 	}
 	private RequestCommentDAO() {}
 	
-	// 1. 댓글&응원 - 보기 편하게 댓글로 명시
-	// 댓글 등록
+	// 2. 문의 게시판에 문의에 대한 댓글 작성
+	// 댓글 작성
 	public void insertRequestComment(RequestCommentVO requestComment) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -78,7 +77,7 @@ public class RequestCommentDAO {
 		}
 		return count;
 	}
-	// 댓글 목록 : 부모글 식별을 위해 request_num(부모 글번호)를 넘긴다. / mem_num = 작성자
+	// 댓글 목록 : 부모글 식별을 위해 req_num(부모 글번호)를 넘긴다. / mem_num = 작성자
 	public List<RequestCommentVO> getListRequestComment(int start, int end, int req_num) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;

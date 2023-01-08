@@ -47,3 +47,32 @@ create table member_detail(
  constraint member_detail_fk foreign key (mem_num) references member (mem_num)
 );
 create sequence member_seq;
+
+--문의게시판 댓글·응원 테이블
+create table request_mainComment(
+ mainComment_num number,
+ mainComm_content varchar2(900) not null,
+ mainComm_reg_date date default sysdate not null,
+ mainComm_modify_date date,
+ mainComm_ip varchar2(40) not null,
+ mem_num number not null,
+ constraint request_mainComment_pk primary key (mainComment_num),
+ constraint request_mainComment_fk foreign key (mem_num) references member (mem_num)
+);
+create sequence req_mainComm_seq;
+
+--문의게시판 내문의 테이블
+create table request_myInquiry(
+ myInquiry_num number,
+ myInqu_title varchar2(150) not null, --문의 제목
+ myInqu_content clob not null, --문의 내용
+ re_myInqu_is_ok varchar2(900), --문의에 대한 답글 → 댓글로 대체하면 될 것 같기도
+ myInqu_reg_date date default sysdate not null,
+ myInqu_modify_date date,
+ myInqu_filename varchar2(150),
+ myInqu_ip varchar2(40) not null,
+ mem_num number not null,
+ constraint request_myInquiry_pk primary key (myInquiry_num),
+ constraint request_myInquiry_fk foreign key (mem_num) references member (mem_num),
+);
+create sequence req_myInqu_seq;

@@ -2,4 +2,36 @@
 /* 구글 폰트 가져오기*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
 
-/* 내 문의 목록 (myList.jsp) */
+/* 공통 부분 */
+body{
+	width:1500px; margin:0 auto;
+	background:#E6E6E6;
+}
+.page-main{
+	background:#FFFFFF;
+	margin:40px 0;
+	border-radius:5px;
+	box-shadow:0 2px 6px rgba(100,100,100,0.3);
+	min-height:650px;
+}
+.content-main{
+	padding:10px 20px;
+}
+
+/* 댓글&응원 게시판 - 서브 헤더 */
+.sub-header ul{
+	list-style:none;
+	text-align:center;
+}
+.sub-header ul li{
+	display:inline-block;
+	padding:0 150px 0 150px;
+}
+.clear-both{
+	clear:both;
+}
+
+/* 내 문의 게시판 - 문의 작성 */
+.page-main h2{
+	margin:0 0 0 80px;
+}
