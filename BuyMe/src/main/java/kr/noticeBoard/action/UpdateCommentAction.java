@@ -50,6 +50,6 @@ public class UpdateCommentAction implements Action {
 		String ajaxData = mapper.writeValueAsString(mapAjax);
 		request.setAttribute("ajaxData", ajaxData);
 
-		return "/WEB-INF/views/common/aj";
+		return "/WEB-INF/views/common/ajax_jsp";
 	}
 }
