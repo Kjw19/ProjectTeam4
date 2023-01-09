@@ -30,16 +30,16 @@ public class NoticeBoardDAO {
 			//커넥션풀로부터 커넥션 할당
 			conn = DBUtil.getConnection();
 			//SQL문 작성
-			sql = "INSERT INTO notice_board (noti_num,noti_title,"
-				    + "noti_content,noti_ip,mem_num) VALUES ("
-				    + "noticeboard_seq.nextval,?,?,?,?)";
+			sql = "INSERT INTO notice_board (noti_num,noti_title,noti_content,noti_filename,noti_ip,mem_num)"
+					+ "VALUES (noticeboard_seq.nextval,?,?,?,?,?)";
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			//?에 데이터 바인딩
 			pstmt.setString(1, noticeboard.getNoti_title());
 			pstmt.setString(2, noticeboard.getNoti_content());
-			pstmt.setString(3, noticeboard.getNoti_ip());
-			pstmt.setInt(4, noticeboard.getMem_num());
+			pstmt.setString(3, noticeboard.getNoti_filename());
+			pstmt.setString(4, noticeboard.getNoti_ip());
+			pstmt.setInt(5, noticeboard.getMem_num());
 			//SQL문 실행
 			pstmt.executeUpdate();
 			
