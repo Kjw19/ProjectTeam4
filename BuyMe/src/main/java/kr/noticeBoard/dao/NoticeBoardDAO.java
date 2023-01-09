@@ -65,9 +65,9 @@ public class NoticeBoardDAO {
 			
 			if(keyword != null && !"".equals(keyword)) {
 				//검색글 개수
-				if(keyfield.equals("1")) sub_sql += "WHERE n.title LIKE ?";
+				if(keyfield.equals("1")) sub_sql += "WHERE n.noti_title LIKE ?";
 				else if(keyfield.equals("2")) sub_sql += "WHERE m.id LIKE ?";
-				else if(keyfield.equals("3")) sub_sql += "WHERE n.content LIKE ?";
+				else if(keyfield.equals("3")) sub_sql += "WHERE n.noti_content LIKE ?";
 			}
 			
 			
