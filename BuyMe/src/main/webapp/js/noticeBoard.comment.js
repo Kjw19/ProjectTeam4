@@ -14,7 +14,7 @@ $(function() {
 				alert('로그인해야 작성할 수 있습니다.');
 			}
 			else if (param.result == 'success') {
-				initform(); //폼 초기화
+				initForm(); //폼 초기화
 				//댓글 작성 성공 시 새로 삽입한 글을 포함해서 첫번째 페이지의 게시글을 다시 호출
 				selectList(1);
 			}
@@ -101,13 +101,14 @@ $(function() {
 		//댓글 번호
 		let comment_num = $(this).attr('data-renum');
 		
-		//댓글 내용                                            
-		let comment_content = $(this).parent().find('p').html().replace(/<br>/gi,'\n'); //g:지정문자열 모두 i : 대소문자 무시
-	
+		//댓글 내용                
+		let comment_content = $(this).parent().find('p')
+		                     .html().replace(/<br>/gi,'\n');                            
+			
 		//댓글 수정폼 UI
 		let modifyUI = '<form id="mre_form">'; 
 		   modifyUI += '<input type="hidden" name="re_num" id="re_num" value="'+comment_num+'">';
-		   modifyUI += '<textarea rows="3" cols="50" name="re_content" id="mre_content" class="rep-content">'+content+'</textarea>';
+		   modifyUI += '<textarea rows="3" cols="50" name="re_content" id="mre_content" class="rep-content">'+comment_content+'</textarea>';
 		   modifyUI += '<div id="mre_first"><span class="letter-count">300/300</span></div>';
 		   modifyUI += '<div id="mre_second" class="align-right">';
 		   modifyUI += ' <input type="submit" value="수정">';

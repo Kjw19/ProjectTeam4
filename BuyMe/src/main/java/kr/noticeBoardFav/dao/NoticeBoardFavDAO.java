@@ -45,7 +45,7 @@ public class NoticeBoardFavDAO {
 		}
 	}
 	
-	//좋아요 등록 메소드
+	//좋아요 개수  메소드
 	public int selectNoticeFavCount(int noti_num) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
