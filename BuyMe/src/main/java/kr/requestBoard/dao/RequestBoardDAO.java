@@ -117,8 +117,8 @@ public class RequestBoardDAO {
 				
 				//SQL문 작성
 				sql = "SELECT * FROM (SELECT a.*, rownum rnum "
-					+ "FROM (SELECT * FROM zboard b JOIN "
-					+ "zmember m USING(mem_num) " + sub_sql + " ORDER BY b.board_num DESC)a) "
+					+ "FROM (SELECT * FROM request_board b JOIN "
+					+ "member m USING(mem_num) " + sub_sql + " ORDER BY b.req_num DESC)a) "
 					+ "WHERE rnum >= ? AND rnum <= ?";
 				//PreparedStatement 객체 생성
 				pstmt = conn.prepareStatement(sql);
