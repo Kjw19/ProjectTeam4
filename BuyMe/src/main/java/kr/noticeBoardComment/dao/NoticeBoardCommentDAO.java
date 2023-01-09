@@ -150,6 +150,7 @@ public void updateNoticeBoardComment(NoticeBoardCommentVO comment) throws Except
 	try {
 		conn = DBUtil.getConnection();
 		sql = "UPDATE notice_comment SET comm_content = ? WHERE comment_num = ?";
+		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, comment.getComm_content());
 		pstmt.setInt(2, comment.getCommnet_num());
 		
