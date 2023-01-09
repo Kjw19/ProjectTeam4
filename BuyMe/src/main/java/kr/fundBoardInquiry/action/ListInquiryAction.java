@@ -1,4 +1,4 @@
-package kr.fundBoard.action;
+package kr.fundBoardInquiry.action;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import kr.controller.Action;
-import kr.fundBoard.dao.FundInquiryDAO;
-import kr.fundBoard.vo.FundInquiryVO;
+import kr.fundBoardInquiry.dao.FundInquiryDAO;
+import kr.fundBoardInquiry.vo.FundInquiryVO;
 import kr.util.PagingUtil;
 
 //펀딩문의게시판 문의목록
@@ -29,7 +29,7 @@ public class ListInquiryAction implements Action{
 		
 		//페이지 처리
 		PagingUtil page = 
-				new PagingUtil(Integer.parseInt(pageNum),count,20,10,"list.do");
+				new PagingUtil(Integer.parseInt(pageNum),count,20,10,"fundInquiry.do");
 		
 		List<FundInquiryVO> list = null;
 		if(count > 0) {
@@ -40,7 +40,7 @@ public class ListInquiryAction implements Action{
 		request.setAttribute("list", list);
 		request.setAttribute("page", page.getPage());
 		
-		return "/WEB-INF/views/board/list.jsp";
+		return "/WEB-INF/views/fundBoard/fundInquiry.jsp";
 	}
 }
 

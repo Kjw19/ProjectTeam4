@@ -1,4 +1,4 @@
-package kr.fundBoard.dao;
+package kr.fundBoardInquiry.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,9 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import kr.fundBoard.vo.FundInquiryVO;
+import kr.fundBoardInquiry.vo.FundInquiryVO;
 import kr.util.DBUtil;
-import kr.util.DurationFromNow;
 import kr.util.StringUtil;
 
 public class FundInquiryDAO {
@@ -316,7 +315,7 @@ public class FundInquiryDAO {
 			conn = DBUtil.getConnection();
 			
 			//SQL문 작성
-			sql = "SELECT COUNT(*) FROM fund b JOIN member m USING(mem_num) ";
+			sql = "SELECT COUNT(*) FROM fund_inquiry b JOIN member m USING(mem_num) ";
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			

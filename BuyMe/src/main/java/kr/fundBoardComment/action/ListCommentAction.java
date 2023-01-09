@@ -1,4 +1,4 @@
-package kr.fundBoard.action;
+package kr.fundBoardComment.action;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -12,8 +12,8 @@ import javax.servlet.http.HttpSession;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import kr.controller.Action;
-import kr.fundBoard.dao.FundCommentDAO;
-import kr.fundBoard.vo.FundCommentVO;
+import kr.fundBoardComment.dao.FundCommentDAO;
+import kr.fundBoardComment.vo.FundCommentVO;
 import kr.util.PagingUtil;
 
 //fund게시판 댓글 목록 불러오기
@@ -30,7 +30,7 @@ public class ListCommentAction implements Action{
 		}
 		
 		int fund_num= Integer.parseInt(
-				         request.getParameter("comment_num"));
+				         request.getParameter("fund_num"));
 		
 		FundCommentDAO dao = FundCommentDAO.getInstance();
 		int count = dao.getFundCommentCount(fund_num);

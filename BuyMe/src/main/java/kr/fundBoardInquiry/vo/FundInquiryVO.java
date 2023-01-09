@@ -1,4 +1,4 @@
-package kr.fundBoard.vo;
+package kr.fundBoardInquiry.vo;
 
 import java.sql.Date;
 

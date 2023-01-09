@@ -1,4 +1,4 @@
-package kr.fundBoard.dao;
+package kr.fundBoardComment.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import kr.fundBoard.vo.FundCommentVO;
+import kr.fundBoardComment.vo.FundCommentVO;
 import kr.util.DBUtil;
 import kr.util.DurationFromNow;
 import kr.util.StringUtil;
@@ -89,16 +89,15 @@ public class FundCommentDAO {
 		if(rs.next()) {
 			count = rs.getInt(1);
 		}
-		}
-		catch(Exception e) {
-			
-			throw new Exception(e);
-		}
-		finally {
-			DBUtil.executeClose(rs, pstmt, conn);
-		}
+	}
+	catch(Exception e) {
+		throw new Exception(e);
+	}
+	finally {
+		DBUtil.executeClose(rs, pstmt, conn);
+	}
 		return count;
-		}
+}
 	
 	
 	
@@ -160,7 +159,7 @@ public class FundCommentDAO {
 	
 		
 	//댓글 상세
-	public FundCommentVO getFundComment(int comment_num) throws Exception{
+	public FundCommentVO getFundComment(int fund_num) throws Exception{
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -174,13 +173,13 @@ public class FundCommentDAO {
 		conn = DBUtil.getConnection();
 		
 		//SQL문 작성
-		sql = "SELECT * FROM fund_comment WHERE comment_num=?";
+		sql = "SELECT * FROM fund_comment WHERE fund_num=?";
 		
 		//PreparedStatement 객체 생성
 		pstmt = conn.prepareStatement(sql);
 		
 		//?에 데이터 바인딩
-		pstmt.setInt(1, comment_num);
+		pstmt.setInt(1, fund_num);
 		
 		//SQL문을 실행해서 결과행을 ResultSet에 담음
 		rs = pstmt.executeQuery();
