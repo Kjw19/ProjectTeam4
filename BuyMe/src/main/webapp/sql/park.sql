@@ -28,10 +28,12 @@ create sequence req_cheer_seq;
 
 --문의 게시판 댓글 관리 (응원에 대한)
 create table request_cheerComment(
- comment_num number,
- comm_content varchar2(900) not null,
- comm_ip varchar2(40) not null,
- comm_reg_date date default sysdate not null,
+ cheerComment_num number,
+ cheerComm_title varchar2(150) not null,
+ cheerComm_content varchar2(900) not null,
+ cheerComm_filename varchar2(150) not null,
+ cheerComm_ip varchar2(40) not null,
+ cheerComm_reg_date date default sysdate not null,
  mem_num number not null,
  cheer_num number not null,
  constraint request_cheerComment_pk primary key (comment_num),
