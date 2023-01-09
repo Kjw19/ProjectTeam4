@@ -9,7 +9,7 @@
 			<a>댓글·응원</a>
 		</li>
 		<li>
-			<a>자주 묻는 질문</a>
+			<a href="${pageContext.request.contextPath}/requestBoard/list.do">자주 묻는 질문</a>
 		</li>
 	</ul>
 </div>
