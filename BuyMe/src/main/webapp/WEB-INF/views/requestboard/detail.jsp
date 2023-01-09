@@ -14,7 +14,7 @@
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
-		<h2>${setReq_board.title}</h2>
+		<h2>${request_board.title}</h2>
 		<ul class="detail-info">
 			<li>
 				<c:if test="${!empty setReq_board.photo}">
@@ -26,7 +26,7 @@
 			</li>
 			<li>
 				${setReq_board.id}<br>
-				조회 : ${board.hit}
+				조회 : ${setReq_board.hit}
 			</li>
 		</ul>
 		<hr size="1" noshade="noshade" width="100%">
