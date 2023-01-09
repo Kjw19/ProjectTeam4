@@ -4,7 +4,7 @@
 <!-- header 시작 -->
 <div class="header">
 	<header>
-		<h1 class="logo">Buy-Me</h1>
+		<h1 class="logo"><a href="${pageContext.request.contextPath}/main/main.do">Buy-Me</a></h1>
 		<nav>
 			<ul>
 				<li class="noti"><a href="#">공지게시판</a></li>
