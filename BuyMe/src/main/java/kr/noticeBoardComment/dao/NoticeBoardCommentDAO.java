@@ -168,7 +168,7 @@ public void deleteNoticeBoardComment(int comment_num) throws Exception {
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	String sql = null;
-	
+	 
 	try {
 		conn = DBUtil.getConnection();
 		sql = "DELETE FROM notice_comment WHERE comment_num = ?";
