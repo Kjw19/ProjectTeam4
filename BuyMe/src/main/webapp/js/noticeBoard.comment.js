@@ -99,10 +99,10 @@ $(function() {
 						output += '<span class="modify-date">등록일 : ' + item.re_date + '</span>';
 					}
 					//로그인한 회원번호와 작성자의 회원번호 일치 여부 체크
-					if(param.user_num == item.mem_num){
+					if (param.user_num == item.mem_num) {
 						//로그인한 회원번호와 작성자 회원번호 일치
-						output += ' <input type="button" data-renum="'+item.re_num+'" value="수정" class="modify-btn">';	
-						output += ' <input type="button" data-renum="'+item.re_num+'" value="삭제" class="delete-btn">';						
+						output += ' <input type="button" data-renum="' + item.re_num + '" value="수정" class="modify-btn">';
+						output += ' <input type="button" data-renum="' + item.re_num + '" value="삭제" class="delete-btn">';
 					}
 					output += '<hr size="1" noshade width="100%">';
 					output += '</div>';
@@ -110,9 +110,9 @@ $(function() {
 					//문서 객체에 추가 
 					$('#output').append(output);
 				}); //end of each
-				
+
 				//page button 처리
-				if(currentPage >= Math.ceil(count/rowCount)) {
+				if (currentPage >= Math.ceil(count / rowCount)) {
 					//다음 페이지 없음
 					$('.paging-button').hide();
 				}
@@ -127,6 +127,41 @@ $(function() {
 			}
 		});
 	}
-	
-	
+	//댓글 삭제
+	$(document).on('click', 'delete-btn', function() {
+		let notice_num = $(this).attr('data-renum');
+
+		//서버와 통신
+		$.ajax({
+			url: 'deleteComment.do',
+			type: 'post',
+			data: { notice_num: re_num },
+			dataType: 'json',
+			success: function(param) {
+				if (param.result == 'logout') {
+					alert('로그인해야 삭제할 수 있습니다.');
+				}
+				else if (param.result == 'success') {
+					alert('삭제 완료');
+					selectList(1);
+				}
+				else if (param.result == 'wrongAccess') {
+					alert('타인의 글은 삭제할 수 없습니다.');
+				}
+				else {
+					alert('네트워크 오류 발생');
+				}
+			},
+			error: function() {
+				alert('네트워크 오류 발생');
+			}
+
+		});
+
+	});
+		//초기 데이터(목록) 호츌
+		selectList(1);
+
+
+
 });
