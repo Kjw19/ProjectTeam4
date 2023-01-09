@@ -23,6 +23,7 @@
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<jsp:include page="/WEB-INF/views/common/requestBoardMenu.jsp"/>
 	<div class="content-main">
 		<h2>게시판 목록</h2>
 		<!-- 검색 폼 시작 -->

@@ -13,6 +13,7 @@
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	
 	<div class="content-main">
 		<h2>${request_board.req_title}</h2>
 		<ul class="detail-info">
@@ -34,10 +35,10 @@
 		<ul class="detail-sub">
 		   
 			<li>
-				<c:if test="${!empty setReq_board.modify_date}">
-				최근 수정일 : ${setReq_board.modify_date}
+				<c:if test="${!empty request_board.req_modify_date}">
+				최근 수정일 : ${request_board.req_modify_date}
 				</c:if>
-				작성일 : ${setReq_board.reg_date}
+				작성일 : ${request_board.req_reg_date}
 				<%-- 로그인한 회원번호와 작성자 회원번호가 일치해야 수정,삭제 가능 --%>
 				<c:if test="${user_num == board.mem_num}">
 				<input type="button" value="수정" 
@@ -58,6 +59,7 @@
 		</ul>
 		
 	</div>
+	<jsp:include page="/WEB-INF/views/common/requestBoardSubmenu.jsp"/>
 </div>
 </body>
 </html>
