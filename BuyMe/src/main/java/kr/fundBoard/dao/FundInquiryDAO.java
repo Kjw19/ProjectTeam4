@@ -316,7 +316,7 @@ public class FundInquiryDAO {
 			conn = DBUtil.getConnection();
 			
 			//SQL문 작성
-			sql = "SELECT COUNT(*) FROM fund b JOIN member m USING(mem_num) ";
+			sql = "SELECT COUNT(*) FROM fund_inquiry b JOIN member m USING(mem_num) ";
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			

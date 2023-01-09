@@ -30,7 +30,7 @@ public class ListCommentAction implements Action{
 		}
 		
 		int fund_num= Integer.parseInt(
-				         request.getParameter("comment_num"));
+				         request.getParameter("fund_num"));
 		
 		FundCommentDAO dao = FundCommentDAO.getInstance();
 		int count = dao.getFundCommentCount(fund_num);

@@ -32,12 +32,13 @@ $(function(){
 					output += '<h4>' + item.id + '</h4>';
 					output += '<div class="sub-item">';
 					output += '<p>' + item.comm_content + '</p>';
-					
+					output += '<span class="modify-date">등록일 : ' + item.re_date + '</span>';		
+								
 					//로그인한 회원번호와 작성자의 회원번호 일치 여부 체크
 					if(param.user_num == item.mem_num){
 						//로그인한 회원번호와 작성자 회원번호 일치
-						output += ' <input type="button" data-renum="'+item.comment_num+'" value="수정" class="modify-btn">';	
-						output += ' <input type="button" data-renum="'+item.comment_num+'" value="삭제" class="delete-btn">';						
+						output += ' <input type="button" data-commnum="'+item.comment_num+'" value="수정" class="modify-btn">';	
+						output += ' <input type="button" data-commnum="'+item.comment_num+'" value="삭제" class="delete-btn">';						
 					}
 					
 					output += '<hr size="1" noshade width="100%">';
