@@ -1,8 +1,8 @@
 package kr.requestBoard.vo;
 
-// 테이블 request_comment
-// 시퀀스 req_comm_seq
-public class RequestCommentVO {
+// 테이블 request_cheerComment
+// 시퀀스 req_cheerComm_seq
+public class RequestCheerCommentVO {
 	private int comment_num;
 	private String comm_content;
 	private String comm_ip;

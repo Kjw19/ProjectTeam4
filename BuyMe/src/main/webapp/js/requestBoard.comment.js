@@ -5,9 +5,6 @@ $(function(){
 	let count;
 	let rowCount; // 한 페이지에 몇 개의 레코드를 보여줄 것인지
 	
-	// 초기 데이터(목록) 호출
-	selectList(1);
-	
 	// textarea에 댓글 입력 시 글자수 체크 : 작성·수정 시 사용
 	$(document).on('keyup','textarea',function(){
 		// 입력한 글자수를 구한다.
@@ -28,6 +25,7 @@ $(function(){
 			}
 		}
 	});
+	
 	// 댓글 작성 폼 초기화
 	function initForm(){
 		$('textarea').val('');
@@ -39,15 +37,15 @@ $(function(){
 		event.preventDefault();
 		
 		if($('#comm_content').val().trim()==''){
-			alert('댓글을 작성하지 않으셨습니다.');
+			alert('댓글이 작성되지 않았습니다.');
 			$('#comm_content').val('').focus();
 			return false;
 		}
 		
-		// form 이하의 태그에 입력한 데이터를 모두 읽어 온다. : 파라미터 네임과 밸류의 한 쌍으로 가져온다.
-		let form_data = $(this).serialize();
+		// form 이하의 태그에 입력한 데이터를 모두 읽어 온다.
+		let form_data = $(this).serialize(); // 파라미터 네임과 밸류의 한 쌍으로 가져온다.
 		
-		// 서버에 연결하여 등록
+		// 서버에 연결하여 댓글 등록
 		$.ajax({
 			url:'commentWrite.do',
 			type:'post',
@@ -55,10 +53,11 @@ $(function(){
 			dataType:'json',
 			success:function(param){
 				if(param.result=='logout'){
-					alert('로그인해야 댓글을 남기실 수 있습니다.');
+					alert('로그인해야 댓글을 작성할 수 있습니다.');
 				}else if(param.result=='success'){
+					alert('댓글을 작성하셨습니다.');
 					initForm(); // 폼 초기화
-					selectList(1); // 댓글 등록이 성공하면 새로 삽입한 글을 포함해서 첫 번째 페이지의 게시글을 다시 호출한다.
+					selectList(1); // 댓글 작성이 성공하면 새로 삽입한 글을 포함해서 첫 번째 페이지의 게시글을 다시 호출한다.				
 				}else{
 					alert('댓글 등록 오류 발생');
 				}
@@ -83,7 +82,7 @@ $(function(){
 			dataType:'json',
 			success:function(param){
 				// 로딩 이미지 감추기(?)
-				//$('#loading').hide();
+				$('#loading').hide();
 				count = param.count;
 				rowCount = param.rowCount;
 				
@@ -102,8 +101,8 @@ $(function(){
 					if(param.user_num==item.mem_num){
 						// 로그인한 회원번호와 작성자의 회원번호가 일치
 						// data- : 속성을 만드는 접두사 (커스텀 데이터 속성) → 내가 만드는 속성
-						output += ' <input type="button" data-renum="' + item.comment_num + '" value="수정" class="modify-btn">'
-						output += ' <input type="button" data-renum="' + item.comment_num + '" value="삭제" class="delete-btn">'
+						output += ' <input type="button" data-commentnum="' + item.comment_num + '" value="수정" class="modify-btn">'
+						output += ' <input type="button" data-commentnum="' + item.comment_num + '" value="삭제" class="delete-btn">'
 					}
 					
 					output += '<hr size="1" noshade width="100%">';
@@ -129,11 +128,19 @@ $(function(){
 			}
 		});
 	}
+	// 초기 데이터(목록) 호출
+	selectList(1);
+	
 	// 페이지 처리 이벤트 연결(다음 댓글 보기 버튼 클릭 시 데이터 추가)
 	$('.paging-button input').click(function(){
 		selectList(currentPage + 1);
 	});
 	
+	// 댓글 수정폼 초기화
+	function initModifyForm(){
+		$('.sub-item').show();
+		$('#mcomm_form').remove();
+	}
 	// 댓글 수정 버튼 클릭 시 수정폼 노출 : 동적으로 코드 만들기
 	$(document).on('click','.modify-btn',function(){
 		// 댓글 번호
@@ -174,16 +181,10 @@ $(function(){
 		   // 문서 객체에 반영
 		   $('#mcomm_first .letter-count').text(remain);
 	});
-	// 댓글 수정폼 초기화
-	function initModifyForm(){
-		$('.sub-item').show();
-		$('#mcomm_form').remove();
-	}
 	// 수정폼에서 취소 버튼 클릭 시 수정폼 초기화
 	$(document).on('click','.comm-reset',function(){
 		initModifyForm();
 	});
-	
 	// 댓글 수정
 	$(document).on('submit','#mcomm_form',function(event){ // 미래($(document).on())의 태그에 동적으로 연결
 		// 기본 이벤트 제거 : 주소가 바뀌면 안 되기 때문에
@@ -211,10 +212,10 @@ $(function(){
 					alert('로그인해야 댓글을 수정할 수 있습니다.');
 				}else if(param.result=='success'){ // 화면 제어
 					$('#mcomm_form').parent().find('p').html($('#mcomm_content').val().replace(/</g,'&lt;')
-																					  .replace(/>/g,'&gt;')
-																					  .replace(/\n/g,'<br>'));
-					// 수정폼 삭제 및 초기화 → 바로 화면 갱신
-					initModifyForm();
+																				  .replace(/>/g,'&gt;')
+																				  .replace(/\n/g,'<br>'));
+					$('#mcomm_form').parent().find('.modify-date').text('최근 수정일 : 5초미만'); // 최근 수정일 화면에 표시
+					initModifyForm(); // 수정폼 삭제 및 초기화 → 바로 화면 갱신
 				}else if(param.result=='wrongAccess'){
 					alert('타인의 댓글을 수정할 수 없습니다.');
 				}else{

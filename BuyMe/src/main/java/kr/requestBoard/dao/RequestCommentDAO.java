@@ -22,7 +22,7 @@ public class RequestCommentDAO {
 	
 	// 2. 문의 게시판에 문의에 대한 댓글 작성
 	// 댓글 작성
-	public void insertRequestComment(RequestCommentVO requestComment) throws Exception{
+	public void insertCommentBoard(RequestCommentVO boardComment) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
@@ -31,14 +31,15 @@ public class RequestCommentDAO {
 			// 커넥션풀로부터 커넥션을 할당 받음
 			conn = DBUtil.getConnection();
 			// SQL문 작성
-			sql = "INSERT INTO request_comment (comment_num,comm_content,comm_reg_date,mem_num,req_num) "
-					+ "VALUES (req_comm_seq.nextval,?,SYSDATE,?,?)";
+			sql = "INSERT INTO request_comment (comment_num,comm_content,comm_ip,mem_num,req_num) "
+					+ "VALUES (req_comm_seq.nextval,?,?,?,?)";
 			// PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			// ?에 데이터 바인딩
-			pstmt.setString(1, requestComment.getComm_content());
-			pstmt.setInt(2, requestComment.getMem_num());
-			pstmt.setInt(3, requestComment.getReq_num());
+			pstmt.setString(1, boardComment.getComm_content());
+			pstmt.setString(2, boardComment.getComm_ip());
+			pstmt.setInt(3, boardComment.getMem_num());
+			pstmt.setInt(4, boardComment.getReq_num());
 			// SQL문 실행
 			pstmt.executeUpdate();
 		}catch(Exception e) {

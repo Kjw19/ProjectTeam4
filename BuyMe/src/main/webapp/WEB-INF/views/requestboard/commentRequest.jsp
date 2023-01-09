@@ -19,13 +19,13 @@
 	<div id="comment_div">
 		<span class="comm-title">댓글 달기</span>
 		<form id="comm_form">
-			<input type="hidden" name="req_num" value="${req.req_num}" id="req_num">
-			<textarea rows="5" cols="50" name="comm_content" id="comm_content" class="comment-content"
+			<input type="hidden" name="req_num" value="${request_board.req_num}" id="req_num">
+			<textarea rows="5" cols="100" name="comm_content" id="comm_content" class="comm-content"
 			<c:if test="${empty user_num}">disabled="disabled"(비활성화)</c:if>
 			><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다.</c:if></textarea>
 			<c:if test="${!empty user_num}">
 			<div id="comm_first">
-				<span class="letter-count">100/100</span>
+				<span class="letter-count">300/300</span>
 			</div>
 			<div id="comm_second" class="align-right">
 				<input type="submit" value="전송">

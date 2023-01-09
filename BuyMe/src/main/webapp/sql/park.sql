@@ -1,17 +1,44 @@
 ---[세부기능] : 문의 게시판 댓글 & 문의 관리
---문의 게시판 댓글 관리
+--문의 게시판 댓글 관리 (문의에 대한)
 create table request_comment(
  comment_num number,
- comm_content varchar2(300) not null,
+ comm_content varchar2(900) not null,
+ comm_ip varchar2(40) not null,
  comm_reg_date date default sysdate not null,
  mem_num number not null,
  req_num number not null,
  constraint request_comment_pk primary key (comment_num),
  constraint request_comment_fk foreign key (mem_num) references member (mem_num),
  constraint request_comment_fk2 foreign key (req_num) references request_board (req_num)
- constraint request_comment_fk3 foreign key (cheer_num) references request_cheer (cheer_num)
 );
 create sequence req_comm_seq;
+
+--문의 게시판 내의 응원 게시판
+create table request_cheer(
+ cheer_num number,
+ cheer_content varchar2(900) not null,
+ cheer_reg_date date default sysdate not null,
+ cheer_modify_date date,
+ cheer_ip varchar2(40) not null,
+ mem_num number not null,
+ constraint request_cheer_pk primary key (cheer_num),
+ constraint request_cheer_fk foreign key (mem_num) references member (mem_num)
+);
+create sequence req_cheer_seq;
+
+--문의 게시판 댓글 관리 (응원에 대한)
+create table request_cheerComment(
+ comment_num number,
+ comm_content varchar2(900) not null,
+ comm_ip varchar2(40) not null,
+ comm_reg_date date default sysdate not null,
+ mem_num number not null,
+ cheer_num number not null,
+ constraint request_cheerComment_pk primary key (comment_num),
+ constraint request_cheerComment_fk foreign key (mem_num) references member (mem_num),
+ constraint request_cheerComment_fk2 foreign key (cheer_num) references request_cheer (cheer_num)
+);
+create sequence req_cheerComm_seq;
 
 --문의 게시판 문의 관리
 create table request_inquiry(
@@ -61,19 +88,6 @@ create table request_mainComment(
  constraint request_mainComment_fk foreign key (mem_num) references member (mem_num)
 );
 create sequence req_mainComm_seq;
-
---문의 게시판 내의 응원 게시판
-create table request_cheer(
- cheer_num number,
- cheer_content varchar2(900) not null,
- cheer_reg_date date default sysdate not null,
- cheer_modify_date date,
- cheer_ip varchar2(40) not null,
- mem_num number not null,
- constraint request_cheer_pk primary key (cheer_num),
- constraint request_cheer_fk foreign key (mem_num) references member (mem_num)
-);
-create sequence req_cheer_seq;
 
 --문의게시판 내문의 테이블
 create table request_myInquiry(
