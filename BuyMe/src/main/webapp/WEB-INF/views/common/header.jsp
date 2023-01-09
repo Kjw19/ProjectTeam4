@@ -4,10 +4,10 @@
 <!-- header 시작 -->
 <div class="header">
 	<header>
-		<h1 class="logo">Buy-Me</h1>
+		<h1 class="logo"><a href="${pageContext.request.contextPath}/main/main.do">Buy-Me</a></h1>
 		<nav>
 			<ul>
-				<li class="noti"><a href="#">공지게시판</a></li>
+				<li class="noti"><a href="${pageContext.request.contextPath}/noticeboard/list.do">공지게시판</a></li>
 				<li class="fund"><a href="#">펀딩게시판</a></li>
 				<li class="req"><a href="${pageContext.request.contextPath}/requestboard/mainCommentDetailList.do">문의게시판</a></li> <!-- 임시 링크, 자주 묻는 질문으로 변경할 예정 -->
 				<form id="search_form" action="#" method="get">
