@@ -1,4 +1,4 @@
-package kr.fundBoard.action;
+package kr.fundBoardComment.action;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpSession;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import kr.controller.Action;
-import kr.fundBoard.dao.FundCommentDAO;
-import kr.fundBoard.vo.FundCommentVO;
+import kr.fundBoardComment.dao.FundCommentDAO;
+import kr.fundBoardComment.vo.FundCommentVO;
 
 public class WriteCommentAction implements Action{
 

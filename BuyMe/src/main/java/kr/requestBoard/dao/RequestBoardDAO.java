@@ -73,7 +73,7 @@ public class RequestBoardDAO {
 				}
 				
 				//SQL문 작성
-				sql = "SELECT COUNT(*) FROM request_board b JOIN request_member m USING(mem_num) " +sub_sql;
+				sql = "SELECT COUNT(*) FROM request_board b JOIN member m USING(mem_num) " +sub_sql;
 				//PreparedStatement 객체 생성
 				pstmt = conn.prepareStatement(sql);
 				if(keyword!=null&& !"".equals(keyword)) {
@@ -117,8 +117,8 @@ public class RequestBoardDAO {
 				
 				//SQL문 작성
 				sql = "SELECT * FROM (SELECT a.*, rownum rnum "
-					+ "FROM (SELECT * FROM zboard b JOIN "
-					+ "zmember m USING(mem_num) " + sub_sql + " ORDER BY b.board_num DESC)a) "
+					+ "FROM (SELECT * FROM request_board b JOIN "
+					+ "member m USING(mem_num) " + sub_sql + " ORDER BY b.req_num DESC)a) "
 					+ "WHERE rnum >= ? AND rnum <= ?";
 				//PreparedStatement 객체 생성
 				pstmt = conn.prepareStatement(sql);
@@ -134,9 +134,9 @@ public class RequestBoardDAO {
 				while(rs.next()) {
 					RequestBoardVO board = new RequestBoardVO();
 					board.setMem_num(rs.getInt("mem_num"));
-					board.setReq_title(StringUtil.useNoHtml(rs.getString("title")));
-					board.setReq_hit(rs.getInt("hit"));
-					board.setReq_reg_date(rs.getDate("reg_date"));
+					board.setReq_title(StringUtil.useNoHtml(rs.getString("req_title")));
+					board.setReq_hit(rs.getInt("req_hit"));
+					board.setReq_reg_date(rs.getDate("req_reg_date"));
 					
 					
 					list.add(board);
@@ -150,7 +150,7 @@ public class RequestBoardDAO {
 			return list;
 		}
 		//글상세
-		public RequestBoardVO getBoard(int board_num)throws Exception{
+		public RequestBoardVO getBoard(int req_num)throws Exception{
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
@@ -167,22 +167,20 @@ public class RequestBoardDAO {
 				//PreparedStatement 객체 생성
 				pstmt = conn.prepareStatement(sql);
 				//?에 데이터 바인딩
-				pstmt.setInt(1, board_num);
+				pstmt.setInt(1, req_num);
 				//SQL문을 실행해서 결과행을 ResultSet에 담음
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()) {
 					board = new RequestBoardVO();
 					board.setMem_num(rs.getInt("mem_num"));
-					board.setReq_title(rs.getString("title"));
-					board.setReq_content(rs.getString("content"));
-					board.setReq_hit(rs.getInt("hit"));
-					board.setReq_reg_date(rs.getDate("reg_date"));
-					board.setReq_modify_date(rs.getDate("modify_date"));
-					board.setReq_filename(rs.getString("filename"));
+					board.setReq_title(rs.getString("req_title"));
+					board.setReq_content(rs.getString("req_content"));
+					board.setReq_hit(rs.getInt("req_hit"));
+					board.setReq_reg_date(rs.getDate("req_reg_date"));
+					board.setReq_modify_date(rs.getDate("req_modify_date"));
+					board.setReq_filename(rs.getString("req_filename"));
 					board.setMem_num(rs.getInt("mem_num"));
-					
-					
 				}
 			}catch(Exception e) {
 				throw new Exception(e);
@@ -192,7 +190,7 @@ public class RequestBoardDAO {
 			return board;
 		}
 		//조회수 증가
-		public void updateReadcount(int request_board_num)
+		public void updateReadcount(int req_num)
 				                       throws Exception{
 			Connection conn = null;
 			PreparedStatement pstmt = null;
@@ -202,11 +200,11 @@ public class RequestBoardDAO {
 				//커넥션풀로부터 커넥션을 할당
 				conn = DBUtil.getConnection();
 				//SQL문 작성
-				sql = "UPDATE request_board SET hit=hit+1 WHERE req_num=?";
+				sql = "UPDATE request_board SET req_hit=req_hit+1 WHERE req_num=?";
 				//PreparedStatement 객체 생성
 				pstmt = conn.prepareStatement(sql);
 				//?에 데이터를 바인딩
-				pstmt.setInt(1, request_board_num);
+				pstmt.setInt(1, req_num);
 				//SQL문 실행
 				pstmt.executeUpdate();
 			}catch(Exception e) {

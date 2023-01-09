@@ -1,4 +1,4 @@
-package kr.fundBoard.action;
+package kr.fundBoardComment.action;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,8 +11,8 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 
 import kr.controller.Action;
-import kr.fundBoard.dao.FundCommentDAO;
-import kr.fundBoard.vo.FundCommentVO;
+import kr.fundBoardComment.dao.FundCommentDAO;
+import kr.fundBoardComment.vo.FundCommentVO;
 
 //Fund게시판 댓글 삭제
 public class DeleteCommentAction implements Action{

@@ -70,11 +70,11 @@
 			</tr>
 			<c:forEach var="board" items="${list}">
 			<tr>
-				<td>${board.setReq_board_num}</td>
-				<td><a href="detail.do?board_num=${board.setReq_board_num}">${board.setReq_title}</a></td>
-				<td>${board.setReq_id}</td>
-				<td>${board.setReq_reg_date}</td>
-				<td>${board.setReq_hit}</td>
+				<td>${board.req_num}</td>
+				<td><a href="detail.do?req_num=${board.req_num}">${board.req_title}</a></td>
+				<td>${board.id}</td>
+				<td>${board.req_reg_date}</td>
+				<td>${board.req_hit}</td>
 			</tr>
 			</c:forEach>
 		</table>
