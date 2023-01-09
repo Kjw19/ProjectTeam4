@@ -15,6 +15,13 @@ public class RequestBoardVO {
 	 private String req_ip;
 	 private String req_filename; 
 	 private int mem_num;
+	 private String id;
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public int getReq_num() {
 		return req_num;
 	}
