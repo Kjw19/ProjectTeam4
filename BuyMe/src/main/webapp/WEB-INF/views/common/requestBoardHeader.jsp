@@ -6,7 +6,7 @@
 <div class="sub-header">
 	<ul>
 		<li>
-			<a href="${pageContext.request.contextPath}/requestboard/mainCommentDetailList.do">댓글·응원</a>
+			<a>댓글·응원</a>
 		</li>
 		<li>
 			<a>자주 묻는 질문</a>
