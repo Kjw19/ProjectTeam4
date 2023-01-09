@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import kr.board.vo.BoardVO;
 import kr.fundBoard.vo.FundBoardVO;
 import kr.util.DBUtil;
 import kr.util.StringUtil;
@@ -198,25 +197,68 @@ public class FundBoardDAO {
 			conn = DBUtil.getConnection();
 			
 			//전송된 파일 여부 체크
+			if(board.getFund_filename()!=null) {
+				sub_sql += ",fund_filename=?";
+			}
 			
 			//SQL문 작성
-			
+			sql = "UPDATE fund_board SET fund_title=?,fund_content=?,"
+				+ "fund_modify_date=SYSDATE" + sub_sql
+				+ ",fund_ip=? WHERE fund_num=?";
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			//?에 데이터 바인딩
-			pstmt.setString(++cnt, board.getTitle());
-			pstmt.setString(++cnt, board.getContent());
-			if(board.getFilename()!=null) {
-				pstmt.setString(++cnt, board.getFilename());
+			pstmt.setString(++cnt, board.getFund_title());
+			pstmt.setString(++cnt, board.getFund_content());
+			if(board.getFund_filename()!=null) {
+				pstmt.setString(++cnt, board.getFund_filename());
 			}
-			pstmt.setString(++cnt, board.getIp());
-			pstmt.setInt(++cnt, board.getBoard_num());
+			pstmt.setString(++cnt, board.getFund_ip());
+			pstmt.setInt(++cnt, board.getFund_num());
 			
 			//SQL문 실행
 			pstmt.executeUpdate();
 		}catch(Exception e) {
 			throw new Exception(e);
 		}finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+	}
+	
+	//글삭제
+	public void deleteBoard(int fund_num)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2 = null;
+		PreparedStatement pstmt3 = null;
+		String sql = null;
+		
+		try {
+			//커넥션풀로부터 커넥션을 할당
+			conn = DBUtil.getConnection();
+			//오토커밋 해제
+			conn.setAutoCommit(false);
+			
+			//좋아요 삭제
+			sql = "DELETE FROM fund_like WHERE fund_num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, fund_num);
+			pstmt.executeUpdate();
+			
+			//부모글 삭제
+			sql = "DELETE FROM zboard WHERE fund_num=?";
+			pstmt3 = conn.prepareStatement(sql);
+			pstmt3.setInt(1, fund_num);
+			pstmt3.executeUpdate();
+			
+			//예외 발생 없이 정상적으로 SQL문이 실행
+			conn.commit();
+		}catch(Exception e) {
+			//예외발생
+			conn.rollback();
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(null, pstmt2, null);
 			DBUtil.executeClose(null, pstmt, conn);
 		}
 	}
