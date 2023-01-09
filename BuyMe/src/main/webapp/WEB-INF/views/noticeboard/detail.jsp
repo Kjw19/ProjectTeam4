@@ -31,6 +31,15 @@
 		</p>
 		<ul>
 			<li>
+				
+				<%-- 좋아요 시작 --%>
+				<img id="output_fav" src="${pageContext.request.contextPath}/images/fav01.gif" width="50">
+		    	좋아요
+		    	<span id="output_fcount"></span>
+				<%-- 좋아요 끝 --%>
+				</li>
+				
+				<li>
 				<c:if test="${!empty noticeboard.noti_modify_date}">
 				최근 수정일 : ${noticeboard.noti_modify_date}
 				</c:if>
@@ -51,6 +60,11 @@
 				</c:if>
 			</li>
 		</ul>
+		<!-- 댓글 시작  -->
+		<!--  댓글 목록 출력 시작 -->
+		<!--  댓글 목록 출력 끝 -->
+		<!--  댓글 끝 -->
+		
 	</div>
 </div>
 </body>
