@@ -7,10 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 import kr.noticeBoard.vo.NoticeInquiryVO;
 import kr.util.DBUtil;
-import kr.util.DurationFromNow;
+
 import kr.util.StringUtil;
 
 public class NoticeInquiryDAO {
@@ -134,6 +133,45 @@ public List<NoticeInquiryVO> getListNoticeInquiry(int start,int end, int inquiry
 	}
 	return list;
 }
+//문의 목록 상세
+	public NoticeInquiryVO getNoticeInquiry(int inquiry_num)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		NoticeInquiryVO inquiry = null;
+		String sql = null;
+		
+		try {
+			//커넥션풀로부터 커넥션을 할당
+			conn = DBUtil.getConnection();
+			//SQL문 작성
+			sql = "SELECT * FROM notice_inquiry n JOIN member m "
+				+ "USING(mem_num) JOIN member_detail d "
+				+ "USING(mem_num) WHERE n.inquiry_num=?";
+			
+			//PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			//?에 데이터 바인딩
+			pstmt.setInt(1, inquiry_num);
+			//SQL문을 실행해서 결과행을 ResultSet에 담음
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				inquiry = new NoticeInquiryVO();
+				inquiry.setInquiry_num(rs.getInt("inquiry_num"));
+				inquiry.setInqu_title(rs.getString("inqu_title"));
+				inquiry.setInqu_content(rs.getString("inqu_content"));
+				inquiry.setRe_inqu_is_ok(rs.getString("re_inqu_is_ok"));
+				inquiry.setInqu_reg_date(rs.getDate("inqu_reg_date"));
+				inquiry.setMem_num(rs.getInt("mem_num"));
+			}
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return inquiry;
+	}
 //공지사항 문의 수정
 	public void updateNoticeInquiry(NoticeInquiryVO inquiry) throws Exception{
 		
@@ -207,7 +245,7 @@ public List<NoticeInquiryVO> getListNoticeInquiry(int start,int end, int inquiry
 			DBUtil.executeClose(null, pstmt, conn);
 		}
 	}
-		//공지사항 문의 댓글 삭제
+		//공지사항 문의  삭제
 		public void deleteNoticeInquiry(int inquiry_num) throws Exception{
 			
 			Connection conn = null;
