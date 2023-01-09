@@ -10,13 +10,14 @@
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<h2>게시판 글 상세</h2>
+	<jsp:include page="/WEB-INF/views/common/requestBoardMenu.jsp"/>
+	<h2>응원 게시판 메인글 상세</h2>
 	<ul>
 		<li>메인글내용 : ${cheerBoardVO.cheer_content}</li>
 	</ul>
 	<hr size="1" noshade width="100%">
 	<p>
-		${boardVO.content}
+		${cheerBoardVO.cheer_content}
 	</p>
 	<hr size="1" noshade width="100%">
 	<div class="align-right">

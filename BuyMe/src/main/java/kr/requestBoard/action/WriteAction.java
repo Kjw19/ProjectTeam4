@@ -24,10 +24,10 @@ public class WriteAction implements Action{
 		MultipartRequest multi = 
 				             FileUtil.createFile(request);
 		RequestBoardVO board = new RequestBoardVO();
-		board.setReq_title(multi.getParameter("title"));
-		board.setReq_content(multi.getParameter("content"));
+		board.setReq_title(multi.getParameter("req_title"));
+		board.setReq_content(multi.getParameter("req_content"));
 		board.setReq_ip(request.getRemoteAddr());
-		board.setReq_filename(multi.getFilesystemName("filename"));
+		board.setReq_filename(multi.getFilesystemName("req_filename"));
 		board.setMem_num(user_num);
 		
 		RequestBoardDAO dao = RequestBoardDAO.getInstance();

@@ -6,9 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>문의게시판 내 응원게시판 목록</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
 <div class="page-main">
+	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<jsp:include page="/WEB-INF/views/common/requestBoardMenu.jsp"/>
 	<h2>게시판 목록</h2>
 	<div class="align-right">
 		<input type="button" value="응원 메인 글쓰기" onclick="location.href='cheerWriteForm.do'">
@@ -31,7 +34,7 @@
 		<c:forEach var="cheerBoard" items="${list}"> <!-- ListAction의 ArrayList를 가져온다. -->
 		<tr>
 			<td>${cheerBoard.cheer_num}</td> <!-- 글번호 -->
-			<td><a href="detail.do?num=${board.num}">${cheerBoard.cheer_content}</a></td>
+			<td><a href="cheerDetail.do?cheer_num=${cheerBoard.cheer_num}">${cheerBoard.cheer_content}</a></td>
 		</tr>
 		</c:forEach>
 	</table>

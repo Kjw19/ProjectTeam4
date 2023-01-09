@@ -97,6 +97,7 @@ public class FundBoardDAO {
 				board.setFund_hit(rs.getInt("fund_hit"));
 				board.setFund_reg_date(rs.getDate("fund_reg_date"));
 				board.setId(rs.getString("id"));
+				board.setCategory_num(rs.getInt("Category_num"));
 				
 				list.add(board);
 			}
@@ -124,10 +125,11 @@ public class FundBoardDAO {
 			board.setFund_hit(rs.getInt("fund_hit"));
 			board.setFund_reg_date(rs.getDate("fund_reg_date"));
 			board.setFund_modify_date(rs.getDate("fund_modify_date"));
-			board.setFund_filename(rs.getString("fund_filename"));
+			board.setFund_filename(rs.getString("fund_filename"));//사진
 			board.setMem_num(rs.getInt("mem_num"));
 			board.setId(rs.getString("id"));
-			//board.setPhoto(rs.getString("photo")); //이게 모야 씨발래미새키
+			board.setCategory_num(rs.getInt("Category_num"));
+			//board.setPhoto(rs.getString("photo")); //Fund_filename로 대체
 		}catch(Exception e) {
 			throw new Exception(e);
 		}finally {
@@ -204,7 +206,7 @@ public class FundBoardDAO {
 			//SQL문 작성
 			sql = "UPDATE fund_board SET fund_title=?,fund_content=?,"
 				+ "fund_modify_date=SYSDATE" + sub_sql
-				+ ",fund_ip=? WHERE fund_num=?";
+				+ ",fund_ip=?, category_num=? WHERE fund_num=?";
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			//?에 데이터 바인딩
@@ -215,6 +217,7 @@ public class FundBoardDAO {
 			}
 			pstmt.setString(++cnt, board.getFund_ip());
 			pstmt.setInt(++cnt, board.getFund_num());
+			pstmt.setInt(++cnt, board.getCategory_num());
 			
 			//SQL문 실행
 			pstmt.executeUpdate();
@@ -230,6 +233,8 @@ public class FundBoardDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		PreparedStatement pstmt2 = null;
+		PreparedStatement pstmt3 = null;
+		PreparedStatement pstmt4 = null;
 		String sql = null;
 		
 		try {
@@ -244,11 +249,23 @@ public class FundBoardDAO {
 			pstmt.setInt(1, fund_num);
 			pstmt.executeUpdate();
 			
-			//부모글 삭제
-			sql = "DELETE FROM fund_board WHERE fund_num=?";
+			//좋아요 삭제
+			sql = "DELETE FROM fund_comment WHERE fund_num=?";
 			pstmt2 = conn.prepareStatement(sql);
 			pstmt2.setInt(1, fund_num);
 			pstmt2.executeUpdate();
+			
+			//좋아요 삭제
+			sql = "DELETE FROM fund_inquiry WHERE fund_num=?";
+			pstmt3 = conn.prepareStatement(sql);
+			pstmt3.setInt(1, fund_num);
+			pstmt3.executeUpdate();
+			
+			//부모글 삭제
+			sql = "DELETE FROM fund_board WHERE fund_num=?";
+			pstmt4 = conn.prepareStatement(sql);
+			pstmt4.setInt(1, fund_num);
+			pstmt4.executeUpdate();
 			
 			//예외 발생 없이 정상적으로 SQL문이 실행
 			conn.commit();
@@ -257,6 +274,8 @@ public class FundBoardDAO {
 			conn.rollback();
 			throw new Exception(e);
 		}finally {
+			DBUtil.executeClose(null, pstmt4, null);
+			DBUtil.executeClose(null, pstmt3, null);
 			DBUtil.executeClose(null, pstmt2, null);
 			DBUtil.executeClose(null, pstmt, conn);
 		}

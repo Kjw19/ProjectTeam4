@@ -23,9 +23,9 @@
 </script>
 </head>
 <body>
-<div class="page-main">
+<div class="ntpage-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<div class="content-main">
+	<div class="ntcontent-main">
 		<!-- 공지사항 메인 글씨 -->
 		<div class="noticeboard-title">
 			<h1>공지사항</h1>
@@ -54,7 +54,7 @@
 				</ul>
 				<ul>
 					<li>${noticeboard.id}</li>
-					<li><fmt:formatDate value="${noticeboard.noti_reg_date}" pattern="yy/MM/dd"/></li>
+					<li><fmt:formatDate value="${noticeboard.noti_reg_date}" pattern="yyyy.MM.dd"/></li>
 					<li>${noticeboard.noti_hit}</li>
 				</ul>
 			</div>

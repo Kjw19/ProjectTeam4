@@ -32,8 +32,8 @@
 		<h2>게시판 글수정</h2>
 		<form action="update.do" method="post" id="update_form"
 		              enctype="multipart/form-data">
-			<input type="hidden" name="board_num" 
-			                       value="${board.setReq_board_num}">
+			<input type="hidden" name="req_num" 
+			                       value="${request_board.req_num}">
 			<ul>
 				<li>
 					<label for="title">제목</label>

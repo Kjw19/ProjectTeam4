@@ -16,7 +16,7 @@ public class FundBoardVO {
 	private int mem_num;
 	
 	private String id;
-	//private String photo; 먼지 모르겠음
+	//private String photo; fund_filename로 대체
 	
 	public String getId() {
 		return id;
