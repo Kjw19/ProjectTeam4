@@ -52,12 +52,6 @@ public class NoticeInquiryVO {
 	public void setMem_num(int mem_num) {
 		this.mem_num = mem_num;
 	}
-	public int getFund_num() {
-		return notice_num;
-	}
-	public void setFund_num(int fund_num) {
-		this.notice_num = notice_num;
-	}
-	
+
 }
 
