@@ -17,7 +17,7 @@ public class DetailCommentAction implements Action {
 			NoticeBoardCommentVO notice = dao.getNoticeBoardComment(noti_num);
 			
 			request.setAttribute("notice", notice);
-			
+			 
 		return "/WEB-INF/views/noticeboard/detail.jsp";
 	}
 }
