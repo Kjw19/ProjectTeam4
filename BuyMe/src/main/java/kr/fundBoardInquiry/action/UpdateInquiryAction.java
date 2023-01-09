@@ -6,8 +6,8 @@ import javax.servlet.http.HttpSession;
 
 
 import kr.controller.Action;
-import kr.fundBoardComment.dao.FundInquiryDAO;
-import kr.fundBoardComment.vo.FundInquiryVO;
+import kr.fundBoardInquiry.dao.FundInquiryDAO;
+import kr.fundBoardInquiry.vo.FundInquiryVO;
 
 public class UpdateInquiryAction implements Action{
 

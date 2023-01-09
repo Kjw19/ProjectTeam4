@@ -6,9 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import kr.fundBoardComment.vo.FundInquiryVO;
+import kr.fundBoardInquiry.vo.FundInquiryVO;
 import kr.util.DBUtil;
-import kr.util.DurationFromNow;
 import kr.util.StringUtil;
 
 public class FundInquiryDAO {

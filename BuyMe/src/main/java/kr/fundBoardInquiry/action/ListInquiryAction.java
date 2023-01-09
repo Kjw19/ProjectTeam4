@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import kr.controller.Action;
-import kr.fundBoardComment.dao.FundInquiryDAO;
-import kr.fundBoardComment.vo.FundInquiryVO;
+import kr.fundBoardInquiry.dao.FundInquiryDAO;
+import kr.fundBoardInquiry.vo.FundInquiryVO;
 import kr.util.PagingUtil;
 
 //펀딩문의게시판 문의목록
