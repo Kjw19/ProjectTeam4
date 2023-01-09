@@ -1,4 +1,4 @@
-package kr.fundBoard.dao;
+package kr.fundBoardComment.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import kr.fundBoard.vo.FundCommentVO;
+import kr.fundBoardComment.vo.FundCommentVO;
 import kr.util.DBUtil;
 import kr.util.DurationFromNow;
 import kr.util.StringUtil;

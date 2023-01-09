@@ -1,4 +1,4 @@
-package kr.fundBoard.action;
+package kr.fundBoardInquiry.action;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import kr.controller.Action;
-import kr.fundBoard.dao.FundInquiryDAO;
-import kr.fundBoard.vo.FundInquiryVO;
+import kr.fundBoardComment.dao.FundInquiryDAO;
+import kr.fundBoardComment.vo.FundInquiryVO;
 import kr.util.PagingUtil;
 
 //펀딩문의게시판 문의목록

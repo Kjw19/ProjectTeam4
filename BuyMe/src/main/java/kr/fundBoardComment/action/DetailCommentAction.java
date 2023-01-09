@@ -1,11 +1,11 @@
-package kr.fundBoard.action;
+package kr.fundBoardComment.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.controller.Action;
-import kr.fundBoard.dao.FundCommentDAO;
-import kr.fundBoard.vo.FundCommentVO;
+import kr.fundBoardComment.dao.FundCommentDAO;
+import kr.fundBoardComment.vo.FundCommentVO;
 
 public class DetailCommentAction implements Action{
 

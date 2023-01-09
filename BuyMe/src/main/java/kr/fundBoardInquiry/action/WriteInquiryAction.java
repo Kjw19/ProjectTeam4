@@ -1,4 +1,4 @@
-package kr.fundBoard.action;
+package kr.fundBoardInquiry.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -6,8 +6,8 @@ import javax.servlet.http.HttpSession;
 
 
 import kr.controller.Action;
-import kr.fundBoard.dao.FundInquiryDAO;
-import kr.fundBoard.vo.FundInquiryVO;
+import kr.fundBoardComment.dao.FundInquiryDAO;
+import kr.fundBoardComment.vo.FundInquiryVO;
 
 public class WriteInquiryAction implements Action{
 
