@@ -1,12 +1,12 @@
-package kr.member.action;
+package kr.members.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.controller.Action;
-import kr.member.vo.MemberVO;
 import kr.members.dao.MemberDAO;
+import kr.members.vo.MemberVO;
 
 public class LoginAction implements Action{
 
@@ -41,7 +41,7 @@ public class LoginAction implements Action{
 		}
 		
 		//인증 실패시 호출		
-		return "/WEB-INF/views/member/login.jsp";
+		return "/WEB-INF/views/members/login.jsp";
 	}
 
 }

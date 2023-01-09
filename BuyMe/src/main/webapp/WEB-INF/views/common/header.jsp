@@ -34,7 +34,7 @@
 				</c:if>
 				<c:if test="${empty user_num}">
 				<li class="mem_join"><a href="#">회원가입</a></li>
-				<li class="signin"><a href="${pageContext.request.contextPath}/member/loginForm.do">로그인</a></li>
+				<li class="signin"><a href="${pageContext.request.contextPath}/members/loginForm.do">로그인</a></li>
 				</c:if>
 			</ul>	
 		</nav>

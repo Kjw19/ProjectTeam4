@@ -1,4 +1,4 @@
-package kr.member.vo;
+package kr.members.vo;
 
 import java.sql.Date;
 

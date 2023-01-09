@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import kr.member.vo.MemberVO;
+import kr.members.vo.MemberVO;
 import kr.util.DBUtil;
 
 public class MemberDAO {
