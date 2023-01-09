@@ -34,7 +34,7 @@
 		<c:forEach var="cheerBoard" items="${list}"> <!-- ListAction의 ArrayList를 가져온다. -->
 		<tr>
 			<td>${cheerBoard.cheer_num}</td> <!-- 글번호 -->
-			<td><a href="detail.do?num=${board.num}">${cheerBoard.cheer_content}</a></td>
+			<td><a href="cheerDetail.do?cheer_num=${cheerBoard.cheer_num}">${cheerBoard.cheer_content}</a></td>
 		</tr>
 		</c:forEach>
 	</table>
