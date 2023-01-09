@@ -5,9 +5,6 @@ $(function(){
 	let count;
 	let rowCount; // 한 페이지에 몇 개의 레코드를 보여줄 것인지
 	
-	// 초기 데이터(목록) 호출
-	selectList(1);
-	
 	// textarea에 문의 입력 시 글자수 체크 : 작성·수정 시 사용
 	$(document).on('keyup','textarea',function(){
 		// 입력한 글자수를 구한다.
@@ -28,6 +25,7 @@ $(function(){
 			}
 		}
 	});
+	
 	// 문의 작성 폼 초기화
 	function initForm(){
 		$('textarea').val('');
@@ -57,8 +55,9 @@ $(function(){
 				if(param.result=='logout'){
 					alert('로그인해야 문의를 남기실 수 있습니다.');
 				}else if(param.result=='success'){
+					alert('문의를 작성 완료하셨습니다. 빠른 시일 내에 답변드리겠습니다!');
 					initForm(); // 폼 초기화
-					selectList(1); // 문의 등록이 성공하면 새로 삽입한 글을 포함해서 첫 번째 페이지의 게시글을 다시 호출한다.
+					//selectList(1); // 문의 등록이 성공하면 새로 삽입한 글을 포함해서 첫 번째 페이지의 게시글을 다시 호출한다.
 				}else{
 					alert('문의 등록 오류 발생');
 				}
@@ -68,7 +67,7 @@ $(function(){
 			}
 		});
 	});
-	
+	/*
 	// 문의 목록
 	function selectList(pageNum){ // selectList(value)
 		currentPage = pageNum;
@@ -83,7 +82,7 @@ $(function(){
 			dataType:'json',
 			success:function(param){
 				// 로딩 이미지 감추기(?)
-				//$('#loading').hide();
+				$('#loading').hide();
 				count = param.count;
 				rowCount = param.rowCount;
 				
@@ -102,8 +101,8 @@ $(function(){
 					if(param.user_num==item.mem_num){
 						// 로그인한 회원번호와 작성자의 회원번호가 일치
 						// data- : 속성을 만드는 접두사 (커스텀 데이터 속성) → 내가 만드는 속성
-						output += ' <input type="button" data-renum="' + item.inquiry_num + '" value="수정" class="modify-btn">'
-						output += ' <input type="button" data-renum="' + item.inquiry_num + '" value="삭제" class="delete-btn">'
+						output += ' <input type="button" data-inquirynum="' + item.inquiry_num + '" value="수정" class="modify-btn">'
+						output += ' <input type="button" data-inquirynum="' + item.inquiry_num + '" value="삭제" class="delete-btn">'
 					}
 					
 					output += '<hr size="1" noshade width="100%">';
@@ -129,6 +128,8 @@ $(function(){
 			}
 		});
 	}
+	// 초기 데이터(목록) 호출
+	selectList(1);
 	// 페이지 처리 이벤트 연결(다음 문의 보기 버튼 클릭 시 데이터 추가)
 	$('.paging-button input').click(function(){
 		selectList(currentPage + 1);
@@ -246,4 +247,5 @@ $(function(){
 			}
 		});
 	});	
+	*/
 });

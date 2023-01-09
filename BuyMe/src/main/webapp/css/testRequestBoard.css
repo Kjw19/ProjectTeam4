@@ -31,7 +31,4 @@ body{
 	clear:both;
 }
 
-/* 내 문의 게시판 - 문의 작성 */
-.page-main h2{
-	margin:0 0 0 80px;
-}
+/* 문의 게시판 문의글 내 댓글&문의 */

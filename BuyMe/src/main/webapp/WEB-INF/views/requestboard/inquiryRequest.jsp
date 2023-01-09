@@ -33,8 +33,8 @@
 			</c:if>
 		</form>
 	</div> <!-- end of inqu_div -->
-	<!-- 댓글 내용 끝 -->
-	<!-- 댓글 목록 시작 -->
+	<!-- 문의 내용 끝 -->
+	<!-- 문의 목록 시작 -->
 	<div id="output"></div>
 		<div class="paging-button" style="display:none;">
 			<input type="button" value="다음 댓글 보기">
@@ -42,7 +42,7 @@
 		<div id="loading" style="display:none;">
 			<img src="${pageContext.request.contextPath}/images/loading.gif" width="50" height="50">
 	</div>
-	<!-- 댓글 목록 끝 -->
+	<!-- 문의 목록 끝 -->
 </div>
 </body>
 </html>

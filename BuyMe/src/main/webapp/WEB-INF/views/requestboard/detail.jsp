@@ -10,6 +10,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <%-- script type="text/javascript" src="${pageContext.request.contextPath}/js/board.fav.js"></script --%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/requestBoard.comment.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/requestBoard.inquiry.js"></script>
 </head>
 <body>
 <div class="page-main">
@@ -59,12 +60,28 @@
 			</li>
 		</ul>
 	</div>
-	<jsp:include page="/WEB-INF/views/common/requestBoardSubmenu.jsp"/>
+	
+	<!-- requestBoardHeader 시작 -->
+	<div class="sub-header">
+		<ul>
+			<li>
+				<span id="commnet">댓글</span>
+			</li>
+			<li>
+				<span id="inquiry">문의</span>
+			</li>
+		</ul>
+	</div>
+	<div class="clear-both"></div>
+	<hr size="1" noshade="noshade" width="70%">
+	<!-- requestBoardHeader 끝 -->
+	
+	<!-- 댓글 내용 시작 -->
 	<div id="comment_div">
 		<span class="comm-title">댓글 달기</span>
 		<form id="comm_form">
 			<input type="hidden" name="req_num" value="${request_board.req_num}" id="req_num">
-			<textarea rows="5" cols="100" name="comm_content" id="comm_content" class="comm-content"
+			<textarea rows="5" cols="50" name="comm_content" id="comm_content" class="comm-content"
 			<c:if test="${empty user_num}">disabled="disabled"(비활성화)</c:if>
 			><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다.</c:if></textarea>
 			<c:if test="${!empty user_num}">
@@ -72,7 +89,7 @@
 				<span class="letter-count">300/300</span>
 			</div>
 			<div id="comm_second" class="align-right">
-				<input type="submit" value="전송">
+				<input type="submit" value="댓글 등록">
 			</div>
 			</c:if>
 		</form>
