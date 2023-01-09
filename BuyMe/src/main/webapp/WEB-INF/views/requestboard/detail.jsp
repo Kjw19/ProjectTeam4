@@ -16,7 +16,6 @@
 	<div class="content-main">
 		<h2>${request_board.req_title}</h2>
 		<ul class="detail-info">
-			
 			<li>
 				${request_board.id}<br>
 				조회 : ${request_board.req_hit}
