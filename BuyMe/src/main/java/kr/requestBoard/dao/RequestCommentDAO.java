@@ -20,7 +20,7 @@ public class RequestCommentDAO {
 	}
 	private RequestCommentDAO() {}
 	
-	// 2. 문의 게시판에 문의에 대한 댓글 작성
+	// 문의 게시판 내 문의글에 대한 댓글
 	// 댓글 작성
 	public void insertCommentBoard(RequestCommentVO boardComment) throws Exception{
 		Connection conn = null;
