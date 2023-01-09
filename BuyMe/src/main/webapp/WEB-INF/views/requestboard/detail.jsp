@@ -14,7 +14,7 @@
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	
+	<jsp:include page="/WEB-INF/views/common/requestBoardMenu.jsp"/>
 	<div class="content-main">
 		<h2>${request_board.req_title}</h2>
 		<ul class="detail-info">
@@ -60,8 +60,6 @@
 		</ul>
 	</div>
 	<jsp:include page="/WEB-INF/views/common/requestBoardSubmenu.jsp"/>
-	<jsp:include page="/WEB-INF/views/requestboard/commentRequest.jsp"/>
-	<%-- 
 	<div id="comment_div">
 		<span class="comm-title">댓글 달기</span>
 		<form id="comm_form">
@@ -89,7 +87,6 @@
 			<img src="${pageContext.request.contextPath}/images/loading.gif" width="50" height="50">
 	</div>
 	<!-- 댓글 목록 끝 -->
-	 --%>
 </div>
 </body>
 </html>
