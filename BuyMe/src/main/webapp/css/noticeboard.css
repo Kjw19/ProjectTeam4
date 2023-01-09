@@ -20,12 +20,12 @@ a:hover{
 
 /* 페이지 레이아웃
 -----------------------*/
-.page-main{
+.ntpage-main{
 	background:#FFFFFF;
 	margin:40px 0;
 	min-height:650px;
 }
-.content-main{
+.ntcontent-main{
 	margin:0 auto;
 	padding:10px 20px;
 	width:1280px;
@@ -124,4 +124,18 @@ input.ntsc2:focus{
 select:focus{
 	outline:none;
 	border:1px solid #737373;
+}
+
+.ntdetail-main{
+	margin:50px auto;
+	padding:10px 20px;
+	width:950px;
+	border:1px solid #E8E8E8;
+	border-radius:7px;
+}
+.detail-padding1{
+	padding:10px 39px;
+}
+.detail-padding2{
+	padding:30px 39px 10px 39px;
 }

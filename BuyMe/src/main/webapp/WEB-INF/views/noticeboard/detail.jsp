@@ -1,23 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>공지사항 글 상세정보</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/noticeboard.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-<div>
+<div class="ntpage-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<div>
-	<h2>${noticeboard.noti_title}</h2>
+	<div class="ntdetail-main">
+		<div class="detail-padding1">
+			<h2>${noticeboard.noti_title}</h2>
+		</div>
 		<ul>
 			<li>
 				${noticeboard.id}<br>
-				${noticeboard.noti_reg_date} &nbsp;&nbsp;
+				<fmt:formatDate value="${noticeboard.noti_reg_date}" pattern="yyyy.MM.dd"/> &nbsp;&nbsp;
 				조회수 : ${noticeboard.noti_hit}
 			</li>
 		</ul>
@@ -26,7 +30,7 @@
 			<img src="${pageContext.request.contextPath}/upload/${noticeboard.noti_filename}">
 		</div>
 		</c:if>
-		<p>
+		<p class="detail-padding2">
 			${noticeboard.noti_content}
 		</p>
 		<ul>
