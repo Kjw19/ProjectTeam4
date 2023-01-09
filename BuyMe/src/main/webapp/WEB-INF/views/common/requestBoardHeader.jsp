@@ -11,7 +11,6 @@
 		<li>
 			<a>자주 묻는 질문</a>
 		</li>
-		<!-- /c:if -->
 	</ul>
 </div>
 <div class="clear-both"></div>

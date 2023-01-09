@@ -9,6 +9,7 @@ create table request_comment(
  constraint request_comment_pk primary key (comment_num),
  constraint request_comment_fk foreign key (mem_num) references member (mem_num),
  constraint request_comment_fk2 foreign key (req_num) references request_board (req_num)
+ constraint request_comment_fk3 foreign key (cheer_num) references request_cheer (cheer_num)
 );
 create sequence req_comm_seq;
 
@@ -48,7 +49,7 @@ create table member_detail(
 );
 create sequence member_seq;
 
---문의게시판 댓글·응원 테이블
+--문의게시판 댓글·응원 테이블 삭제 예정
 create table request_mainComment(
  mainComment_num number,
  mainComm_content varchar2(900) not null,
@@ -60,6 +61,19 @@ create table request_mainComment(
  constraint request_mainComment_fk foreign key (mem_num) references member (mem_num)
 );
 create sequence req_mainComm_seq;
+
+--문의 게시판 내의 응원 게시판
+create table request_cheer(
+ cheer_num number,
+ cheer_content varchar2(900) not null,
+ cheer_reg_date date default sysdate not null,
+ cheer_modify_date date,
+ cheer_ip varchar2(40) not null,
+ mem_num number not null,
+ constraint request_cheer_pk primary key (cheer_num),
+ constraint request_cheer_fk foreign key (mem_num) references member (mem_num)
+);
+create sequence req_cheer_seq;
 
 --문의게시판 내문의 테이블
 create table request_myInquiry(

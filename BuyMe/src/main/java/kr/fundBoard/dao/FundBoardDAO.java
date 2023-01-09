@@ -230,7 +230,6 @@ public class FundBoardDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		PreparedStatement pstmt2 = null;
-		PreparedStatement pstmt3 = null;
 		String sql = null;
 		
 		try {
@@ -246,10 +245,10 @@ public class FundBoardDAO {
 			pstmt.executeUpdate();
 			
 			//부모글 삭제
-			sql = "DELETE FROM zboard WHERE fund_num=?";
-			pstmt3 = conn.prepareStatement(sql);
-			pstmt3.setInt(1, fund_num);
-			pstmt3.executeUpdate();
+			sql = "DELETE FROM fund_board WHERE fund_num=?";
+			pstmt2 = conn.prepareStatement(sql);
+			pstmt2.setInt(1, fund_num);
+			pstmt2.executeUpdate();
 			
 			//예외 발생 없이 정상적으로 SQL문이 실행
 			conn.commit();
