@@ -133,11 +133,12 @@ public class RequestBoardDAO {
 				list = new ArrayList<RequestBoardVO>();
 				while(rs.next()) {
 					RequestBoardVO board = new RequestBoardVO();
+					board.setReq_num(rs.getInt("req_num"));
 					board.setMem_num(rs.getInt("mem_num"));
+					board.setId(rs.getString("id"));
 					board.setReq_title(StringUtil.useNoHtml(rs.getString("req_title")));
 					board.setReq_hit(rs.getInt("req_hit"));
 					board.setReq_reg_date(rs.getDate("req_reg_date"));
-					
 					
 					list.add(board);
 				}
@@ -173,7 +174,7 @@ public class RequestBoardDAO {
 				
 				if(rs.next()) {
 					board = new RequestBoardVO();
-					board.setMem_num(rs.getInt("mem_num"));
+					board.setReq_num(rs.getInt("req_num"));
 					board.setReq_title(rs.getString("req_title"));
 					board.setReq_content(rs.getString("req_content"));
 					board.setReq_hit(rs.getInt("req_hit"));

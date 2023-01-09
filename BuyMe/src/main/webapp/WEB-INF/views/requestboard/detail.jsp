@@ -14,29 +14,22 @@
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
-		<h2>${request_board.title}</h2>
+		<h2>${request_board.req_title}</h2>
 		<ul class="detail-info">
+			
 			<li>
-				<c:if test="${!empty setReq_board.photo}">
-				<img src="${pageContext.request.contextPath}/upload/${board.photo}" width="40" height="40" class="my-photo">
-				</c:if>
-				<c:if test="${empty setReq_board.photo}">
-				<img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-photo">
-				</c:if>
-			</li>
-			<li>
-				${setReq_board.id}<br>
-				조회 : ${setReq_board.hit}
+				${request_board.id}<br>
+				조회 : ${request_board.req_hit}
 			</li>
 		</ul>
 		<hr size="1" noshade="noshade" width="100%">
-		<c:if test="${!empty setReq_board.filename}">
+		<c:if test="${!empty request_board.req_filename}">
 		<div class="align-center">
-			<img src="${pageContext.request.contextPath}/upload/${setReq_board.filename}" class="detail-img">
+			<img src="${pageContext.request.contextPath}/upload/${request_board.req_filename}" class="detail-img">
 		</div>
 		</c:if>
 		<p>
-			${setReq_board.content}
+			${request_board.req_content}
 		</p>
 		<hr size="1" noshade="noshade" width="100%">
 		<ul class="detail-sub">
