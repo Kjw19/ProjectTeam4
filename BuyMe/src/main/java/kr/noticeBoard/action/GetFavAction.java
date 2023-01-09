@@ -49,6 +49,9 @@ public class GetFavAction implements Action {
 		// JSON 데이터 생성
 		ObjectMapper mapper = new ObjectMapper();
 		String ajaxData = mapper.writeValueAsString(mapAjax);
+		
+		request.setAttribute("ajaxData", ajaxData);
+		
 		return "/WEB-INF/views/common/ajax_view.jsp";
 	}
 }
