@@ -16,6 +16,11 @@ public class WriteFormAction implements Action{
 			return "redirect:/member/loginForm.do";
 		}
 		
+		Integer user_auth = (Integer)session.getAttribute("user_auth");
+		if(user_auth<5) {//관리자로 로그인하지 않은 경우
+			return "/WEB-INF/views/common/notice.jsp";
+		}
+		
 		//로그인 된 경우
 		return "/WEB-INF/views/noticeboard/writeForm.jsp";
 	}
