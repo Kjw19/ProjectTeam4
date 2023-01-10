@@ -147,7 +147,7 @@ div.requestboard-title{
 /* sub-menu */
 div.sub-header ul{
 	text-align:center;
-	padding:0 0 5px 0;
+	margin:0; padding:0 0 5px 0;
 }
 div.sub-header ul li{
 	display:inline-block;
@@ -170,18 +170,37 @@ div.sub-header ul li a:hover{
 /* 페이지 레이아웃 */
 .page-main{
 	background:#FFFFFF;
-	margin:40px 0;
+	margin:20px auto;
 	min-height:650px;
 }
-.content-main, div#output{
-	margin:0 auto;
+.content-main{
 	padding:10px 20px;
-	width:1280px;
+	
+	margin:50px auto;
+	padding:10px 20px;
+	width:950px;
+	border:1px solid #E8E8E8;
+	border-radius:7px;
 }
 
 /* 댓글 등록, 수정 폼 */
-form#comm_form, form#mcomm_form{
-	width:740px;
+form#comm_form{
+	width:745px;
+	margin:0 auto; padding:0 10px 10px 30px;
+}
+form#comm_form div#comm_first{
+	float:right; padding:10px 0 10px 10px;
+}
+form#comm_form div#comm_second{
+	float:right; padding:10px 20px 10px 10px;
+}
+div#commentList_div{
+	padding:30px 0 0 0;
+}
+form#cheerComm_form{
+	width:700px;
 	margin:0 auto; padding:10px 10px 10px 30px;
-	border:1px solid #000;
+}
+form#cheerComm_form span.cheerComm-subTitle{
+	text-align:center;
 }

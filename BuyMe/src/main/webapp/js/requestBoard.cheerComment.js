@@ -138,10 +138,10 @@ $(function(){
 				$(param.list).each(function(index,item){
 					let output = '<div class="item">';
 					output += '<b>' + item.cheerComm_title + '</b><br>';
-					output += ' 작성자 ' + item.id + ' 작성일 ' + item.cheerComm_reg_date + '<br>';
+					output += ' 작성자 ' + item.id + '(' + item.cheerComm_reg_date + ')' + '<br>';
 					output += '<div class="sub-item">';
 					output += '<c:if test="${empty cheerComment.photo}">';
-					output += '<img src="${pageContext.request.contextPath}/images/blank.png" width="375" height="200" class="my-photo">';
+					output += '<img src="${pageContext.request.contextPath}/images/blank.png" width="330" height="180" class="my-photo">';
 					output += '</c:if>';
 					output += '<c:if test="${!empty cheerComment.photo}">';
 					output += '<img src="${pageContext.request.contextPath}/upload/${item.photo} width="40" height="40" class="my-photo">';

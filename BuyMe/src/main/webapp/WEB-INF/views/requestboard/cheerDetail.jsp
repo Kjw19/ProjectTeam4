@@ -18,31 +18,30 @@
 			<h1>이야기 한마당</h1>
 	</div>
 	<jsp:include page="/WEB-INF/views/common/requestBoardMenu.jsp"/>
-	<h2>오늘은 함께 어떤 이야기를 나눠볼까요?</h2>
+	<div class="content-main">
+		<h2>오늘은 함께 어떤 이야기를 나눠볼까요?</h2>
+		<span><b>회원님의 오늘을 들려주세요!</b> (작성 시, 제목과 내용은 필수로 입력하셔야 합니다! 사진은 등록하지 않으셔도 됩니다.)</span>
 	
 	<!-- 댓글 내용 시작 -->
 	<div id="cheerComment_div">
 		<form id="cheerComm_form">
 			<ul>
 				<li>
-					<span class="cheerComm-subTitle">회원님의 오늘을 들려주세요! 작성 시, 내용은 필수로 입력하셔야 합니다! (제목, 사진 필수x)</span>
-				</li>
-				<li>
 					<input type="hidden" name="cheerComment_num" value="${cheerBoardVO.cheer_num}" id="cheerComment_num">
 				</li>
 				<li>
-					<textarea rows="1" cols="50" name="cheerComm_title" id="cheerComm_title" class="cheerComm_title" placeholder="나의 이야기 제목"
+					<textarea rows="1" cols="70" name="cheerComm_title" id="cheerComm_title" class="cheerComm_title" placeholder="나의 이야기 제목"
 					<c:if test="${empty user_num}">disabled="disabled"(비활성화)</c:if>
 					><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다.</c:if></textarea>
 				</li>
 				<li>
-					<textarea rows="5" cols="50" name="cheerComm_content" id="cheerComm_content" class="cheerComm-content" placeholder="나의 이야기 내용"
+					<textarea rows="5" cols="70" name="cheerComm_content" id="cheerComm_content" class="cheerComm-content" placeholder="나의 이야기 내용"
 					<c:if test="${empty user_num}">disabled="disabled"(비활성화)</c:if>
 					><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다.</c:if></textarea>
 				</li>
 				<li>
 					<c:if test="${empty cheerComment.photo}">
-						<img src="${pageContext.request.contextPath}/images/blank.png" width="375" height="200" class="my-photo">
+						<img src="${pageContext.request.contextPath}/images/blank.png" width="513" height="200" class="my-photo">
 					</c:if>
 					<c:if test="${!empty cheerComment.photo}">
 						<img src="${pageContext.request.contextPath}/upload/${cheerBoardVO.photo}" width="200" height="200" class="my-photo">
@@ -75,6 +74,7 @@
 			<img src="${pageContext.request.contextPath}/images/loading.gif" width="50" height="50">
 	</div>
 	<!-- 댓글 목록 끝 -->
+	</div>
 </div>
 </body>
 </html>
