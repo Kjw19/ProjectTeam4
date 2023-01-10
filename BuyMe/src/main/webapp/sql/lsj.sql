@@ -18,6 +18,7 @@ creat table fund_board(
 );
 create sequence fund_board_seq;
 
+
 --FUND_LIKE 펀딩 게시판 추천 테이블
 create table fund_like(
  like_num number not null,
