@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>문의게시판 내 응원게시판 목록</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestBoard.css">
 </head>
 <body>
 <div class="page-main">

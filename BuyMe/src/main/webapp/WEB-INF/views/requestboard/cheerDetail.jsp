@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>응원 게시판 - 메인글 상세 정보</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestboard.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <%-- script type="text/javascript" src="${pageContext.request.contextPath}/js/board.fav.js"></script --%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/requestBoard.cheerComment.js"></script>
@@ -20,7 +21,7 @@
 	<!-- 댓글 내용 시작 -->
 	<div id="cheerComment_div">
 		<span class="cheerComm-title">회원님의 오늘을 들려주세요!</span>
-		<form id="cheerComm_form" action="cheerCommentWrite.do" enctype="multipart/form-data">
+		<form id="cheerComm_form" enctype="multipart/form-data">
 			<input type="hidden" name="cheerComment_num" value="${request_cheer.cheer_num}" id="cheer_num">
 			<textarea rows="1" cols="50" name="cheerComm_title" id="cheerComm_title" class="cheerComm_title" placeholder="나의 이야기 제목"
 			<c:if test="${empty user_num}">disabled="disabled"(비활성화)</c:if>
