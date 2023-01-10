@@ -65,16 +65,27 @@ a:hover{
 	border:1px solid #E8E8E8;
 	border-radius:7px;
 }
+.notice-imagebox img{
+	padding:10px;
+	float:right;
+	width:270px;
+	height:150px;
+}
 .vertical-center{
 	vertical-align:middle;
+}
+.noti-pre{
+	padding:15px 20px;
+	display:block;
+	float:left;
+}
+.noti-text{
+	display:inline-block;
 }
 /* 공지 리스트 세부 구성
 -----------------------*/
 ul li{
 	display:inline-block;
-}
-.notice-image{
-	float:right;
 }
 .page-number{
 	text-align:center;

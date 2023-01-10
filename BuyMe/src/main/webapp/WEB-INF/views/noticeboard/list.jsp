@@ -46,26 +46,24 @@
 		
 		<!-- 표시할 게시물이 있을 때 -->
 		<c:if test="${count > 0}">
-		<table>
 			<c:forEach var="noticeboard" items="${list}">
 			<div class="notice-box">
-				<ul>
-					<li><h2><a href="detail.do?noti_num=${noticeboard.noti_num}">${noticeboard.noti_title}</a></h2></li>
-				</ul>
-				<ul>
-					<li>${noticeboard.id}</li>
-					<li><fmt:formatDate value="${noticeboard.noti_reg_date}" pattern="yyyy.MM.dd"/></li>
-					<li>${noticeboard.noti_hit}</li>
-				</ul>
-			</div>
-			<c:if test="${!empty noticeboard.noti_filename}">
-				<div class="notice-image">
-					<img src="${pageContext.request.contextPath}/upload/${noticeboard.noti_filename}">
+				<div class="noti-pre">
+					<h2><a href="detail.do?noti_num=${noticeboard.noti_num}">${noticeboard.noti_title}</a></h2>
+					<p class="noti-text">
+						<span>${noticeboard.id}</span>
+						<span><fmt:formatDate value="${noticeboard.noti_reg_date}" pattern="yyyy.MM.dd"/></span>
+						<span>${noticeboard.noti_hit}</span>
+					</p>
 				</div>
-			</c:if>
+				<c:if test="${!empty noticeboard.noti_filename}">
+					<div class="notice-imagebox">
+					<img src="${pageContext.request.contextPath}/upload/${noticeboard.noti_filename}">
+					</div>
+				</c:if>
+			</div>
 			<hr size="1" width="100%" noshade="noshade" color="#E8E8E8">
 			</c:forEach>
-		</table>
 		<div class="page-number">${page}</div>
 		</c:if>
 		
