@@ -103,9 +103,10 @@ header #search_item_button{
 
 /* sub-menu */
 div.requestboard-title{
-	height:150px;
+	height:130px;
 	text-align:center;
 	padding:30px 0 0 0;
+	font-size:15px;
 }
 div.sub-header ul{
 	text-align:center;

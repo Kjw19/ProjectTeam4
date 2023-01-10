@@ -5,7 +5,7 @@
 <div class="sub-header">
 	<ul>
 		<li>
-			<a href="${pageContext.request.contextPath}/requestboard/cheerDetail.do?cheer_num=4">이야기 한마당</a>
+			<a href="${pageContext.request.contextPath}/requestboard/cheerDetail.do?cheer_num=4">펀딩 Talk</a>
 		</li>
 		<li>
 			<a href="${pageContext.request.contextPath}/requestBoard/list.do">자주 묻는 질문</a>

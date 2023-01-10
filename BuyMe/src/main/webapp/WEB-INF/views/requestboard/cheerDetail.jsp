@@ -15,11 +15,11 @@
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="requestboard-title">
-			<h1>이야기 한마당</h1>
+			<h1>펀딩 Talk</h1>
 	</div>
 	<jsp:include page="/WEB-INF/views/common/requestBoardMenu.jsp"/>
 	<div class="content-main">
-		<h2>오늘은 함께 어떤 이야기를 나눠볼까요?</h2>
+		<h2>오늘은 펀딩에 대해 어떤 이야기를 나눠볼까요?</h2>
 		<span><b>회원님의 오늘을 들려주세요!</b> (작성 시, 제목과 내용은 필수로 입력하셔야 합니다! 사진은 등록하지 않으셔도 됩니다.)</span>
 	
 	<!-- 댓글 내용 시작 -->
