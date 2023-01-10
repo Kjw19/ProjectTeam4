@@ -30,12 +30,24 @@ a:hover{
 	text-decoration:none;
 	color:#6C6C6C;
 }
-/* 공통 정렬 */
+div.clear-both{
+	clear:both;
+}
+/* 공통 */
 .align-center{
 	text-align:center;
 }
 .align-right{
 	text-align:right;
+}
+input[type="button"], input[type="submit"], input[type="file"]{
+	width:60px;
+	height:27px;
+	border:none;
+	border-radius:3px;
+	background-color:#4B71DE;
+	color:white;
+	cursor:pointer;
 }
 
 /* header 시작 */
@@ -197,10 +209,33 @@ form#comm_form div#comm_second{
 div#commentList_div{
 	padding:30px 0 0 0;
 }
+form#mcomm_form{
+	width:530px;
+}
+form#mcomm_form div#mcomm_first{
+	float:right; padding:10px 0 10px 10px;
+}
+form#mcomm_form div#mcomm_second{
+	float:right; padding:10px 25px 10px 10px;
+}
+
+/* 이야기 한마당 */
 form#cheerComm_form{
 	width:700px;
-	margin:0 auto; padding:10px 10px 10px 30px;
+	margin:0 auto; padding:30px 10px 70px 30px;
 }
-form#cheerComm_form span.cheerComm-subTitle{
-	text-align:center;
+form#cheerComm_form div#cheerComm_first{
+	float:right; padding:10px 0 10px 10px;
+}
+form#cheerComm_form div#cheerComm_second{
+	float:right; padding:10px 150px 10px 10px;
+}
+form#mcheerComm_form{
+	width:530px;
+}
+form#mcheerComm_form div#mcheerComm_first{
+	float:right; padding:10px 0 10px 10px;
+}
+form#mcheerComm_form div#mcheerComm_second{
+	float:right; padding:10px 25px 10px 10px;
 }

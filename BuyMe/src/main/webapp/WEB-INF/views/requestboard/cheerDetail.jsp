@@ -48,30 +48,34 @@
 					</c:if>
 				</li>
 				<li>
-					<c:if test="${!empty user_num}">
-					<div id="cheerComm_first">
-						<span class="letter-count">300/300</span>
-					</div>
-					</c:if>
 					<div id="photo_choice">
 						<input type="file" name="photo" id="photo" accept="image/gif,image/png,image/jpeg"><br>
 						<input type="button" value="취소" id="photo_reset">
 					</div>
+					<c:if test="${!empty user_num}">
 					<div id="cheerComm_second">
-						<input type="button" value="이야기 작성" id="cheer_btn">
+						<input type="button" value="작성" id="cheer_btn">
 					</div>
+					<div id="cheerComm_first">
+						<span class="letter-count">300/300</span>
+					</div>
+					</c:if>
 				</li>
 			</ul>
 		</form>
+		<div class="clear-both"></div>
 	</div> <!-- end of comment_div -->
 	<!-- 댓글 내용 끝 -->
+	<hr size="1" noshade="noshade" width="100%" color="#4B71DE">
 	<!-- 댓글 목록 시작 -->
-	<div id="output"></div>
-		<div class="paging-button" style="display:none;">
-			<input type="button" value="다음 댓글 보기">
+	<div id="cheerComment_div2">
+		<div id="output"></div>
+			<div class="paging-button" style="display:none;">
+				<input type="button" value="다음 댓글 보기">
+			</div>
+			<div id="loading" style="display:none;">
+				<img src="${pageContext.request.contextPath}/images/loading.gif" width="50" height="50">
 		</div>
-		<div id="loading" style="display:none;">
-			<img src="${pageContext.request.contextPath}/images/loading.gif" width="50" height="50">
 	</div>
 	<!-- 댓글 목록 끝 -->
 	</div>

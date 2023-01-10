@@ -84,7 +84,7 @@
 			><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다.</c:if></textarea>
 			<c:if test="${!empty user_num}">
 			<div id="comm_second" class="align-right">
-				<input type="submit" value="댓글·문의 등록">
+				<input type="submit" value="등록">
 			</div>
 			<div id="comm_first">
 				<span class="letter-count">300/300</span>

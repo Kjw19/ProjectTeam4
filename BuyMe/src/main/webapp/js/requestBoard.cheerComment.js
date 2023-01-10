@@ -204,12 +204,12 @@ $(function(){
 		// 이야기 수정 폼 UI : 동적으로 생성
 		let modifyUI = '<form id="mcheerComm_form">';
 		   modifyUI += '<input type="hidden" name="cheerComment_num" id="cheerComment_num" value="'+cheerComment_num+'">';
-		   modifyUI += '<textarea rows="3" cols="50" name="cheerComm_content" id="mcheerComm_content" class="cheerComm-content">'+content+'</textarea>';
-		   modifyUI += '<div id="mcheerComm_first"><span class="letter-count">300/300</span></div>';
-		   modifyUI += '<div id="mcheerComm_second" class="align-right">';
+		   modifyUI += '<textarea rows="5" cols="70" name="cheerComm_content" id="mcheerComm_content" class="cheerComm-content">'+content+'</textarea>';
+		   modifyUI += '<div id="mcheerComm_second">';
 		   modifyUI += ' <input type="submit" value="수정">';
 		   modifyUI += ' <input type="button" value="취소" class="cheerComm-reset">';
 		   modifyUI += '</div>';
+		   modifyUI += '<div id="mcheerComm_first"><span class="letter-count">300/300</span></div>';
 		   modifyUI += '<hr size="1" noshade width="96%">';
 		   modifyUI += '</form>';
 		   
