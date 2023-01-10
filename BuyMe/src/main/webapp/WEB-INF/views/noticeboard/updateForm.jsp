@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>공지사항 게시판 글수정</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/noticeboard.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -26,13 +27,13 @@
 </script>
 </head>
 <body>
-<div>
+<div class="ntpage-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<div>
-		<div>
+	<div class="ntwrite-title">
 			<h2>공지사항 수정</h2>
-		</div>
-		<div>
+	</div>
+	<div class="ntwrite-main">
+		<div class="ntwrite-form">
 			<form id="update_form" action="update.do" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="noti_num" value="${noticeboard.noti_num}">
 				<ul>
@@ -45,7 +46,9 @@
 						<textarea rows="5" cols="30" name="noti_content" id="noti_content">${noticeboard.noti_content}</textarea>
 					</li>
 					<li>
-						<label for="noti_filename">이미지 첨부</label>
+						<label for="noti_filename">
+							<div class="file-deco">이미지 첨부</div>
+						</label>
 						<input type="file" name="noti_filename" id="noti_filename" accept="image/gif,image/png,image/jpeg">
 						<c:if test="${!empty noticeboard.noti_filename}">
 						<div id="file_detail">
@@ -84,9 +87,8 @@
 						</c:if>
 					</li>
 				</ul> 
-				<div class="align-center">
+				<div class="align-right">
 					<input type="submit" value="수정">
-					<input type="button" value="글보기" onclick="location.href='detail.do?noti_num=${noticeboard.noti_num}'">
 				</div>                      
 			</form>
 		</div>

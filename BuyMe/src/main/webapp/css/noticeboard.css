@@ -44,6 +44,9 @@ a:hover{
 .align-right{
 	text-align:right;
 }
+.align-left{
+	text-align:left;
+}
 
 /* 공지 리스트 박스
 -----------------------*/
@@ -82,15 +85,19 @@ a:hover{
 .noti-text{
 	display:inline-block;
 }
+
 /* 공지 리스트 세부 구성
 -----------------------*/
-ul li{
+ul.ib li{
 	display:inline-block;
 }
 .page-number{
 	text-align:center;
 	padding:10px 0;
 }
+
+/* 검색창+button/submit
+-----------------------*/
 #ntsearch_form{
 	text-align:center;
 }
@@ -136,6 +143,35 @@ select:focus{
 	outline:none;
 	border:1px solid #737373;
 }
+input[type="submit"]{
+	width:65px;
+	height:30px;
+	border:none;
+	border-radius:7px;
+	background-color:#4B71DE;
+	color:white;
+	cursor:pointer;
+}
+/* 공지글 세부 구성
+-----------------------*/
+ul.ntdetail-sub{
+	list-style:none;
+	margin:0;
+	padding:10px;
+}
+ul.ntdetail-sub li{
+	display:inline-block;
+	width:49%;
+	height:50px;
+	vertical-align:middle;
+}
+ul.ntdetail-sub li:first-child img{
+	vertical-align:middle;
+}
+ul.ntdetail-sub li:last-child{
+	text-align:right;
+	line-height:250%;
+}
 
 .ntdetail-main{
 	margin:50px auto;
@@ -149,4 +185,85 @@ select:focus{
 }
 .detail-padding2{
 	padding:30px 39px 10px 39px;
+}
+
+/* 공지사항 작성 폼
+-----------------------*/
+.ntwrite-main{
+	margin:35px auto;
+	padding:10px 20px;
+	width:950px;
+	border:1px solid #4B71DE;
+	border-radius:7px;
+}
+.ntwrite-title{
+	margin:50px auto 0 auto;
+	padding:10px 20px;
+	width:950px;
+	height:55px;
+	border:none;
+	border-radius:7px;
+	background-color:#4B71DE;
+	color:white;
+	text-align:center;
+	line-height:0.5;
+}
+.ntwrite-form{
+	margin:0 auto;
+	padding:20px 10px;
+	width:800px;
+	font-size:15pt;
+	vertical-align:middle;
+}
+
+.ntwrite-form ul li:first-child{
+	padding:0 10px 30px 0;
+}
+.ntwrite-form ul li:first-child label[for="noti_title"]{
+	vertical-align:middle;
+}
+.ntwrite-form ul li:first-child input{
+	background-color:#F7F7F7;
+	border:none;
+	width:93%;
+	height:37px;
+	vertical-align:middle;
+}
+.ntwrite-form ul li:nth-child(2){
+	padding:0 10px 30px 0;
+}
+.ntwrite-form ul li:nth-child(2) label[for="noti_content"]{
+	vertical-align:middle;
+}
+.ntwrite-form ul li:nth-child(2) textarea{
+	background-color:#F7F7F7;
+	border:none;
+	width:100%;
+	height:400px;
+	vertical-align:middle;
+	font-size:11pt;
+}
+label[for="noti_filename"]{
+	font-size:10pt;
+}
+.file-deco{
+	width:85px;
+	height:30px;
+	border:none;
+	border-radius:7px;
+	background-color:#4B71DE;
+	text-align:center;
+	color:white;
+	cursor:pointer;
+	line-height:2;
+}
+#noti_filename{
+  display: none;
+}
+
+/* 공지사항 수정 폼
+-----------------------*/
+div #file_detail{
+	font-size:10pt;
+	float:left;
 }
