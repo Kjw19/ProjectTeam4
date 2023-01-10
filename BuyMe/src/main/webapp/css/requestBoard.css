@@ -6,9 +6,9 @@
 /* 전체 레이아웃 */
 body{
 	margin:0 auto;
-	box-sizing: border-box; /* 박스 크기의 기준 : 테두리 */
-	position: relative;
-	width: 1440px; height: 1024px;
+	box-sizing:border-box; /* 박스 크기의 기준 : 테두리 */
+	position:relative;
+	width:1440px; height:1024px;
 	/* background: #C8C8C8; 색상 흰색으로 변경해야함 */
 	font-family:'Noto Sans KR';
 }
@@ -58,8 +58,8 @@ div.header{
 header .logo{
 	font-family:'Orelega One';
 	font-size:70px;
-	padding:30px 0px 30px 60px;
-	float:left; width:17%;
+	padding:40px 0px 20px 80px;
+	float:left; width:18%;
 }
 header .logo a{
 	color: #4B71DE;
@@ -69,17 +69,17 @@ div.header ul{
 	margin:0; padding:0;
 }
 span#main_menu ul li{
-	float:left; width:150px;
-	font-size:25px; font-weight:700;
-	padding:60px 0 0 0; margin-left:30px;
+	float:left; width:115px;
+	font-size:24px; font-weight:700;
+	padding:75px 0 0 0; margin-left:30px;
 }
 span#search_menu ul li{
 	float:left;
 	font-size:25px; 
-	padding:60px 20px 0 0; margin-left:40px;
+	padding:60px 20px 0 0; margin-left:130px;
 }
 span#login_menu ul li{
-	float:left; width:100px;
+	float:left; width:80px;
 	font-size:25px; font-weight:700;
 }
 span#login_menu ul li a{
@@ -90,7 +90,7 @@ span#login_menu ul li a:hover{
 	color:#000000;
 }
 header #search_item{
-	width:250px; height:30px;
+	width:210px; height:30px;
 	background:rgba(0, 0, 0, 0.04);
 	border:2px solid #4B71DE;
 	border-radius:5px;
@@ -170,7 +170,7 @@ form#mcomm_form div#mcomm_second{
 	float:right; padding:10px 25px 10px 10px;
 }
 
-/* 이야기 한마당 */
+/* 펀딩토크 */
 form#cheerComm_form{
 	width:700px;
 	margin:0 auto; padding:30px 10px 70px 30px;
