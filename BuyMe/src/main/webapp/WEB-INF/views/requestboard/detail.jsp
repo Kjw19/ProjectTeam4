@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>글상세</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestBoard.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <%-- script type="text/javascript" src="${pageContext.request.contextPath}/js/board.fav.js"></script --%>
@@ -66,10 +65,10 @@
 	<div class="sub-header">
 		<ul>
 			<li>
-				<span id="commnet">댓글</span>
+				<span id="commnet"><a>댓글</a></span>
 			</li>
 			<li>
-				<span id="inquiry">문의</span>
+				<span id="inquiry"><a>문의</a></span>
 			</li>
 		</ul>
 	</div>
@@ -79,10 +78,10 @@
 	
 	<!-- 댓글 내용 시작 -->
 	<div id="comment_div">
-		<span class="comm-title">댓글 달기</span>
 		<form id="comm_form">
+			<span class="comm-title">댓글 작성</span><br>
 			<input type="hidden" name="req_num" value="${request_board.req_num}" id="req_num">
-			<textarea rows="5" cols="50" name="comm_content" id="comm_content" class="comm-content"
+			<textarea rows="5" cols="100" name="comm_content" id="comm_content" class="comm-content"
 			<c:if test="${empty user_num}">disabled="disabled"(비활성화)</c:if>
 			><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다.</c:if></textarea>
 			<c:if test="${!empty user_num}">
