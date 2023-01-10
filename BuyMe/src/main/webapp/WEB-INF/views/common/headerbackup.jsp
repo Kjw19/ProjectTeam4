@@ -4,27 +4,21 @@
 <!-- header 시작 -->
 <div class="header">
 	<header>
-		<span class="logo"><a href="${pageContext.request.contextPath}/main/main.do">Buy-Me</a></span>
-		<span id="main_menu">
+		<h1 class="logo"><a href="${pageContext.request.contextPath}/main/main.do">Buy-Me</a></h1>
+		<nav>
 			<ul>
 				<li class="noti"><a href="${pageContext.request.contextPath}/noticeboard/list.do">공지게시판</a></li>
 				<li class="fund"><a href="#">펀딩게시판</a></li>
 				<li class="req"><a href="${pageContext.request.contextPath}/requestBoard/list.do">문의게시판</a></li> <!-- 임시 링크, 자주 묻는 질문으로 변경할 예정 -->
-			</ul>
-		</span>	
-		<span id="search_menu">
-			<ul>
 				<form id="search_form" action="#" method="get">
 					<li>
 						<input type="search" size="16" name="search_item"
 					       	id="search_item" value="">
+					</li>
+					<li>
 						<input type="submit" id="search_item_button" value="검색">
 					</li>
 				</form>
-			</ul>
-		</span>
-		<span id="login_menu">
-			<ul>
 				<c:if test="${!empty user_num && auth == 1}">
 				<li class="myPage"><a href="#">MY페이지</a></li>
 				</c:if>
@@ -42,8 +36,8 @@
 				<li class="mem_join"><a href="#">회원가입</a></li>
 				<li class="signin"><a href="${pageContext.request.contextPath}/members/loginForm.do">로그인</a></li>
 				</c:if>
-			</ul>
-		</span>	
+			</ul>	
+		</nav>
 	</header>
 </div>
 <hr size="1" noshade="noshade" width="100%">

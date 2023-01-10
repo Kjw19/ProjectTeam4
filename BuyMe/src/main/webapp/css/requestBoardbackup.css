@@ -52,61 +52,116 @@ input[type="button"], input[type="submit"], input[type="file"]{
 }
 
 /* header 시작 */
-div.header{
+header{
 	height:110px;
 }
 header .logo{
+	width:286px;
+	height:44px;
+	top:10px;
+	padding-left:50px;
+
 	font-family:'Orelega One';
+	font-style:normal;
+	font-weight:400;
 	font-size:70px;
-	padding:30px 0px 30px 60px;
-	float:left; width:17%;
+	line-height:130%;
+	color: #4B71DE;
 }
 header .logo a{
 	color: #4B71DE;
 }
-div.header ul{
-	text-align:center; display:inline-block;
-	margin:0; padding:0;
-}
-span#main_menu ul li{
-	float:left; width:150px;
-	font-size:25px; font-weight:700;
-	padding:60px 0 0 0; margin-left:30px;
-}
-span#search_menu ul li{
+header ul{
 	float:left;
-	font-size:25px; 
-	padding:60px 20px 0 0; margin-left:40px;
 }
-span#login_menu ul li{
-	float:left; width:100px;
-	font-size:25px; font-weight:700;
+header ul li{
+	position:absolute;
+	width:137px;
+	height:92px;
+	top:35px;
+	
+	font-family:'Noto Sans KR';
+	font-style:normal;
+	font-weight:700;
+	font-size:26px;
+	line-height:130%;
 }
-span#login_menu ul li a{
-	font-size:20px;
-	color:#6C6C6C;
+header ul .noti{
+	left:350px;
 }
-span#login_menu ul li a:hover{
-	color:#000000;
+header ul .fund{
+	left:530px;
+}
+header ul .req{
+	left:710px;
 }
 header #search_item{
-	width:250px; height:30px;
-	background:rgba(0, 0, 0, 0.04);
-	border:2px solid #4B71DE;
-	border-radius:5px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 8px 16px;
+	gap: 8px;
+
+	position: absolute;
+	width:280px;
+	height:40px;
+	left: 850px;
+
+	background: rgba(0, 0, 0, 0.04);
+	border: 2px solid #4B71DE;
+	border-radius: 8px;
 }
 header #search_item_button{
-	height:30px;
-	background:#4B71DE;
-	border-radius:5px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 8px 16px;
+	gap: 8px;
+
+	position: absolute;
+	width:81px;
+	height:40px;
+	left: 1150px;
+
+	background: #4B71DE;
+	border-radius: 8px;
+}
+header .mem_join, .myPage .managePage{
+	position: absolute;
+	width: 137px;
+	height: 44px;
+	left: 1300px;
+	top: 35px;
+
+	font-family: 'Noto Sans KR';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 130%;
+}
+header .signin, .logout{
+	position: absolute;
+	width: 137px;
+	height: 44px;
+	left: 1400px;
+	top: 35px;
+
+	font-family: 'Noto Sans KR';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 130%;
+}
+
+/* header - title */
+div.requestboard-title{
+	text-align:center;
+	padding:25px 0 0 0;
+	height:111.5px;
 }
 
 /* sub-menu */
-div.requestboard-title{
-	height:150px;
-	text-align:center;
-	padding:30px 0 0 0;
-}
 div.sub-header ul{
 	text-align:center;
 	margin:0; padding:0 0 5px 0;
