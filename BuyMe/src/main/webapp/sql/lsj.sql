@@ -1,5 +1,5 @@
 --FUND_BOARD 펀딩 게시판 테이블
-creat table fund_board(
+create table fund_board(
  fund_num number not null, /*펀딩게시판 글 번호*/
  fund_title varchar2(50) not null,
  fund_content clob not null,
