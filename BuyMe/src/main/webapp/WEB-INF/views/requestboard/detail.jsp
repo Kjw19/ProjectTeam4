@@ -65,15 +65,12 @@
 	<div class="sub-header">
 		<ul>
 			<li>
-				<span id="commnet"><a>댓글</a></span>
-			</li>
-			<li>
-				<span id="inquiry"><a>문의</a></span>
+				<span id="commnet"><a href="#comment_div">댓글·문의</a></span>
 			</li>
 		</ul>
 	</div>
 	<div class="clear-both"></div>
-	<hr size="1" noshade="noshade" width="70%">
+	<hr size="1" noshade="noshade" width="90%" color="#4B71DE">
 	<!-- requestBoardHeader 끝 -->
 	
 	<!-- 댓글 내용 시작 -->

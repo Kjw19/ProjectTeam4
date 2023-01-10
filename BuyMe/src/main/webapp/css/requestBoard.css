@@ -8,9 +8,10 @@ body{
 	box-sizing: border-box; /* 박스 크기의 기준 : 테두리 */
 	position: relative;
 	width: 1440px; height: 1024px;
-	background: #E2E2E2; /* 색상 흰색으로 변경해야함 */
+	/* background: #C8C8C8; 색상 흰색으로 변경해야함 */
+	font-family:'Noto Sans KR';
 }
-ul {
+ul{
     list-style:none;
 }
 a{
@@ -41,9 +42,6 @@ a:hover{
 header{
 	height:121px;
 }
-header a, a:visited, a:hover, a:active{
-	color: #626262;
-}
 header .logo{
 	width: 286px;
 	height: 44px;
@@ -55,6 +53,9 @@ header .logo{
 	font-weight: 400;
 	font-size: 64px;
 	line-height: 130%;
+	color: #4B71DE;
+}
+header .logo a{
 	color: #4B71DE;
 }
 header ul li{
@@ -137,19 +138,33 @@ header .signin, .logout{
 	line-height: 130%;
 }
 /* header - title */
+div.requestboard-title{
+	text-align:center;
+	padding:25px 0 0 0;
+	height:111.5px;
+}
 
 /* sub-menu */
 div.sub-header ul{
 	text-align:center;
-	margin:0; padding:0;
+	padding:0 0 5px 0;
 }
 div.sub-header ul li{
 	display:inline-block;
 	border-left:1px solid #999; /* 각 메뉴의 왼쪽에 "|" 표시(분류 표시) */
 	padding:0 100px;
+	font-style:normal; font-weight:500; font-size:19px;
+	line-height:130%;
 }
 div.sub-header ul li:first-child{
 	border-left:none; /* 메뉴 분류중 제일 왼쪽의 "|"는 삭제 */
+}
+div.sub-header ul li a{
+	text-decoration:none;
+	color:#6C6C6C;
+}
+div.sub-header ul li a:hover{
+	color:#000000;
 }
 
 /* 페이지 레이아웃 */

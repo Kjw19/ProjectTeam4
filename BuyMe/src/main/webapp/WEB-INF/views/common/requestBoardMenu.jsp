@@ -13,5 +13,5 @@
 	</ul>
 </div>
 <div class="clear-both"></div>
-<hr size="1" noshade="noshade" width="70%">
+<hr size="1" noshade="noshade" width="90%" color="#4B71DE">
 <!-- requestBoardHeader 끝 -->

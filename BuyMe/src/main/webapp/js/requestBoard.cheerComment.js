@@ -28,13 +28,10 @@ $(function(){
 	
 	//이야기 작성 폼 초기화
 	function initForm(){
-		photo_path = $('.my-photo').attr('src');
-		$('#photo').val('');
 		$('#cheer_btn').show();
 		$('textarea').val('');
 		$('#cheerComm_first .letter-count').text('300/300');
 	}
-	
 	$(function(){
 		// 이미지 미리보기
 		let photo_path = $('.my-photo').attr('src'); // 처음 화면에 보여지는 이미지 읽기
@@ -65,6 +62,11 @@ $(function(){
 		$('#cheer_btn').click(function(event){
 			event.preventDefault(); // 기본 이벤트 제거
 			
+			if($('#cheerComm_title').val().trim()==''){
+				$('#cheerComm_title').val('').focus();
+				alert('이야기 제목을 알려주세요!');
+				return;
+			}
 			if($('#cheerComm_content').val().trim()==''){
 				$('#cheerComm_content').val('').focus();
 				alert('이야기를 아직 작성하지 않으셨습니다!');
@@ -90,6 +92,8 @@ $(function(){
 						alert('로그인 후 이야기를 작성하실 수 있습니다!');
 					}else if(param.result=='success'){
 						alert('이야기를 들려주셔서 감사합니다!');
+						photo_path = $('.my-photo').attr('src');
+						$('#photo').val('');
 						initForm();
 						selectList(1);
 					}else{
@@ -109,7 +113,6 @@ $(function(){
 			$('#cheer_btn').show();
 		}); // end of click_reset (이미지 미리보기 취소)
 	});
-	
 	// 이야기 목록
 	function selectList(pageNum){ // selectList(value)
 		currentPage = pageNum;
@@ -134,11 +137,17 @@ $(function(){
 				
 				$(param.list).each(function(index,item){
 					let output = '<div class="item">';
-					output += '<h4>' + item.id + '</h4>';
+					output += '<b>' + item.cheerComm_title + '</b><br>';
+					output += ' 작성자 ' + item.id + ' 작성일 ' + item.cheerComm_reg_date + '<br>';
 					output += '<div class="sub-item">';
-					output += '<p>' + item.cheerComm_title + '</p>';
+					output += '<c:if test="${empty cheerComment.photo}">';
+					output += '<img src="${pageContext.request.contextPath}/images/blank.png" width="375" height="200" class="my-photo">';
+					output += '</c:if>';
+					output += '<c:if test="${!empty cheerComment.photo}">';
+					output += '<img src="${pageContext.request.contextPath}/upload/${item.photo} width="40" height="40" class="my-photo">';
+					output += '</c:if>';
 					output += '<p>' + item.cheerComm_content + '</p>';
-					output += '<p>' + item.cheerComm_filename + '</p>';
+					
 					
 					// 로그인한 회원번호와 작성자의 회원번호 일치 여부 체크
 					if(param.user_num==item.mem_num){
@@ -171,7 +180,7 @@ $(function(){
 			}
 		});
 	}
-	// 초기 데이터(목록) 호출
+	//초기 데이터(목록) 호출
 	selectList(1);
 	// 페이지 처리 이벤트 연결(다음 댓글 보기 버튼 클릭 시 데이터 추가)
 	$('.paging-button input').click(function(){
@@ -269,8 +278,8 @@ $(function(){
 			}
 		});
 	}); 
-	/*
-	// 이야기ㅐ 삭제
+	
+	// 이야기 삭제
 	$(document).on('click','.delete-btn',function(){
 		// 이야기 번호
 		let cheerComment_num = $(this).attr('data-cheerCommentnum');
@@ -298,5 +307,4 @@ $(function(){
 			}
 		});
 	});
-	*/
 });
