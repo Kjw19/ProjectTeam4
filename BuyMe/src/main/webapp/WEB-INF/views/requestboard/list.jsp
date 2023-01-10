@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판 목록</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestBoard.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -23,6 +23,9 @@
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<div class="requestboard-title">
+			<h1>자주 묻는 질문</h1>
+	</div>
 	<jsp:include page="/WEB-INF/views/common/requestBoardMenu.jsp"/>
 	<div class="content-main">
 		<h2>게시판 목록</h2>

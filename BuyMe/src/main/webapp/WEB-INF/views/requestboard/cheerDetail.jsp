@@ -6,8 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>응원 게시판 - 메인글 상세 정보</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestboard.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestBoard.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <%-- script type="text/javascript" src="${pageContext.request.contextPath}/js/board.fav.js"></script --%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/requestBoard.cheerComment.js"></script>
@@ -15,6 +14,9 @@
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<div class="requestboard-title">
+			<h1>이야기 한마당</h1>
+	</div>
 	<jsp:include page="/WEB-INF/views/common/requestBoardMenu.jsp"/>
 	<h2>오늘은 함께 어떤 이야기를 나눠볼까요?</h2>
 	
@@ -31,13 +33,13 @@
 			<c:if test="${empty user_num}">disabled="disabled"(비활성화)</c:if>
 			><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다.</c:if></textarea>
 			<br>
-			<label for="cheerComm_filename">이야기 사진</label>
+			<label for="cheerComm_filename"></label>
 			<input type="file" name="cheerComm_filename" id="cheerComm_filename" accept="image/gif,image/png,image/jpeg">
 			<c:if test="${!empty user_num}">
 			<div id="cheerComm_first">
 				<span class="letter-count">300/300</span>
 			</div>
-			<div id="cheerComm_second" class="align-right">
+			<div id="cheerComm_second">
 				<input type="submit" value="이야기 작성">
 			</div>
 			</c:if>
