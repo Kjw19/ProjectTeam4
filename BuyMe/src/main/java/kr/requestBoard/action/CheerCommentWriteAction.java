@@ -16,7 +16,7 @@ import kr.requestBoard.dao.RequestCheerCommentDAO;
 import kr.requestBoard.vo.RequestCheerCommentVO;
 import kr.util.FileUtil;
 
-public class cheerCommentWriteAction implements Action{
+public class CheerCommentWriteAction implements Action{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Map<String, String> mapAjax = new HashMap<String, String>();
@@ -36,11 +36,11 @@ public class cheerCommentWriteAction implements Action{
 			cheerComment.setCheerComm_content(multi.getParameter("cheerComm_content"));
 			cheerComment.setCheerComm_filename(multi.getFilesystemName("cheerComm_filename"));
 			cheerComment.setCheerComm_ip(request.getRemoteAddr());
-			cheerComment.setCheer_num(Integer.parseInt(request.getParameter("cheer_num")));
+			cheerComment.setCheer_num(Integer.parseInt(multi.getParameter("cheer_num")));
 			
 			RequestCheerCommentDAO dao = RequestCheerCommentDAO.getInstance();
 			dao.insertCheerCommentBoard(cheerComment);
-
+			
 			mapAjax.put("result", "success"); // 정상적으로 처리될 시
 		}
 

@@ -22,27 +22,47 @@
 	
 	<!-- 댓글 내용 시작 -->
 	<div id="cheerComment_div">
-		<span class="cheerComm-title">회원님의 오늘을 들려주세요!</span>
-		<form id="cheerComm_form" enctype="multipart/form-data">
-			<input type="hidden" name="cheerComment_num" value="${request_cheer.cheer_num}" id="cheer_num">
-			<textarea rows="1" cols="50" name="cheerComm_title" id="cheerComm_title" class="cheerComm_title" placeholder="나의 이야기 제목"
-			<c:if test="${empty user_num}">disabled="disabled"(비활성화)</c:if>
-			><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다.</c:if></textarea>
-			<br>
-			<textarea rows="5" cols="50" name="cheerComm_content" id="cheerComm_content" class="cheerComm-content" placeholder="나의 이야기 내용"
-			<c:if test="${empty user_num}">disabled="disabled"(비활성화)</c:if>
-			><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다.</c:if></textarea>
-			<br>
-			<label for="cheerComm_filename"></label>
-			<input type="file" name="cheerComm_filename" id="cheerComm_filename" accept="image/gif,image/png,image/jpeg">
-			<c:if test="${!empty user_num}">
-			<div id="cheerComm_first">
-				<span class="letter-count">300/300</span>
-			</div>
-			<div id="cheerComm_second">
-				<input type="submit" value="이야기 작성">
-			</div>
-			</c:if>
+		<form id="cheerComm_form">
+			<ul>
+				<li>
+					<span class="cheerComm-subTitle">회원님의 오늘을 들려주세요! 작성 시, 내용은 필수로 입력하셔야 합니다! (제목, 사진 필수x)</span>
+				</li>
+				<li>
+					<input type="hidden" name="cheerComment_num" value="${cheerBoardVO.cheer_num}" id="cheerComment_num">
+				</li>
+				<li>
+					<textarea rows="1" cols="50" name="cheerComm_title" id="cheerComm_title" class="cheerComm_title" placeholder="나의 이야기 제목"
+					<c:if test="${empty user_num}">disabled="disabled"(비활성화)</c:if>
+					><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다.</c:if></textarea>
+				</li>
+				<li>
+					<textarea rows="5" cols="50" name="cheerComm_content" id="cheerComm_content" class="cheerComm-content" placeholder="나의 이야기 내용"
+					<c:if test="${empty user_num}">disabled="disabled"(비활성화)</c:if>
+					><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다.</c:if></textarea>
+				</li>
+				<li>
+					<c:if test="${empty cheerComment.photo}">
+						<img src="${pageContext.request.contextPath}/images/blank.png" width="375" height="200" class="my-photo">
+					</c:if>
+					<c:if test="${!empty cheerComment.photo}">
+						<img src="${pageContext.request.contextPath}/upload/${cheerBoardVO.photo}" width="200" height="200" class="my-photo">
+					</c:if>
+				</li>
+				<li>
+					<c:if test="${!empty user_num}">
+					<div id="cheerComm_first">
+						<span class="letter-count">300/300</span>
+					</div>
+					</c:if>
+					<div id="photo_choice">
+						<input type="file" name="photo" id="photo" accept="image/gif,image/png,image/jpeg"><br>
+						<input type="button" value="취소" id="photo_reset">
+					</div>
+					<div id="cheerComm_second">
+						<input type="button" value="이야기 작성" id="cheer_btn">
+					</div>
+				</li>
+			</ul>
 		</form>
 	</div> <!-- end of comment_div -->
 	<!-- 댓글 내용 끝 -->
