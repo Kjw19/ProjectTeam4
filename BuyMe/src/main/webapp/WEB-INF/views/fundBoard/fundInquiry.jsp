@@ -13,10 +13,12 @@
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<jsp:include page="/WEB-INF/views/common/fundBoardDetailMenu.jsp"/>
 	
+	<h2>${fund.fund_title}</h2>
 	<!-- 댓글 시작 -->
 		<div id="inquiry_div">
-			<span class="inqu_title">댓글 달기</span>
+			<span class="inqu_title">문의 작성</span>
 			<form id="inqu_form">
 				<input type="hidden" name="fund_num" 
 				       value="${fund.fund_num}" id="fund_num">

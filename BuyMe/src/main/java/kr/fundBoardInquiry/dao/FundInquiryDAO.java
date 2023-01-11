@@ -130,8 +130,8 @@ public class FundInquiryDAO {
 				
 				inqu.setInqu_content(StringUtil.useBrNoHtml(
 						           rs.getString("inqu_content")));
-				inqu.setRe_inqu_is_ok(StringUtil.useBrNoHtml(
-				           rs.getString("re_inqu_is_ok")));
+//				inqu.setRe_inqu_is_ok(StringUtil.useBrNoHtml(
+//				           rs.getString("re_inqu_is_ok")));
 				inqu.setFund_num(rs.getInt("fund_num"));
 				inqu.setMem_num(rs.getInt("mem_num"));
 				inqu.setId(rs.getString("id"));
@@ -302,7 +302,7 @@ public class FundInquiryDAO {
 	}
 	
 	//총 문의 수
-	public int getFundInquCount() throws Exception{
+	public int getFundInquCount(int fund_num) throws Exception{
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -315,21 +315,30 @@ public class FundInquiryDAO {
 			conn = DBUtil.getConnection();
 			
 			//SQL문 작성
-			sql = "SELECT COUNT(*) FROM fund_inquiry b JOIN member m USING(mem_num) ";
+			sql = "SELECT COUNT(*) FROM fund_Inquiry f "
+					+ "JOIN member m ON f.mem_num=m.mem_num "
+					+ "WHERE f.fund_num=?";
+			
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			
-			//SQL문을 실행하고 결과행을 ResultSet 담음
+			//?에 데이터 바인딩
+			pstmt.setInt(1, fund_num);
+			
+			//SQL문을 실행해서 결과행을 ResultSet 담음
 			rs = pstmt.executeQuery();
+			
 			if(rs.next()) {
 				count = rs.getInt(1);
 			}
-		}catch(Exception e) {
+		}
+		catch(Exception e) {
 			throw new Exception(e);
-		}finally {
+		}
+		finally {
 			DBUtil.executeClose(rs, pstmt, conn);
 		}
-		return count;
+			return count;
 	}
 			
 	

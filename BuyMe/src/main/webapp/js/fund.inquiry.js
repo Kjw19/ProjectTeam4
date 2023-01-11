@@ -32,7 +32,10 @@ $(function(){
 					output += '<h4>' + item.id + '</h4>';
 					output += '<div class="sub-item">';
 					output += '<p>' + item.inqu_content + '</p>';
-					output += '<p>' + item.re_inqu_is_ok + '</P>';
+					if(item.re_inqu_is_ok != null){
+					output += '<p>' + item.re_inqu_is_ok + '</P>';						
+					}
+
 					
 					//로그인한 회원번호와 작성자의 회원번호 일치 여부 체크
 					if(param.user_num == item.mem_num){

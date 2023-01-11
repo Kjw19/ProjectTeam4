@@ -13,6 +13,7 @@
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<jsp:include page="/WEB-INF/views/common/fundBoardDetailMenu.jsp"/>
 	
 	<!-- 댓글 시작 -->
 		<div id="comment_div">
