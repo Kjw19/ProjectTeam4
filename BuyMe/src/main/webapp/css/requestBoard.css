@@ -96,15 +96,21 @@ span#login_menu ul li a:hover{
 	color:#000000;
 }
 header #search_item{
-	width:210px; height:30px;
+	width:210px; height:32px;
 	background:rgba(0, 0, 0, 0.04);
 	border:2px solid #4B71DE;
 	border-radius:5px;
 }
 header #search_item_button{
-	height:30px;
+	height:32px;
 	background:#4B71DE;
 	border-radius:5px;
+}
+input#search_item{
+	background-image:url('../images/searchicon.png');
+	background-repeat:no-repeat;
+    background-size:16px;
+    background-position:170px center;
 }
 
 /* sub-menu */

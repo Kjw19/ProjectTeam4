@@ -17,7 +17,7 @@
 				<form id="search_form" action="#" method="get">
 					<li>
 						<input type="search" size="16" name="search_item"
-					       	id="search_item" value="">
+					       	id="search_item" value="" placeholder="새로운 것을 찾으시나요?">
 						<input type="submit" id="search_item_button" value="검색">
 					</li>
 				</form>

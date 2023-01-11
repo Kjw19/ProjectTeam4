@@ -33,12 +33,12 @@
 					<input type="hidden" name="cheerComment_num" value="${cheerBoardVO.cheer_num}" id="cheerComment_num">
 				</li>
 				<li>
-					<textarea rows="1" cols="70" name="cheerComm_title" id="cheerComm_title" class="cheerComm_title" placeholder="나의 이야기 제목"
+					<textarea rows="1" cols="70" name="cheerComm_title" id="cheerComm_title" class="cheerComm_title" placeholder="나의 타임라인 제목"
 					<c:if test="${empty user_num}">disabled="disabled"(비활성화)</c:if>
 					><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다.</c:if></textarea>
 				</li>
 				<li>
-					<textarea rows="5" cols="70" name="cheerComm_content" id="cheerComm_content" class="cheerComm-content" placeholder="나의 이야기 내용"
+					<textarea rows="5" cols="70" name="cheerComm_content" id="cheerComm_content" class="cheerComm-content" placeholder="나의 타임라인 내용"
 					<c:if test="${empty user_num}">disabled="disabled"(비활성화)</c:if>
 					><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다.</c:if></textarea>
 				</li>
