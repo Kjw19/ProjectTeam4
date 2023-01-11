@@ -27,17 +27,17 @@ public class DeleteFileAction implements Action{
 		if(user_num==null) {//로그인이 되지 않은 경우
 		mapAjax.put("result", "logout");
 		}else {//로그인 된 경우
-		int board_num = Integer.parseInt(
-				     request.getParameter("board_num"));
+		int fund_num = Integer.parseInt(
+				     request.getParameter("fund_num"));
 		
 		FundBoardDAO dao = FundBoardDAO.getInstance();
-		FundBoardVO db_fundboard = dao.getFundBoard(board_num);
+		FundBoardVO db_fundboard = dao.getFundBoard(fund_num);
 		if(user_num!=db_fundboard.getMem_num()) {
 			//로그인한 사람과 작성자가 불일치한 경우
 			mapAjax.put("result", "wrongAccess");
 		}else {
 			//로그인한 사람과 작성자 일치
-			dao.deleteFile(board_num);
+			dao.deleteFile(fund_num);
 			//파일 삭제
 			FileUtil.removeFile(request, 
 					          db_fundboard.getFund_filename());

@@ -14,7 +14,7 @@ public class DetailAction implements Action{
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//글번호 반환
 		int fund_num = Integer.parseInt(
-						       request.getParameter("board_num"));
+						       request.getParameter("fund_num"));
 				
 		FundBoardDAO dao = FundBoardDAO.getInstance();
 		//조회수 증가

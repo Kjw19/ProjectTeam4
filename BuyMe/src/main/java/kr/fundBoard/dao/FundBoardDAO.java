@@ -51,6 +51,50 @@ public class FundBoardDAO {
 		}
 	}
 	
+	//총 레코드 수(검색 레코드 수)
+		public int getFundBoardCount(String keyfield, 
+				                 String keyword)
+		                                    throws Exception{
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = null;
+			String sub_sql = "";//검색시 사용
+			int count = 0;
+			
+			try {
+				//커넥셔풀로부터 커넥션 할당
+				conn = DBUtil.getConnection();
+				
+				if(keyword != null && !"".equals(keyword)) {
+					//검색글 개수
+					if(keyfield.equals("1")) sub_sql += "WHERE b.fund_title LIKE ?";
+					else if(keyfield.equals("2")) sub_sql += "WHERE m.fund_id LIKE ?";
+					else if(keyfield.equals("3")) sub_sql += "WHERE b.fund_content LIKE ?";
+					else if(keyfield.equals("4")) sub_sql += "WHERE b.category_num LIKE ?";
+				}
+				
+				
+				//SQL문 작성
+				sql = "SELECT COUNT(*) FROM fund_board b JOIN fund_member m USING(mem_num) " + sub_sql;
+				//PreparedStatement 객체 생성
+				pstmt = conn.prepareStatement(sql);
+				if(keyword !=null && !"".equals(keyword)) {
+					pstmt.setString(1, "%" + keyword + "%");
+				}
+
+				//SQL문을 실행하고 결과행을 ResultSet 담음
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					count = rs.getInt(1);
+				}
+			}catch(Exception e) {
+				throw new Exception(e);
+			}finally {
+				DBUtil.executeClose(rs, pstmt, conn);
+			}
+			return count;
+		}
 	//글목록(검색 글 목록)
 	public List<FundBoardVO> getListFundBoard(int start, int end,
 									String keyfield, String keyword) throws Exception{
