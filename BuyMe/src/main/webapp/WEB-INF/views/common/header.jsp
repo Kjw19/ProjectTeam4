@@ -9,7 +9,7 @@
 			<ul>
 				<li class="noti"><a href="${pageContext.request.contextPath}/noticeboard/list.do">공지사항</a></li>
 				<li class="fund"><a href="#">펀딩게시판</a></li>
-				<li class="req"><a href="${pageContext.request.contextPath}/requestBoard/list.do">문의게시판</a></li> <!-- 임시 링크, 자주 묻는 질문으로 변경할 예정 -->
+				<li class="req"><a href="${pageContext.request.contextPath}/requestBoard/list.do">커뮤니티</a></li>
 			</ul>
 		</span>	
 		<span id="search_menu">

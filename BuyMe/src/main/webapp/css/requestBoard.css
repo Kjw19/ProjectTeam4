@@ -41,7 +41,7 @@ div.clear-both{
 .align-right{
 	text-align:right;
 }
-input[type="button"], input[type="submit"], input[type="file"]{
+input[type="button"], input[type="submit"]{
 	width:60px;
 	height:27px;
 	border:none;
@@ -49,6 +49,12 @@ input[type="button"], input[type="submit"], input[type="file"]{
 	background-color:#4B71DE;
 	color:white;
 	cursor:pointer;
+}
+div#photo_choice input[type="file"]{
+	width:200px;
+}
+div#photo_choice input[type="button"]{
+	width:100px;
 }
 
 /* header 시작 */
@@ -143,6 +149,12 @@ div.sub-header ul li a:hover{
 	width:950px;
 	border:1px solid #E8E8E8;
 	border-radius:7px;
+}
+/* 페이지 제목 */
+span.halfline{
+	font-size:30px;
+	margin-bottom:20px;
+	background:linear-gradient(to top,#A0FAF0 30%,transparent 50%);
 }
 
 /* 댓글 등록, 수정 폼 */

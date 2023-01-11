@@ -19,8 +19,11 @@
 	</div>
 	<jsp:include page="/WEB-INF/views/common/requestBoardMenu.jsp"/>
 	<div class="content-main">
-		<h2>오늘도 펀딩에 대해 소소한 얘기 시작해 봐요</h2>
-		<span><b>회원님의 오늘을 들려주세요!</b> (작성 시, 제목과 내용은 필수로 입력하셔야 합니다! 사진은 등록하지 않으셔도 됩니다.)</span>
+		<span class="halfline">
+			<b><i>TimeLine</i></b>
+		</span>
+		<br>
+		<span><b>회원님의 오늘을 들려주세요!</b> (작성 시, 사진은 등록하지 않으셔도 됩니다.)</span>
 	
 	<!-- 댓글 내용 시작 -->
 	<div id="cheerComment_div">
@@ -50,7 +53,7 @@
 				<li>
 					<div id="photo_choice">
 						<input type="file" name="photo" id="photo" accept="image/gif,image/png,image/jpeg"><br>
-						<input type="button" value="취소" id="photo_reset">
+						<input type="button" value="파일 선택 취소" id="photo_reset">
 					</div>
 					<c:if test="${!empty user_num}">
 					<div id="cheerComm_second">
@@ -71,7 +74,7 @@
 	<div id="cheerComment_div2">
 		<div id="output"></div>
 			<div class="paging-button" style="display:none;">
-				<input type="button" value="다음 댓글 보기">
+				<input type="button" value="more">
 			</div>
 			<div id="loading" style="display:none;">
 				<img src="${pageContext.request.contextPath}/images/loading.gif" width="50" height="50">

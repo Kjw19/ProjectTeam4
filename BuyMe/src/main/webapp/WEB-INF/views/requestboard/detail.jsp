@@ -97,7 +97,7 @@
 	<div id="commentList_div">
 	<div id="output"></div>
 		<div class="paging-button" style="display:none;">
-			<input type="button" value="다음 댓글 보기">
+			<input type="button" value="more">
 		</div>
 		<div id="loading" style="display:none;">
 			<img src="${pageContext.request.contextPath}/images/loading.gif" width="50" height="50">
