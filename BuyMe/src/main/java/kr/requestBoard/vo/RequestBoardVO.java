@@ -76,5 +76,11 @@ public class RequestBoardVO {
 	public void setMem_num(int mem_num) {
 		this.mem_num = mem_num;
 	}
+	@Override
+	public String toString() {
+		return "RequestBoardVO [req_num=" + req_num + ", req_title=" + req_title + ", req_content=" + req_content
+				+ ", req_hit=" + req_hit + ", req_reg_date=" + req_reg_date + ", req_modify_date=" + req_modify_date
+				+ ", req_ip=" + req_ip + ", req_filename=" + req_filename + ", mem_num=" + mem_num + ", id=" + id + "]";
+	}
 
 }

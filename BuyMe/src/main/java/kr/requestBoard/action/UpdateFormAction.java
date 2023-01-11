@@ -21,11 +21,11 @@ public class UpdateFormAction implements Action{
 		
 		//로그인 된 경우
 		//글번호 반환
-		int board_num = Integer.parseInt(
+		int req_num = Integer.parseInt(
 				request.getParameter("board_num"));
 
 		RequestBoardDAO dao = RequestBoardDAO.getInstance();
-		RequestBoardVO board = dao.getBoard(board_num);
+		RequestBoardVO board = dao.getBoard(req_num);
 		if(user_num!=board.getMem_num()) {
 			//로그인한 회원번호와 작성자 회원번호가 불일치
 			return "/WEB-INF/views/common/notice.jsp";			
@@ -38,8 +38,8 @@ public class UpdateFormAction implements Action{
 		board.setReq_title(StringUtil.parseQuot(
 				                      board.getReq_title()));
 		
-		request.setAttribute("board", board);
+		request.setAttribute("request_board", board);
 
-		return "/WEB-INF/views/board/updateForm.jsp";
+		return "/WEB-INF/views/requestboard/updateForm.jsp";
 	}
 }

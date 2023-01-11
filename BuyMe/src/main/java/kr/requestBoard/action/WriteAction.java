@@ -18,7 +18,7 @@ public class WriteAction implements Action{
 		Integer user_num = 
 				(Integer)session.getAttribute("user_num");
 		if(user_num==null) {//로그인이 되지 않은 경우
-			return "redirect:/member/loginForm.do";
+			return "redirect:/members/loginForm.do";
 		}
 		//로그인 된 경우
 		MultipartRequest multi = 
@@ -33,7 +33,7 @@ public class WriteAction implements Action{
 		RequestBoardDAO dao = RequestBoardDAO.getInstance();
 		dao.insertBoard(board);
 		
-		return "/WEB-INF/views/board/write.jsp";
+		return "/WEB-INF/views/requestboard/write.jsp";
 	
 	}
 }
