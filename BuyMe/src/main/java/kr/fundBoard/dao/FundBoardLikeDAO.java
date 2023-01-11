@@ -48,7 +48,7 @@ public class FundBoardLikeDAO {
 		}
 		
 		//좋아요 개수
-		public int selectLikeCount(int board_num) throws Exception{
+		public int selectLikeCount(int fund_num) throws Exception{
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
@@ -62,7 +62,7 @@ public class FundBoardLikeDAO {
 				sql = "SELECT COUNT(*) FROM fund_like WHERE fund_num=?";
 				//PreparedStatement 객체 생성
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, board_num);
+				pstmt.setInt(1, fund_num);
 				//SQL문을 실행하고 결과행을 ResultSet에 담음
 				rs = pstmt.executeQuery();
 				if(rs.next()) {
@@ -99,8 +99,8 @@ public class FundBoardLikeDAO {
 				
 				if(rs.next()) {
 					like = new FundBoardLikeVO();
-					like.setLike_num(rs.getInt("fav_num"));
-					like.setFund_num(rs.getInt("board_num"));
+					like.setLike_num(rs.getInt("like_num"));
+					like.setFund_num(rs.getInt("fund_num"));
 					like.setMem_num(rs.getInt("mem_num"));
 				}
 			}catch(Exception e) {

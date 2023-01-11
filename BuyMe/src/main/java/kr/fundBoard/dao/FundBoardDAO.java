@@ -129,7 +129,7 @@ public class FundBoardDAO {
 			board.setMem_num(rs.getInt("mem_num"));
 			board.setId(rs.getString("id"));
 			board.setCategory_num(rs.getInt("Category_num"));
-			//board.setPhoto(rs.getString("photo")); //Fund_filename로 대체
+			board.setFund_photo(rs.getString("fund_photo")); //Fund_filename로 대체
 		}catch(Exception e) {
 			throw new Exception(e);
 		}finally {

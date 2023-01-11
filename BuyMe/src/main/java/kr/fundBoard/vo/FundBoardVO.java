@@ -16,8 +16,14 @@ public class FundBoardVO {
 	private int mem_num;
 	
 	private String id;
-	//private String photo; fund_filename로 대체
+	private String fund_photo; //fund_filename로 대체
 	
+	public String getFund_photo() {
+		return fund_photo;
+	}
+	public void setFund_photo(String fund_photo) {
+		this.fund_photo = fund_photo;
+	}
 	public String getId() {
 		return id;
 	}
