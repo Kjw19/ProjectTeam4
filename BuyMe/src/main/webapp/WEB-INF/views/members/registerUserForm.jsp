@@ -42,7 +42,7 @@ $(function(){
 				alert('네트워크 오류 발생');
 			}
 		});
-	}); // end of click
+	}); // end of click  
 	
 	// 아이디 중복 안내 메시지 초기화 및 아이디 중복 값 초기화
 	$('#register_form #id').keydown(function(){

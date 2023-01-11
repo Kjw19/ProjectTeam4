@@ -74,7 +74,7 @@ public class MemberDAO {
 			DBUtil.executeClose(rs, pstmt, conn);
 		}
 
-	}
+	} 
 	//ID 중복 체크 및 로그인 처리
 	public MemberVO checkMember(String id)throws Exception{
 		Connection conn = null;
