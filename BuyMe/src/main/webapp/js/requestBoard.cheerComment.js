@@ -23,7 +23,7 @@ $(function(){
 				// 수정폼 글자수
 				$('#mcheerComm_first .letter-count').text(remain);
 			}
-		}
+		} 
 	});
 	
 	//이야기 작성 폼 초기화

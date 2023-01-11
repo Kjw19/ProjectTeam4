@@ -5,7 +5,7 @@
 /* 공통 레이아웃
 ------------------------*/
 body{
-	margin:0 auto;
+	margin:0 auto; 
 	box-sizing: border-box;
 
 	position: relative;

@@ -35,7 +35,7 @@
 					<li>[<span>admin</span>]</li>
 					<li><a href="#">로그아웃</a></li>
 				</c:if>
-				--%>
+				--%> 
 				<c:if test="${!empty user_num}">
 					<li class="myPage">[<span><a href="#">id=?</a></span>]</li>
 					<li class="logout"><a href="#">로그아웃</a></li>
