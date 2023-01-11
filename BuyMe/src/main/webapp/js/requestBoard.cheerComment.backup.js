@@ -39,12 +39,10 @@ $(function(){
 		
 		$('#photo').change(function(){
 			my_photo = this.files[0];
-			
 			if(!my_photo){
 				$('.my-photo').attr('src',photo_path);
 				return; // 선택한 이미지가 없으니 다시 선택하게끔
 			}
-			
 			
 			// 파일 용량 체크
 			if(my_photo.size>1024*1024){
@@ -70,7 +68,6 @@ $(function(){
 				alert('타임라인 제목을 알려주세요!');
 				return;
 			}
-			
 			if($('#cheerComm_content').val().trim()==''){
 				$('#cheerComm_content').val('').focus();
 				alert('타임라인을 아직 작성하지 않으셨습니다!');
@@ -99,8 +96,7 @@ $(function(){
 						initForm();
 						selectList(1);
 						// 이미지 초기화
-						$('$cheerComm_filename').val('');
-						alert('이미지 초기화 완료');
+						my_photo.val('');
 					}else{
 						alert('타임라인 작성 오류 발생');
 					}
@@ -145,15 +141,17 @@ $(function(){
 					output += '<b>' + item.cheerComm_title + '</b><br>';
 					output += '<span> 작성자 ' + item.id + '(' + item.cheerComm_reg_date + ')</span><br>';
 					output += '<br><div class="sub-item">';
-					//output += '<span><img src="../upload/'+item.cheerComm_filename+'" width="200" height="150"></span>';
+					output += '<span><img src="../upload/'+item.cheerComm_filename+'" width="200" height="150"></span>';
 					
-					
-					if(item.cheerComm_filename!=null){
-						output += '<span><img src="../upload/'+item.cheerComm_filename+'" width="200" height="150"></span>';
+					/*
+					if(item.photo!=null){
+						output += '<span>' + item.my_photo + '</span>';
+						// ${pageContext.request.contextPath}/upload/${cheerBoardVO.photo}
 					}else{
+						//output += '<img src="../images/blank.png" width="330" height="180" class="my-photo">';
 						output += '<span></span>';
 					}
-					
+					*/
 					
 					
 					output += '<p>' + item.cheerComm_content + '</p>';

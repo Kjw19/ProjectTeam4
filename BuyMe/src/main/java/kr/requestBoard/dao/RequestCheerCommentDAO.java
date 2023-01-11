@@ -108,8 +108,13 @@ public class RequestCheerCommentDAO {
 					cheerComment.setCheerComment_num(rs.getInt("cheerComment_num"));
 					cheerComment.setCheerComm_title(StringUtil.useBrNoHtml(rs.getString("cheerComm_title")));
 					cheerComment.setCheerComm_content(StringUtil.useBrNoHtml(rs.getString("cheerComm_content")));
+					cheerComment.setCheerComm_reg_date(rs.getString("cheerComm_reg_date"));
 					cheerComment.setMem_num(rs.getInt("mem_num"));
 					cheerComment.setCheer_num(rs.getInt("cheer_num"));
+					cheerComment.setId(rs.getString("id"));
+					cheerComment.setCheerComm_filename(rs.getString("cheerComm_filename"));
+					//cheerComment.setPhoto(rs.getString("photo"));
+					
 					
 					list.add(cheerComment);
 				}

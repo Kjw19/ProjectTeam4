@@ -41,7 +41,7 @@
 					<li class="logout"><a href="${pageContext.request.contextPath}/members/logout.do">로그아웃</a></li>
 				</c:if>
 				<c:if test="${empty user_num}">
-					<li class="mem_join"><a href="#">회원가입</a></li>
+					<li class="mem_join"><a href="${pageContext.request.contextPath}/members/registerUserForm.do">회원가입</a></li>
 					<li class="signin"><a href="${pageContext.request.contextPath}/members/loginForm.do">로그인</a></li>
 				</c:if>
 			</ul>

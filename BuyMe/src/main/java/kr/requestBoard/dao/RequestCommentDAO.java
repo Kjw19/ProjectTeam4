@@ -110,6 +110,7 @@ public class RequestCommentDAO {
 				comment.setComm_reg_date(DurationFromNow.getTimeDiffLabel(rs.getString("comm_reg_date")));
 				comment.setMem_num(rs.getInt("mem_num"));
 				comment.setReq_num(rs.getInt("req_num"));
+				comment.setId(rs.getString("id"));
 				
 				list.add(comment);
 			}

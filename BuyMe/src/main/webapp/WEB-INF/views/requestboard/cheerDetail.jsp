@@ -23,7 +23,7 @@
 			<b><i>TimeLine</i></b>
 		</span>
 		<br>
-		<span><b>회원님의 오늘을 들려주세요!</b> (작성 시, 사진은 등록하지 않으셔도 됩니다.)</span>
+		<span><b>회원님의 오늘을 들려주세요!</b></span>
 	
 	<!-- 댓글 내용 시작 -->
 	<div id="cheerComment_div">
@@ -52,7 +52,7 @@
 				</li>
 				<li>
 					<div id="photo_choice">
-						<input type="file" name="photo" id="photo" accept="image/gif,image/png,image/jpeg"><br>
+						<input type="file" name="cheerComm_filename" id="photo" accept="image/gif,image/png,image/jpeg"><br>
 						<input type="button" value="파일 선택 취소" id="photo_reset">
 					</div>
 					<c:if test="${!empty user_num}">
