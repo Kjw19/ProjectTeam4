@@ -21,7 +21,7 @@ $(function() {
 		$.ajax({
 			url:'writeFav.do',
 			type:'post',
-			data:{noti_num:$('board_num').val()},
+			data:{noti_num:$('#noti_num').val()},
 			datType:'json',
 			success:function(param){
 				if(param.result == 'logout') {
@@ -55,6 +55,6 @@ $(function() {
 	} //end of displayFav
 	
 	//초기 데이터 표시
-	selectFav($('#board_num').val());
+	selectFav($('#noti_num').val());
 	
 });

@@ -25,7 +25,7 @@ public class NoticeBoardFavDAO {
 				
 	
 	//좋아요 등록 메소드 
-	public void insertNoticeFav(NoticeBoardFavsVO favVO) throws Exception{
+	public void insertNoticeFav(NoticeBoardFavsVO favsVO) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
@@ -34,8 +34,9 @@ public class NoticeBoardFavDAO {
 			conn = DBUtil.getConnection();
 			sql = "INSERT INTO notice_like(like_num, noti_num, mem_num) VALUES(notice_like_seq.nextval, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1,favVO.getNoti_num() );
-			pstmt.setInt(2,favVO.getMem_num());
+			pstmt.setInt(1,favsVO.getNoti_num());
+			pstmt.setInt(2,favsVO.getMem_num());
+			
 			pstmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -45,7 +46,7 @@ public class NoticeBoardFavDAO {
 		}
 	}
 	
-	//좋아요 개수  메소드
+	//좋아요 개수 메소드
 	public int selectNoticeFavCount(int noti_num) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -73,7 +74,7 @@ public class NoticeBoardFavDAO {
 	}
 	
 	//회원이 게시물을 호출했을 때 좋아요 선택 여부 표시 
-	public NoticeBoardFavsVO selectNoticeFav(NoticeBoardFavsVO favVO) throws Exception {
+	public NoticeBoardFavsVO selectNoticeFav(NoticeBoardFavsVO favsVO) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -85,8 +86,8 @@ public class NoticeBoardFavDAO {
 			sql = "SELECT * FROM notice_like WHERE noti_num =? AND mem_num = ?";
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, favVO.getNoti_num());
-			pstmt.setInt(2, favVO.getMem_num());
+			pstmt.setInt(1, favsVO.getNoti_num());
+			pstmt.setInt(2, favsVO.getMem_num());
 			
 			rs = pstmt.executeQuery();
 			
@@ -101,7 +102,7 @@ public class NoticeBoardFavDAO {
 		} finally {
 			DBUtil.executeClose(rs, pstmt, conn);
 		}
-		return favVO;
+		return fav;
 	}
 	
 	//좋아요 삭제 메소드 

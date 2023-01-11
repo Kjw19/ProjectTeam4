@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import kr.controller.Action;
-import kr.noticeBoard.dao.NoticeBoardDAO;
+
 import kr.noticeBoard.vo.NoticeBoardFavsVO;
 import kr.noticeBoardFav.dao.NoticeBoardFavDAO;
 
@@ -21,10 +21,11 @@ public class GetFavAction implements Action {
 		request.setCharacterEncoding("utf-8");
 		// 전송된 데이터 반환
 		int noti_num = Integer.parseInt(request.getParameter("noti_num"));
-		Map<String, Object> mapAjax = new HashMap<String, Object>();
+		
+		Map<String,Object> mapAjax = new HashMap<String,Object>();
 
 		HttpSession session = request.getSession();
-		Integer user_num = (Integer) session.getAttribute("user_num");
+		Integer user_num = (Integer)session.getAttribute("user_num");
 
 		NoticeBoardFavDAO dao = NoticeBoardFavDAO.getInstance();
 
@@ -32,13 +33,13 @@ public class GetFavAction implements Action {
 			mapAjax.put("status", "noFav");
 			mapAjax.put("count", dao.selectNoticeFavCount(noti_num));
 		} else {
-			NoticeBoardFavsVO favVO = new NoticeBoardFavsVO();
-			favVO.setNoti_num(noti_num);
-			favVO.setMem_num(user_num);
+			NoticeBoardFavsVO favsVO = new NoticeBoardFavsVO();
+			favsVO.setNoti_num(noti_num);
+			favsVO.setMem_num(user_num);
 
-			NoticeBoardFavsVO boardFav = dao.selectNoticeFav(favVO);
+			NoticeBoardFavsVO boardFav = dao.selectNoticeFav(favsVO);
 			if (boardFav != null) {
-				mapAjax.put("status", "yseFav");
+				mapAjax.put("status", "yesFav");
 				mapAjax.put("count", dao.selectNoticeFavCount(noti_num));
 			} else {
 				mapAjax.put("status", "noFav");

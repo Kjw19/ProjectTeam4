@@ -16,10 +16,10 @@ import kr.noticeBoardFav.dao.NoticeBoardFavDAO;
 public class WriteFavAction implements Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		Map<String, Object> mapAjax = new HashMap<String, Object>();
+		Map<String,Object> mapAjax = new HashMap<String,Object>();
 
 		HttpSession session = request.getSession();
-		Integer user_num = (Integer) session.getAttribute("user_num");
+		Integer user_num = (Integer)session.getAttribute("user_num");
 
 		if (user_num == null) {
 			mapAjax.put("result", "logout");
@@ -28,17 +28,26 @@ public class WriteFavAction implements Action {
 
 			int noti_num = Integer.parseInt(request.getParameter("noti_num"));
 
-			NoticeBoardFavsVO favsVo = new NoticeBoardFavsVO();
-			favsVo.setNoti_num(noti_num);
-			favsVo.setMem_num(user_num);
+			NoticeBoardFavsVO favsVO = new NoticeBoardFavsVO();
+			favsVO.setNoti_num(noti_num);
+			favsVO.setMem_num(user_num);
 
 			NoticeBoardFavDAO dao = NoticeBoardFavDAO.getInstance();
-			NoticeBoardFavsVO db_fav = dao.selectNoticeFav(favsVo);
+			//좋아요 등록 여부 체크
+			NoticeBoardFavsVO db_fav = dao.selectNoticeFav(favsVO);
 
 			if (db_fav != null) {
+				//좋아요 삭제
 				dao.deleteNoticeFav(db_fav.getLike_num());
 				mapAjax.put("result", "success");
 				mapAjax.put("status", "noFav");
+				mapAjax.put("count", dao.selectNoticeFavCount(noti_num));
+			}
+			else {
+				//좋아요 등록
+				dao.insertNoticeFav(favsVO);
+				mapAjax.put("result", "success");
+				mapAjax.put("status", "yesFav");
 				mapAjax.put("count", dao.selectNoticeFavCount(noti_num));
 			}
 

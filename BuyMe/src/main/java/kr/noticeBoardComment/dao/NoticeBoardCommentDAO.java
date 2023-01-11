@@ -31,7 +31,7 @@ public void insertNoticeBoardComment(NoticeBoardCommentVO noticeBoardComment) th
 	
 	try {
 		conn = DBUtil.getConnection();
-		sql = "INSERT INTO notice_comment (comment_num, comment_content, mem_num, noti_num) VALUES (notice_comment_seq.nextval, ?, ?, ?) ";
+		sql = "INSERT INTO notice_comment (comment_num, comm_content, mem_num, notice_num) VALUES (notice_comment_seq.nextval, ?, ?, ?) ";
 		pstmt = conn.prepareStatement(sql);
 		
 		pstmt.setString(1,noticeBoardComment.getComm_content());
@@ -55,7 +55,7 @@ public int getNoticeBoardCommentCount(int notice_num) throws Exception {
 	
 	try {
 		conn = DBUtil.getConnection();
-		sql = "SELECT COUNT(*) FROM notice_comment a JOIN member b ON a.mem_num = b.mem_num WHERE a.notice_num = ?";
+		sql = "SELECT COUNT(*) FROM notice_comment a JOIN member b ON a.mem_num=b.mem_num WHERE a.notice_num=?";
 		pstmt = conn.prepareStatement(sql);
 		
 		pstmt.setInt(1, notice_num);
@@ -82,7 +82,7 @@ public List<NoticeBoardCommentVO> getListNoticeBoardComment(int start, int end, 
 	
 	try {
 		conn = DBUtil.getConnection();
-		sql = "SELECT * FROM (SELECT a.* rownum rnum FROM (SELECT * FROM notice_comment a JOIN member b USING(mem_num) WHERE a.notice_num = ? ORDER BY a.comment_num DESC)a) WHERE rnum >= ? AND rnum <= ? ";
+		sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM notice_comment a JOIN member b USING(mem_num) WHERE a.notice_num=? ORDER BY a.comment_num DESC)a) WHERE rnum >= ? AND rnum <= ? ";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, notice_num);
 		pstmt.setInt(2, start);
@@ -95,8 +95,8 @@ public List<NoticeBoardCommentVO> getListNoticeBoardComment(int start, int end, 
 			NoticeBoardCommentVO comment = new NoticeBoardCommentVO();
 			comment.setCommnet_num(rs.getInt("comment_num"));
 			comment.setComm_reg_date(DurationFromNow.getTimeDiffLabel(rs.getString("comm_reg_date")));
-			comment.setComm_content(StringUtil.useBrNoHtml(rs.getString("comment_content")));
-			comment.setNotice_num(rs.getInt("notcie_num"));
+			comment.setComm_content(StringUtil.useBrNoHtml(rs.getString("comm_content")));
+			comment.setNotice_num(rs.getInt("notice_num"));
 			comment.setMem_num(rs.getInt("mem_num"));
 			comment.setId(rs.getString("id"));
 			

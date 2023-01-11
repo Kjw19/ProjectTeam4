@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import kr.controller.Action;
-import kr.noticeBoard.dao.NoticeBoardDAO;
 import kr.noticeBoard.vo.NoticeBoardCommentVO;
 import kr.noticeBoardComment.dao.NoticeBoardCommentDAO;
 
@@ -20,15 +19,15 @@ public String execute(HttpServletRequest request, HttpServletResponse response) 
 	Map<String,String> mapAjax = new HashMap<String,String>();
 	
 	HttpSession session = request.getSession();
-	Integer user_num = 
-			(Integer)session.getAttribute("user_num");
+	Integer user_num = (Integer)session.getAttribute("user_num");
 	
 	if(user_num == null) {//로그인 되지 않은 경우
+		mapAjax.put("result", "logout");
 		//전송된 데이터 인코딩 처리
 		request.setCharacterEncoding("utf-8");
 		
 		NoticeBoardCommentVO comment = new NoticeBoardCommentVO();
-		comment.setMem_num(user_num); //회원번호(댓글 작성자)
+		comment.setMem_num(user_num);
 		comment.setComm_content(request.getParameter("comm_content"));
 		comment.setNotice_num(Integer.parseInt(request.getParameter("notice_num")));
 		
