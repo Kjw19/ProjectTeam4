@@ -15,7 +15,7 @@ $(function(){
 			}
 		});
 	}
-	
+	 
 	//좋아요 등록
 	$('#output_fav').click(function(){
 		$.ajax({

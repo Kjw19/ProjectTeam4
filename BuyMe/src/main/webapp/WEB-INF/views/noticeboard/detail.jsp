@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/noticeboard.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/noticeBoard.comment.js"></script>
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/noticeBoard.fav.js"></script>
 </head>
 <body>
 <div class="ntpage-main">

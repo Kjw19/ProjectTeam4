@@ -154,7 +154,7 @@ $(function(){
 		   modifyUI += '<div id="mcomm_first"><span class="letter-count">300/300</span></div>';
 		   modifyUI += '<div id="mcomm_second" class="align-right">';
 		   modifyUI += ' <input type="submit" value="수정">';
-		   modifyUI += ' <input type="button" value="취소" class="re-reset">';
+		   modifyUI += ' <input type="button" value="취소" class="comm-rest">';
 		   modifyUI += '</div>';
 		   modifyUI += '<hr size="1" noshade width="96%">';
 		   modifyUI += '</form>';
@@ -181,7 +181,7 @@ $(function(){
 	});
 	
 	//수정폼에서 취소 버튼 클릭시 수정폼 초기화 
-	$(document).on('click', 'comm-rest', function(){
+	$(document).on('click', '.comm-rest', function(){
 		initModifyForm();
 	});
 	
@@ -193,8 +193,12 @@ $(function(){
 	}
 	
 	
+	
+	
+	
+	
 	//댓글 수정
-	$(document).on('sumbit', '#mcomm_form', function(event) {
+	$(document).on('submit', '#mcomm_form', function(event) {
 		//기본 이벤트 제거
 		alert('sdss');
 		event.preventDefault();
@@ -203,6 +207,7 @@ $(function(){
 		if ($('#mcomm_content').val().trim() == '') {
 			
 			alert('내용을 입력하세요.');
+			
 			$('#mcomm_content').val('').focus();
 			return false;
 		}
@@ -210,12 +215,14 @@ $(function(){
 
 		//폼에 입력한 데이터 반환
 		let form_data = $(this).serialize();
-
+		
+		alert('미친6');
+		
 		$.ajax({
-			url: 'updateComment.do',
-			type: 'post',
-			data: form_data,
-			dataType: 'json',
+			url:'updateComment.do',
+			type:'post',
+			data:form_data,
+			dataType:'json',
 			success: function(param) {
 				if (param.result == 'logout') {
 					alert('로그인해야 수정할 수 있습니다.');

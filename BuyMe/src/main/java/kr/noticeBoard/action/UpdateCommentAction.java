@@ -24,17 +24,19 @@ public class UpdateCommentAction implements Action {
 	
 
 		NoticeBoardCommentDAO dao = NoticeBoardCommentDAO.getInstance();
+		//작성자의 회원번호 구하기 
 		NoticeBoardCommentVO db_comment = dao.getNoticeBoardComment(comment_num);
 	
 
 		HttpSession session = request.getSession();
 		Integer user_num = (Integer) session.getAttribute("user_num");
 
-		Map<String, String> mapAjax = new HashMap<String, String>();
+		Map<String,String> mapAjax = new HashMap<String,String>();
 
 		if (user_num == null) {
 			mapAjax.put("result", "logout");
 		} else if (user_num != null && user_num == db_comment.getMem_num()) {
+			
 			NoticeBoardCommentVO comment = new NoticeBoardCommentVO();
 			comment.setCommnet_num(comment_num);
 			comment.setComm_content(request.getParameter("comm_content"));
