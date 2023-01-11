@@ -19,21 +19,21 @@ public class DeleteAction implements Action{
 			return "redirect:/member/loginForm.do";
 		}
 		//로그인 된 경우
-		int board_num = Integer.parseInt(
+		int req_num = Integer.parseInt(
 				       request.getParameter("board_num"));
 		RequestBoardDAO dao = RequestBoardDAO.getInstance();
-		RequestBoardVO db_board = dao.getBoard(board_num);
+		RequestBoardVO db_board = dao.getBoard(req_num);
 		if(user_num != db_board.getMem_num()) {
 			//로그인한 회원번호와 작성자 회원번호가 불일치
 			return "/WEB-INF/views/common/notice.jsp";
 		}
 		
 		//로그인한 회원번호와 작성자 회원번호가 일치
-		dao.deleteBoard(board_num);
+		dao.deleteBoard(req_num);
 		//파일 삭제
 		FileUtil.removeFile(request, db_board.getReq_filename());
 		
-		return "redirect:/board/list.do";
+		return "redirect:/requestBoard/list.do";
 	}
 
 }

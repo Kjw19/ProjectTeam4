@@ -78,7 +78,7 @@
 		
 		<!-- 검색 폼 -->
 		<form id="ntsearch_form" action="list.do" method="get">
-			<ul>
+			<ul class="ib">
 				<li>
 					<select class="ntsc1" name="keyfield">
 						<option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>제목</option>

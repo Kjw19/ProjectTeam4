@@ -34,17 +34,17 @@
 			<ul>
 				<li>
 					<label for="title">제목</label>
-					<input type="text" name="title" id="title"
+					<input type="text" name="req_title" id="title"
 					                          maxlength="50">
 				</li>
 				<li>
 					<label for="content">내용</label>
 					<textarea rows="5" cols="30" 
-					name="content" id="content"></textarea>
+					name="req_content" id="content"></textarea>
 				</li>
 				<li>
 					<label for="filename">파일</label>
-					<input type="file" name="filename" 
+					<input type="file" name="req_filename" 
 					            id="filename" 
 					 accept="image/gif,image/png,image/jpeg">
 				</li>

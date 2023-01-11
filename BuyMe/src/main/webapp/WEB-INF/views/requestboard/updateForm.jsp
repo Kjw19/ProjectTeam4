@@ -37,21 +37,21 @@
 			<ul>
 				<li>
 					<label for="title">제목</label>
-					<input type="text" name="title" id="title"
-					    value="${board.title}" maxlength="50">
+					<input type="text" name="req_title" id="title"
+					    value="${request_board.req_title}" maxlength="50">
 				</li>
 				<li>
 					<label for="content">내용</label>
-					<textarea rows="5" cols="30" name="content" 
-					   id="content">${board.content}</textarea>
+					<textarea rows="5" cols="30" name="req_content" 
+					   id="content">${request_board.req_content}</textarea>
 				</li>
 				<li>
 					<label for="filename">파일</label>
-					<input type="file" name="filename" id="filename"
+					<input type="file" name="req_filename" id="filename"
 					     accept="image/gif,image/png,image/jpeg">
-					<c:if test="${!empty board.filename}">
+					<c:if test="${!empty request_board.req_filename}">
 					<div id="file_detail">
-						(${board.filename})파일이 등록되어 있습니다.
+						(${request_board.req_filename})파일이 등록되어 있습니다.
 						<input type="button" value="파일삭제" id="file_del">
 					</div>	
 					<script type="text/javascript">
@@ -62,7 +62,7 @@
 									$.ajax({
 										url:'deleteFile.do',
 										type:'post',
-										data:{setReq_board_num:${board.setReq_board_num}},
+										data:{setReq_board_num:${request_board.req_num}},
 										dataType:'json',
 										success:function(param){
 											if(param.result == 'logout'){
@@ -89,7 +89,7 @@
 			<div class="align-center">
 				<input type="submit" value="수정">
 				<input type="button" value="글상세"
-				  onclick="location.href='detail.do?board_num=${board.setReq_board_num}'">
+				  onclick="location.href='detail.do?board_num=${request_board.req_num}'">
 			</div>                     
 		</form>
 	</div>

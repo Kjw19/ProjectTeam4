@@ -32,7 +32,7 @@ public class RequestBoardDAO {
 				//SQL문 작성
 				sql = "INSERT INTO request_board (req_num,req_title,"
 				    + "req_content,req_filename,req_ip,mem_num) VALUES ("
-				    + "request_board_seq.nextval,?,?,?,?,?)";
+				    + "requestboard_seq.nextval,?,?,?,?,?)";
 				
 				//PreparedStatement 객체 생성
 				pstmt = conn.prepareStatement(sql);
@@ -239,6 +239,7 @@ public class RequestBoardDAO {
 		}
 		//글수정
 		public void updateBoard(RequestBoardVO board)throws Exception{
+			System.out.println("~~~~~~~~~~~~~~~~" + board);
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			String sql = null;
@@ -266,7 +267,7 @@ public class RequestBoardDAO {
 					pstmt.setString(++cnt, board.getReq_filename());
 				}
 				pstmt.setString(++cnt, board.getReq_ip());
-				pstmt.setInt(++cnt, board.getMem_num());
+				pstmt.setInt(++cnt, board.getReq_num());
 				//SQL문 실행
 				pstmt.executeUpdate();
 			}catch(Exception e) {

@@ -5,7 +5,7 @@
 <div class="sub-header">
 	<ul>
 		<li>
-			<a href="${pageContext.request.contextPath}/requestboard/cheerDetail.do?cheer_num=4">이야기 한마당</a>
+			<a href="${pageContext.request.contextPath}/requestboard/cheerDetail.do?cheer_num=4">펀딩 Talk</a>
 		</li>
 		<li>
 			<a href="${pageContext.request.contextPath}/requestBoard/list.do">자주 묻는 질문</a>
@@ -13,5 +13,5 @@
 	</ul>
 </div>
 <div class="clear-both"></div>
-<hr size="1" noshade="noshade" width="70%">
+<hr size="1" noshade="noshade" width="90%" color="#4B71DE">
 <!-- requestBoardHeader 끝 -->
