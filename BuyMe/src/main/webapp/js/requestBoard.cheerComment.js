@@ -32,6 +32,7 @@ $(function(){
 		$('textarea').val('');
 		$('#cheerComm_first .letter-count').text('300/300');
 	}
+	
 	$(function(){
 		// 이미지 미리보기
 		let photo_path = $('.my-photo').attr('src'); // 처음 화면에 보여지는 이미지 읽기
@@ -140,19 +141,21 @@ $(function(){
 					output += '<b>' + item.cheerComm_title + '</b><br>';
 					output += ' 작성자 ' + item.id + '(' + item.cheerComm_reg_date + ')' + '<br>';
 					output += '<div class="sub-item">';
-					output += '<c:if test="${empty cheerComment.photo}">';
-					output += '<img src="${pageContext.request.contextPath}/images/blank.png" width="330" height="180" class="my-photo">';
-					output += '</c:if>';
-					output += '<c:if test="${!empty cheerComment.photo}">';
-					output += '<img src="${pageContext.request.contextPath}/upload/${item.photo} width="40" height="40" class="my-photo">';
-					output += '</c:if>';
+					
+					if(item.photo!=null){
+						output += '<span>' + item.photo + '</span>';
+						// ${pageContext.request.contextPath}/upload/${cheerBoardVO.photo}
+					}else{
+						//output += '<img src="../images/blank.png" width="330" height="180" class="my-photo">';
+						output += '<span></span>';
+					}
+					
+					//output += '<p>' + item.photo + '</p>';
 					output += '<p>' + item.cheerComm_content + '</p>';
 					
 					
 					// 로그인한 회원번호와 작성자의 회원번호 일치 여부 체크
 					if(param.user_num==item.mem_num){
-						// 로그인한 회원번호와 작성자의 회원번호가 일치
-						// data- : 속성을 만드는 접두사 (커스텀 데이터 속성) → 내가 만드는 속성
 						output += ' <input type="button" data-cheerCommentnum="' + item.cheerComment_num + '" value="수정" class="modify-btn">'
 						output += ' <input type="button" data-cheerCommentnum="' + item.cheerComment_num + '" value="삭제" class="delete-btn">'
 					}
@@ -187,6 +190,108 @@ $(function(){
 		selectList(currentPage + 1);
 	});
 	
+	// 댓글 수정폼 초기화
+	function initModifyForm(){
+		$('.sub-item').show();
+		$('#mcheerComm_form').remove();
+	}
+	// 댓글 수정 버튼 클릭 시 수정폼 노출 : 동적으로 코드 만들기
+	$(document).on('click','.modify-btn',function(){
+		// 댓글 번호
+		let cheerComment_num = $(this).attr('data-cheerCommentnum');
+		// 댓글 내용 : 문서내의 모든 br태그 검색
+		// g : 지정문자열 모두, i : 대소문자 무시
+		// 수정버튼.부모태그로이동.부모태그의하위p태그.(내용중에br이있다, \n으로변경)
+		let cheerComm_title = $(this).parent().find('b').html().replace(/<br>/gi,'\n');;
+		let cheerComm_content = $(this).parent().find('p').html().replace(/<br>/gi,'\n');
+		
+		// 댓글 수정 폼 UI : 동적으로 생성
+		let modifyUI = '<form id="mcheerComm_form">';
+		   modifyUI += '<input type="hidden" name="cheerComment_num" id="cheerComment_num" value="'+cheerComment_num+'">';
+		   modifyUI += '<textarea rows="1" cols="70" name="cheerComm_title" id="mcheerComm_title" class="cheerComm-title">'+cheerComm_title+'</textarea>';
+		   modifyUI += '<textarea rows="4" cols="70" name="cheerComm_content" id="mcheerComm_content" class="cheerComm-content">'+cheerComm_content+'</textarea>';
+		   modifyUI += '<div id="mcheerComm_second" class="align-right">';
+		   modifyUI += ' <input type="submit" value="수정">';
+		   modifyUI += ' <input type="button" value="취소" class="cheerComm-reset">';
+		   modifyUI += '</div>';
+		   modifyUI += '<div id="mcheerComm_first"><span class="letter-count">300/300</span></div>';
+		   modifyUI += '<hr size="1" noshade width="96%">';
+		   modifyUI += '</form>';
+		   
+		   // 이전에 수정한 댓글이 있을 경우 수정버튼을 클릭하면 숨김 sub-item을 환원시키고 수정폼을 초기화시킨다.
+		   initModifyForm();
+		   
+		   // 지금 클릭해서 수정하고자 하는 데이터는 감추기
+		   // 수정버튼을 감싸고 있는 div : 수정버튼(this)의 부모(parent)를 감추기(hide)
+		   // sub-item을 숨긴다.
+		   $(this).parent().hide();
+		   
+		   // 수정폼을 수정하고자 하는 데이터가 있는 div에 노출
+		   $(this).parents('.item').append(modifyUI);
+		   
+		   // 입력한 글자수 셋팅
+		   let inputLength = $('#mcheerComm_content').val().length;
+		   let remain = 300 - inputLength;
+		   remain += '/300';
+		   
+		   // 문서 객체에 반영
+		   $('#mcheerComm_first .letter-count').text(remain);
+	});
+	// 수정폼에서 취소 버튼 클릭 시 수정폼 초기화
+	$(document).on('click','.cheerComm-reset',function(){
+		initModifyForm();
+	});
+	// 댓글 수정
+	$(document).on('submit','#mcheerComm_form',function(event){ // 미래($(document).on())의 태그에 동적으로 연결
+		// 기본 이벤트 제거 : 주소가 바뀌면 안 되기 때문에
+		event.preventDefault();
+		
+		if($('#mcheerComm_title').val().trim()==''){
+			alert('Talk 제목을 작성하세요.');
+			$('#mcheerComm_title').val('').focus();
+			return false;
+		}
+		if($('#mcheerComm_content').val().trim()==''){
+			alert('Talk 내용을 작성하세요.');
+			$('#mcheerComm_content').val('').focus();
+			return false;
+		}
+		
+		// 폼에 입력한 데이터 반환 = serialize() : 폼 이하의 태그들을 한번에 읽어온다.
+		// serialize() : parameter name과 value의 쌍으로 불러온다.
+		// this : textarea를 감싸고 있는 form
+		let form_data = $(this).serialize();
+		
+		// 서버와 통신
+		$.ajax({
+			url:'cheerCommentUpdate.do',
+			type:'post',
+			data:form_data,
+			dataType:'json',
+			success:function(param){
+				if(param.result=='logout'){
+					alert('로그인해야 댓글을 수정할 수 있습니다.');
+				}else if(param.result=='success'){ // 화면 제어
+					$('#mcheerComm_form').parent().find('b').html($('#mcheerComm_title').val().replace(/</g,'&lt;')
+																						   	  .replace(/>/g,'&gt;')
+																						  	   .replace(/\n/g,'<br>'));
+					$('#mcheerComm_form').parent().find('p').html($('#mcheerComm_content').val().replace(/</g,'&lt;')
+																						   	 	.replace(/>/g,'&gt;')
+																						  	    .replace(/\n/g,'<br>'));
+					//$('#mcheerComm_form').parent().find('.modify-date').text('최근 수정일 : 5초미만'); // 최근 수정일 화면에 표시
+					initModifyForm(); // 수정폼 삭제 및 초기화 → 바로 화면 갱신
+				}else if(param.result=='wrongAccess'){
+					alert('타인의 댓글을 수정할 수 없습니다.');
+				}else{
+					alert('댓글 수정 오류 발생');
+				}
+			},
+			error:function(){
+				alert('네트워크 오류 발생');
+			}
+		});
+	}); 
+	/*
 	// 이야기 수정폼 초기화
 	function initModifyForm(){
 		$('.sub-item').show();
@@ -216,9 +321,6 @@ $(function(){
 		   // 이전에 수정한 이야기가 있을 경우 수정버튼을 클릭하면 숨김 sub-item을 환원시키고 수정폼을 초기화시킨다.
 		   initModifyForm();
 		   
-		   // 지금 클릭해서 수정하고자 하는 데이터는 감추기
-		   // 수정버튼을 감싸고 있는 div : 수정버튼(this)의 부모(parent)를 감추기(hide)
-		   // sub-item을 숨긴다.
 		   $(this).parent().hide();
 		   
 		   // 수정폼을 수정하고자 하는 데이터가 있는 div에 노출
@@ -263,9 +365,8 @@ $(function(){
 					alert('로그인해야 이야기를 수정할 수 있습니다.');
 				}else if(param.result=='success'){ // 화면 제어
 					$('#mcheerComm_form').parent().find('p').html($('#mcheerComm_content').val().replace(/</g,'&lt;')
-																				  .replace(/>/g,'&gt;')
-																				  .replace(/\n/g,'<br>'));
-					$('#mcheerComm_form').parent().find('.modify-date').text('최근 수정일 : 5초미만'); // 최근 수정일 화면에 표시
+																				  		  .replace(/>/g,'&gt;')
+																						  .replace(/\n/g,'<br>'));
 					initModifyForm(); // 수정폼 삭제 및 초기화 → 바로 화면 갱신
 				}else if(param.result=='wrongAccess'){
 					alert('타인의 이야기를 수정할 수 없습니다.');
@@ -278,6 +379,7 @@ $(function(){
 			}
 		});
 	}); 
+	*/
 	
 	// 이야기 삭제
 	$(document).on('click','.delete-btn',function(){

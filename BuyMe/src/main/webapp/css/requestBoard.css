@@ -70,8 +70,8 @@ div.header ul{
 }
 span#main_menu ul li{
 	float:left; width:115px;
-	font-size:24px; font-weight:700;
-	padding:75px 0 0 0; margin-left:30px;
+	font-size:25px; font-weight:700;
+	padding:70px 0 0 0; margin-left:30px;
 }
 span#search_menu ul li{
 	float:left;
@@ -134,7 +134,6 @@ div.sub-header ul li a:hover{
 .page-main{
 	background:#FFFFFF;
 	margin:20px auto;
-	min-height:650px;
 }
 .content-main{
 	padding:10px 20px;

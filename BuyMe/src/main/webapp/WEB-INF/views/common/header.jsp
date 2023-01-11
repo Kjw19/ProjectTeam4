@@ -25,6 +25,30 @@
 		</span>
 		<span id="login_menu">
 			<ul>
+				<%-- 
+				<c:if test="${!empty user_num && auth == 1}">
+					<li>[<span>${mem_id}</span>]</li>
+					<li><a href="#">로그아웃</a></li>
+				</c:if>
+				
+				<c:if test="${!empty user_num && auth == 5}">
+					<li>[<span>admin</span>]</li>
+					<li><a href="#">로그아웃</a></li>
+				</c:if>
+				--%>
+				<c:if test="${!empty user_num}">
+					<li class="myPage">[<span><a href="#">id=?</a></span>]</li>
+					<li class="logout"><a href="#">로그아웃</a></li>
+				</c:if>
+				<c:if test="${empty user_num}">
+					<li class="mem_join"><a href="#">회원가입</a></li>
+					<li class="signin"><a href="${pageContext.request.contextPath}/members/loginForm.do">로그인</a></li>
+				</c:if>
+			</ul>
+		</span>	
+		<%-- 
+		<span id="login_menu">
+			<ul>
 				<c:if test="${!empty user_num && auth == 1}">
 				<li class="myPage"><a href="#">MY페이지</a></li>
 				</c:if>
@@ -44,6 +68,7 @@
 				</c:if>
 			</ul>
 		</span>	
+		--%>
 	</header>
 </div>
 <hr size="1" noshade="noshade" width="100%">
