@@ -75,7 +75,7 @@ create table member_detail(
  constraint member_detail_pk primary key (mem_num), /* pk + fk */
  constraint member_detail_fk foreign key (mem_num) references member (mem_num)
 );
-create sequence member_seq;
+create sequence member_detail_seq;
 
 --문의게시판 댓글·응원 테이블 삭제 예정
 create table request_mainComment(

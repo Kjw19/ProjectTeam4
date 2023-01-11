@@ -34,34 +34,28 @@ public class MemberDAO {
 			conn.setAutoCommit(false);
 
 			//회원번호(mem_num) 생성
-			sql = "SELECT zmember_seq.nextval FROM dual";
+			sql = "SELECT member_seq.nextval FROM dual";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				num = rs.getInt(1);
 			}
 
-			sql = "INSERT INTO zmember (mem_num,id) VALUES"
-					+ " (?,?)";
+			sql = "INSERT INTO member (mem_num,id) VALUES (?,?)";
 			pstmt2 = conn.prepareStatement(sql);
 			pstmt2.setInt(1, num);//시퀀스(회원번호)
 			pstmt2.setString(2, member.getId());//id
 			pstmt2.executeUpdate();
 
-			sql = "INSERT INTO zmember_detail (mem_num,name,"
-					+ "passwd,email,phone,zipcode,address1,"
-					+ "address2) VALUES (?,?,?,?,?,?,?,?)";
+			sql = "INSERT INTO member_detail (mem_num,email,name,passwd) "
+					+ "VALUES (?,?,?,?)";
 			pstmt3 = conn.prepareStatement(sql);
 			pstmt3.setInt(1, num);//회원번호
-			pstmt3.setString(2, member.getName());
-			pstmt3.setString(3, member.getPasswd());
-			pstmt3.setString(4, member.getEmail());
-			pstmt3.setString(5, member.getPhone());
-			pstmt3.setString(6, member.getZipcode());
-			pstmt3.setString(7, member.getAddress1());
-			pstmt3.setString(8, member.getAddress2());
+			pstmt3.setString(2, member.getEmail());
+			pstmt3.setString(3, member.getName());
+			pstmt3.setString(4, member.getPasswd());
 			pstmt3.executeUpdate();
-
+			
 			//SQL 실행시 모두 성공하면 commit
 			conn.commit();
 		}catch(Exception e) {
@@ -104,8 +98,7 @@ public class MemberDAO {
 				member.setId(rs.getString("id"));
 				member.setAuth(rs.getInt("auth"));
 				member.setPasswd(rs.getString("passwd"));
-				member.setPhoto(rs.getString("photo"));
-				member.setEmail(rs.getString("email"));//회원탈퇴시 필요
+				member.setEmail(rs.getString("email")); //회원탈퇴시 필요
 			}
 
 		}catch(Exception e) {
@@ -143,12 +136,7 @@ public class MemberDAO {
 				member.setAuth(rs.getInt("auth"));
 				member.setPasswd(rs.getString("passwd"));
 				member.setName(rs.getString("name"));
-				member.setPhone(rs.getString("phone"));
 				member.setEmail(rs.getString("email"));
-				member.setZipcode(rs.getString("zipcode"));
-				member.setAddress1(rs.getString("address1"));
-				member.setAddress2(rs.getString("address2"));
-				member.setPhoto(rs.getString("photo"));
 				member.setReg_date(rs.getDate("reg_date"));//가입일
 				member.setModify_date(rs.getDate("modify_date"));//수정일
 			}
@@ -177,11 +165,7 @@ public class MemberDAO {
 			pstmt = conn.prepareStatement(sql);
 			//?에 데이터를 바인딩
 			pstmt.setString(1, member.getName());
-			pstmt.setString(2, member.getPhone());
 			pstmt.setString(3, member.getEmail());
-			pstmt.setString(4, member.getZipcode());
-			pstmt.setString(5, member.getAddress1());
-			pstmt.setString(6, member.getAddress2());
 			pstmt.setInt(7, member.getMem_num());
 
 			//SQL문 실행
