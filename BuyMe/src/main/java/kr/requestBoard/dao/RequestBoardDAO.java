@@ -224,7 +224,7 @@ public class RequestBoardDAO {
 				//커넥션풀로부터 커넥션을 할당
 				conn = DBUtil.getConnection();
 				//SQL문 작성
-				sql = "UPDATE request_board SET filename='' WHERE req_num=?";
+				sql = "UPDATE request_board SET req_filename='' WHERE req_num=?";
 				//PreparedStatement 객체 생성
 				pstmt = conn.prepareStatement(sql);
 				//?에 데이터를 바인딩

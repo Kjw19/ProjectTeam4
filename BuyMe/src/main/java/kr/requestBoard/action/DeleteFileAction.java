@@ -32,8 +32,8 @@ public class DeleteFileAction implements Action{
 						     request.getParameter("req_num"));
 				
 				RequestBoardDAO dao = RequestBoardDAO.getInstance();
-				RequestBoardVO db_board = dao.getBoard(req_num);
-				if(user_num!=db_board.getMem_num()) {
+				RequestBoardVO db_requset_board = dao.getBoard(req_num);
+				if(user_num!=db_requset_board.getMem_num()) {
 					//로그인한 사람과 작성자가 불일치한 경우
 					mapAjax.put("result", "wrongAccess");
 				}else {
@@ -41,7 +41,7 @@ public class DeleteFileAction implements Action{
 					dao.deleteFile(req_num);
 					//파일 삭제
 					FileUtil.removeFile(request, 
-							          db_board.getReq_filename());
+							          db_requset_board.getReq_filename());
 					mapAjax.put("result", "success");
 				}
 			}

@@ -62,7 +62,7 @@
 									$.ajax({
 										url:'deleteFile.do',
 										type:'post',
-										data:{setReq_board_num:${request_board.req_num}},
+										data:{req_num:${request_board.req_num}},
 										dataType:'json',
 										success:function(param){
 											if(param.result == 'logout'){
