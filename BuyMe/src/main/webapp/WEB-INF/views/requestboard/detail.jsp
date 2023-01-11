@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>글상세</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestBoard.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <%-- script type="text/javascript" src="${pageContext.request.contextPath}/js/board.fav.js"></script --%>
@@ -17,7 +16,7 @@
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<jsp:include page="/WEB-INF/views/common/requestBoardMenu.jsp"/>
-	<div class="content-main">
+<div class="content-main">
 		<h2>${request_board.req_title}</h2>
 		<ul class="detail-info">
 			<li>
@@ -60,43 +59,42 @@
 				</c:if>
 			</li>
 		</ul>
-	</div>
+	
 	
 	<!-- requestBoardHeader 시작 -->
+	<p>
 	<div class="sub-header">
 		<ul>
 			<li>
-				<span id="commnet">댓글</span>
-			</li>
-			<li>
-				<span id="inquiry">문의</span>
+				<span id="commnet"><a href="#comment_div">댓글·문의</a></span>
 			</li>
 		</ul>
 	</div>
 	<div class="clear-both"></div>
-	<hr size="1" noshade="noshade" width="70%">
+	<hr size="1" noshade="noshade" width="100%" color="#4B71DE">
 	<!-- requestBoardHeader 끝 -->
 	
 	<!-- 댓글 내용 시작 -->
 	<div id="comment_div">
-		<span class="comm-title">댓글 달기</span>
 		<form id="comm_form">
+			<span class="comm-title"></span><br>
 			<input type="hidden" name="req_num" value="${request_board.req_num}" id="req_num">
-			<textarea rows="5" cols="50" name="comm_content" id="comm_content" class="comm-content"
+			<textarea rows="5" cols="100" name="comm_content" id="comm_content" class="comm-content"
 			<c:if test="${empty user_num}">disabled="disabled"(비활성화)</c:if>
 			><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다.</c:if></textarea>
 			<c:if test="${!empty user_num}">
+			<div id="comm_second" class="align-right">
+				<input type="submit" value="등록">
+			</div>
 			<div id="comm_first">
 				<span class="letter-count">300/300</span>
-			</div>
-			<div id="comm_second" class="align-right">
-				<input type="submit" value="댓글 등록">
 			</div>
 			</c:if>
 		</form>
 	</div> <!-- end of comment_div -->
 	<!-- 댓글 내용 끝 -->
 	<!-- 댓글 목록 시작 -->
+	<div id="commentList_div">
 	<div id="output"></div>
 		<div class="paging-button" style="display:none;">
 			<input type="button" value="다음 댓글 보기">
@@ -104,7 +102,10 @@
 		<div id="loading" style="display:none;">
 			<img src="${pageContext.request.contextPath}/images/loading.gif" width="50" height="50">
 	</div>
+	</div>
 	<!-- 댓글 목록 끝 -->
+	
+</div> <!-- end of content-main -->
 </div>
 </body>
 </html>

@@ -18,7 +18,7 @@
 		<div class="detail-padding1">
 			<h2>${noticeboard.noti_title}</h2>
 		</div>
-		<ul>
+		<ul class="ib">
 			<li>
 				${noticeboard.id}<br>
 				<fmt:formatDate value="${noticeboard.noti_reg_date}" pattern="yyyy.MM.dd"/> &nbsp;&nbsp;
@@ -26,41 +26,40 @@
 			</li>
 		</ul>
 		<c:if test="${!empty noticeboard.noti_filename}">
-		<div>
+		<div class="detail-padding2">
 			<img src="${pageContext.request.contextPath}/upload/${noticeboard.noti_filename}">
 		</div>
 		</c:if>
 		<p class="detail-padding2">
 			${noticeboard.noti_content}
 		</p>
-		<ul>
+		<ul class="ntdetail-sub">
 			<li>
-				
 				<%-- 좋아요 시작 --%>
 				<img id="output_fav" src="${pageContext.request.contextPath}/images/fav01.gif" width="50">
 		    	좋아요
 		    	<span id="output_fcount"></span>
 				<%-- 좋아요 끝 --%>
-				</li>
-				
-				<li>
-				<c:if test="${!empty noticeboard.noti_modify_date}">
-				최근 수정일 : ${noticeboard.noti_modify_date}
-				</c:if>
+			</li>
 				<%-- 로그인한 회원번호와 작성자 회원번호가 일치해야 수정,삭제 가능 --%>
+			<li>
+				<c:if test="${!empty noticeboard.noti_modify_date}">
+					최근 수정일 : ${noticeboard.noti_modify_date}
+				</c:if>
 				<c:if test="${user_num == noticeboard.mem_num}">
+				
 				<input type="button" value="수정" onclick="location.href='updateForm.do?noti_num=${noticeboard.noti_num}'">
 				<input type="button" value="삭제" id="delete_btn">
-				<script type="text/javascript">
-					let delete_btn = document.getElementById('delete_btn');
-					//이벤트 연결
-					delete_btn.onclick=function(){
-						let choice = confirm('삭제하시겠습니까?');
-						if(choice){
-							location.replace('delete.do?noti_num=${noticeboard.noti_num}');
-						}
-					};
-				</script>
+					<script type="text/javascript">
+						let delete_btn = document.getElementById('delete_btn');
+						//이벤트 연결
+						delete_btn.onclick=function(){
+							let choice = confirm('삭제하시겠습니까?');
+							if(choice){
+								location.replace('delete.do?noti_num=${noticeboard.noti_num}');
+							}
+						};
+					</script>
 				</c:if>
 			</li>
 		</ul>

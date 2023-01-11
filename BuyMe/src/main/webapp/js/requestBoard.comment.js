@@ -153,12 +153,12 @@ $(function(){
 		// 댓글 수정 폼 UI : 동적으로 생성
 		let modifyUI = '<form id="mcomm_form">';
 		   modifyUI += '<input type="hidden" name="comment_num" id="comment_num" value="'+comment_num+'">';
-		   modifyUI += '<textarea rows="3" cols="50" name="comm_content" id="mcomm_content" class="comm-content">'+content+'</textarea>';
-		   modifyUI += '<div id="mcomm_first"><span class="letter-count">300/300</span></div>';
+		   modifyUI += '<textarea rows="4" cols="70" name="comm_content" id="mcomm_content" class="comm-content">'+content+'</textarea>';
 		   modifyUI += '<div id="mcomm_second" class="align-right">';
 		   modifyUI += ' <input type="submit" value="수정">';
 		   modifyUI += ' <input type="button" value="취소" class="comm-reset">';
 		   modifyUI += '</div>';
+		   modifyUI += '<div id="mcomm_first"><span class="letter-count">300/300</span></div>';
 		   modifyUI += '<hr size="1" noshade width="96%">';
 		   modifyUI += '</form>';
 		   
