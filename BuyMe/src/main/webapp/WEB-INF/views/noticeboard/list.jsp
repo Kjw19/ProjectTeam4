@@ -33,7 +33,7 @@
 		
 		<!-- 공지사항 카테고리 글씨 -->
 		<div class="noticeboard-subtitle">
-			<h3>공지사항</h3>
+			<h3><a href="list.do">공지사항</a></h3>
 		</div>
 		<hr size="1" width="100%" noshade="noshade" color="#4B71DE">
 		
@@ -69,7 +69,6 @@
 		
 		<!-- 글쓰기/목록 버튼 -->
 		<div class="align-right">
-			<!-- 글쓰기버튼 관리자만 보이게 해야함(아직X) -->
 			<input type="button" value="글쓰기" onclick="location.href='writeForm.do'"
 			   <c:if test="${empty user_num}">disabled="disabled"</c:if>/>
 			<input type="button" value="목록" onclick="location.href='list.do'">
