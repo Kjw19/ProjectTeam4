@@ -22,7 +22,7 @@ public class UpdateFormAction implements Action{
 		//로그인 된 경우
 		//글번호 반환
 		int req_num = Integer.parseInt(
-				request.getParameter("board_num"));
+				request.getParameter("req_num"));
 
 		RequestBoardDAO dao = RequestBoardDAO.getInstance();
 		RequestBoardVO board = dao.getBoard(req_num);

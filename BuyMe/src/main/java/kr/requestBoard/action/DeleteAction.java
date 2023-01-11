@@ -20,7 +20,7 @@ public class DeleteAction implements Action{
 		}
 		//로그인 된 경우
 		int req_num = Integer.parseInt(
-				       request.getParameter("board_num"));
+				       request.getParameter("req_num"));
 		RequestBoardDAO dao = RequestBoardDAO.getInstance();
 		RequestBoardVO db_board = dao.getBoard(req_num);
 		if(user_num != db_board.getMem_num()) {

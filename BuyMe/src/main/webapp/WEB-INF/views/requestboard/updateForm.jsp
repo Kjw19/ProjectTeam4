@@ -89,7 +89,7 @@
 			<div class="align-center">
 				<input type="submit" value="수정">
 				<input type="button" value="글상세"
-				  onclick="location.href='detail.do?board_num=${request_board.req_num}'">
+				  onclick="location.href='detail.do?req_num=${request_board.req_num}'">
 			</div>                     
 		</form>
 	</div>

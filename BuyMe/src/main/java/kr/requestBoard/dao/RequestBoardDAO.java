@@ -281,7 +281,6 @@ public class RequestBoardDAO {
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			PreparedStatement pstmt2 = null;
-			PreparedStatement pstmt3 = null;
 			String sql = null;
 			
 			try {
@@ -289,11 +288,18 @@ public class RequestBoardDAO {
 				conn = DBUtil.getConnection();
 				//오토커밋 해체
 				conn.setAutoCommit(false);
+				
+				//자식글 삭제
+				sql="delete from request_comment where req_num=?";
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setInt(1, request_board_num);
+				pstmt.executeUpdate();
+				
 				//부모글 삭제
 				sql="delete from request_board where req_num=?";
-				pstmt3=conn.prepareStatement(sql);
-				pstmt3.setInt(1, request_board_num);
-				pstmt3.executeUpdate();
+				pstmt2=conn.prepareStatement(sql);
+				pstmt2.setInt(1, request_board_num);
+				pstmt2.executeUpdate();
 				
 				//예외 없이 sql문 실행
 				conn.commit();
@@ -303,7 +309,6 @@ public class RequestBoardDAO {
 				conn.rollback();
 				throw new Exception(e);
 			}finally {
-				DBUtil.executeClose(null, pstmt3, null);
 				DBUtil.executeClose(null, pstmt2, null);
 				DBUtil.executeClose(null, pstmt, conn);
 			}
