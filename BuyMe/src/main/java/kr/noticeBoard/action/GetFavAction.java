@@ -36,7 +36,7 @@ public class GetFavAction implements Action {
 			NoticeBoardFavsVO favsVO = new NoticeBoardFavsVO();
 			favsVO.setNoti_num(noti_num);
 			favsVO.setMem_num(user_num);
-
+			//좋아요 선택 여부 체크
 			NoticeBoardFavsVO boardFav = dao.selectNoticeFav(favsVO);
 			if (boardFav != null) {
 				mapAjax.put("status", "yesFav");

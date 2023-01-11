@@ -19,11 +19,13 @@ public class UpdateCommentAction implements Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");
-
+	
 		int comment_num = Integer.parseInt(request.getParameter("comment_num"));
+	
 
 		NoticeBoardCommentDAO dao = NoticeBoardCommentDAO.getInstance();
 		NoticeBoardCommentVO db_comment = dao.getNoticeBoardComment(comment_num);
+	
 
 		HttpSession session = request.getSession();
 		Integer user_num = (Integer) session.getAttribute("user_num");
