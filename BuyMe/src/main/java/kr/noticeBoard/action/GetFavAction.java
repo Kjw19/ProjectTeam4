@@ -28,8 +28,8 @@ public class GetFavAction implements Action {
 		Integer user_num = (Integer)session.getAttribute("user_num");
 
 		NoticeBoardFavDAO dao = NoticeBoardFavDAO.getInstance();
-
-		if (user_num == null) {
+ 
+		if (user_num == null) { 
 			mapAjax.put("status", "noFav");
 			mapAjax.put("count", dao.selectNoticeFavCount(noti_num));
 		} else {

@@ -12,7 +12,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import kr.controller.Action;
 import kr.noticeBoard.vo.NoticeBoardFavsVO;
 import kr.noticeBoardFav.dao.NoticeBoardFavDAO;
-
+ 
 public class WriteFavAction implements Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {

@@ -7,7 +7,7 @@ $(function(){
 			type:'post',
 			data:{noti_num:noti_num},
 			dataType:'json',
-			success:function(param){
+			success:function(param){ 
 				displayFav(param);
 			},
 			error:function(){

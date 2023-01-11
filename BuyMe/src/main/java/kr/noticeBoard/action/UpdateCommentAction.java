@@ -26,7 +26,7 @@ public class UpdateCommentAction implements Action {
 		NoticeBoardCommentDAO dao = NoticeBoardCommentDAO.getInstance();
 		//작성자의 회원번호 구하기 
 		NoticeBoardCommentVO db_comment = dao.getNoticeBoardComment(comment_num);
-	
+	 
 
 		HttpSession session = request.getSession();
 		Integer user_num = (Integer) session.getAttribute("user_num");

@@ -26,7 +26,7 @@ public class ListCommentAction implements Action{
 		if(pageNum == null ) {
 			pageNum = "1";
 		}
-		
+		 
 		int noti_num = Integer.parseInt(request.getParameter("noti_num"));
 		
 		NoticeBoardCommentDAO dao = NoticeBoardCommentDAO.getInstance();

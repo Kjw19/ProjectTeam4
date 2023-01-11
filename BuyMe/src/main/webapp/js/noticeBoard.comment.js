@@ -6,7 +6,7 @@ $(function(){
 	//댓글 목록
 	function selectList(pageNum) {
 		currentPage = pageNum;
-		
+		 
 		//로딩 이미지 노출
 		$('#loading').show();
 		

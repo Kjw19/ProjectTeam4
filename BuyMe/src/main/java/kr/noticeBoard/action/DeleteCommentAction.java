@@ -22,7 +22,7 @@ public class DeleteCommentAction implements Action {
 		int comment_num = Integer.parseInt(request.getParameter("comment_num"));
 
 		Map<String,String> mapAjax = new HashMap<String,String>();
-
+ 
 		NoticeBoardCommentDAO dao = NoticeBoardCommentDAO.getInstance();
 		//작성자 회원번호 구하기
 		NoticeBoardCommentVO db_comment = dao.getNoticeBoardComment(comment_num);
