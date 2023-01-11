@@ -44,6 +44,9 @@ div.mypage-simple{
 	font-size:16px;
 	box-shadow:rgba(75, 113, 222, 0.5) 0px 5px 15px 0px;
 }
+div.mypage-simple li{
+	line-height:40px;
+}
 ul li label{
 	display:inline-block;
 	width:110px;
