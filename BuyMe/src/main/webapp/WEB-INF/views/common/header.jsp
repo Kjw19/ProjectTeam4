@@ -37,7 +37,7 @@
 				</c:if>
 				--%> 
 				<c:if test="${!empty user_num}">
-					<li class="myPage">[<span><a href="#">id=?</a></span>]</li>
+					<li class="myPage">[<span><a href="${pageContext.request.contextPath}/members/myPage.do">id=?</a></span>]</li>
 					<li class="logout"><a href="${pageContext.request.contextPath}/members/logout.do">로그아웃</a></li>
 				</c:if>
 				<c:if test="${empty user_num}">

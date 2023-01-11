@@ -55,7 +55,7 @@ public class MemberDAO {
 			pstmt3.setString(3, member.getName());
 			pstmt3.setString(4, member.getPasswd());
 			pstmt3.executeUpdate();
-			
+
 			//SQL 실행시 모두 성공하면 commit
 			conn.commit();
 		}catch(Exception e) {
@@ -80,7 +80,7 @@ public class MemberDAO {
 		try {
 			//커넥션풀로부터 커넥션 할당
 			conn = DBUtil.getConnection();
-			//zmember와 zmember_detail 조인시 zmember의 누락된
+			//member와 member_detail 조인시 member의 누락된
 			//데이터가 보여야 id 중복 체크 가능함
 			sql = "SELECT * FROM member m LEFT OUTER JOIN "
 					+ "member_detail d ON m.mem_num=d.mem_num "
@@ -108,6 +108,44 @@ public class MemberDAO {
 		}
 		return member;
 	}
+	// 아이디 일치 체크 : 마이페이지 내 간단폼
+	public MemberVO checkMemberSimpleId(String id)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		MemberVO member = null;
+		String sql = null;
+
+		try {
+			//커넥션풀로부터 커넥션 할당
+			conn = DBUtil.getConnection();
+			//member와 member_detail 조인시 member의 누락된
+			//데이터가 보여야 id 중복 체크 가능함
+			sql = "SELECT * FROM member m LEFT OUTER JOIN "
+					+ "member_detail d ON m.mem_num=d.mem_num "
+					+ "WHERE m.id=?";
+			//PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			//?에 데이터 바인딩
+			pstmt.setString(1, id);
+
+			//SQL문을 실행해서 결과행을 ResultSet에 담음
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				member = new MemberVO();
+				member.setId(rs.getString("id"));
+				member.setAuth(rs.getInt("auth"));
+				member.setPasswd(rs.getString("passwd"));
+				member.setEmail(rs.getString("email")); //회원탈퇴시 필요
+			}
+
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return member;
+	}
 	//회원상세 정보
 	public MemberVO getMember(int mem_num)throws Exception{
 		Connection conn = null;
@@ -120,7 +158,7 @@ public class MemberDAO {
 			//커넥션풀로부터 커넥션을 할당
 			conn = DBUtil.getConnection();
 			//SQL문 작성
-			sql = "SELECT * FROM zmember m JOIN zmember_detail d "
+			sql = "SELECT * FROM member m JOIN member_detail d "
 					+ "ON m.mem_num=d.mem_num WHERE m.mem_num=?";
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
@@ -148,8 +186,7 @@ public class MemberDAO {
 		return member;
 	}
 	//회원정보 수정
-	public void updateMember(MemberVO member)
-			throws Exception{
+	public void updateMember(MemberVO member) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
@@ -158,15 +195,15 @@ public class MemberDAO {
 			//커넥션풀로부터 커넥션을 할당
 			conn = DBUtil.getConnection();
 			//SQL문 작성
-			sql = "UPDATE zmember_detail SET name=?,phone=?,"
-					+ "email=?,zipcode=?,address1=?,address2=?,"
-					+ "modify_date=SYSDATE WHERE mem_num=?";
+			sql = "UPDATE member_detail SET name=?,id=?,email=?,passwd=? WHERE mem_num=?";
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			//?에 데이터를 바인딩
 			pstmt.setString(1, member.getName());
+			pstmt.setString(2, member.getId());
 			pstmt.setString(3, member.getEmail());
-			pstmt.setInt(7, member.getMem_num());
+			pstmt.setString(4, member.getPasswd());
+			pstmt.setInt(5, member.getMem_num());
 
 			//SQL문 실행
 			pstmt.executeUpdate();

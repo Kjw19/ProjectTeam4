@@ -12,8 +12,7 @@ import kr.controller.Action;
 import kr.members.dao.MemberDAO;
 import kr.members.vo.MemberVO;
 
-public class CheckDuplicatedIdAction implements Action{
-
+public class CheckDuplicatedIdMemberAction implements Action{
 	@Override 
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		

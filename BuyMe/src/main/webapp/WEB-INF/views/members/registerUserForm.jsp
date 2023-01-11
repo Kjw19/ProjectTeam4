@@ -20,7 +20,7 @@ $(function(){
 		
 		// 서버와 통신
 		$.ajax({
-			url:'checkDuplicatedId.do',
+			url:'checkDuplicatedIdMember.do',
 			type:'post',
 			data:{id:$('#id').val()},
 			dataType:'json',
@@ -79,6 +79,12 @@ $(function(){
 		if($('#re_passwd').val().trim()==''){
 			alert('비밀번호를 확인하세요!');
 			$('#re_passwd').val('').focus();
+			return false;
+		}
+		if($('#passwd').val()!=$('#re_passwd').val()){
+			alert('비밀번호와 비밀번호 확인이 불일치합니다.');
+			$('#passwd').val('').focus();
+			$('#re_passwd').val('');
 			return false;
 		}
 	}); // end of submit

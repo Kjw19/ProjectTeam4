@@ -1,0 +1,60 @@
+@charset "UTF-8";
+/* 구글 폰트 가져오기*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
+
+/* 마이페이지 - 메인 */
+div.myContent-main{
+	padding:10px 20px;
+	margin:50px auto;
+	padding:10px 20px;
+	width:950px;
+	border-radius:7px;
+}
+div.mypage-first{
+	float:left; width:280px;
+	height:500px;
+	position:absolute;
+	/*border:1px solid red;*/
+}
+div.mypage-first ul{
+	line-height:30px;
+}
+div.mypage-profile{
+	padding:10px 0 0 0;
+}
+div.mypage-menu{
+	padding:10px 0 0 0;
+}
+div.mypage-second{
+	float:right; width:65%;
+	height:500px;
+	position:relative;
+	/*border:1px solid red;*/
+}
+div.mypage-like{
+	padding:20px 0;
+	font-size:18px;
+	text-align:center;
+	box-shadow:rgba(75, 113, 222, 0.5) 0px 5px 15px 0px;
+}
+div.mypage-simple{
+	padding:100px 0;
+	line-height:30px;
+	font-size:16px;
+	box-shadow:rgba(75, 113, 222, 0.5) 0px 5px 15px 0px;
+}
+ul li label{
+	display:inline-block;
+	width:110px;
+	padding:0 0 0 110px;
+}
+input.detail-check{
+	width:70px; height:23px;
+}
+li.detail-li{
+	padding:20px 0 0 200px;
+}
+input.detail-lookup{
+	width:150px;
+}
