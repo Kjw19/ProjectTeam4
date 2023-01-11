@@ -10,15 +10,13 @@ import kr.util.DBUtil;
 public class MemberDAO {
 	//싱글턴 패턴
 	private static MemberDAO instance = new MemberDAO();
-
 	public static MemberDAO getInstance() {
 		return instance;
 	}
 	private MemberDAO() {}
 
 	//회원가입
-	public void insertMember(MemberVO member)
-			throws Exception{
+	public void insertMember(MemberVO member) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		PreparedStatement pstmt2 = null;
@@ -195,15 +193,14 @@ public class MemberDAO {
 			//커넥션풀로부터 커넥션을 할당
 			conn = DBUtil.getConnection();
 			//SQL문 작성
-			sql = "UPDATE member_detail SET name=?,id=?,email=?,passwd=? WHERE mem_num=?";
+			sql = "UPDATE member_detail SET name=?,email=?,passwd=? WHERE mem_num=?";
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			//?에 데이터를 바인딩
 			pstmt.setString(1, member.getName());
-			pstmt.setString(2, member.getId());
-			pstmt.setString(3, member.getEmail());
-			pstmt.setString(4, member.getPasswd());
-			pstmt.setInt(5, member.getMem_num());
+			pstmt.setString(2, member.getEmail());
+			pstmt.setString(3, member.getPasswd());
+			pstmt.setInt(4, member.getMem_num());
 
 			//SQL문 실행
 			pstmt.executeUpdate();
@@ -224,8 +221,7 @@ public class MemberDAO {
 			//커넥션풀로부터 커넥션을 할당
 			conn = DBUtil.getConnection();
 			//SQL문 작성
-			sql = "UPDATE zmember_detail SET passwd=? "
-					+ "WHERE mem_num=?";
+			sql = "UPDATE member_detail SET passwd=? WHERE mem_num=?";
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			//?에 데이터를 바인딩
@@ -250,7 +246,7 @@ public class MemberDAO {
 			//커넥션풀로부터 커넥션을 할당
 			conn = DBUtil.getConnection();
 			//SQL문 작성
-			sql = "UPDATE zmember_detail SET photo=? WHERE mem_num=?";
+			sql = "UPDATE member_detail SET photo=? WHERE mem_num=?";
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			//?에 데이터 바인딩
@@ -278,7 +274,7 @@ public class MemberDAO {
 			conn.setAutoCommit(false);
 
 			//zmember의 auth 값 변경
-			sql = "UPDATE zmember SET auth=0 WHERE mem_num=?";
+			sql = "UPDATE member SET auth=0 WHERE mem_num=?";
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			//?에 데이터 바인딩
@@ -287,7 +283,7 @@ public class MemberDAO {
 			pstmt.executeUpdate();
 
 			//zmember_detail의 레코드 삭제
-			sql = "DELETE FROM zmember_detail WHERE mem_num=?";
+			sql = "DELETE FROM member_detail WHERE mem_num=?";
 			pstmt2 = conn.prepareStatement(sql);
 			pstmt2.setInt(1, mem_num);
 			pstmt2.executeUpdate();

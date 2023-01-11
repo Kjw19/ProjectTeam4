@@ -8,7 +8,7 @@ import kr.controller.Action;
 import kr.members.dao.MemberDAO;
 import kr.members.vo.MemberVO;
 
-public class ModifyMyInfoDetailFormAction implements Action{
+public class ModifyPasswordFormAction implements Action{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
@@ -24,6 +24,6 @@ public class ModifyMyInfoDetailFormAction implements Action{
 		
 		request.setAttribute("member", member);
 		
-		return "/WEB-INF/views/members/modifyMyInfoDetailForm.jsp";
+		return "/WEB-INF/views/members/modifyPasswordForm.jsp";
 	}
 }
