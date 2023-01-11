@@ -43,8 +43,8 @@
 					                          maxlength="50">
 				</li>
 				<li>
-					<label for="category">카테고리</label>
-					<input type="text" name="category" id="category"
+					<label for="category_num">카테고리</label>
+					<input type="number" name="category_num" id="category_num"
 					                          maxlength="20">
 				</li>
 				<li>

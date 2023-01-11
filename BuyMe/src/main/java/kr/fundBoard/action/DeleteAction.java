@@ -11,7 +11,8 @@ import kr.fundBoard.dao.FundBoardDAO;
 import kr.fundBoard.vo.FundBoardVO;
 import kr.util.FileUtil;
 
-public class WriteAction implements Action{
+public class DeleteAction implements Action{
+
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
@@ -21,19 +22,21 @@ public class WriteAction implements Action{
 			return "redirect:/member/loginForm.do";
 		}
 		//로그인 된 경우
-		MultipartRequest multi = 
-				             FileUtil.createFile(request);
-		FundBoardVO board = new FundBoardVO();
-		board.setFund_title(multi.getParameter("fund_title"));
-		board.setCategory_num(Integer.parseInt(multi.getParameter("category_num")));
-		board.setFund_content(multi.getParameter("fund_content"));
-		board.setFund_ip(request.getRemoteAddr());
-		board.setFund_filename(multi.getFilesystemName("fund_filename"));
-		board.setMem_num(user_num);
-		
+		int fund_num = Integer.parseInt(
+				       request.getParameter("fund_num"));
 		FundBoardDAO dao = FundBoardDAO.getInstance();
-		dao.insertBoard(board);
+		FundBoardVO db_board = dao.getFundBoard(fund_num);
+		if(user_num != db_board.getMem_num()) {
+			//로그인한 회원번호와 작성자 회원번호가 불일치
+			return "/WEB-INF/views/common/notice.jsp";
+		}
 		
-		return "/WEB-INF/views/fundboard/write.jsp";
+		//로그인한 회원번호와 작성자 회원번호가 일치
+		dao.deleteBoard(fund_num);
+		//파일 삭제
+		FileUtil.removeFile(request, db_board.getFund_filename());
+		
+		return "redirect:/fundboard/list.do";
 	}
+
 }
