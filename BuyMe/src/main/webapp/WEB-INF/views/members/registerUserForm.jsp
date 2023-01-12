@@ -24,7 +24,7 @@ $(function(){
 			url:'checkDuplicatedIdMember.do',
 			type:'post',
 			data:{id:$('#id').val()},
-			dataType:'json',
+			dataType:'json', 
 			success:function(param){
 				if(param.result=='idNotFound'){
 					idChecked = 1;
