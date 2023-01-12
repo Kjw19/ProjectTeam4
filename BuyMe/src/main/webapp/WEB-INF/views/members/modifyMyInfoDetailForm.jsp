@@ -101,8 +101,8 @@
 						alert('프로필 사진이 수정되었습니다.');
 						photo_path = $('.my-photo').attr('src');
 						$('#photo').val('');
-						$('#photo_choice').hide();
-						$('#photo_btn').show();
+						//$('#photo_choice').hide();
+						//$('#photo_btn').show();
 					}else{
 						alert('파일 전송 오류 발생');
 					}
