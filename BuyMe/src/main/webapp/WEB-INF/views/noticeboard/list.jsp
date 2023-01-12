@@ -69,8 +69,11 @@
 		
 		<!-- 글쓰기/목록 버튼 -->
 		<div class="align-right">
+			<!-- 관리자만 글쓰기 가능하게 -->
+			<c:if test="${user_auth==5}">
 			<input type="button" value="글쓰기" onclick="location.href='writeForm.do'"
 			   <c:if test="${empty user_num}">disabled="disabled"</c:if>/>
+			</c:if>
 			<input type="button" value="목록" onclick="location.href='list.do'">
 			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 		</div>
