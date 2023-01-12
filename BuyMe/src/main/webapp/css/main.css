@@ -8,7 +8,7 @@ img {vertical-align: middle;}*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
 
-/* 전체 레이아웃 */ 
+/* 전체 레이아웃 */  
 body{
 	margin:0 auto;
 	box-sizing:border-box; /* 박스 크기의 기준 : 테두리 */

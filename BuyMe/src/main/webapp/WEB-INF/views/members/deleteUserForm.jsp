@@ -20,20 +20,29 @@
 				$('#id').val('').focus();
 				return false;
 			}
+			if($('#id').val()!=$('#check_id').val()){
+				alert('아이디를 잘못 입력하셨습니다.');
+				$('#id').val('').focus();
+				$('#message_id').css('color','#4B71DE').text('불일치');
+				return false;
+			}
 			if($('#passwd').val().trim()==''){
 				alert('비밀번호를 입력하세요.');
 				$('#passwd').val('').focus();
 				return false;
 			}
-			if($('#passwd').val()!=$('#re_passwd').val()){
-				alert('비밀번호와 비밀번호 확인이 불일치합니다.');
-				$('#re_passwd').val('').focus();
+			if($('#passwd').val()!=$('#check_passwd').val()){
+				alert('비밀번호를 잘못 입력하셨습니다.');
+				$('#passwd').val('').focus();
 				$('#message_passwd').css('color','#4B71DE').text('불일치');
 				return false;
 			}
 		});
 		
-		$('#simple_form').keydown(function(){
+		$('#simple_form #id').keydown(function(){
+			$('#message_id').text('');
+		});
+		$('#simple_form #passwd').keydown(function(){
 			$('#message_passwd').text('');
 		});
 	});
@@ -78,49 +87,32 @@
 			</div> <!--  end of mypage-first -->
 			
 			<div class="mypage-second">
-			<form id="simple_form" action="modifyMyInfoDetailForm.do" method="post">
+			<form id="simple_form" action="deleteUser.do" method="post">
 			<div class="mypage-simple"> <!-- 간단 내 정보 시작 -->
 				<ul>
 					<li class="second-title">
-						<h2>내 정보</h2>
+						<h2>회원 탈퇴</h2>
 					</li>
 					<li>
-						<label for="email">이메일</label>
-						<input type="email" name="email" value="${member.email}" id="email" maxlength="50" readonly/>
+						<input type="hidden" value="${member.id}" id="check_id">
 					</li>
 					<li>
 						<label for="id">아이디</label>
-						<input type="text" name="id" value="${member.id}" id="id" maxlength="12" autocomplete="off" readonly/>
+						<input type="text" name="id" id="id" maxlength="12" autocomplete="off">
+						<span id="message_id"></span>
 					</li>
 					<li>
 						<label for="passwd">비밀번호</label>
-						<input type="password" name="passwd" value="${member.passwd}" id="passwd" maxlength="12" readonly/>
+						<input type="password" name="passwd" id="passwd" maxlength="12">
+						<span id="message_passwd"></span>
 					</li>
 					<li>
-						<label for="re_passwd">비밀번호 확인</label>
-						<input type="password" name="re_passwd" id="re_passwd" maxlength="12">
-						<span id="message_passwd"></span>
+						<input type="hidden" value="${member.passwd}" id="check_passwd">
 					</li>
 				
 					<li class="detail-li">
-						<input type="submit" value="내 상세 정보 조회" class="detail-lookup" id="detail_lookup">
-						<input type="button" value="비밀번호 수정"  class="detail-lookup" id="modify_passwd">
-						<script>
-							let modify_passwd = document.getElementById('modify_passwd');
-							modify_passwd.onclick = function(){
-								if($('#passwd').val()!=$('#re_passwd').val()){
-									alert('비밀번호와 비밀번호 확인이 불일치합니다.');
-									$('#re_passwd').val('').focus();
-									$('#message_passwd').css('color','#4B71DE').text('불일치');
-									return;
-								}else{
-									location.replace('modifyPasswordForm.do');
-								}
-								$('#simple_form').keydown(function(){
-									$('#message_passwd').text('');
-								});
-							}
-						</script>
+						<input type="submit" value="회원탈퇴" class="detail-lookup" id="detail_lookup">
+						<input type="button" value="마이페이지"  onclick="location.href='${pageContext.request.contextPath}/members/myPage.do'" class="detail-lookup" id="modify_passwd">
 					</li>		
 				</ul>
 			</div> <!--  end of mypage-simple, 간단 내 정보 끝 -->
