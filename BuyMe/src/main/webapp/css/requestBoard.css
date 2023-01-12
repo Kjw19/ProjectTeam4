@@ -64,7 +64,7 @@ div.header{
 header .logo{
 	font-family:'Orelega One';
 	font-size:70px;
-	padding:40px 0px 20px 80px;
+	padding:40px 0px 20px 240px;
 	float:left; width:18%;
 }
 header .logo a{
@@ -84,10 +84,13 @@ span#search_menu ul li{
 	font-size:25px; 
 	padding:60px 20px 0 0; margin-left:130px;
 }
+span#login_menu ul{
+	margin-top:40px;
+	margin-left:110px;
+}
 span#login_menu ul li{
 	float:left; width:80px;
 	font-size:25px; font-weight:700;
-	padding-top:20px;
 }
 span#login_menu ul li a{
 	font-size:18px;

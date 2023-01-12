@@ -25,11 +25,11 @@
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="requestboard-title">
-			<h1>자주 묻는 질문</h1>
+			<h1>문의게시판</h1>
 	</div>
 	<jsp:include page="/WEB-INF/views/common/requestBoardMenu.jsp"/>
 	<div class="content-main">
-		<h2>질문 목록</h2>
+		<h2>문의 목록</h2>
 		<!-- 검색 폼 시작 -->
 		<form id="search_form" action="list.do" method="get">
 			<ul class="search">
