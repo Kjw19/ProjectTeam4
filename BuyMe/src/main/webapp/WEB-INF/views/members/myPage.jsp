@@ -79,12 +79,14 @@
 			</div> <!--  end of mypage-first -->
 			
 			<div class="mypage-second">
+			<%-- 
 			<div class="mypage-like"> <!-- 좋아요 게시물 목록 시작 -->
 				<ul>
 					<li>{count}</li>
 					<li>좋아요 한 게시물 개수</li>
 				</ul>
 			</div> <!--  end of mypage-like, 좋아요 게시물 목록 끝 -->
+			--%>
 			
 			<form id="simple_form" action="modifyMyInfoDetailForm.do" method="post">
 			<div class="mypage-simple"> <!-- 간단 내 정보 시작 -->
