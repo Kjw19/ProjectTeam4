@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.fundBoard.vo.FundBoardVO;
 import kr.fundBoardComment.vo.FundCommentVO;
 import kr.util.DBUtil;
 import kr.util.DurationFromNow;
@@ -273,6 +274,50 @@ public class FundCommentDAO {
 		}
 		
 	}
+	
+	public FundBoardVO getFund(int fund_num)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		FundBoardVO fund = null;
+		String sql = null;
+		
+		try {
+			//커넥션풀로부터 커넥션을 할당
+			conn = DBUtil.getConnection();
+			//SQL문 작성
+			sql = "SELECT * FROM fund_board b JOIN member m "
+				+ "USING(mem_num) JOIN member_detail d "
+				+ "USING(mem_num) WHERE b.fund_num=?";
+			//PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			//?에 데이터 바인딩
+			pstmt.setInt(1, fund_num);
+			//SQL문을 실행해서 결과행을 ResultSet에 담음
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				fund = new FundBoardVO();
+				fund.setFund_num(rs.getInt("fund_num"));
+				fund.setFund_title(rs.getString("fund_title"));
+				fund.setFund_content(rs.getString("fund_content"));
+				fund.setFund_hit(rs.getInt("fund_hit"));
+				fund.setFund_reg_date(rs.getDate("fund_reg_date"));
+				fund.setFund_modify_date(rs.getDate("fund_modify_date"));
+				fund.setFund_filename(rs.getString("fund_filename"));
+				fund.setMem_num(rs.getInt("mem_num"));
+				fund.setId(rs.getString("id"));
+			}
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return fund;
+	}
+
+	
+	
 			
 		
 }

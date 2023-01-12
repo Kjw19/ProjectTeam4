@@ -33,8 +33,8 @@ public class FundCommentVO {
 		return comm_reg_date;
 	}
 
-	public void setComm_reg_date(String comm_reg_date) {
-		this.comm_reg_date = comm_reg_date;
+	public void setComm_reg_date(String string) {
+		this.comm_reg_date = string;
 	}
 
 	public int getMem_num() {

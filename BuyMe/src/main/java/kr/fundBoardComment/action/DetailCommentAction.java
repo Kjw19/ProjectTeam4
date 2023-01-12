@@ -4,8 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.controller.Action;
+import kr.fundBoard.vo.FundBoardVO;
 import kr.fundBoardComment.dao.FundCommentDAO;
-import kr.fundBoardComment.vo.FundCommentVO;
+//import kr.fundBoardComment.vo.FundCommentVO;
 
 public class DetailCommentAction implements Action{
 
@@ -17,7 +18,7 @@ public class DetailCommentAction implements Action{
 		
 		FundCommentDAO dao = FundCommentDAO.getInstance();
 		
-		FundCommentVO fund = dao.getFundComment(fund_num);
+		FundBoardVO fund = dao.getFund(fund_num);
 		
 		request.setAttribute("fund", fund);
 		
