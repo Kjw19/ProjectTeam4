@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
-.comm-content{
-	width:950px;
-}
+.comm-content {
+	resize: horizontal;
+	
+	width: 950px;
+
+} 
