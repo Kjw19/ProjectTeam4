@@ -12,6 +12,7 @@
 				<li class="req"><a href="${pageContext.request.contextPath}/requestBoard/list.do">커뮤니티</a></li>
 			</ul>
 		</span>	
+		<%--  
 		<span id="search_menu">
 			<ul>
 				<form id="search_form" action="#" method="get">
@@ -23,6 +24,7 @@
 				</form>
 			</ul>
 		</span>
+		--%>
 		<span id="login_menu">
 			<ul>
 				<%-- 
@@ -37,7 +39,7 @@
 				</c:if>
 				--%> 
 				<c:if test="${!empty user_num}">
-					<li class="myPage">[<span><a href="${pageContext.request.contextPath}/members/myPage.do">id=?</a></span>]</li>
+					<li class="myPage">[<span><a href="${pageContext.request.contextPath}/members/myPage.do">${user_id}</a></span>]</li>
 					<li class="logout"><a href="${pageContext.request.contextPath}/members/logout.do">로그아웃</a></li>
 				</c:if>
 				<c:if test="${empty user_num}">

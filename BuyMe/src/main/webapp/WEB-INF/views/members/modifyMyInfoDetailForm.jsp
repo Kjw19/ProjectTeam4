@@ -100,6 +100,7 @@
 					}else if(param.result == 'success'){
 						alert('프로필 사진이 수정되었습니다.');
 						photo_path = $('.my-photo').attr('src');
+						photo_path = $('.my-photo2').attr('src');
 						$('#photo').val('');
 						//$('#photo_choice').hide();
 						//$('#photo_btn').show();
@@ -134,11 +135,11 @@
 						<div>
 							<c:if test="${empty member.photo}">
 								<img src="${pageContext.request.contextPath}/images/face.png"
-									width="200" height="200" class="my-photo">
+									width="200" height="200" class="my-photo2">
 							</c:if>
 							<c:if test="${!empty member.photo}">
 								<img src="${pageContext.request.contextPath}/upload/${member.photo}"
-									 width="200" height="200" class="my-photo">
+									 width="200" height="200" class="my-photo2">
 							</c:if>
 						</div>
 					</li>
