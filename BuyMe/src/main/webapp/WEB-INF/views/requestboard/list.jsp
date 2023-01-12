@@ -24,7 +24,7 @@
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="requestboard-title">
-			<h1>뮨의게시판</h1>
+			<h1>문의게시판</h1>
 	</div>
 	<jsp:include page="/WEB-INF/views/common/requestBoardMenu.jsp"/>
 	<div class="content-main">
