@@ -23,6 +23,7 @@
 			if($('#origin_passwd').val()!=$('#check_passwd').val()){
 				alert('현재 비밀번호를 잘못 입력하셨습니다.');
 				$('#origin_passwd').val('').focus();
+				$('#message_origin_passwd').css('color','#4B71DE').text('불일치');
 				return false;
 			}
 			if($('#passwd').val().trim()==''){
@@ -39,9 +40,17 @@
 				alert('새 비밀번호와 새 비밀번호 확인이 불일치합니다.');
 				$('#passwd').val('').focus();
 				$('#re_passwd').val('');
+				$('#message_re_passwd').css('color','#4B71DE').text('불일치');
 				return false;
 			}
 			
+		});
+		
+		$('#simple_form').keydown(function(){
+			$('#message_origin_passwd').text('');
+		});
+		$('#simple_form').keydown(function(){
+			$('#message_re_passwd').text('');
 		});
 	});
 </script>
@@ -86,17 +95,12 @@
 			</div> <!--  end of mypage-first -->
 			
 			<div class="mypage-second">
-			<div class="mypage-like"> <!-- 좋아요 게시물 목록 시작 -->
-				<ul>
-					<li>{count}</li>
-					<li>좋아요 한 게시물 개수</li>
-				</ul>
-			</div> <!--  end of mypage-like, 좋아요 게시물 목록 끝 -->
-			
 			<form id="simple_form" action="modifyPassword.do" method="post">
 			<div class="mypage-simple"> <!-- 간단 내 정보 시작 -->
-			<span>비밀번호 수정</span>
 				<ul>
+					<li>
+						<h2>비밀번호 수정</h2>
+					</li>
 					<li>
 						<input type="hidden" value="${member.passwd}" id="check_passwd">
 					</li>
@@ -111,17 +115,19 @@
 					<li>
 						<label for="origin_passwd">현재 비밀번호</label>
 						<input type="password" name="origin_passwd" id="origin_passwd" maxlength="12">
+						<span id="message_origin_passwd"></span>
 					</li>
 					<li>
 						<label for="passwd">새 비밀번호</label>
 						<input type="password" name="passwd" id="passwd" maxlength="12">
+						<span id="message_passwd"></span>
 					</li>
 					<li>
 						<label for="re_passwd">비밀번호 확인</label>
 						<input type="password" name="re_passwd" id="re_passwd" maxlength="12">
+						<span id="message_re_passwd"></span>
 					</li>
 					<li class="detail-li">
-						<span id="message_passwd"></span><p>
 						<input type="submit" value="비밀번호 수정 확인" class="detail-lookup" id="modify_passwd">
 						<input type="button" value="마이페이지" onclick="location.href='${pageContext.request.contextPath}/members/myPage.do'" class="detail-lookup">
 					</li>

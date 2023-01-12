@@ -71,7 +71,7 @@
 			
 			<div class="mypage-menu"> <!-- 마이페이지 메뉴 시작 -->
 				<ul>
-					<li><b><a href="#">마이페이지</a></b></li>
+					<li><b><a href="${pageContext.request.contextPath}/members/myPage.do">마이페이지</a></b></li>
 					<li><a href="#">서포터</a></li>
 					<li><a href="#">메이커</a></li>
 				</ul>
@@ -89,6 +89,9 @@
 			<form id="simple_form" action="modifyMyInfoDetailForm.do" method="post">
 			<div class="mypage-simple"> <!-- 간단 내 정보 시작 -->
 				<ul>
+					<li>
+						<h2>내 정보</h2>
+					</li>
 					<li>
 						<label for="email">이메일</label>
 						<input type="email" name="email" value="${member.email}" id="email" maxlength="50" readonly/>

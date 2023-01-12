@@ -11,6 +11,8 @@ div.myContent-main{
 	width:950px;
 	border-radius:7px;
 }
+
+/* myPage-first */
 div.mypage-first{
 	float:left; width:280px;
 	height:500px;
@@ -26,9 +28,11 @@ div.mypage-profile{
 div.mypage-menu{
 	padding:10px 0 0 0;
 }
+
+/* myPage-second */
 div.mypage-second{
 	float:right; width:65%;
-	height:500px;
+	height:700px;
 	position:relative;
 	/*border:1px solid red;*/
 }
@@ -36,12 +40,14 @@ div.mypage-like{
 	padding:20px 0;
 	font-size:18px;
 	text-align:center;
+	height:100px;
 	box-shadow:rgba(75, 113, 222, 0.5) 0px 5px 15px 0px;
 }
 div.mypage-simple{
 	padding:100px 0;
 	line-height:30px;
 	font-size:16px;
+	height:300px;
 	box-shadow:rgba(75, 113, 222, 0.5) 0px 5px 15px 0px;
 }
 div.mypage-simple li{

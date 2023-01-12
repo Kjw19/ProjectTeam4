@@ -8,7 +8,7 @@
 			<a href="${pageContext.request.contextPath}/requestboard/cheerDetail.do?cheer_num=4">펀딩 Talk</a>
 		</li>
 		<li>
-			<a href="${pageContext.request.contextPath}/requestBoard/list.do">자주 묻는 질문</a>
+			<a href="${pageContext.request.contextPath}/requestBoard/list.do">문의게시판</a>
 		</li>
 	</ul>
 </div>

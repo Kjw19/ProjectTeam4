@@ -87,8 +87,11 @@
 			
 			<form id="simple_form" action="modifyMyInfoDetail.do" method="post">
 			<div class="mypage-simple"> <!-- 간단 내 정보 시작 -->
-			<span id="explain">*아이디는 수정 불가능</span>
 				<ul>
+					<li>
+						<h2>내 상세 정보 수정</h2>
+						<span>*아이디, 비밀번호는 수정 불가능</span>
+					</li>
 					<li>
 						<label for="email">이메일</label>
 						<input type="email" name="email" id="email" value="${member.email}" maxlength="50">
@@ -103,7 +106,7 @@
 					</li>
 					<li>
 						<label for="passwd">비밀번호</label>
-						<input type="password" name="passwd" id="passwd" maxlength="12">
+						<input type="password" name="passwd" id="passwd" value="${member.passwd}" maxlength="12" readonly/>
 						<span id="message_passwd"></span>
 					</li>
 					<li class="detail-li">

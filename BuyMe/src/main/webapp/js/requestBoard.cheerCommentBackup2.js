@@ -32,12 +32,6 @@ $(function(){
 		$('textarea').val('');
 		$('#cheerComm_first .letter-count').text('300/300');
 	}
-	// 타임라인 업로드 사진 초기화
-	function initPhoto(){
-		// 이미지 초기화
-		$('$cheerComm_filename').val('');
-		alert('이미지 초기화 완료');
-	}
 	
 	$(function(){
 		// 이미지 미리보기
@@ -103,8 +97,10 @@ $(function(){
 					}else if(param.result=='success'){
 						alert('타임라인을 꾸며주셔서 감사합니다!');
 						initForm();
-						initPhoto();
 						selectList(1);
+						// 이미지 초기화
+						$('$cheerComm_filename').val('');
+						alert('이미지 초기화 완료');
 					}else{
 						alert('타임라인 작성 오류 발생');
 					}
