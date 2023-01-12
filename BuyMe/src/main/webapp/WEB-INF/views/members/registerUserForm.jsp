@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestBoard.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/mypage.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -27,10 +28,10 @@ $(function(){
 			success:function(param){
 				if(param.result=='idNotFound'){
 					idChecked = 1;
-					$('#message_id').css('color','#000000').text('등록 가능 ID');
+					$('#message_id').css('color','#2B478E').text('등록 가능 ID');
 				}else if(param.result=='idDuplicated'){
 					idChecked = 0;
-					$('#message_id').css('color','red').text('등록된 ID');
+					$('#message_id').css('color','#4B71DE').text('등록된 ID');
 					$('#id').val('').focus();
 				}else{
 					idChecked = 0;
@@ -94,12 +95,13 @@ $(function(){
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<div class="content-main">
+	<div class="myContent-main">
+	<div class="regis-main">
 		<h2>회원가입</h2>
 		<form id="register_form" action="registerUser.do" method="post">
 			<ul>
 				<li>
-					<label for="email">이메일</label><br>
+					<label for="email">이메일</label>
 					<input type="email" name="email" id="email" maxlength="50" placeholder="이메일 입력">
 				</li>
 				<li>
@@ -107,9 +109,9 @@ $(function(){
 					<input type="text" name="name" id="name" maxlength="10" placeholder="이름 입력">
 				</li>
 				<li>
-					<label for="id">ID</label><br>
+					<label for="id">ID</label>
 					<input type="text" name="id" id="id" maxlength="12" autocomplete="off" placeholder="아이디 입력">
-					<input type="button" value="ID중복체크" id="id_check">
+					<input type="button" value="ID 중복체크" id="id_check">
 					<span id="message_id"></span>
 				</li>
 				<li>
@@ -126,6 +128,7 @@ $(function(){
 				<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 			</div>
 		</form>
+	</div>
 	</div>
 </div>
 </body>
