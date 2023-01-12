@@ -3,7 +3,7 @@ $(function(){
 	let count;
 	let rowCount;
 	
-	//댓글 목록
+	//문의 목록
 	function selectList(pageNum){
 		currentPage = pageNum;
 		
@@ -32,13 +32,14 @@ $(function(){
 					output += '<h4>' + item.id + '</h4>';
 					output += '<div class="sub-item">';
 					output += '<p>' + item.comm_content + '</p>';
-					output += '<span class="modify-date">등록일 : ' + item.re_date + '</span>';		
-								
+					output += '<span class="modify-date">등록일 : ' + item.comm_reg_date + '</span>';
+
+					
 					//로그인한 회원번호와 작성자의 회원번호 일치 여부 체크
 					if(param.user_num == item.mem_num){
 						//로그인한 회원번호와 작성자 회원번호 일치
-						output += ' <input type="button" data-commnum="'+item.comment_num+'" value="수정" class="modify-btn">';	
-						output += ' <input type="button" data-commnum="'+item.comment_num+'" value="삭제" class="delete-btn">';						
+						output += ' <input type="button" data-renum="'+item.comment_num+'" value="수정" class="modify-btn">';	
+						output += ' <input type="button" data-renum="'+item.comment_num+'" value="삭제" class="delete-btn">';						
 					}
 					
 					output += '<hr size="1" noshade width="100%">';
@@ -67,11 +68,12 @@ $(function(){
 		
 	}
 	
-	//페이지 처리 이벤트 연결(다음 댓글 보기 버튼 클릭시 데이터 추가)
+	//페이지 처리 이벤트 연결(다음 문의 보기 버튼 클릭시 데이터 추가)
 	$('.paging-button input').click(function(){
 		selectList(currentPage + 1);
 	});
-	//댓글 등록
+	
+	//문의 등록
 	$('#comm_form').submit(function(event){
 		//기본 이벤트 제거
 		event.preventDefault();
@@ -85,7 +87,7 @@ $(function(){
 		//form 이하의 태그에 입력한 데이터를 모두 읽어 옴
 		let form_data = $(this).serialize();
 		
-		//댓글 등록
+		//문의 등록
 		$.ajax({
 			url:'writeComment.do',
 			type:'post',
@@ -97,11 +99,11 @@ $(function(){
 				}else if(param.result == 'success'){
 					//폼 초기화
 					initForm();
-					//댓글 작성이 성공하면 새로 삽입한 글을 포함해서
+					//문의 작성이 성공하면 새로 삽입한 글을 포함해서
 					//첫번째 페이지의 게시글을 다시 호출함
 					selectList(1);
 				}else{
-					alert('댓글 등록 오류 발생');
+					alert('문의 등록 오류 발생');
 				}
 			},
 			error:function(){
@@ -110,7 +112,7 @@ $(function(){
 		});
 		
 	});
-	//댓글 작성 폼 초기화
+	//문의 작성 폼 초기화
 	function initForm(){
 		$('textarea').val('');
 		$('#comm_first .letter-count').text('300/300');
@@ -135,15 +137,15 @@ $(function(){
 		}
 	});
 	
-	//댓글 수정 버튼 클릭시 수정폼 노출
+	//문의 수정 버튼 클릭시 수정폼 노출
 	$(document).on('click','.modify-btn',function(){
-		//댓글 번호
-		let comment_num = $(this).attr('data-commnum');
-		//댓글 내용
+		//문의 번호
+		let comment_num = $(this).attr('data-renum');
+		//문의 내용
 		let content = $(this).parent().find('p')
 		                     .html().replace(/<br>/gi,'\n');
 		                        //g:지정문자열 모두,i:대소문자 무시
-		//댓글 수정폼 UI
+		//문의 수정폼 UI
 		let modifyUI = '<form id="mcomm_form">'; 
 		   modifyUI += '<input type="hidden" name="comment_num" id="comment_num" value="'+comment_num+'">';
 		   modifyUI += '<textarea rows="3" cols="50" name="comm_content" id="mcomm_content" class="comm-content">'+content+'</textarea>';
@@ -155,7 +157,7 @@ $(function(){
 		   modifyUI += '<hr size="1" noshade width="96%">';
 		   modifyUI += '</form>';
 		   
-		   //이전에 이미 수정하는 댓글이 있을 경우 수정버튼을
+		   //이전에 이미 수정하는 문의이 있을 경우 수정버튼을
 		   //클릭하면 숨김 sub-item을 환원시키고 수정폼을 초기화됨
 		   initModifyForm();
 		   
@@ -179,12 +181,12 @@ $(function(){
 	$(document).on('click','.comm-reset',function(){
 		initModifyForm();
 	});
-	//댓글 수정폼 초기화
+	//문의 수정폼 초기화
 	function initModifyForm(){
 		$('.sub-item').show();
 		$('#mcomm_form').remove();
 	}
-	//댓글 수정
+	//문의 수정
 	$(document).on('submit','#mcomm_form',function(event){
 		//기본 이벤트 제거
 		event.preventDefault();
@@ -218,7 +220,7 @@ $(function(){
 				}else if(param.result == 'wrongAccess'){
 					alert('타인의 글을 수정할 수 없습니다');
 				}else{
-					alert('댓글 수정 오류 발생');
+					alert('문의 수정 오류 발생');
 				}
 			},
 			error:function(){
@@ -227,10 +229,10 @@ $(function(){
 		});
 	});
 	
-	//댓글 삭제
+	//문의 삭제
 	$(document).on('click','.delete-btn',function(){
-		//댓글 번호
-		let comm_num = $(this).attr('data-commnum');
+		//문의 번호
+		let comment_num = $(this).attr('data-renum');
 		
 		//서버와 통신
 		$.ajax({
@@ -247,7 +249,7 @@ $(function(){
 				}else if(param.result == 'wrongAccess'){
 					alert('타인의 글을 삭제할 수 없습니다.');
 				}else{
-					alert('댓글 삭제 오류 발생');
+					alert('문의 삭제 오류 발생');
 				}
 			},
 			error:function(){
@@ -261,7 +263,6 @@ $(function(){
 	selectList(1);
 	
 });
-
 
 
 

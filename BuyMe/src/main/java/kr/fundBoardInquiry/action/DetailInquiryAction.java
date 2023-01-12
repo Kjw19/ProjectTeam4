@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.controller.Action;
+import kr.fundBoard.vo.FundBoardVO;
 import kr.fundBoardInquiry.dao.FundInquiryDAO;
 import kr.fundBoardInquiry.vo.FundInquiryVO;
 
@@ -17,7 +18,7 @@ public class DetailInquiryAction implements Action{
 		
 		FundInquiryDAO dao = FundInquiryDAO.getInstance();
 		
-		FundInquiryVO fund = dao.getFundInquiry(fund_num);
+		FundBoardVO fund = dao.getFund(fund_num);
 		
 		request.setAttribute("fund", fund);
 		

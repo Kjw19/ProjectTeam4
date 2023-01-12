@@ -13,9 +13,22 @@
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<jsp:include page="/WEB-INF/views/common/fundBoardDetailMenu.jsp"/>
+		<h2>${fund.fund_title}</h2>
+		
+<div class="sub-header">
+	<ul>
+		<li>
+			<a href="#">펀딩게시글</a>
+		</li>
+		<li>
+			<a href="${pageContext.request.contextPath}/fundBoard/detailComment.do?fund_num=${fund.fund_num}">댓글</a>
+		</li>
+		<li>
+			<a href="${pageContext.request.contextPath}/fundBoard/detailInquiry.do?fund_num=${fund.fund_num}">문의</a>
+		</li>
+	</ul>
+</div>
 	
-	<h2>${fund.fund_title}</h2>
 	<!-- 댓글 시작 -->
 		<div id="inquiry_div">
 			<span class="inqu_title">문의 작성</span>

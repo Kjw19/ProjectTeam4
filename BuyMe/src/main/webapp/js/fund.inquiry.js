@@ -35,16 +35,9 @@ $(function(){
 					if(item.re_inqu_is_ok != null){
 					output += '<p>' + item.re_inqu_is_ok + '</P>';						
 					}
-
+					output += '<span class="modify-date">등록일 : ' + item.inqu_reg_date + '</span>';
 					
 					//로그인한 회원번호와 작성자의 회원번호 일치 여부 체크
-					if(param.user_num == item.mem_num){
-						//로그인한 회원번호와 작성자 회원번호 일치
-						output += ' <input type="button" data-renum="'+item.inquiry_num+'" value="수정" class="modify-btn">';	
-						output += ' <input type="button" data-renum="'+item.inquiry_num+'" value="삭제" class="delete-btn">';						
-					}
-					
-					output += '<p>' + item.re_inqu_is_ok + '</P>';
 					if(param.user_num == item.mem_num){
 						//로그인한 회원번호와 작성자 회원번호 일치
 						output += ' <input type="button" data-renum="'+item.inquiry_num+'" value="수정" class="modify-btn">';	
@@ -80,8 +73,9 @@ $(function(){
 	$('.paging-button input').click(function(){
 		selectList(currentPage + 1);
 	});
+	
 	//문의 등록
-	$('#comm_form').submit(function(event){
+	$('#inqu_form').submit(function(event){
 		//기본 이벤트 제거
 		event.preventDefault();
 		
@@ -239,11 +233,11 @@ $(function(){
 	//문의 삭제
 	$(document).on('click','.delete-btn',function(){
 		//문의 번호
-		let comm_num = $(this).attr('data-renum');
+		let inquiry_num = $(this).attr('data-renum');
 		
 		//서버와 통신
 		$.ajax({
-			url:'deleteCom.do',
+			url:'deleteInquiry.do',
 			type:'post',
 			data:{inquiry_num:inquiry_num},
 			dataType:'json',

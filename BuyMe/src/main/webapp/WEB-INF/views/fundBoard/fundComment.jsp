@@ -11,14 +11,27 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/fund.comment.js"></script>
 </head>
 <body>
+
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<h2>${fund.fund_title}</h2>
-	<jsp:include page="/WEB-INF/views/common/fundBoardDetailMenu.jsp"/>
-	
+<div class="sub-header">
+	<ul>
+		<li>
+			<a href="#">펀딩게시글</a>
+		</li>
+		<li>
+			<a href="${pageContext.request.contextPath}/fundBoard/detailComment.do?fund_num=${fund.fund_num}">댓글</a>
+		</li>
+		<li>
+			<a href="${pageContext.request.contextPath}/fundBoard/detailInquiry.do?fund_num=${fund.fund_num}">문의</a>
+		</li>
+	</ul>
+</div>
+		
 	<!-- 댓글 시작 -->
 		<div id="comment_div">
-			<span class="comm_title">댓글 달기</span>
+			<span class="comm_title">댓글 작성</span>
 			<form id="comm_form">
 				<input type="hidden" name="fund_num" 
 				       value="${fund.fund_num}" id="fund_num">

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.fundBoard.vo.FundBoardVO;
 import kr.fundBoardInquiry.vo.FundInquiryVO;
 import kr.util.DBUtil;
 import kr.util.StringUtil;
@@ -30,18 +31,17 @@ public class FundInquiryDAO {
 			conn = DBUtil.getConnection();
 			
 			//SQL문 작성
-			sql = "INSERT INTO fund_inquiry (inquiry_num,inqu_title,"
-			    + "inqu_content,mem_num,fund_num) VALUES ("
-			    + "fund_inquiry_seq.nextval,?,?,?.?)";
+			sql = "INSERT INTO fund_inquiry (inquiry_num,"
+					+ "inqu_content,mem_num,fund_num) "
+					+ "VALUES (fund_inquiry_seq.nextval,?,?,?)";
 			
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			
 			//?에 데이터 바인딩
-			pstmt.setString(1, inquiry.getInqu_title());
-			pstmt.setString(2, inquiry.getInqu_content());
-			pstmt.setInt(3, inquiry.getMem_num());
-			pstmt.setInt(4, inquiry.getFund_num());
+			pstmt.setString(1, inquiry.getInqu_content());
+			pstmt.setInt(2, inquiry.getMem_num());
+			pstmt.setInt(3, inquiry.getFund_num());
 			
 			//SQL문 실행
 			pstmt.executeUpdate();
@@ -66,18 +66,17 @@ public class FundInquiryDAO {
 			conn = DBUtil.getConnection();
 			
 			//SQL문 작성
-			sql = "INSERT INTO fund_inquiry (inquiry_num,inqu_title,"
+			sql = "INSERT INTO fund_inquiry (inquiry_num,"
 			    + "re_inqu_is_ok ,mem_num,fund_num) VALUES ("
-			    + "fund_inquiry_seq.nextval,?,?,?,?)";
+			    + "fund_inquiry_seq.nextval,?,?,?)";
 			
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			
 			//?에 데이터 바인딩
-			pstmt.setString(1, inquiry.getInqu_title());
-			pstmt.setString(2, inquiry.getRe_inqu_is_ok());
-			pstmt.setInt(3, inquiry.getMem_num());
-			pstmt.setInt(4, inquiry.getFund_num());
+			pstmt.setString(1, inquiry.getRe_inqu_is_ok());
+			pstmt.setInt(2, inquiry.getMem_num());
+			pstmt.setInt(3, inquiry.getFund_num());
 			
 			//SQL문 실행
 			pstmt.executeUpdate();
@@ -127,11 +126,10 @@ public class FundInquiryDAO {
 				FundInquiryVO inqu = new FundInquiryVO();
 				inqu.setInquiry_num(rs.getInt("inquiry_num"));
 				inqu.setInqu_reg_date(rs.getDate("inqu_reg_date"));
-				
 				inqu.setInqu_content(StringUtil.useBrNoHtml(
 						           rs.getString("inqu_content")));
-//				inqu.setRe_inqu_is_ok(StringUtil.useBrNoHtml(
-//				           rs.getString("re_inqu_is_ok")));
+				inqu.setRe_inqu_is_ok(StringUtil.useBrNoHtml(
+				           rs.getString("re_inqu_is_ok")));
 				inqu.setFund_num(rs.getInt("fund_num"));
 				inqu.setMem_num(rs.getInt("mem_num"));
 				inqu.setId(rs.getString("id"));
@@ -172,7 +170,6 @@ public class FundInquiryDAO {
 			if(rs.next()) {
 				inquiry = new FundInquiryVO();
 				inquiry.setInquiry_num(rs.getInt("inquiry_num"));
-				inquiry.setInqu_title(rs.getString("inqu_title"));
 				inquiry.setInqu_content(rs.getString("inqu_content"));
 				inquiry.setRe_inqu_is_ok(rs.getString("re_inqu_is_ok"));
 				inquiry.setInqu_reg_date(rs.getDate("inqu_reg_date"));
@@ -315,7 +312,7 @@ public class FundInquiryDAO {
 			conn = DBUtil.getConnection();
 			
 			//SQL문 작성
-			sql = "SELECT COUNT(*) FROM fund_Inquiry f "
+			sql = "SELECT COUNT(*) FROM fund_inquiry f "
 					+ "JOIN member m ON f.mem_num=m.mem_num "
 					+ "WHERE f.fund_num=?";
 			
@@ -340,6 +337,49 @@ public class FundInquiryDAO {
 		}
 			return count;
 	}
+	
+	
+	public FundBoardVO getFund(int fund_num)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		FundBoardVO fund = null;
+		String sql = null;
+		
+		try {
+			//커넥션풀로부터 커넥션을 할당
+			conn = DBUtil.getConnection();
+			//SQL문 작성
+			sql = "SELECT * FROM fund_board b JOIN member m "
+				+ "USING(mem_num) JOIN member_detail d "
+				+ "USING(mem_num) WHERE b.fund_num=?";
+			//PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			//?에 데이터 바인딩
+			pstmt.setInt(1, fund_num);
+			//SQL문을 실행해서 결과행을 ResultSet에 담음
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				fund = new FundBoardVO();
+				fund.setFund_num(rs.getInt("fund_num"));
+				fund.setFund_title(rs.getString("fund_title"));
+				fund.setFund_content(rs.getString("fund_content"));
+				fund.setFund_hit(rs.getInt("fund_hit"));
+				fund.setFund_reg_date(rs.getDate("fund_reg_date"));
+				fund.setFund_modify_date(rs.getDate("fund_modify_date"));
+				fund.setFund_filename(rs.getString("fund_filename"));
+				fund.setMem_num(rs.getInt("mem_num"));
+				fund.setId(rs.getString("id"));
+			}
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return fund;
+	}
+
 			
 	
 }

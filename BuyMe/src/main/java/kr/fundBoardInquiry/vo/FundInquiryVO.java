@@ -5,14 +5,12 @@ import java.sql.Date;
 public class FundInquiryVO {
 	
 	private int inquiry_num;
-	private String inqu_title;
 	private String inqu_content;
 	private Date inqu_reg_date;
 	private String re_inqu_is_ok;
 	
 	private int mem_num;
 	private int fund_num;
-	private int fund_mem_num;
 
 	private String id;
 	
@@ -22,12 +20,6 @@ public class FundInquiryVO {
 	}
 	public void setInquiry_num(int inquiry_num) {
 		this.inquiry_num = inquiry_num;
-	}
-	public String getInqu_title() {
-		return inqu_title;
-	}
-	public void setInqu_title(String inqu_title) {
-		this.inqu_title = inqu_title;
 	}
 	public String getInqu_content() {
 		return inqu_content;
@@ -65,11 +57,4 @@ public class FundInquiryVO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public int getFund_mem_num() {
-		return fund_mem_num;
-	}
-	public void setFund_mem_num(int fund_mem_num) {
-		this.fund_mem_num = fund_mem_num;
-	}
-
 }

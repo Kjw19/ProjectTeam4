@@ -21,38 +21,38 @@ public class FundCommentDAO {
 	}
 	
 	private FundCommentDAO() {}
-	
-	// 댓글 삽입
-	public void insertFundComment(FundCommentVO comment) throws Exception{
-		
+
+	//문의 등록
+	public void insertFundComment(FundCommentVO comment)throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
 		
 		try {
-		//커넥션풀로부터 커넥션 할당
-		conn = DBUtil.getConnection();
-		
-		//SQL문 작성
-		sql = "INSERT INTO fund_comment (comment_num,"
-		+ "comm_content,mem_num,fund_num) "
-		+ "VALUES (fund_comment_req.nextval,?,?,?)";
-		
-		//PreparedStatement 객체 생성
-		pstmt = conn.prepareStatement(sql);
-		
-		//?에 데이터 바인딩
-		pstmt.setString(1, comment.getComm_content());
-		pstmt.setInt(2, comment.getMem_num());
-		pstmt.setInt(3, comment.getFund_num());
-		
-		//SQL문 실행
-		pstmt.executeUpdate();
-		
+			//커넥션풀로부터 커넥션 할당
+			conn = DBUtil.getConnection();
+			
+			//SQL문 작성
+			sql = "INSERT INTO fund_comment (comment_num,"
+					+ "comm_content,mem_num,fund_num) "
+					+ "VALUES (fund_comment_seq.nextval,?,?,?)";
+			
+			//PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			
+			//?에 데이터 바인딩
+			pstmt.setString(1, comment.getComm_content());
+			pstmt.setInt(2, comment.getMem_num());
+			pstmt.setInt(3, comment.getFund_num());
+			
+			//SQL문 실행
+			pstmt.executeUpdate();
+			
 		}
 		catch(Exception e) {
 			throw new Exception(e);
-		}finally {
+		}
+		finally {
 			DBUtil.executeClose(null, pstmt, conn);
 		}
 	}
@@ -160,7 +160,7 @@ public class FundCommentDAO {
 	
 		
 	//댓글 상세
-	public FundCommentVO getFundComment(int fund_num) throws Exception{
+	public FundCommentVO getFundComment(int comment_num) throws Exception{
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -174,13 +174,13 @@ public class FundCommentDAO {
 		conn = DBUtil.getConnection();
 		
 		//SQL문 작성
-		sql = "SELECT * FROM fund_comment WHERE fund_num=?";
+		sql = "SELECT * FROM fund_comment WHERE comment_num=?";
 		
 		//PreparedStatement 객체 생성
 		pstmt = conn.prepareStatement(sql);
 		
 		//?에 데이터 바인딩
-		pstmt.setInt(1, fund_num);
+		pstmt.setInt(1, comment_num);
 		
 		//SQL문을 실행해서 결과행을 ResultSet에 담음
 		rs = pstmt.executeQuery();
