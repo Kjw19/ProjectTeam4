@@ -6,7 +6,7 @@ $(function(){
 	//댓글 목록
 	function selectList(pageNum) {
 		currentPage = pageNum;
-		 
+		  
 		//로딩 이미지 노출
 		$('#loading').show();
 		
@@ -54,7 +54,7 @@ $(function(){
 				}
 				else {
 					//다음 페이지 존재	
-					$('paging-button').show();
+					$('.paging-button').show();
 				}
 			},
 			error: function() {
