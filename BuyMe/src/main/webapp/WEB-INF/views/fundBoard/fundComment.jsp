@@ -13,6 +13,7 @@
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<h2>${fund.fund_title}</h2>
 	<jsp:include page="/WEB-INF/views/common/fundBoardDetailMenu.jsp"/>
 	
 	<!-- 댓글 시작 -->

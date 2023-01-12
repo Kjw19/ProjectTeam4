@@ -21,7 +21,7 @@ public class NoticeBoardCommentDAO {
 	}
 	private NoticeBoardCommentDAO() {
 	//생성자는 외부에서 호출하지 못하도록 private 지정함으로써 new 연산자에 제약 부여 
-	}
+	} 
  
 //댓글 등록 메소드 
 public void insertNoticeBoardComment(NoticeBoardCommentVO noticeBoardComment) throws Exception {
@@ -31,12 +31,12 @@ public void insertNoticeBoardComment(NoticeBoardCommentVO noticeBoardComment) th
 	
 	try {
 		conn = DBUtil.getConnection();
-		sql = "INSERT INTO notice_comment (comment_num, comm_content, mem_num, notice_num) VALUES (notice_comment_seq.nextval, ?, ?, ?) ";
+		sql = "INSERT INTO notice_comment (comment_num, comm_content, mem_num, noti_num) VALUES (notice_comment_seq.nextval, ?, ?, ?) ";
 		pstmt = conn.prepareStatement(sql);
 		
 		pstmt.setString(1,noticeBoardComment.getComm_content());
 		pstmt.setInt(2, noticeBoardComment.getMem_num());
-		pstmt.setInt(3, noticeBoardComment.getNotice_num());
+		pstmt.setInt(3, noticeBoardComment.getNoti_num());
 		pstmt.executeUpdate();
 	} catch (Exception e) {
 		throw new Exception(e);
@@ -46,7 +46,7 @@ public void insertNoticeBoardComment(NoticeBoardCommentVO noticeBoardComment) th
 }
 
 //댓글 개수 확인 메소드 
-public int getNoticeBoardCommentCount(int notice_num) throws Exception {
+public int getNoticeBoardCommentCount(int noti_num) throws Exception {
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
@@ -55,10 +55,10 @@ public int getNoticeBoardCommentCount(int notice_num) throws Exception {
 	
 	try {
 		conn = DBUtil.getConnection();
-		sql = "SELECT COUNT(*) FROM notice_comment a JOIN member b ON a.mem_num=b.mem_num WHERE a.notice_num=?";
+		sql = "SELECT COUNT(*) FROM notice_comment c JOIN member b ON c.mem_num=b.mem_num WHERE c.noti_num=?";
 		pstmt = conn.prepareStatement(sql);
 		
-		pstmt.setInt(1, notice_num);
+		pstmt.setInt(1, noti_num);
 		rs = pstmt.executeQuery();
 		
 		if(rs.next()) {
@@ -73,7 +73,7 @@ public int getNoticeBoardCommentCount(int notice_num) throws Exception {
 }
 
 //댓글 목록 메소드
-public List<NoticeBoardCommentVO> getListNoticeBoardComment(int start, int end, int notice_num) throws Exception {
+public List<NoticeBoardCommentVO> getListNoticeBoardComment(int start, int end, int noti_num) throws Exception {
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
@@ -82,9 +82,9 @@ public List<NoticeBoardCommentVO> getListNoticeBoardComment(int start, int end, 
 	
 	try {
 		conn = DBUtil.getConnection();
-		sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM notice_comment a JOIN member b USING(mem_num) WHERE a.notice_num=? ORDER BY a.comment_num DESC)a) WHERE rnum >= ? AND rnum <= ? ";
+		sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM notice_comment c JOIN member b USING(mem_num) WHERE c.noti_num=? ORDER BY c.comment_num DESC)a) WHERE rnum >= ? AND rnum <= ? ";
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setInt(1, notice_num);
+		pstmt.setInt(1, noti_num);
 		pstmt.setInt(2, start);
 		pstmt.setInt(3, end);
 		rs = pstmt.executeQuery();
@@ -96,9 +96,9 @@ public List<NoticeBoardCommentVO> getListNoticeBoardComment(int start, int end, 
 			comment.setCommnet_num(rs.getInt("comment_num"));
 			comment.setComm_reg_date(DurationFromNow.getTimeDiffLabel(rs.getString("comm_reg_date")));
 			comment.setComm_content(StringUtil.useBrNoHtml(rs.getString("comm_content")));
-			comment.setNotice_num(rs.getInt("notice_num"));
+			comment.setNoti_num(rs.getInt("noti_num"));
 			comment.setMem_num(rs.getInt("mem_num"));
-			comment.setId(rs.getString("id"));
+			
 			
 			list.add(comment);
 			
@@ -122,7 +122,7 @@ public NoticeBoardCommentVO getNoticeBoardComment(int comment_num) throws Except
 	
 	try {
 		conn = DBUtil.getConnection();
-		sql = "SELECT* FROM notice_comment WHERE commnet_num = ?";
+		sql = "SELECT* FROM notice_comment WHERE comment_num = ?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, comment_num);
 		

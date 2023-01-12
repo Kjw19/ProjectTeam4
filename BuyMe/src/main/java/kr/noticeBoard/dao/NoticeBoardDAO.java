@@ -293,7 +293,6 @@ public class NoticeBoardDAO {
 			//오토커밋 해제
 			conn.setAutoCommit(false);
 			
-			/*
 			//좋아요 삭제
 			sql="DELETE FROM notice_like WHERE noti_num=?";
 			pstmt=conn.prepareStatement(sql);
@@ -305,7 +304,6 @@ public class NoticeBoardDAO {
 			pstmt2=conn.prepareStatement(sql);
 			pstmt2.setInt(1, noti_num);
 			pstmt2.executeUpdate();
-			*/
 			
 			//부모글 삭제
 			sql = "DELETE FROM notice_board WHERE noti_num=?";

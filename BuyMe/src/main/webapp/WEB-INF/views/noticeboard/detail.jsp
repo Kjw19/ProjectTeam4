@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
 <meta charset="UTF-8">
@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/noticeboard.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/noticeBoard.Comment.js"></script>
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/noticeBoard.comment.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/noticeBoard.fav.js"></script>
 </head>
 <body>
 <div class="ntpage-main">
@@ -69,8 +69,8 @@
 		<div id="comment_div">
 			<span class="comm-title">댓글 달기</span>
 			<form id="comm_form">
-				<input type="hidden" name="notice_num" 
-				       value="${noticeboard.noti_num}" id="notice_num">
+				<input type="hidden" name="noti_num" 
+				       value="${noticeboard.noti_num}" id="noti_num">
 				<textarea rows="3" cols="50" name="comm_content" 
 				  id="comm_content" class="comm-content"
 				  <c:if test="${empty user_num}">disabled="disabled"</c:if>

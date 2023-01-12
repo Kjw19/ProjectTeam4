@@ -23,16 +23,18 @@ public class UpdateCommentAction implements Action {
 		int comment_num = Integer.parseInt(request.getParameter("comment_num"));
 
 		NoticeBoardCommentDAO dao = NoticeBoardCommentDAO.getInstance();
+		// 작성자의 회원번호 구하기
 		NoticeBoardCommentVO db_comment = dao.getNoticeBoardComment(comment_num);
 
 		HttpSession session = request.getSession();
-		Integer user_num = (Integer) session.getAttribute("user_num");
+		Integer user_num = (Integer)session.getAttribute("user_num");
 
-		Map<String, String> mapAjax = new HashMap<String, String>();
+		Map<String,String> mapAjax = new HashMap<String,String>();
 
 		if (user_num == null) {
 			mapAjax.put("result", "logout");
 		} else if (user_num != null && user_num == db_comment.getMem_num()) {
+
 			NoticeBoardCommentVO comment = new NoticeBoardCommentVO();
 			comment.setCommnet_num(comment_num);
 			comment.setComm_content(request.getParameter("comm_content"));
@@ -50,6 +52,6 @@ public class UpdateCommentAction implements Action {
 		String ajaxData = mapper.writeValueAsString(mapAjax);
 		request.setAttribute("ajaxData", ajaxData);
 
-		return "/WEB-INF/views/common/ajax_jsp";
+		return "/WEB-INF/views/common/ajax_view.jsp";
 	}
 }

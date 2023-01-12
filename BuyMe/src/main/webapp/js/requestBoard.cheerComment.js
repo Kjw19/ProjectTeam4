@@ -4,6 +4,7 @@ $(function(){
 	let currentPage;
 	let count;
 	let rowCount; // 한 페이지에 몇 개의 레코드를 보여줄 것인지
+	let my_photo;
 	
 	// textarea에 타임라인 입력 시 글자수 체크 : 작성·수정 시 사용
 	$(document).on('keyup','textarea',function(){
@@ -28,11 +29,13 @@ $(function(){
 	
 	//타임라인 작성 폼 초기화
 	function initForm(){
-		$('#cheer_btn').show();
 		$('textarea').val('');
 		$('#cheerComm_first .letter-count').text('300/300');
 	}
-	
+	function initPhoto(){
+		$('.my-photo').attr('src','../images/blank.png');
+		$('#photo').val('');
+	}	
 	$(function(){
 		// 이미지 미리보기
 		let photo_path = $('.my-photo').attr('src'); // 처음 화면에 보여지는 이미지 읽기
@@ -40,10 +43,12 @@ $(function(){
 		$('#photo').change(function(){
 			my_photo = this.files[0];
 			
+			/*
 			if(!my_photo){
 				$('.my-photo').attr('src',photo_path);
 				return; // 선택한 이미지가 없으니 다시 선택하게끔
 			}
+			*/
 			
 			
 			// 파일 용량 체크
@@ -52,6 +57,7 @@ $(function(){
 				$('.my-photo').attr('src',photo_path); // 용량이 너무 크면 처음 이미지를 보여준다.
 				$(this).val(''); // 선택한 파일 정보 지우기
 			}
+			
 			
 			let reader = new FileReader();
 			reader.readAsDataURL(my_photo);
@@ -79,10 +85,15 @@ $(function(){
 			
 			// 서버에 파일 전송
 			let form_data = new FormData();
+			
+			
 			form_data.append('cheer_num',$('#cheerComment_num').val());
 			form_data.append('cheerComm_title',$('#cheerComm_title').val());
 			form_data.append('cheerComm_content',$('#cheerComm_content').val());
-			form_data.append('cheerComm_filename',my_photo);
+			if(my_photo){
+				form_data.append('cheerComm_filename',my_photo);
+			}
+			
 			$.ajax({
 				url:'cheerCommentWrite.do',
 				type:'post',
@@ -98,9 +109,7 @@ $(function(){
 						alert('타임라인을 꾸며주셔서 감사합니다!');
 						initForm();
 						selectList(1);
-						// 이미지 초기화
-						$('$cheerComm_filename').val('');
-						alert('이미지 초기화 완료');
+						initPhoto();
 					}else{
 						alert('타임라인 작성 오류 발생');
 					}
@@ -118,6 +127,7 @@ $(function(){
 			$('#cheer_btn').show();
 		}); // end of click_reset (이미지 미리보기 취소)
 	});
+	
 	// 타임라인 목록
 	function selectList(pageNum){ // selectList(value)
 		currentPage = pageNum;
@@ -147,14 +157,11 @@ $(function(){
 					output += '<br><div class="sub-item">';
 					//output += '<span><img src="../upload/'+item.cheerComm_filename+'" width="200" height="150"></span>';
 					
-					
 					if(item.cheerComm_filename!=null){
 						output += '<span><img src="../upload/'+item.cheerComm_filename+'" width="200" height="150"></span>';
 					}else{
 						output += '<span></span>';
 					}
-					
-					
 					
 					output += '<p>' + item.cheerComm_content + '</p>';
 					
@@ -194,198 +201,6 @@ $(function(){
 	$('.paging-button input').click(function(){
 		selectList(currentPage + 1);
 	});
-	
-	/*
-	// 타임라인 수정폼 초기화
-	function initModifyForm(){
-		$('.sub-item').show();
-		$('#mcheerComm_form').remove();
-	}
-	// 타임라인 수정 버튼 클릭 시 수정폼 노출 : 동적으로 코드 만들기
-	$(document).on('click','.modify-btn',function(){
-		// 타임라인 번호
-		let cheerComment_num = $(this).attr('data-cheerCommentnum');
-		// 타임라인 내용 : 문서내의 모든 br태그 검색
-		// g : 지정문자열 모두, i : 대소문자 무시
-		// 수정버튼.부모태그로이동.부모태그의하위p태그.(내용중에br이있다, \n으로변경)
-		let cheerComm_title = $(this).parent().find('b');
-		let cheerComm_content = $(this).parent().find('p').html().replace(/<br>/gi,'\n');
-		
-		// 타임라인 수정 폼 UI : 동적으로 생성
-		let modifyUI = '<form id="mcheerComm_form">';
-		   modifyUI += '<input type="hidden" name="cheerComment_num" id="cheerComment_num" value="'+cheerComment_num+'">';
-		   modifyUI += '<textarea rows="1" cols="70" name="cheerComm_title" id="mcheerComm_title" class="cheerComm-title">'+cheerComm_title+'</textarea>';
-		   modifyUI += '<textarea rows="4" cols="70" name="cheerComm_content" id="mcheerComm_content" class="cheerComm-content">'+cheerComm_content+'</textarea>';
-		   modifyUI += '<div id="mcheerComm_second" class="align-right">';
-		   modifyUI += ' <input type="submit" value="수정">';
-		   modifyUI += ' <input type="button" value="취소" class="cheerComm-reset">';
-		   modifyUI += '</div>';
-		   modifyUI += '<div id="mcheerComm_first"><span class="letter-count">300/300</span></div>';
-		   modifyUI += '<hr size="1" noshade width="96%">';
-		   modifyUI += '</form>';
-		   
-		   // 이전에 수정한 타임라인이 있을 경우 수정버튼을 클릭하면 숨김 sub-item을 환원시키고 수정폼을 초기화시킨다.
-		   initModifyForm();
-		   
-		   // 지금 클릭해서 수정하고자 하는 데이터는 감추기
-		   // 수정버튼을 감싸고 있는 div : 수정버튼(this)의 부모(parent)를 감추기(hide)
-		   // sub-item을 숨긴다.
-		   $(this).parent().hide();
-		   
-		   // 수정폼을 수정하고자 하는 데이터가 있는 div에 노출
-		   $(this).parents('.item').append(modifyUI);
-		   
-		   // 입력한 글자수 셋팅
-		   let inputLength = $('#mcheerComm_content').val().length;
-		   let remain = 300 - inputLength;
-		   remain += '/300';
-		   
-		   // 문서 객체에 반영
-		   $('#mcheerComm_first .letter-count').text(remain);
-	});
-	// 수정폼에서 취소 버튼 클릭 시 수정폼 초기화
-	$(document).on('click','.cheerComm-reset',function(){
-		initModifyForm();
-	});
-	// 타임라인 수정
-	$(document).on('submit','#mcheerComm_form',function(event){ // 미래($(document).on())의 태그에 동적으로 연결
-		// 기본 이벤트 제거 : 주소가 바뀌면 안 되기 때문에
-		event.preventDefault();
-		
-		if($('#mcheerComm_title').val().trim()==''){
-			alert('Talk 제목을 작성하세요.');
-			$('#mcheerComm_title').val('').focus();
-			return false;
-		}
-		if($('#mcheerComm_content').val().trim()==''){
-			alert('Talk 내용을 작성하세요.');
-			$('#mcheerComm_content').val('').focus();
-			return false;
-		}
-		
-		// 폼에 입력한 데이터 반환 = serialize() : 폼 이하의 태그들을 한번에 읽어온다.
-		// serialize() : parameter name과 value의 쌍으로 불러온다.
-		// this : textarea를 감싸고 있는 form
-		let form_data = $(this).serialize();
-		
-		// 서버와 통신
-		$.ajax({
-			url:'cheerCommentUpdate.do',
-			type:'post',
-			data:form_data,
-			dataType:'json',
-			success:function(param){
-				if(param.result=='logout'){
-					alert('로그인해야 타임라인을 수정할 수 있습니다.');
-				}else if(param.result=='success'){ // 화면 제어
-					$('#mcheerComm_form').parent().find('b').html($('#mcheerComm_title').val().replace(/</g,'&lt;')
-																						   	  .replace(/>/g,'&gt;')
-																						  	   .replace(/\n/g,'<br>'));
-					$('#mcheerComm_form').parent().find('p').html($('#mcheerComm_content').val().replace(/</g,'&lt;')
-																						   	 	.replace(/>/g,'&gt;')
-																						  	    .replace(/\n/g,'<br>'));
-					initModifyForm(); // 수정폼 삭제 및 초기화 → 바로 화면 갱신
-				}else if(param.result=='wrongAccess'){
-					alert('타인의 타임라인을 수정할 수 없습니다.');
-				}else{
-					alert('타임라인 수정 오류 발생');
-				}
-			},
-			error:function(){
-				alert('네트워크 오류 발생');
-			}
-		});
-	}); 
-	*/
-	/*
-	// 타임라인 수정폼 초기화
-	function initModifyForm(){
-		$('.sub-item').show();
-		$('#mcheerComm_form').remove();
-	}
-	// 타임라인 수정 버튼 클릭 시 수정폼 노출 : 동적으로 코드 만들기
-	$(document).on('click','.modify-btn',function(){
-		// 타임라인 번호
-		let cheerComment_num = $(this).attr('data-cheerCommentnum');
-		// 타임라인 내용 : 문서내의 모든 br태그 검색
-		// g : 지정문자열 모두, i : 대소문자 무시
-		// 수정버튼.부모태그로이동.부모태그의하위p태그.(내용중에br이있다, \n으로변경)
-		let content = $(this).parent().find('p').html().replace(/<br>/gi,'\n');
-		
-		// 타임라인 수정 폼 UI : 동적으로 생성
-		let modifyUI = '<form id="mcheerComm_form">';
-		   modifyUI += '<input type="hidden" name="cheerComment_num" id="cheerComment_num" value="'+cheerComment_num+'">';
-		   modifyUI += '<textarea rows="5" cols="70" name="cheerComm_content" id="mcheerComm_content" class="cheerComm-content">'+content+'</textarea>';
-		   modifyUI += '<div id="mcheerComm_second">';
-		   modifyUI += ' <input type="submit" value="수정">';
-		   modifyUI += ' <input type="button" value="취소" class="cheerComm-reset">';
-		   modifyUI += '</div>';
-		   modifyUI += '<div id="mcheerComm_first"><span class="letter-count">300/300</span></div>';
-		   modifyUI += '<hr size="1" noshade width="96%">';
-		   modifyUI += '</form>';
-		   
-		   // 이전에 수정한 타임라인이 있을 경우 수정버튼을 클릭하면 숨김 sub-item을 환원시키고 수정폼을 초기화시킨다.
-		   initModifyForm();
-		   
-		   $(this).parent().hide();
-		   
-		   // 수정폼을 수정하고자 하는 데이터가 있는 div에 노출
-		   $(this).parents('.item').append(modifyUI);
-		   
-		   // 입력한 글자수 셋팅
-		   let inputLength = $('#mcheerComm_content').val().length;
-		   let remain = 300 - inputLength;
-		   remain += '/300';
-		   
-		   // 문서 객체에 반영
-		   $('#mcheerComm_first .letter-count').text(remain);
-	});
-	// 수정폼에서 취소 버튼 클릭 시 수정폼 초기화
-	$(document).on('click','.cheerComm-reset',function(){
-		initModifyForm();
-	});
-	
-	// 타임라인 수정
-	$(document).on('submit','#mcheerComm_form',function(event){ // 미래($(document).on())의 태그에 동적으로 연결
-		event.preventDefault(); // 기본 이벤트 제거 : 주소가 바뀌면 안 되기 때문에
-		
-		if($('#mcheerComm_content').val().trim()==''){
-			alert('본인만의 타임라인을 함께 나눠보세요.');
-			$('#mcheerComm_content').val('').focus();
-			return false;
-		}
-		
-		// 폼에 입력한 데이터 반환 = serialize() : 폼 이하의 태그들을 한번에 읽어온다.
-		// serialize() : parameter name과 value의 쌍으로 불러온다.
-		// this : textarea를 감싸고 있는 form
-		let form_data = $(this).serialize();
-		
-		// 서버와 통신
-		$.ajax({
-			url:'cheerCommentUpdate.do',
-			type:'post',
-			data:form_data,
-			dataType:'json',
-			success:function(param){
-				if(param.result=='logout'){
-					alert('로그인해야 타임라인을 수정할 수 있습니다.');
-				}else if(param.result=='success'){ // 화면 제어
-					$('#mcheerComm_form').parent().find('p').html($('#mcheerComm_content').val().replace(/</g,'&lt;')
-																				  		  .replace(/>/g,'&gt;')
-																						  .replace(/\n/g,'<br>'));
-					initModifyForm(); // 수정폼 삭제 및 초기화 → 바로 화면 갱신
-				}else if(param.result=='wrongAccess'){
-					alert('타인의 타임라인을 수정할 수 없습니다.');
-				}else{
-					alert('타임라인 수정 오류 발생');
-				}
-			},
-			error:function(){
-				alert('네트워크 오류 발생');
-			}
-		});
-	}); 
-	*/
 	
 	// 타임라인 삭제
 	$(document).on('click','.delete-btn',function(){

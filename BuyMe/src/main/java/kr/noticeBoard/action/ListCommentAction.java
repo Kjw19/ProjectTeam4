@@ -26,11 +26,11 @@ public class ListCommentAction implements Action{
 		if(pageNum == null ) {
 			pageNum = "1";
 		}
-		
-		int notice_num = Integer.parseInt(request.getParameter("notice_num"));
+		 
+		int noti_num = Integer.parseInt(request.getParameter("noti_num"));
 		
 		NoticeBoardCommentDAO dao = NoticeBoardCommentDAO.getInstance();
-		int count = dao.getNoticeBoardCommentCount(notice_num);
+		int count = dao.getNoticeBoardCommentCount(noti_num);
 		
 		/*
 		 * ajax 방식으로 목록을 표시하기 때문에 PagingUtil은 페이지수
@@ -45,7 +45,7 @@ public class ListCommentAction implements Action{
 		
 		List<NoticeBoardCommentVO> list = null;
 		if(count > 0) {
-			list = dao.getListNoticeBoardComment(page.getStartRow(), page.getEndRow(), notice_num);
+			list = dao.getListNoticeBoardComment(page.getStartRow(), page.getEndRow(), noti_num);
 		}
 		else {
 			list = Collections.emptyList(); //빈 List 생성

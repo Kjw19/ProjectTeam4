@@ -23,28 +23,28 @@ public String execute(HttpServletRequest request, HttpServletResponse response) 
 	
 	if(user_num == null) {//로그인 되지 않은 경우
 		mapAjax.put("result", "logout");
+	}else {
 		//전송된 데이터 인코딩 처리
-		request.setCharacterEncoding("utf-8");
-		
-		NoticeBoardCommentVO comment = new NoticeBoardCommentVO();
-		comment.setMem_num(user_num);
-		comment.setComm_content(request.getParameter("comm_content"));
-		comment.setNotice_num(Integer.parseInt(request.getParameter("notice_num")));
-		
-		NoticeBoardCommentDAO dao = NoticeBoardCommentDAO.getInstance();
-		dao.insertNoticeBoardComment(comment);
-		
-		mapAjax.put("result", "success");
-		
-		//JSON 데이터 생성
-		ObjectMapper mapper = new ObjectMapper();
-		String ajaxData = mapper.writeValueAsString(mapAjax);
-		
-		request.setAttribute("ajaxData", ajaxData);
-		
+				request.setCharacterEncoding("utf-8");
+				
+				NoticeBoardCommentVO comment = new NoticeBoardCommentVO();
+				comment.setMem_num(user_num);
+				comment.setComm_content(request.getParameter("comm_content"));
+				comment.setNoti_num(Integer.parseInt(request.getParameter("noti_num")));
+				
+				NoticeBoardCommentDAO dao = NoticeBoardCommentDAO.getInstance();
+				dao.insertNoticeBoardComment(comment);
+				
+				mapAjax.put("result", "success");
+				
 	}
+	//JSON 데이터 생성
+	ObjectMapper mapper = new ObjectMapper();
+	String ajaxData = mapper.writeValueAsString(mapAjax);
 	
-	
+	request.setAttribute("ajaxData", ajaxData);
+
+
 	return "/WEB-INF/views/common/ajax_view.jsp";
 }
 }
