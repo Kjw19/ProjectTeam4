@@ -87,9 +87,11 @@
 			
 			<div class="mypage-menu"> <!-- 마이페이지 메뉴 시작 -->
 				<ul>
-					<li><b><a href="#">마이페이지</a></b></li>
+					<li><b><a href="${pageContext.request.contextPath}/members/myPage.do">마이페이지</a></b></li>
+					<%-- 
 					<li><a href="#">서포터</a></li>
 					<li><a href="#">메이커</a></li>
+					--%>
 				</ul>
 			</div> <!-- end of mypage-menu, 마이페이지 메뉴 끝 -->
 			</div> <!--  end of mypage-first -->
