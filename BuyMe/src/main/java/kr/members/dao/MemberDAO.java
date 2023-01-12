@@ -175,6 +175,7 @@ public class MemberDAO {
 				member.setEmail(rs.getString("email"));
 				member.setReg_date(rs.getDate("reg_date"));//가입일
 				member.setModify_date(rs.getDate("modify_date"));//수정일
+				member.setPhoto(rs.getString("photo"));
 			}
 		}catch(Exception e) {
 			throw new Exception(e);
@@ -236,8 +237,7 @@ public class MemberDAO {
 		}
 	}
 	//프로필 사진 수정
-	public void updateMyPhoto(String photo, int mem_num)
-			throws Exception{
+	public void updateMyPhoto(String photo, int mem_num) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
