@@ -16,6 +16,7 @@ public class MemberVO {
 	private String photo;
 	private Date reg_date;
 	private Date modify_date;
+	private String filename;
 	
 	//비밀번호 일치 여부 체크
 	public boolean isCheckedPassword(String userPasswd) {
@@ -109,5 +110,11 @@ public class MemberVO {
 	}
 	public void setModify_date(Date modify_date) {
 		this.modify_date = modify_date;
+	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
 	}
 }

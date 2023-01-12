@@ -61,7 +61,7 @@
 						</div>
 					</li>
 					<li>
-						<div><b>${member.name}</b>님</div>
+						<span style="color:#2B478E"><b>${member.name}</b></span>님
 					</li>
 					<li>
 						<div>개인회원</div>
@@ -93,7 +93,7 @@
 			<form id="simple_form" action="modifyMyInfoDetailForm.do" method="post">
 			<div class="mypage-simple"> <!-- 간단 내 정보 시작 -->
 				<ul>
-					<li>
+					<li class="second-title">
 						<h2>내 정보</h2>
 					</li>
 					<li>

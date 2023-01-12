@@ -176,6 +176,7 @@ public class MemberDAO {
 				member.setReg_date(rs.getDate("reg_date"));//가입일
 				member.setModify_date(rs.getDate("modify_date"));//수정일
 				member.setPhoto(rs.getString("photo"));
+				member.setFilename(rs.getString("filename"));
 			}
 		}catch(Exception e) {
 			throw new Exception(e);

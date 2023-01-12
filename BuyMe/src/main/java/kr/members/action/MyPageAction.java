@@ -22,8 +22,6 @@ public class MyPageAction implements Action{
 		MemberDAO dao = MemberDAO.getInstance();
 		MemberVO member = dao.getMember(user_num);
 		
-		// 좋아요한 목록
-		
 		request.setAttribute("member", member); // 자바빈 저장
 		
 		return "/WEB-INF/views/members/myPage.jsp";

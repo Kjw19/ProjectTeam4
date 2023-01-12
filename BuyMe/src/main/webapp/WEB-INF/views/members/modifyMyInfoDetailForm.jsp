@@ -44,14 +44,6 @@
 	});
 	
 	$(function(){
-		/*
-		$('#photo_btn').click(function(){
-			$('#photo_choice').show();
-			$(this).hide(); // 수정 버튼 감추기
-		});
-		*/
-		
-		
 		// 이미지 미리보기
 		let photo_path = $('.my-photo').attr('src'); // 처음 화면에 보여지는 이미지 읽기
 		let my_photo;
@@ -102,8 +94,6 @@
 						photo_path = $('.my-photo').attr('src');
 						photo_path = $('.my-photo2').attr('src');
 						$('#photo').val('');
-						//$('#photo_choice').hide();
-						//$('#photo_btn').show();
 					}else{
 						alert('파일 전송 오류 발생');
 					}
@@ -144,10 +134,10 @@
 						</div>
 					</li>
 					<li>
-						<div><b>${member.name}</b>님</div>
+						<span style="color:#2B478E"><b>${member.name}</b></span>님
 					</li>
 					<li>
-						<div>개인회원</div>
+						<div>일반회원</div>
 					</li>
 				</ul>
 			</div> <!-- end of mypage-profile, 마이페이지 프로필 사진 끝-->
@@ -172,7 +162,7 @@
 						<h2>내 상세 정보 수정</h2>
 						<span>*아이디, 비밀번호는 수정 불가능</span>
 					</li>
-					<li>
+					<li class="profile-image">
 						<c:if test="${empty member.photo}">
 							<img src="${pageContext.request.contextPath}/images/face.png" width="100" height="100" class="my-photo">
 						</c:if>
@@ -180,7 +170,7 @@
 							<img src="${pageContext.request.contextPath}/upload/${member.photo}" width="100" height="100" class="my-photo">
 						</c:if>
 					</li>
-					<li>
+					<li class="profile-button">
 						<div id="photo_choice">
 							<input type="file" id="photo" accept="image/gif,image/png,image/jpeg"><br>
 							<input type="button" value="프로필 수정" id="photo_submit">
