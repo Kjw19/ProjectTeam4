@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시판 목록</title>
+<title>질문 목록</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestBoard.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
@@ -28,7 +28,7 @@
 	</div>
 	<jsp:include page="/WEB-INF/views/common/requestBoardMenu.jsp"/>
 	<div class="content-main">
-		<h2>게시판 목록</h2>
+		<h2>질문 목록</h2>
 		<!-- 검색 폼 시작 -->
 		<form id="search_form" action="list.do" method="get">
 			<ul class="search">
