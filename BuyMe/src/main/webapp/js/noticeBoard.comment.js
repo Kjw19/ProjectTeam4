@@ -200,7 +200,7 @@ $(function(){
 	//댓글 수정
 	$(document).on('submit', '#mcomm_form', function(event) {
 		//기본 이벤트 제거
-		alert('sdss');
+		
 		event.preventDefault();
 		
 
@@ -211,12 +211,12 @@ $(function(){
 			$('#mcomm_content').val('').focus();
 			return false;
 		}
-		alert('미친5');
+	
 
 		//폼에 입력한 데이터 반환
 		let form_data = $(this).serialize();
 		
-		alert('미친6');
+	
 		
 		$.ajax({
 			url:'updateComment.do',
