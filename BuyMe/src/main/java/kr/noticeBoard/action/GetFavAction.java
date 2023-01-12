@@ -28,15 +28,15 @@ public class GetFavAction implements Action {
 		Integer user_num = (Integer)session.getAttribute("user_num");
 
 		NoticeBoardFavDAO dao = NoticeBoardFavDAO.getInstance();
-
-		if (user_num == null) {
+ 
+		if (user_num == null) { 
 			mapAjax.put("status", "noFav");
 			mapAjax.put("count", dao.selectNoticeFavCount(noti_num));
 		} else {
 			NoticeBoardFavsVO favsVO = new NoticeBoardFavsVO();
 			favsVO.setNoti_num(noti_num);
 			favsVO.setMem_num(user_num);
-
+			//좋아요 선택 여부 체크
 			NoticeBoardFavsVO boardFav = dao.selectNoticeFav(favsVO);
 			if (boardFav != null) {
 				mapAjax.put("status", "yesFav");

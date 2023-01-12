@@ -87,9 +87,10 @@ span#search_menu ul li{
 span#login_menu ul li{
 	float:left; width:80px;
 	font-size:25px; font-weight:700;
+	padding-top:20px;
 }
 span#login_menu ul li a{
-	font-size:20px;
+	font-size:18px;
 	color:#6C6C6C;
 }
 span#login_menu ul li a:hover{
@@ -149,7 +150,6 @@ div.sub-header ul li a:hover{
 }
 .content-main{
 	padding:10px 20px;
-	
 	margin:50px auto;
 	padding:10px 20px;
 	width:950px;

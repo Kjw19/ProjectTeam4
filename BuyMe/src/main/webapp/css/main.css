@@ -1,8 +1,166 @@
 @charset "UTF-8";
-* {box-sizing: border-box;}
+/** {box-sizing: border-box;}
 body {font-family: Verdana, sans-serif;}
 .mySlides {display: none;}
-img {vertical-align: middle;}
+img {vertical-align: middle;}*/
+
+/* 구글 폰트 가져오기*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
+
+/* 전체 레이아웃 */ 
+body{
+	margin:0 auto;
+	box-sizing:border-box; /* 박스 크기의 기준 : 테두리 */
+	position:relative;
+	width:1440px; height:1024px;
+	/* background: #C8C8C8; 색상 흰색으로 변경해야함 */
+	font-family:'Noto Sans KR';
+}
+ul{
+    list-style:none;
+}
+a{
+	text-decoration:none;
+	outline:none;
+}
+a:link{
+	text-decoration:none;
+	color:#000000;
+}
+a:visited{
+	text-decoration:none;
+	color:#000000;
+}
+a:hover{
+	text-decoration:none;
+	color:#6C6C6C;
+}
+div.clear-both{
+	clear:both;
+}
+/* 공통 */
+.align-center{
+	text-align:center;
+}
+.align-right{
+	text-align:right;
+}
+input[type="button"], input[type="submit"]{
+	width:60px;
+	height:27px;
+	border:none;
+	border-radius:3px;
+	background-color:#4B71DE;
+	color:white;
+	cursor:pointer;
+}
+div#photo_choice input[type="file"]{
+	width:200px;
+}
+div#photo_choice input[type="button"]{
+	width:100px;
+}
+
+/* header 시작 */
+div.header{
+	height:110px;
+}
+header .logo{
+	font-family:'Orelega One';
+	font-size:70px;
+	padding:60px 0px 20px 80px;
+	float:left; width:18%;
+}
+header .logo a{
+	color: #4B71DE;
+}
+div.header ul{
+	text-align:center; display:inline-block;
+	margin:0; padding:0;
+}
+span#main_menu ul li{
+	float:left; width:115px;
+	font-size:25px; font-weight:700;
+	padding:90px 0 0 0; margin-left:30px;
+}
+span#search_menu ul li{
+	float:left;
+	font-size:25px; 
+	padding:60px 20px 0 0; margin-left:130px;
+}
+span#login_menu ul li{
+	float:left; width:80px;
+	font-size:25px; font-weight:700;
+	padding-top:20px;
+}
+span#login_menu ul li a{
+	font-size:18px;
+	color:#6C6C6C;
+}
+span#login_menu ul li a:hover{
+	color:#000000;
+}
+header #search_item{
+	width:210px; height:32px;
+	background:rgba(0, 0, 0, 0.04);
+	border:2px solid #4B71DE;
+	border-radius:5px;
+}
+header #search_item_button{
+	height:32px;
+	background:#4B71DE;
+	border-radius:5px;
+}
+input#search_item{
+	background-image:url('../images/searchicon.png');
+	background-repeat:no-repeat;
+    background-size:16px;
+    background-position:170px center;
+}
+
+/* sub-menu */
+div.requestboard-title{
+	height:130px;
+	text-align:center;
+	padding:30px 0 0 0;
+	font-size:15px;
+}
+div.sub-header ul{
+	text-align:center;
+	margin:0; padding:0 0 5px 0;
+}
+div.sub-header ul li{
+	display:inline-block;
+	border-left:1px solid #999; /* 각 메뉴의 왼쪽에 "|" 표시(분류 표시) */
+	padding:0 100px;
+	font-style:normal; font-weight:500; font-size:19px;
+	line-height:130%;
+}
+div.sub-header ul li:first-child{
+	border-left:none; /* 메뉴 분류중 제일 왼쪽의 "|"는 삭제 */
+}
+div.sub-header ul li a{
+	text-decoration:none;
+	color:#6C6C6C;
+}
+div.sub-header ul li a:hover{
+	color:#000000;
+}
+
+/* 페이지 레이아웃 */
+.page-main{
+	background:#FFFFFF;
+	margin:20px auto;
+}
+.content-main{
+	padding:10px 20px;
+	margin:50px auto;
+	padding:10px 20px;
+	width:950px;
+	border:1px solid #E8E8E8;
+	border-radius:7px;
+}
 
 /* Slideshow container */
 .slideshow-container {
