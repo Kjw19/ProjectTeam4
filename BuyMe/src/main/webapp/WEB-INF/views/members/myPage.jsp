@@ -32,24 +32,9 @@
 				return false;
 			}
 		});
-		// 아이디, 비밀번호 유효성 체크 - 비밀번호 수정
-		$('#modify_passwd').click(function(){
-			if($('#id').val().trim()==''){
-				alert('아이디를 입력하세요.');
-				$('#id').val('').focus();
-				return;
-			}
-			if($('#passwd').val().trim()==''){
-				alert('비밀번호를 입력하세요.');
-				$('#passwd').val('').focus();
-				return;
-			}
-			if($('#passwd').val()!=$('#re_passwd').val()){
-				alert('비밀번호와 비밀번호 확인이 불일치합니다.');
-				$('#re_passwd').val('').focus();
-				$('#message_passwd').css('color','#4B71DE').text('불일치');
-				return;
-			}
+		
+		$('#simple_form').keydown(function(){
+			$('#message_passwd').text('');
 		});
 	});
 </script>
@@ -123,8 +108,24 @@
 					</li>
 				
 					<li class="detail-li">
-						<input type="submit" value="내 상세 정보 조회" class="detail-lookup">
-						<input type="button" value="비밀번호 수정" onclick="location.href='modifyPasswordForm.do'" class="detail-lookup" id="modify_passwd">
+						<input type="submit" value="내 상세 정보 조회" class="detail-lookup" id="detail_lookup">
+						<input type="button" value="비밀번호 수정"  class="detail-lookup" id="modify_passwd">
+						<script>
+							let modify_passwd = document.getElementById('modify_passwd');
+							modify_passwd.onclick = function(){
+								if($('#passwd').val()!=$('#re_passwd').val()){
+									alert('비밀번호와 비밀번호 확인이 불일치합니다.');
+									$('#re_passwd').val('').focus();
+									$('#message_passwd').css('color','#4B71DE').text('불일치');
+									return;
+								}else{
+									location.replace('modifyPasswordForm.do');
+								}
+								$('#simple_form').keydown(function(){
+									$('#message_passwd').text('');
+								});
+							}
+						</script>
 					</li>		
 				</ul>
 			</div> <!--  end of mypage-simple, 간단 내 정보 끝 -->
