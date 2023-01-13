@@ -124,10 +124,16 @@ $(function(){
 					<input type="password" name="re_passwd" id="re_passwd" maxlength="12" placeholder="비밀번호 확인 입력">
 				</li>
 			</ul>
-			<div class="align-center">
-				<input type="submit" value="회원가입">
-				<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 			</div>
+						<div class="reguser-btn">
+				<ul>
+					<li>
+						<input type="submit" value="회원가입">
+					</li>
+					<li>
+						<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+					</li>
+			</ul>
 			</div>
 		</form>
 	</div>
