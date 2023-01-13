@@ -45,6 +45,10 @@ header > h2 {
 	line-height: 130%;
 	color: #4B71DE;
 }
+
+header > h2 a, h2 a:visited, h2 a:hover, h2 a:active {
+	color: #4B71DE;	
+}
 header > nav {
 	width:600px;
 	height:100%;
