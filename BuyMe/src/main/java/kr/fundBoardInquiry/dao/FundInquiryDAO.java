@@ -31,17 +31,18 @@ public class FundInquiryDAO {
 			conn = DBUtil.getConnection();
 			
 			//SQL문 작성
-			sql = "INSERT INTO fund_inquiry (inquiry_num,"
+			sql = "INSERT INTO fund_inquiry (inquiry_num,inqu_title,"
 					+ "inqu_content,mem_num,fund_num) "
-					+ "VALUES (fund_inquiry_seq.nextval,?,?,?)";
+					+ "VALUES (fund_inquiry_seq.nextval,?,?,?,?)";
 			
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			
 			//?에 데이터 바인딩
-			pstmt.setString(1, inquiry.getInqu_content());
-			pstmt.setInt(2, inquiry.getMem_num());
-			pstmt.setInt(3, inquiry.getFund_num());
+			pstmt.setString(1, inquiry.getInqu_title());
+			pstmt.setString(2, inquiry.getInqu_content());
+			pstmt.setInt(3, inquiry.getMem_num());
+			pstmt.setInt(4, inquiry.getFund_num());
 			
 			//SQL문 실행
 			pstmt.executeUpdate();
@@ -125,6 +126,7 @@ public class FundInquiryDAO {
 			while(rs.next()) {
 				FundInquiryVO inqu = new FundInquiryVO();
 				inqu.setInquiry_num(rs.getInt("inquiry_num"));
+				inqu.setInqu_title(rs.getString("inqu_title"));
 				inqu.setInqu_reg_date(rs.getDate("inqu_reg_date"));
 				inqu.setInqu_content(StringUtil.useBrNoHtml(
 						           rs.getString("inqu_content")));
@@ -170,6 +172,7 @@ public class FundInquiryDAO {
 			if(rs.next()) {
 				inquiry = new FundInquiryVO();
 				inquiry.setInquiry_num(rs.getInt("inquiry_num"));
+				inquiry.setInqu_title(rs.getString("inqu_title"));
 				inquiry.setInqu_content(rs.getString("inqu_content"));
 				inquiry.setRe_inqu_is_ok(rs.getString("re_inqu_is_ok"));
 				inquiry.setInqu_reg_date(rs.getDate("inqu_reg_date"));

@@ -29,13 +29,14 @@ $(function(){
 				
 				$(param.list).each(function(index,item){
 					let output = '<div class="item">';
-					output += '<h4>' + item.id + '</h4>';
+					output += '<span> 제목  ' + item.inqu_title + '</span></br>';
+					output += '<span> 작성자 ' + item.id + '(' + item.inqu_reg_date + ')</span><br>';
 					output += '<div class="sub-item">';
 					output += '<p>' + item.inqu_content + '</p>';
 					if(item.re_inqu_is_ok != null){
-					output += '<p>' + item.re_inqu_is_ok + '</P>';						
+					output += '<br>';	
+					output += '<p> 답변 <br> ' + item.re_inqu_is_ok + '</P>';						
 					}
-					output += '<span class="modify-date">등록일 : ' + item.inqu_reg_date + '</span>';
 					
 					//로그인한 회원번호와 작성자의 회원번호 일치 여부 체크
 					if(param.user_num == item.mem_num){
@@ -78,6 +79,11 @@ $(function(){
 	$('#inqu_form').submit(function(event){
 		//기본 이벤트 제거
 		event.preventDefault();
+		if($('#inqu_title').val().trim()==''){
+			alert('제목을 입력하세요!');
+			$('#inqu_content').val('').focus();
+			return false;
+		}
 		
 		if($('#inqu_content').val().trim()==''){
 			alert('내용을 입력하세요!');

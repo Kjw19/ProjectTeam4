@@ -34,6 +34,7 @@ public class WriteInquiryAction implements Action{
 		
 			FundInquiryVO inquiry = new FundInquiryVO();
 			inquiry.setMem_num(user_num);//회원번호(댓글 작성자)
+			inquiry.setInqu_title(request.getParameter("inqu_title"));
 			inquiry.setInqu_content(request.getParameter("inqu_content"));
 			inquiry.setFund_num(Integer.parseInt(
 				            request.getParameter("fund_num")));

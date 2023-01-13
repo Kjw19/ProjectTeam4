@@ -22,7 +22,7 @@ public class FundCommentDAO {
 	
 	private FundCommentDAO() {}
 
-	//문의 등록
+	//댓글 등록
 	public void insertFundComment(FundCommentVO comment)throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;

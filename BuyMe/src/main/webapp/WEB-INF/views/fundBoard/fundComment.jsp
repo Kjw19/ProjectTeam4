@@ -6,7 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>펀딩게시판 댓글</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/test.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/fundBoardCommInqu.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/fund.comment.js"></script>
 </head>
@@ -14,7 +15,6 @@
 
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<h2>${fund.fund_title}</h2>
 <div class="sub-header">
 	<ul>
 		<li>
@@ -28,7 +28,8 @@
 		</li>
 	</ul>
 </div>
-		
+	<div class="content-main">
+		<h2>${fund.fund_title}</h2>
 	<!-- 댓글 시작 -->
 		<div id="comment_div">
 			<span class="comm_title">댓글 작성</span>
@@ -59,6 +60,7 @@
 		</div>
 		<!-- 댓글 목록 출력 끝 -->
 		<!-- 댓글 끝 -->
+	</div>
 </div>
 
 </body>
