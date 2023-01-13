@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestBoard.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/mypage.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -32,16 +32,18 @@
 	<div class="login-main">
 		<h2>로그인</h2>
 		<form id="login_form" action="login.do" method="post">
+		<div class="login-input">
 			<ul>
 				<li>
-					<label for="id">아이디</label>
+					<label for="id" class="login_id">아이디</label>
 					<input type="text" name="id" id="id" maxlength="12" autocomplete="off">
 				</li>
 				<li>
-					<label for="passwd">비밀번호</label>
+					<label for="passwd" class="login_passwd">비밀번호</label>
 					<input type="password" name="passwd" id="passwd" maxlength="12">
 				</li>
 			</ul>
+		</div>
 			<div class="align-center">
 				<input type="submit" value="로그인">
 				<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">

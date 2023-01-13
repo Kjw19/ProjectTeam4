@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+div.myContent-main{
+	padding:10px 20px;
+	margin:50px auto;
+	padding:10px 20px;
+	width:950px;
+	border-radius:7px;
+}
+div.login-main{
+	border-radius:7px;
+	height:500px;
+	box-shadow:rgba(173, 180, 189, 0.9) 0px 5px 15px 0px;
+}
+
+h2{
+	font-size:30px;
+	text-align: center;
+	padding-top:60px;
+	margin-bottom:20px;
+}
+
+
+.login_form{
+	padding-top: 10px
+}
+.login_id{
+  display: inline-block;
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  padding: 10px;
+  background: white;
+  font-size: 14px;
+  color: #888;
+  font-weight: bold;
+}
+.login_passwd{
+  display: inline-block;
+  position: absolute;
+  top: 97px;
+  left: 14px;
+  padding: 10px;
+  background: white;
+  font-size: 14px;
+  color: #888;
+  font-weight: bold;
+}
+
+.login-input input{
+    appearance: none;
+    border-radius: 0;
+    border: 0;
+    outline: none;
+    font-size: 10px;
+}
+.login-input input::placeholder, textarea::placeholder{
+  color: #d9d9d9
+}
+.id{
+  display: inline-block;
+  position: absolute;
+  top: -19px;
+  left: 14px;
+  padding: 10px;
+  background: white;
+  font-size: 14px;
+  color: #888;
+  font-weight: bold;
+}
+.login-input{
+  width: 50%; 
+  box-sizing: border-box;
+  margin: 20px auto;
+  position: relative;
+}
+.login-input label{
+  vertical-align: -1px;
+}
+.login-input input{
+    width: 100%;
+    border: 1px solid #dddddd !important;
+    font-size: 1rem;
+    line-height: 1.45;
+    letter-spacing: -0.04rem;
+    border-radius: 8px;
+    padding: 14px;
+    margin-top: 30px;
+}
+.align-center{
+	text-align: center;
+}
+input[type="button"], input[type="submit"]{
+	display:inline;
+	width:80px;
+	height:27px;
+	border:none;
+	border-radius:3px;
+	background-color:#4B71DE;
+	color:white;
+	cursor:pointer;
+    margin:auto;
+    display:inline-block;
+}
