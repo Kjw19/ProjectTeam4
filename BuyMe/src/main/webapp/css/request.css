@@ -6,7 +6,7 @@
 }
 
 .align-right{
-	text-align: right;
+	text-align: right; 
 	
 }
 ul li{
@@ -16,4 +16,16 @@ ul li{
 	width:100%;
 	text-align: center;
 	display:inline-block;	
+}
+
+.detail-sub{
+	text-align: right;
+}
+
+
+
+.content-main img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
