@@ -13,7 +13,6 @@
 	<div class="slideshow-container">
 	
 	<div class="mySlides fade">
-	  	<div class="numbertext">1 / 3</div>
 	  	<a href="#">
 	  		<img src="../images/camera.jpg" style="width:100%; height:300px">
 	  	</a>
@@ -21,7 +20,6 @@
 	</div>
 	
 	<div class="mySlides fade">
-	  <div class="numbertext">2 / 3</div>
 	  	<a href="#">
 	  		<img src="../images/github.png" style="width:100%; height:300px">
 	  	</a>
@@ -29,7 +27,6 @@
 	</div>
 	
 	<div class="mySlides fade">
-	  <div class="numbertext">3 / 3</div>
 	  	<a href="#">
 	  		<img src="../images/laptop.png" style="width:100%; height:300px">
 	  	</a>
