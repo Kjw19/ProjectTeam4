@@ -8,15 +8,14 @@ div.myContent-main{
 	border-radius:7px;
 }
 h2{
-	font-size:30px;
+	font-size:25px;
 	text-align: center;
 	padding-top:60px;
 	margin-bottom:20px;
 }
-
 #simple_form{
 	height:600px;
-	margin:50px 0 0 0;
+	margin:5px 0 0 0;
 	border:1px solid #E8E8E8;
 }
 /* 버튼 */
@@ -67,11 +66,11 @@ div.mypage-simple ul li.second_title{
 	text-align:center;
 }
 li.profile-image{
-	padding:5px 0 0 200px;
+	padding:5px 0 0 100px;
 	margin:30px 0 10px 0;
 }
 li.profile-button{
-	padding:0 0 0 150px;
+	padding:0 0 0 30px;
 	margin-bottom:10px;
 }
 div.mypage-second{
@@ -101,9 +100,7 @@ div.mypage-simple{
 div.mypage-simple li{
 	line-height:40px;
 }
-div.mypage-simple ul li span#second_title h2{
-	text-align:center;
-}
+
 ul li label{
 	display:inline-block;
 	width:110px;
@@ -119,9 +116,9 @@ li.detail-li{
 .my-email{
   display: inline-block;
   position: absolute;
-  width:60px;
+  width:50px;
   left: 14px;
-  padding: 17px 10px 10px 10px;
+  padding: 17px 10px 10px 40px;
   background: white;
   font-size: 14px;
   color: #888;
@@ -143,7 +140,7 @@ li.detail-li{
   position: absolute;
   width:60px;
   left: 14px;
-  padding: 17px 10px 10px 10px;
+  padding: 17px 10px 10px 40px;
   background: white;
   font-size: 14px;
   color: #888;
@@ -165,7 +162,7 @@ li.detail-li{
   position: absolute;
   width:80px;
   left: 14px;
-  padding: 17px 10px 10px 10px;
+  padding: 17px 10px 10px 40px;
   background: white;
   font-size: 14px;
   color: #888;
@@ -187,7 +184,7 @@ li.detail-li{
   position: absolute;
   width:120px;
   left: 14px;
-  padding: 17px 10px 10px 10px;
+  padding: 17px 10px 10px 90px;
   background: white;
   font-size: 14px;
   color: #888;
@@ -244,7 +241,7 @@ li.detail-li{
   position: absolute;
   width:60px;
   left: 14px;
-  padding: 17px 10px 10px 10px;
+  padding: 17px 10px 10px 40px;
   background: white;
   font-size: 14px;
   color: #888;
@@ -266,7 +263,7 @@ li.detail-li{
   position: absolute;
   width:60px;
   left: 14px;
-  padding: 17px 10px 10px 10px;
+  padding: 17px 10px 10px 40px;
   background: white;
   font-size: 14px;
   color: #888;
@@ -288,7 +285,7 @@ li.detail-li{
   position: absolute;
   width:60px;
   left: 14px;
-  padding: 17px 10px 10px 10px;
+  padding: 17px 10px 10px 40px;
   background: white;
   font-size: 14px;
   color: #888;
@@ -310,7 +307,7 @@ li.detail-li{
   position: absolute;
   width:80px;
   left: 14px;
-  padding: 17px 10px 10px 10px;
+  padding: 17px 10px 10px 40px;
   background: white;
   font-size: 14px;
   color: #888;
@@ -332,7 +329,7 @@ li.detail-li{
   position: absolute;
   width:120px;
   left: 14px;
-  padding: 17px 10px 10px 10px;
+  padding: 17px 10px 10px 40px;
   background: white;
   font-size: 14px;
   color: #888;
@@ -385,7 +382,7 @@ li.detail-li{
   position: absolute;
   width:60px;
   left: 14px;
-  padding: 17px 10px 10px 10px;
+  padding: 17px 10px 10px 40px;
   background: white;
   font-size: 14px;
   color: #888;
@@ -407,7 +404,7 @@ li.detail-li{
   position: absolute;
   width:60px;
   left: 14px;
-  padding: 17px 10px 10px 10px;
+  padding: 17px 10px 10px 40px;
   background: white;
   font-size: 14px;
   color: #888;
@@ -429,7 +426,7 @@ li.detail-li{
   position: absolute;
   width:120px;
   left: 14px;
-  padding: 17px 10px 10px 10px;
+  padding: 17px 10px 10px 40px;
   background: white;
   font-size: 14px;
   color: #888;
@@ -451,7 +448,7 @@ li.detail-li{
   position: absolute;
   width:100px;
   left: 14px;
-  padding: 17px 10px 10px 10px;
+  padding: 17px 10px 10px 40px;
   background: white;
   font-size: 14px;
   color: #888;
@@ -473,7 +470,7 @@ li.detail-li{
   position: absolute;
   width:120px;
   left: 14px;
-  padding: 17px 10px 10px 10px;
+  padding: 17px 10px 10px 40px;
   background: white;
   font-size: 14px;
   color: #888;
@@ -526,7 +523,7 @@ li.detail-li{
   position: absolute;
   width:60px;
   left: 14px;
-  padding: 17px 10px 10px 10px;
+  padding: 17px 10px 10px 40px;
   background: white;
   font-size: 14px;
   color: #888;
@@ -548,7 +545,7 @@ li.detail-li{
   position: absolute;
   width:100px;
   left: 14px;
-  padding: 17px 10px 10px 10px;
+  padding: 17px 10px 10px 40px;
   background: white;
   font-size: 14px;
   color: #888;
