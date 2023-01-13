@@ -5,7 +5,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="slideshow-container">
@@ -13,25 +13,25 @@
 	<div class="mySlides fade">
 	  	<div class="numbertext">1 / 3</div>
 	  	<a href="#">
-	  		<img src="../images/landscape.jpg" style="width:100%">
+	  		<img src="../images/camera.jpg" style="width:100%; height:300px">
 	  	</a>
-	  <div class="text">첫번재 캡션</div>
+	  <div class="text">새로운 카메라 펀딩!</div>
 	</div>
 	
 	<div class="mySlides fade">
 	  <div class="numbertext">2 / 3</div>
 	  	<a href="#">
-	  		<img src="../images/landscape.jpg" style="width:100%">
+	  		<img src="../images/github.png" style="width:100%; height:300px">
 	  	</a>
-	  <div class="text">두번째 캡션</div>
+	  <div class="text">새로운 VCS 펀딩!</div>
 	</div>
 	
 	<div class="mySlides fade">
 	  <div class="numbertext">3 / 3</div>
 	  	<a href="#">
-	  		<img src="../images/landscape.jpg" style="width:100%">
+	  		<img src="../images/laptop.png" style="width:100%; height:300px">
 	  	</a>
-	  <div class="text">세번째 캡션</div>
+	  <div class="text">새로운 Laptop 펀딩!</div>
 	</div>
 	
 	</div>
@@ -45,7 +45,6 @@
 <script>
 let slideIndex = 0;
 showSlides();
-
 function showSlides() {
   let i;
   let slides = document.getElementsByClassName("mySlides");
