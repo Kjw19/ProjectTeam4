@@ -37,7 +37,7 @@
 			}
 			if($('#passwd').val()!=${member.passwd}){
 				$('#passwd').val('').focus();
-				$('#message_passwd').css('color','#4B71DE').text('불일치');
+				$('#message_passwd').text('불일치');
 				return false;
 			}
 		});

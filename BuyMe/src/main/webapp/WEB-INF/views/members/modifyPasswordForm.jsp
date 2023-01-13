@@ -23,7 +23,7 @@
 			if($('#origin_passwd').val()!=$('#check_passwd').val()){
 				alert('현재 비밀번호를 잘못 입력하셨습니다.');
 				$('#origin_passwd').val('').focus();
-				$('#message_origin_passwd').css('color','#4B71DE').text('불일치');
+				$('#message_origin_passwd').text('불일치');
 				return false;
 			}
 			if($('#passwd').val().trim()==''){
@@ -40,7 +40,7 @@
 				alert('새 비밀번호와 새 비밀번호 확인이 불일치합니다.');
 				$('#passwd').val('').focus();
 				$('#re_passwd').val('');
-				$('#message_re_passwd').css('color','#4B71DE').text('불일치');
+				$('#message_re_passwd').text('불일치');
 				return false;
 			}
 			

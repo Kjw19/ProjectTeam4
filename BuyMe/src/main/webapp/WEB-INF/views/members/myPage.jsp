@@ -28,7 +28,7 @@
 			if($('#passwd').val()!=$('#re_passwd').val()){
 				alert('비밀번호와 비밀번호 확인이 불일치합니다.');
 				$('#re_passwd').val('').focus();
-				$('#message_passwd').css('color','#4B71DE').text('불일치');
+				$('#message_passwd').text('불일치');
 				return false;
 			}
 		});

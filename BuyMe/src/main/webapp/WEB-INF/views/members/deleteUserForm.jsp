@@ -23,7 +23,7 @@
 			if($('#id').val()!=$('#check_id').val()){
 				alert('아이디를 잘못 입력하셨습니다.');
 				$('#id').val('').focus();
-				$('#message_id').css('color','#4B71DE').text('불일치');
+				$('#message_id').text('불일치');
 				return false;
 			}
 			if($('#passwd').val().trim()==''){
@@ -34,7 +34,7 @@
 			if($('#passwd').val()!=$('#check_passwd').val()){
 				alert('비밀번호를 잘못 입력하셨습니다.');
 				$('#passwd').val('').focus();
-				$('#message_passwd').css('color','#4B71DE').text('불일치');
+				$('#message_passwd').text('불일치');
 				return false;
 			}
 		});
