@@ -40,7 +40,7 @@ header {
 	align-items: center;
 	justify-content: space-between;
 }
-header > h2 {
+header > h1 {
 	margin-left:20px;
 	font-family: 'Orelega One';
 	font-style: normal;
@@ -49,7 +49,7 @@ header > h2 {
 	color: #4B71DE;
 }
 
-header > h2 a, h2 a:visited, h2 a:hover, h2 a:active {
+header > h1 a, h1 a:visited, h1 a:hover, h1 a:active {
 	color: #4B71DE;	
 }
 header > nav {

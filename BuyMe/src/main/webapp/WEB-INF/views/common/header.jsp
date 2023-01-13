@@ -5,7 +5,7 @@
 
 	<div class="container">
 <header>	
-		<h2><a href="${pageContext.request.contextPath}/main/main.do">Buy-Me</a></h2>
+		<h1><a href="${pageContext.request.contextPath}/main/main.do">Buy-Me</a></h1>
 		<span id="main_menu">
 		<nav>
 			<ul>
