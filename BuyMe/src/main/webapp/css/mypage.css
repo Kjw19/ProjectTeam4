@@ -90,11 +90,13 @@ input.detail-lookup{
 }
 
 /* 로그인 */
+
 div.login-main{
 	border-radius:7px;
 	height:500px;
 	box-shadow:rgba(173, 180, 189, 0.9) 0px 5px 15px 0px;
 }
+/*
 div.login-main h2{
 	padding:110px 0 30px 440px;
 }
@@ -102,6 +104,52 @@ div.login-main h2{
 	padding:0 0 20px 250px;
 	height:35px; 
 }
+*/
+.login-input input{
+    appearance: none;
+    border-radius: 0;
+    border: 0;
+    outline: none;
+    font-size: 10px;
+}
+.login-input input::placeholder, textarea::placeholder{
+  color: #d9d9d9
+}
+.id{
+  display: inline-block;
+  position: absolute;
+  top: -19px;
+  left: 14px;
+  padding: 10px;
+  background: white;
+  font-size: 14px;
+  color: #888;
+  font-weight: bold;
+}
+.login-input{
+  width: 50%; 
+  box-sizing: border-box;
+  margin: 20px auto;
+  position: relative;
+}
+.login-input label{
+  vertical-align: -1px;
+}
+.login-input input{
+    width: 100%;
+    border: 1px solid #dddddd !important;
+    font-size: 1rem;
+    line-height: 1.45;
+    letter-spacing: -0.04rem;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 12px;
+}
+
+
+
+
+
 div.regis-main{
 	border-radius:7px;
 	height:500px;

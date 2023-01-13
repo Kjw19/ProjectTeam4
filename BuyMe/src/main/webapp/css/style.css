@@ -1,128 +1,146 @@
 @charset "UTF-8";
-/* 구글 폰트 가져오기*/
+/*구글 폰트 import 시작*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
-/* 공통 레이아웃
-------------------------*/
-body{
-	margin:0 auto;
+/*구글 폰트 import 끝*/
+
+* {
+	margin:0;
+	padding:0;
 	box-sizing: border-box;
-
-	position: relative;
-	width: 1440px;
-	height: 1024px;
-
-	background: #FFFFFF;
+	font-family: 'Noto Sans KR';
+	font-style: normal;
+	
 }
+
 ul {
-    list-style: none;
+	list-style: none;
 }
-a{
+
+a {
 	text-decoration: none;
 	outline: none;
-}
-
-
-/*header 시작 */
-header{
-	height:121px;
 }
 header a, a:visited, a:hover, a:active{
 	color: #626262;
 }
 header .logo{
-	width: 286px;
-	height: 44px;
-	top: 10px;
-	padding-left: 50px;
+	color: #4B71DE;
+}
 
+/* 헤더 시작*/
+.container {
+	width:1440px;
+	margin:0 auto;
+}
+header {
+	width:100%;
+	height:80px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+header > h1 {
+	margin-left:20px;
 	font-family: 'Orelega One';
 	font-style: normal;
-	font-weight: 400;
-	font-size: 64px;
+	font-size: 48px;
 	line-height: 130%;
 	color: #4B71DE;
 }
-header .logo a{
-	color: #4B71DE;
+
+header > h1 a, h1 a:visited, h1 a:hover, h1 a:active {
+	color: #4B71DE;	
 }
-header ul li{
-	position: absolute;
-	width: 137px;
-	height: 92px;
-	top: 35px;
+header > nav {
+	width:600px;
+	height:100%;
+}
+
+header ul {
+	width:100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+header ul > li {
+	height: 100%;
+	display: flex;
+	padding: 20px;
+	align-items: center;
 	
 	font-family: 'Noto Sans KR';
 	font-style: normal;
 	font-weight: 700;
-	font-size: 26px;
-	line-height: 130%;
-}
-header ul .noti{
-	left: 350px;
-}
-header ul .fund{
-	left: 530px;
-}
-header ul .req{
-	left: 710px;
-}
-header #search_item{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	padding: 8px 16px;
-	gap: 8px;
-
-	position: absolute;
-	width: 284px;
-	height: 44px;
-	left: 850px;
-
-	background: rgba(0, 0, 0, 0.04);
-	border: 2px solid #4B71DE;
-	border-radius: 8px;
-}
-header #search_item_button{
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	padding: 8px 16px;
-	gap: 8px;
-
-	position: absolute;
-	width: 81px;
-	height: 38px;
-	left: 1150px;
-
-	background: #4B71DE;
-	border-radius: 8px;
-}
-header .mem_join, .myPage .managePage{
-	position: absolute;
-	width: 137px;
-	height: 44px;
-	left: 1300px;
-	top: 35px;
-
-	font-family: 'Noto Sans KR';
-	font-style: normal;
-	font-weight: 700;
 	font-size: 20px;
 	line-height: 130%;
 }
-header .signin, .logout{
-	position: absolute;
-	width: 137px;
-	height: 44px;
-	left: 1400px;
-	top: 35px;
+header ul > li.req {
 
-	font-family: 'Noto Sans KR';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 20px;
-	line-height: 130%;
+	padding-right: 600px;
+
 }
-/*header 끝 */
+header ul > li.logout, li.signin{
+
+	padding-right: 70px;
+
+}
+/* 헤더 끝*/
+/*슬라이드 쇼 시작*/
+.slideshow-container {
+	
+  position: block;
+  margin: auto;
+}
+
+/* 캡션 text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* (1/3) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* dot */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* 애니메이션 페딩 */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+/* 슬라이드 쇼 끝 */

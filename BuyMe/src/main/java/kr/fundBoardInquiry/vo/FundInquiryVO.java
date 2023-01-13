@@ -5,6 +5,7 @@ import java.sql.Date;
 public class FundInquiryVO {
 	
 	private int inquiry_num;
+	private String inqu_title;
 	private String inqu_content;
 	private Date inqu_reg_date;
 	private String re_inqu_is_ok;
@@ -20,6 +21,12 @@ public class FundInquiryVO {
 	}
 	public void setInquiry_num(int inquiry_num) {
 		this.inquiry_num = inquiry_num;
+	}
+	public String getInqu_title() {
+		return inqu_title;
+	}
+	public void setInqu_title(String inqu_title) {
+		this.inqu_title = inqu_title;
 	}
 	public String getInqu_content() {
 		return inqu_content;
