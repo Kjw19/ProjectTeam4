@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시판 목록</title>
+<title>펀딩게시판 목록</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
@@ -73,7 +73,7 @@
 			<c:forEach var="board" items="${list}">
 			<tr>
 				<td>${board.fund_num}</td>
-				<td>${board.category}</td>
+				<td>${board.category_num}</td>
 				<td><a href="detail.do?board_num=${board.board_num}">${board.title}</a></td>
 				<td>${board.id}</td>
 				<td>${board.reg_date}</td>
