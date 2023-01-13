@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>MY페이지</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestBoard.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mypage.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
@@ -88,7 +88,7 @@
 			
 			<div class="mypage-second">
 			<form id="simple_form" action="deleteUser.do" method="post">
-			<div class="mypage-simple"> <!-- 간단 내 정보 시작 -->
+			<div class="unregis-input"> <!-- 간단 내 정보 시작 -->
 				<ul>
 					<li class="second-title">
 						<h2>회원 탈퇴</h2>
@@ -97,12 +97,12 @@
 						<input type="hidden" value="${member.id}" id="check_id">
 					</li>
 					<li>
-						<label for="id">아이디</label>
+						<label for="id" class="unregis-id">아이디</label>
 						<input type="text" name="id" id="id" maxlength="12" autocomplete="off">
 						<span id="message_id"></span>
 					</li>
 					<li>
-						<label for="passwd">비밀번호</label>
+						<label for="passwd" class="unregis-passwd">비밀번호</label>
 						<input type="password" name="passwd" id="passwd" maxlength="12">
 						<span id="message_passwd"></span>
 					</li>

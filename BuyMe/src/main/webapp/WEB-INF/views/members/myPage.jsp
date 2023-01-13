@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <title>MY페이지</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestBoard.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mypage.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
@@ -45,7 +44,6 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="myContent-main">
 		<div class="mypage-div">
-		
 			<div class="mypage-first">
 			<div class="mypage-profile"> <!-- 마이페이지 프로필 사진 시작 -->
 				<ul>
@@ -80,25 +78,25 @@
 			
 			<div class="mypage-second">
 			<form id="simple_form" action="modifyMyInfoDetailForm.do" method="post">
-			<div class="mypage-simple"> <!-- 간단 내 정보 시작 -->
+			<div class="mypage-input"> <!-- 간단 내 정보 시작 -->
 				<ul>
 					<li class="second-title">
 						<h2>내 정보</h2>
 					</li>
 					<li>
-						<label for="email">이메일</label>
+						<label for="email" class="my-email">이메일</label>
 						<input type="email" name="email" value="${member.email}" id="email" maxlength="50" readonly/>
 					</li>
 					<li>
-						<label for="id">아이디</label>
+						<label for="id" class="my-id">아이디</label>
 						<input type="text" name="id" value="${member.id}" id="id" maxlength="12" autocomplete="off" readonly/>
 					</li>
 					<li>
-						<label for="passwd">비밀번호</label>
+						<label for="passwd" class="my-passwd">비밀번호</label>
 						<input type="password" name="passwd" value="${member.passwd}" id="passwd" maxlength="12" readonly/>
 					</li>
 					<li>
-						<label for="re_passwd">비밀번호 확인</label>
+						<label for="re_passwd" class="my-re_passwd">비밀번호 확인</label>
 						<input type="password" name="re_passwd" id="re_passwd" maxlength="12">
 						<span id="message_passwd"></span>
 					</li>

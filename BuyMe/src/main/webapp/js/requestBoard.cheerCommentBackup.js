@@ -5,7 +5,6 @@ $(function(){
 	let count;
 	let rowCount; // 한 페이지에 몇 개의 레코드를 보여줄 것인지
 	let my_photo;
-	let files;
 	
 	// textarea에 타임라인 입력 시 글자수 체크 : 작성·수정 시 사용
 	$(document).on('keyup','textarea',function(){
@@ -46,10 +45,6 @@ $(function(){
 		$('#photo').change(function(){
 			my_photo = this.files[0];
 			
-			//files = document.getElementsByName('Upload');
-			//files[0].select();
-			
-			
 			/*
 			if(!my_photo){
 				$('.my-photo').attr('src',photo_path);
@@ -77,9 +72,6 @@ $(function(){
 		// 타임라인 전송
 		$('#cheer_btn').click(function(event){
 			event.preventDefault(); // 기본 이벤트 제거
-			
-			// 부모태그 li로 넘어가서 data-img를 읽어 온다.
-			let item_photo = $(this).parent().find('.my-photo'); // img 태그에 접근
 			
 			if($('#cheerComm_title').val().trim()==''){
 				$('#cheerComm_title').val('').focus();

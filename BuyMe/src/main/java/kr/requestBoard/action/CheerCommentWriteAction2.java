@@ -30,6 +30,9 @@ public class CheerCommentWriteAction2 implements Action{
 			request.setCharacterEncoding("utf-8"); // 전송된 데이터 인코딩 처리
 			
 			MultipartRequest multi = FileUtil.createFile(request);
+			
+			String photo = multi.getFilesystemName("photo");
+			
 			RequestCheerCommentVO cheerComment = new RequestCheerCommentVO();
 			cheerComment.setMem_num(user_num); // 회원번호(댓글 작성자)
 			cheerComment.setCheerComm_title(multi.getParameter("cheerComm_title"));
@@ -37,9 +40,13 @@ public class CheerCommentWriteAction2 implements Action{
 			cheerComment.setCheerComm_filename(multi.getFilesystemName("cheerComm_filename"));
 			cheerComment.setCheerComm_ip(request.getRemoteAddr());
 			cheerComment.setCheer_num(Integer.parseInt(multi.getParameter("cheer_num")));
+			cheerComment.setPhoto(photo);
 			
 			RequestCheerCommentDAO dao = RequestCheerCommentDAO.getInstance();
 			dao.insertCheerCommentBoard(cheerComment);
+			
+			// 전송된 사진이 있을 경우
+			if(photo!=null) FileUtil.removeFile(request, cheerComment.getPhoto());
 			
 			mapAjax.put("result", "success"); // 정상적으로 처리될 시
 		}

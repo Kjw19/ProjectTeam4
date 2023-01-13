@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>MY페이지</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestBoard.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mypage.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
@@ -145,6 +145,7 @@
 			<div class="mypage-menu"> <!-- 마이페이지 메뉴 시작 -->
 				<ul>
 					<li><b><a href="${pageContext.request.contextPath}/members/myPage.do">마이페이지</a></b></li>
+					<li><a href="${pageContext.request.contextPath}/members/deleteUserForm.do">회원탈퇴</a></li>
 					<%-- 
 					<li><a href="#">서포터</a></li>
 					<li><a href="#">메이커</a></li>
@@ -156,7 +157,7 @@
 			<div class="mypage-second">
 			
 			<form id="simple_form" action="modifyMyInfoDetail.do" method="post">
-			<div class="mypage-simple"> <!-- 간단 내 정보 시작 -->
+			<div class="detail-input"> <!-- 간단 내 정보 시작 -->
 				<ul>
 					<li>
 						<h2>내 상세 정보 수정</h2>
@@ -180,19 +181,19 @@
 				</ul>
 				<ul>
 					<li>
-						<label for="email">이메일</label>
+						<label for="email" class="detail-email">이메일</label>
 						<input type="email" name="email" id="email" value="${member.email}" maxlength="50">
 					</li>
 					<li>
-						<label for="name">이름</label>
+						<label for="name" class="detail-name">이름</label>
 						<input type="text" name="name" value="${member.name}" id="name" maxlength="12" autocomplete="off">
 					</li>
 					<li>
-						<label for="id">아이디</label>
+						<label for="id" class="detail-id">아이디</label>
 						<input type="text" name="id" value="${member.id}" id="id" maxlength="12" autocomplete="off" readonly/>
 					</li>
 					<li>
-						<label for="passwd">비밀번호</label>
+						<label for="passwd" class="detail-passwd">비밀번호</label>
 						<input type="password" name="passwd" id="passwd" value="${member.passwd}" maxlength="12" readonly/>
 						<span id="message_passwd"></span>
 					</li>

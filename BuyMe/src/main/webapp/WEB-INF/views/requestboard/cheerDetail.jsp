@@ -21,7 +21,7 @@
 	<jsp:include page="/WEB-INF/views/common/requestBoardMenu.jsp"/>
 	<div class="content-main">
 		<span class="halfline">
-			<b><i>TimeLine</i></b>
+			<i><b>TimeLine</b></i>
 		</span>
 		<br>
 		<span><b>회원님의 오늘을 들려주세요!</b></span>

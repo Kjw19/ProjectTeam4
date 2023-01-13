@@ -140,12 +140,9 @@ div#photo_choice input[type="button"]{
 
 /* 페이지 제목 */
 span.halfline{
-	font-size:30px; 
+	font-size:30px;
 	margin-bottom:20px;
 	background:linear-gradient(to top,#A0FAF0 30%,transparent 50%);
-}
-span.halfline h2{
-	font-style:italic;
 }
 
 /* 댓글 등록, 수정 폼 */
