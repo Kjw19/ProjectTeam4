@@ -17,3 +17,7 @@ ul li{
 	text-align: center;
 	display:inline-block;	
 }
+
+.detail-sub{
+	text-align: right;
+}
