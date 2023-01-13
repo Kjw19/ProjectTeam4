@@ -28,7 +28,7 @@ h2{
   display: inline-block;
   position: absolute;
   top: 12px;
-  left: 14px;
+  left: 50px;
   padding: 10px;
   background: white;
   font-size: 14px;
@@ -38,8 +38,8 @@ h2{
 .login_passwd{
   display: inline-block;
   position: absolute;
-  top: 97px;
-  left: 14px;
+  top: 93px;
+  left: 50px;
   padding: 10px;
   background: white;
   font-size: 14px;
