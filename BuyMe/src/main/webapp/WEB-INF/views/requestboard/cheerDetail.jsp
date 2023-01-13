@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>응원 게시판 - 메인글 상세 정보</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestBoard.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <%-- script type="text/javascript" src="${pageContext.request.contextPath}/js/board.fav.js"></script --%>
@@ -44,15 +45,17 @@
 				</li>
 				<li>
 					<c:if test="${empty cheerComment.photo}">
-						<img src="${pageContext.request.contextPath}/images/blank.png" width="513" height="200" class="my-photo">
+						<img src="${pageContext.request.contextPath}/images/blank.png" 
+							 width="513" height="200" data-img="${cheerComment.photo}" class="my-photo">
 					</c:if>
 					<c:if test="${!empty cheerComment.photo}">
-						<img src="${pageContext.request.contextPath}/upload/${cheerBoardVO.photo}" width="200" height="200" class="my-photo">
+						<img src="${pageContext.request.contextPath}/upload/${cheerBoardVO.photo}" 
+						width="200" height="200" data-img="${cheerComment.photo}" class="my-photo">
 					</c:if>
 				</li>
 				<li>
 					<div id="photo_choice">
-						<input type="file" name="cheerComm_filename" id="photo" accept="image/gif,image/png,image/jpeg"><br>
+						<input type="file" name="cheerComm_filename" name="Upload" id="photo" accept="image/gif,image/png,image/jpeg"><br>
 						<input type="button" value="파일 선택 취소" id="photo_reset">
 					</div>
 					<c:if test="${!empty user_num}">

@@ -10,7 +10,7 @@
 		<nav>
 			<ul>
 				<li class="noti"><a href="${pageContext.request.contextPath}/noticeboard/list.do">공지사항</a></li>
-				<li class="fund"><a href="#">펀딩게시판</a></li>
+				<li class="fund"><a href="${pageContext.request.contextPath}/fundBoard/list.do">펀딩게시판</a></li>
 				<li class="req"><a href="${pageContext.request.contextPath}/requestBoard/list.do">커뮤니티</a></li>
 				<c:if test="${!empty user_num}">
 					<li class="myPage">[<span><a href="${pageContext.request.contextPath}/members/myPage.do">${user_id}</a></span>]</li>
