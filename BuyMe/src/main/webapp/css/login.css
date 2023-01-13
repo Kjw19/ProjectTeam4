@@ -87,9 +87,6 @@ h2{
     padding: 14px;
     margin-top: 30px;
 }
-.align-center{
-	text-align: center;
-}
 input[type="button"], input[type="submit"]{
 	display:inline;
 	width:80px;
@@ -102,3 +99,24 @@ input[type="button"], input[type="submit"]{
     margin:auto;
     display:inline-block;
 }
+/* login-btn */
+.login-btn{
+	padding-left : 260px;
+}
+.login-btn ul{
+  	display:inline;
+}
+.login-btn li{
+	width: 200px;
+	display: inline-block;
+}
+.login-btn input{
+    width: 100%;
+    border: 1px solid #dddddd !important;
+    font-size: 1rem;
+    line-height: 1.1;
+    letter-spacing: -0.04rem;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+/* login-btn 종료*/

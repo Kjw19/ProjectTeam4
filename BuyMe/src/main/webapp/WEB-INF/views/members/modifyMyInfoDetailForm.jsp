@@ -174,11 +174,21 @@
 					<li class="profile-button">
 						<div id="photo_choice">
 							<input type="file" id="photo" accept="image/gif,image/png,image/jpeg"><br>
-							<input type="button" value="프로필 수정" id="photo_submit">
-							<input type="button" value="취소" id="photo_reset">
 						</div>
 					</li>
 				</ul>
+			</div> <!--  end of mypage-simple, 간단 내 정보 끝 -->
+			<div class="profile-md-button"><!-- 버튼시작 -->
+				<ul>
+					<li>
+						<input type="button" value="프로필 수정" id="photo_submit">
+					</li>
+					<li>
+						<input type="button" value="취소" id="photo_reset">
+					</li>
+				</ul>
+			</div><!-- 버튼 종료 -->
+			<div class="detail-input">
 				<ul>
 					<li>
 						<label for="email" class="detail-email">이메일</label>
@@ -197,12 +207,18 @@
 						<input type="password" name="passwd" id="passwd" value="${member.passwd}" maxlength="12" readonly/>
 						<span id="message_passwd"></span>
 					</li>
-					<li class="detail-li">
+				</ul>
+			</div>
+			<div class="detail-sbtn"><!-- 버튼 시작 -->
+				<ul>
+					<li>
 						<input type="submit" value="내 상세 정보 수정" class="detail-lookup">
+					</li>
+					<li>	
 						<input type="button" value="마이페이지" onclick="location.href='${pageContext.request.contextPath}/members/myPage.do'" class="detail-lookup">
 					</li>
 				</ul>
-			</div> <!--  end of mypage-simple, 간단 내 정보 끝 -->
+			</div><!-- 버튼 종료 -->
 			</form>
 			</div> <!--  end of mypage-second -->
 		

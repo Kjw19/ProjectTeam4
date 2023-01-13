@@ -130,12 +130,18 @@
 						<input type="password" name="re_passwd" id="re_passwd" maxlength="12">
 						<span id="message_re_passwd"></span>
 					</li>
-					<li class="detail-li">
+				</ul>
+			</div> <!--  end of mypage-simple, 간단 내 정보 끝 -->
+			<div class="passwd-btn"><!-- 버튼 추가 -->
+				<ul>
+					<li>
 						<input type="submit" value="비밀번호 수정 확인" class="detail-lookup" id="modify_passwd">
+					</li>
+					<li>
 						<input type="button" value="마이페이지" onclick="location.href='${pageContext.request.contextPath}/members/myPage.do'" class="detail-lookup">
 					</li>
 				</ul>
-			</div> <!--  end of mypage-simple, 간단 내 정보 끝 -->
+			</div><!-- 버튼 종료 -->
 			</form>
 			</div> <!--  end of mypage-second -->
 		

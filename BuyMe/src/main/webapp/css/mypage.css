@@ -590,17 +590,14 @@ ul li label{
 }
 
 /*추가 li button submit */
-.re-passwd-li{
-	padding-left: 40px;
-}
 .detail-button{
-	padding-left: 100px;	
+	padding-left: 150px;	
 }
 .detail-button ul{
-	padding-left: 100px;
   	display:inline;	
 }
 .detail-button li{
+	width: 150px;
 	display: inline-block;
 }
 .detail-button input{
@@ -612,3 +609,66 @@ ul li label{
     border-radius: 8px;
     margin-top: 30px;
 }
+/*modifyMyInfoDetailForm*/
+.profile-md-button{
+	padding-left : 180px;
+}
+.profile-md-button ul{
+  	display:inline;
+}
+.profile-md-button li{
+	width: 130px;
+	display: inline-block;
+}
+.profile-md-button input{
+    width: 100%;
+    border: 1px solid #dddddd !important;
+    font-size: 1rem;
+    line-height: 1.1;
+    letter-spacing: -0.04rem;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+/* detail-sbtn */
+.detail-sbtn{
+	padding-left : 160px;
+}
+.detail-sbtn ul{
+  	display:inline;
+}
+.detail-sbtn li{
+	width: 150px;
+	display: inline-block;
+}
+.detail-sbtn input{
+    width: 100%;
+    border: 1px solid #dddddd !important;
+    font-size: 1rem;
+    line-height: 1.1;
+    letter-spacing: -0.04rem;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+/* detail-sbtn 종료*/
+
+/* passwd-btn */
+.passwd-btn{
+	padding-left : 160px;
+}
+.passwd-btn ul{
+  	display:inline;
+}
+.passwd-btn li{
+	width: 140px;
+	display: inline-block;
+}
+.passwd-btn input{
+    width: 100%;
+    border: 1px solid #dddddd !important;
+    font-size: 1rem;
+    line-height: 1.1;
+    letter-spacing: -0.04rem;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+/* passwd-btn 종료*/

@@ -44,9 +44,16 @@
 				</li>
 			</ul>
 		</div>
-			<div class="align-center">
-				<input type="submit" value="로그인">
-				<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+			<div class="login-btn">
+			<ul>
+				<li>
+					<input type="submit" value="로그인">
+				</li>
+				<li>
+					<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+				</li>
+			</ul>
+								
 			</div>
 		</form>
 	</div>
