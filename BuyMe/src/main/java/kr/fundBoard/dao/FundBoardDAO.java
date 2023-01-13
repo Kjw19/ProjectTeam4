@@ -112,9 +112,10 @@ public class FundBoardDAO {
 			
 			if(keyword != null && !"".equals(keyword)) {
 				//검색 글 보기
-				if(keyfield.equals("1")) sub_sql += "WHERE b.title LIKE ?";
+				if(keyfield.equals("1")) sub_sql += "WHERE b.fund_title LIKE ?";
 				else if(keyfield.equals("2")) sub_sql += "WHERE m.id LIKE ?";
-				else if(keyfield.equals("3")) sub_sql += "WHERE b.content LIKE ?";
+				else if(keyfield.equals("3")) sub_sql += "WHERE b.fund_content LIKE ?";
+				else if(keyfield.equals("3")) sub_sql += "WHERE b.category_num LIKE ?";
 			}
 			
 			//SQL문 작성

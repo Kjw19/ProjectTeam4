@@ -7,7 +7,7 @@ public class FundInquiryVO {
 	private int inquiry_num;
 	private String inqu_title;
 	private String inqu_content;
-	private Date inqu_reg_date;
+	private String inqu_reg_date;
 	private String re_inqu_is_ok;
 	
 	private int mem_num;
@@ -34,11 +34,11 @@ public class FundInquiryVO {
 	public void setInqu_content(String inqu_content) {
 		this.inqu_content = inqu_content;
 	}
-	public Date getInqu_reg_date() {
+	public String getInqu_reg_date() {
 		return inqu_reg_date;
 	}
-	public void setInqu_reg_date(Date date) {
-		this.inqu_reg_date = date;
+	public void setInqu_reg_date(String string) {
+		this.inqu_reg_date = string;
 	}
 	public String getRe_inqu_is_ok() {
 		return re_inqu_is_ok;

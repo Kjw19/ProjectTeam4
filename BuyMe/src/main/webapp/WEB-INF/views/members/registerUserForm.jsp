@@ -28,10 +28,10 @@ $(function(){
 			success:function(param){
 				if(param.result=='idNotFound'){
 					idChecked = 1;
-					$('#message_id').css('color','#2B478E').text('등록 가능 ID');
+					$('#message_id').text('등록 가능 ID');
 				}else if(param.result=='idDuplicated'){
 					idChecked = 0;
-					$('#message_id').css('color','#4B71DE').text('등록된 ID');
+					$('#message_id').text('등록된 ID');
 					$('#id').val('').focus();
 				}else{
 					idChecked = 0;

@@ -29,10 +29,9 @@ $(function(){
 				
 				$(param.list).each(function(index,item){
 					let output = '<div class="item">';
-					output += '<h4>' + item.id + '</h4>';
+					output += '<span> 작성자 ' + item.id + '(' + item.comm_reg_date + ')</span><br>';
 					output += '<div class="sub-item">';
 					output += '<p>' + item.comm_content + '</p>';
-					output += '<span class="modify-date">등록일 : ' + item.comm_reg_date + '</span>';
 
 					
 					//로그인한 회원번호와 작성자의 회원번호 일치 여부 체크
