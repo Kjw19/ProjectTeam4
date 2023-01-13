@@ -7,6 +7,8 @@
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <body>
+<div id="wrap">
+	<section>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="slideshow-container">
 	
@@ -51,6 +53,7 @@
 			</ul>
 		</nav>
 	</div>
+	
 <script>
 let slideIndex = 0;
 showSlides();
@@ -71,6 +74,9 @@ function showSlides() {
   setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
 </script>
+</section>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+</div>
 
 </body>
 </html> 

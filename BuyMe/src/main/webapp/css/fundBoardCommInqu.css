@@ -1,0 +1,155 @@
+@charset "UTF-8";
+
+/* 페이지 레이아웃 */
+.page-main{
+	background:#FFFFFF;
+}
+.content-main{
+	padding:10px 20px;
+	margin:50px auto;
+	padding:10px 20px;
+	width:950px;
+	border:1px solid #E8E8E8;
+	border-radius:7px;
+}
+
+div.sub-header ul{
+	text-align:center;
+	margin:0; padding:0 0 5px 0;
+}
+div.sub-header ul li{
+	display:inline-block;
+	border-left:1px solid #999; /* 각 메뉴의 왼쪽에 "|" 표시(분류 표시) */
+	padding:0 100px;
+	font-style:normal; font-weight:500; font-size:19px; font-family: 'Noto Sans KR';
+	line-height:130%;
+}
+div.sub-header ul li:first-child{
+	border-left:none; /* 메뉴 분류중 제일 왼쪽의 "|"는 삭제 */
+}
+div.sub-header ul li a{
+	text-decoration:none;
+	color:#6C6C6C;
+}
+div.sub-header ul li a:hover{
+	color:#000000;
+}
+
+/* 페이지 제목 */
+h2{
+	font-size:30px;
+	margin-bottom:20px;
+}
+.inqu_title{
+	display: flex;
+	width: 360px;
+	
+}
+
+/* 펀딩토크 */
+
+
+input[type="button"], input[type="submit"]{
+	width:80px;
+	height:27px;
+	border:none;
+	border-radius:3px;
+	background-color:#4B71DE;
+	color:white;
+	cursor:pointer;
+}
+form#inqu_form, form#comm_form{
+	width:700px;
+	margin:0 auto; padding:30px 10px 70px 30px;
+}
+form#inqu_form div#inqu_first,form#comm_form div#comm_first{
+	float:right; padding:10px 0 10px 10px;
+}
+form#inqu_form div#inqu_second, form#comm_form div#comm_second{
+	float:right; padding:10px 150px 10px 10px;
+}
+form#minqu_form, #mcomm_form{
+	width:530px;
+}
+form#minqu_form div#minqu_first, form#mcomm_form div#mcomm_first{
+	float:right; padding:10px 0 10px 10px;
+}
+form#minqu_form div#inqu_second, form#mcomm_form div#mcomm_second{
+	float:right; padding:10px 25px 10px 10px;
+}
+
+.inqu-input input{
+    appearance: none;
+    border-radius: 0;
+    border: 0;
+    outline: none;
+    font-size: 10px;
+}
+input::placeholder, textarea::placeholder{
+  color: #d9d9d9
+}
+.inqu-input{
+  width: 50%; 
+  box-sizing: border-box;
+  margin: 20px auto;
+  position: relative;
+}
+.inquiry_title{
+  display: inline-block;
+  position: absolute;
+  top: -19px;
+  left: 14px;
+  padding: 10px;
+  background: white;
+  font-size: 14px;
+  color: #888;
+  font-weight: bold;
+}
+.comm_content{
+  display: inline-block;
+  position: absolute;
+  top: -9px;
+  left: 10px;
+  padding: 10px;
+  background: white;
+  font-size: 14px;
+  color: #888;
+  font-weight: bold;
+}
+.inqu_content{
+  display: inline-block;
+  position: absolute;
+  top: 71px;
+  left: 14px;
+  padding: 10px;
+  background: white;
+  font-size: 14px;
+  color: #888;
+  font-weight: bold;
+}
+.inqu-input label, textarea{
+  vertical-align: -1px;
+}
+.inqu-input input, textarea{
+    width: 100%;
+    border: 1px solid #dddddd !important;
+    font-size: 1rem;
+    line-height: 1.45;
+    letter-spacing: -0.04rem;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 12px;
+}
+.comm-input label, textarea{
+  vertical-align: -1px;
+}
+.comm-input textarea{
+    width: 100%;
+    border: 1px solid #dddddd !important;
+    font-size: 1rem;
+    line-height: 1.45;
+    letter-spacing: -0.04rem;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 12px;
+}
