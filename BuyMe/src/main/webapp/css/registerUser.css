@@ -51,6 +51,7 @@ h2{
 }
 .align-center{
 	text-align: center;
+	
 }
 .id{
   display: inline-block;
@@ -106,4 +107,12 @@ h2{
   font-size: 14px;
   color: #888;
   font-weight: bold;
+}
+input[type="button"], input[type="submit"]{
+	border-radius:3px;
+	background-color:#4B71DE;
+	border:none;
+	border-radius:3px;
+	color:white;
+	cursor:pointer;
 }
