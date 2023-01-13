@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>문의 목록</title>
+<title>질문 목록</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestBoard.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/request.css">

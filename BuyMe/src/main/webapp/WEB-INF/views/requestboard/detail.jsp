@@ -13,7 +13,7 @@
 <%-- script type="text/javascript" src="${pageContext.request.contextPath}/js/board.fav.js"></script --%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/requestBoard.comment.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/requestBoard.inquiry.js"></script>
-</head>
+</head> 
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
