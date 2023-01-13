@@ -100,10 +100,16 @@
 						<input type="password" name="re_passwd" id="re_passwd" maxlength="12">
 						<span id="message_passwd"></span>
 					</li>
-				
-					<li class="detail-li">
-						<input type="submit" value="내 상세 정보 조회" class="detail-lookup" id="detail_lookup">
-						<input type="button" value="비밀번호 수정"  class="detail-lookup" id="modify_passwd">
+				</ul>
+			</div>
+					
+				<div class="detail-button">
+					<ul>
+						<li class="detail-li">
+							<input type="submit" value="내 상세 정보 조회" class="detail-lookup" id="detail_lookup">
+						</li>
+						<li class="re-passwd-li">	<!-- 추가부분 -->
+							<input type="button" value="비밀번호 수정"  class="detail-lookup" id="modify_passwd">
 						<script>
 							let modify_passwd = document.getElementById('modify_passwd');
 							modify_passwd.onclick = function(){
@@ -120,9 +126,10 @@
 								});
 							}
 						</script>
-					</li>		
-				</ul>
-			</div> <!--  end of mypage-simple, 간단 내 정보 끝 -->
+						</li>
+
+					</ul>
+				</div>	 <!--  end of mypage-simple, 간단 내 정보 끝 -->
 			</form>
 			</div> <!--  end of mypage-second -->
 		

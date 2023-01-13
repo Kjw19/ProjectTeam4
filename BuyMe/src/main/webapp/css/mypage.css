@@ -106,9 +106,6 @@ ul li label{
 	width:110px;
 	padding:0 0 0 110px;
 }
-li.detail-li{
-	padding:20px 0 0 100px;
-}
 
 /* 내정보 페이지 - first */
 
@@ -589,5 +586,29 @@ li.detail-li{
     letter-spacing: -0.04rem;
     border-radius: 8px;
     padding: 14px;
+    margin-top: 30px;
+}
+
+/*추가 li button submit */
+.re-passwd-li{
+	padding-left: 40px;
+}
+.detail-button{
+	padding-left: 100px;	
+}
+.detail-button ul{
+	padding-left: 100px;
+  	display:inline;	
+}
+.detail-button li{
+	display: inline-block;
+}
+.detail-button input{
+    width: 100%;
+    border: 1px solid #dddddd !important;
+    font-size: 1rem;
+    line-height: 1.1;
+    letter-spacing: -0.04rem;
+    border-radius: 8px;
     margin-top: 30px;
 }
