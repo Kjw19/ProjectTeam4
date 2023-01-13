@@ -19,6 +19,8 @@ public class ListAction implements Action{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		
 		String pageNum = request.getParameter("pageNum");
 		if(pageNum==null)pageNum = "1";
 		
@@ -46,7 +48,7 @@ public class ListAction implements Action{
 		request.setAttribute("list", list);
 		request.setAttribute("page", page.getPage());
 		
-		return "/WEB-INF/views/fundboard/list.jsp";
+		return "/WEB-INF/views/fundBoard/list.jsp";
 	}
 
 }
