@@ -101,7 +101,7 @@ $(function(){
 					output += '<p>' + item.comm_content + '</p>';
 					
 					// 로그인한 회원번호와 작성자의 회원번호 일치 여부 체크
-					if(param.user_num==item.mem_num){
+					if(param.user_auth==5){
 						// 로그인한 회원번호와 작성자의 회원번호가 일치
 						// data- : 속성을 만드는 접두사 (커스텀 데이터 속성) → 내가 만드는 속성
 						output += ' <input type="button" data-commentnum="' + item.comment_num + '" value="수정" class="modify-btn">'

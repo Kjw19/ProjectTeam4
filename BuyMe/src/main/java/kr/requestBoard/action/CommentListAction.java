@@ -49,6 +49,7 @@ public class CommentListAction implements Action{
 		// 로그인 체크
 		HttpSession session = request.getSession();
 		Integer user_num = (Integer)session.getAttribute("user_num");
+		Integer user_auth = (Integer)session.getAttribute("user_auth");
 		
 		Map<String, Object> mapAjax = new HashMap<String, Object>();
 		mapAjax.put("count", count);
@@ -56,6 +57,7 @@ public class CommentListAction implements Action{
 		mapAjax.put("list", list);
 		// 로그인한 사람이 작성자인지 체크하기 위해서 전송
 		mapAjax.put("user_num", user_num);
+		mapAjax.put("user_auth", user_auth);
 		
 		// JSON 데이터로 변환
 		ObjectMapper mapper = new ObjectMapper();
