@@ -4,15 +4,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
 /*구글 폰트 import 끝*/
 
-* {
-	margin:0;
-	padding:0;
-	box-sizing: border-box;
-	font-family: 'Noto Sans KR';
-	font-style: normal;
-	
-}
-
 ul {
 	list-style: none;
 }
@@ -32,6 +23,10 @@ header .logo{
 .container {
 	width:1440px;
 	margin:0 auto;
+	padding:0;
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR';
+	font-style: normal;
 }
 header {
 	width:100%;
@@ -44,7 +39,7 @@ header > h1 {
 	margin-left:20px;
 	font-family: 'Orelega One';
 	font-style: normal;
-	font-size: 48px;
+	font-size: 44px;
 	line-height: 130%;
 	color: #4B71DE;
 }
