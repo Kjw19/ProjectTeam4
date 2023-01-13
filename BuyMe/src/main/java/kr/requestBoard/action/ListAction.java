@@ -23,7 +23,7 @@ public class ListAction implements Action{
 		RequestBoardDAO dao = RequestBoardDAO.getInstance();
 		int count = dao.getBoardCount(keyfield, keyword);
 		
-		
+		 
 		PagingUtil page = 
 				new PagingUtil(keyfield,keyword,
 						      Integer.parseInt(pageNum),
