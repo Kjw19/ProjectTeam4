@@ -37,6 +37,7 @@ $(function(){
 	function initPhoto(){
 		$('.my-photo').attr('src','../images/blank.png');
 		$('#photo').val('');
+		my_photo = '';
 	}	
 	
 	$(function(){
@@ -118,8 +119,8 @@ $(function(){
 					}else if(param.result=='success'){
 						alert('타임라인을 꾸며주셔서 감사합니다!');
 						initForm();
-						selectList(1);
 						initPhoto();
+						selectList(1);
 					}else{
 						alert('타임라인 작성 오류 발생');
 					}

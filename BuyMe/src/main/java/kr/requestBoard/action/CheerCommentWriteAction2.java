@@ -45,8 +45,7 @@ public class CheerCommentWriteAction2 implements Action{
 			RequestCheerCommentDAO dao = RequestCheerCommentDAO.getInstance();
 			dao.insertCheerCommentBoard(cheerComment);
 			
-			// 전송된 사진이 있을 경우
-			if(photo!=null) FileUtil.removeFile(request, cheerComment.getPhoto());
+			
 			
 			mapAjax.put("result", "success"); // 정상적으로 처리될 시
 		}
