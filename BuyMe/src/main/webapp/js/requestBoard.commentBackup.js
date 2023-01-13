@@ -54,14 +54,11 @@ $(function(){
 			success:function(param){
 				if(param.result=='logout'){
 					alert('로그인해야 댓글을 작성할 수 있습니다.');
-				}else if(param.result=='notAdmin'){
-					alert('관리자가 아닙니다.');
 				}else if(param.result=='success'){
 					alert('댓글을 작성하셨습니다.');
 					initForm(); // 폼 초기화
-					selectList(1); // 댓글 작성이 성공하면 새로 삽입한 글을 포함해서 첫 번째 페이지의 게시글을 다시 호출한다.	
-				}
-				else{
+					selectList(1); // 댓글 작성이 성공하면 새로 삽입한 글을 포함해서 첫 번째 페이지의 게시글을 다시 호출한다.				
+				}else{
 					alert('댓글 등록 오류 발생');
 				}
 			},

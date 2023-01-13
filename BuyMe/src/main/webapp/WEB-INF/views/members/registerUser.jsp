@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입 완료</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestBoard.css">
 </head>
 <body>

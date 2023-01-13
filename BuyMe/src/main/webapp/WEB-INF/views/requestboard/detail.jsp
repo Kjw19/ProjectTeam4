@@ -80,11 +80,12 @@
 	<div id="comment_div">
 		<form id="comm_form">
 			<span class="comm-title"></span><br>
+			<input type="hidden" value="${request_board.mem_num}">
 			<input type="hidden" name="req_num" value="${request_board.req_num}" id="req_num">
 			<textarea rows="5" cols="100" name="comm_content" id="comm_content" class="comm-content"
-			<c:if test="${empty user_num}">disabled="disabled"(비활성화)</c:if>
-			><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다.</c:if></textarea>
-			<c:if test="${!empty user_num}">
+			<c:if test="${empty user_num || user_auth<5}">disabled="disabled"(비활성화)</c:if>
+			><c:if test="${empty user_num}">로그인해야 작성할 수 있습니다.</c:if><c:if test="${user_auth<5}">관리자가 아닙니다.</c:if></textarea>
+			<c:if test="${!empty user_num && user_auth==5}">
 			<div id="comm_second" class="align-right">
 				<input type="submit" value="등록">
 			</div>
