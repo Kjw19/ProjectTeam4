@@ -1,1 +1,19 @@
 @charset "UTF-8";
+.content-main{line-height: 35px;	
+}
+.page-main{
+	margin: 20px 90px;
+}
+
+.align-right{
+	text-align: right;
+	
+}
+ul li{
+	display:inline-block;
+}
+#search_form{	
+	width:100%;
+	text-align: center;
+	display:inline-block;	
+}
