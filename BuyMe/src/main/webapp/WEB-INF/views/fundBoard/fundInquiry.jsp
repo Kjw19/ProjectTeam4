@@ -16,17 +16,20 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 		
 	<div class="sub-header">
-		<ul>
-			<li>
-				<a href="#">펀딩게시글</a>
-			</li>
-			<li>
-				<a href="${pageContext.request.contextPath}/fundBoard/detailComment.do?fund_num=${fund.fund_num}">댓글</a>
-			</li>
-			<li>
-				<a href="${pageContext.request.contextPath}/fundBoard/detailInquiry.do?fund_num=${fund.fund_num}">문의</a>
-			</li>
-		</ul>
+		<nav>
+			<ul>
+				<li>
+					<a href="#">펀딩게시글</a>
+				</li>
+				<li>
+					<a href="${pageContext.request.contextPath}/fundBoard/detailComment.do?fund_num=${fund.fund_num}">댓글</a>
+				</li>
+				<li>
+					<a href="${pageContext.request.contextPath}/fundBoard/detailInquiry.do?fund_num=${fund.fund_num}">문의</a>
+				</li>
+			</ul>
+		</nav>
+		<hr size="1" noshade="noshade" width="100%">
 	</div>
 		<div class="content-main">
 				<h2 class="fund_title">${fund.fund_title}</h2>

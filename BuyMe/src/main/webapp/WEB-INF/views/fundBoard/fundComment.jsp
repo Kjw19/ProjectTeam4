@@ -27,6 +27,7 @@
 			<a href="${pageContext.request.contextPath}/fundBoard/detailInquiry.do?fund_num=${fund.fund_num}">문의</a>
 		</li>
 	</ul>
+	<hr size="1" noshade="noshade" width="100%">
 </div>
 	<div class="content-main">
 		<h2 class="fund_title">${fund.fund_title}</h2>

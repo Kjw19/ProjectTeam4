@@ -9,6 +9,7 @@ import java.util.List;
 import kr.fundBoard.vo.FundBoardVO;
 import kr.fundBoardInquiry.vo.FundInquiryVO;
 import kr.util.DBUtil;
+import kr.util.DurationFromNow;
 import kr.util.StringUtil;
 
 public class FundInquiryDAO {
@@ -127,7 +128,7 @@ public class FundInquiryDAO {
 				FundInquiryVO inqu = new FundInquiryVO();
 				inqu.setInquiry_num(rs.getInt("inquiry_num"));
 				inqu.setInqu_title(rs.getString("inqu_title"));
-				inqu.setInqu_reg_date(rs.getDate("inqu_reg_date"));
+				inqu.setInqu_reg_date(DurationFromNow.getTimeDiffLabel(rs.getDate("inqu_reg_date")));
 				inqu.setInqu_content(StringUtil.useBrNoHtml(
 						           rs.getString("inqu_content")));
 				inqu.setRe_inqu_is_ok(StringUtil.useBrNoHtml(
@@ -175,7 +176,7 @@ public class FundInquiryDAO {
 				inquiry.setInqu_title(rs.getString("inqu_title"));
 				inquiry.setInqu_content(rs.getString("inqu_content"));
 				inquiry.setRe_inqu_is_ok(rs.getString("re_inqu_is_ok"));
-				inquiry.setInqu_reg_date(rs.getDate("inqu_reg_date"));
+				inquiry.setInqu_reg_date(DurationFromNow.getTimeDiffLabel("inqu_reg_date"));
 				inquiry.setMem_num(rs.getInt("mem_num"));
 			}
 		}catch(Exception e) {
