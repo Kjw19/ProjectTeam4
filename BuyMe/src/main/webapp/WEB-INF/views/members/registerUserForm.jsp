@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestBoard.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/mypage.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/registerUser.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -99,33 +99,35 @@ $(function(){
 	<div class="regis-main">
 		<h2>회원가입</h2>
 		<form id="register_form" action="registerUser.do" method="post">
-			<ul>
+			<div class="regis-input">
+				<ul>
 				<li>
-					<label for="email">이메일</label>
+					<label for="email" class="email">이메일</label>
 					<input type="email" name="email" id="email" maxlength="50" placeholder="이메일 입력">
 				</li>
 				<li>
-					<label for="name">이름</label>
+					<label for="name" class="name">이름</label>
 					<input type="text" name="name" id="name" maxlength="10" placeholder="이름 입력">
 				</li>
 				<li>
-					<label for="id">ID</label>
+					<label for="id" class="id">ID</label>
 					<input type="text" name="id" id="id" maxlength="12" autocomplete="off" placeholder="아이디 입력">
 					<input type="button" value="ID 중복체크" id="id_check">
 					<span id="message_id"></span>
 				</li>
 				<li>
-					<label for="passwd">비밀번호</label>
+					<label for="passwd" class="passwd">비밀번호</label>
 					<input type="password" name="passwd" id="passwd" maxlength="12" placeholder="비밀번호 입력">
 				</li>
 				<li>
-					<label for="re_passwd">비밀번호 확인</label>
+					<label for="re_passwd" class="re_passwd">비밀번호 확인</label>
 					<input type="password" name="re_passwd" id="re_passwd" maxlength="12" placeholder="비밀번호 확인 입력">
 				</li>
 			</ul>
 			<div class="align-center">
 				<input type="submit" value="회원가입">
 				<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+			</div>
 			</div>
 		</form>
 	</div>

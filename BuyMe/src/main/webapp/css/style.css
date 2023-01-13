@@ -81,7 +81,7 @@ header ul > li.req {
 	padding-right: 600px;
 
 }
-header ul > li.logout {
+header ul > li.logout, li.signin{
 
 	padding-right: 70px;
 
