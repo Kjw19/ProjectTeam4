@@ -79,7 +79,9 @@ $(function(){
 	$('#inqu_form').submit(function(event){
 		//기본 이벤트 제거
 		event.preventDefault();
+		
 		if($('#inqu_title').val().trim()==''){
+			
 			alert('제목을 입력하세요!');
 			$('#inqu_content').val('').focus();
 			return false;
