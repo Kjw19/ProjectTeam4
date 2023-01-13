@@ -139,3 +139,19 @@ header ul > li.logout, li.signin{
   .text {font-size: 11px}
 }
 /* 슬라이드 쇼 끝 */
+/*메뉴 추가 */
+.fund_menu{
+	margin:0;
+	padding:0;
+	text-align:center;
+}
+.fund_menu li{
+	display:inline;
+}
+.fund_menu a{
+	display: inline-block;
+	padding:70px;
+	color: #626262;
+	font-weight: bold;
+}
+

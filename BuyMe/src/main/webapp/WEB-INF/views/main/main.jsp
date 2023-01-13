@@ -42,6 +42,15 @@
 	  <span class="dot"></span> 
 	  <span class="dot"></span> 
 	</div>
+	<div class="fund_menu">
+		<nav>
+			<ul>
+				<li><a href="#"><img src="../images/tv.png"><br>가전</a></li>
+				<li><a href="#"><img src="../images/fashion.png"><br>패션</a></li>
+				<li><a href="#"><img src="../images/food.png"><br>식료품</a></li>
+			</ul>
+		</nav>
+	</div>
 <script>
 let slideIndex = 0;
 showSlides();
