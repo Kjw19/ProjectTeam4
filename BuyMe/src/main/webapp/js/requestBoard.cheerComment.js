@@ -135,6 +135,9 @@ $(function(){
 		$('#photo_reset').click(function(){
 			$('.my-photo').attr('src',photo_path); // 초기 이미지 표시
 			$('.my-photo').val('');
+			$('.my-photo').attr('src','../images/blank.png');
+			$('#photo').val('');
+			my_photo = '';
 		}); // end of click_reset (이미지 미리보기 취소)
 	});
 	

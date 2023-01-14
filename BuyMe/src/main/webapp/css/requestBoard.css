@@ -32,7 +32,7 @@ div.sub-header ul li{
 	display:inline-block;
 	border-left:1px solid #999; /* 각 메뉴의 왼쪽에 "|" 표시(분류 표시) */
 	padding:0 100px;
-	font-style:normal; font-weight:500; font-size:19px;
+	font-style:normal; font-weight:500; font-size:19px; font-family:'Noto Sans KR';
 	line-height:130%;
 }
 div.sub-header ul li:first-child{
