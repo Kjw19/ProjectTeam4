@@ -65,10 +65,11 @@
 	
 	<!-- requestBoardHeader 시작 -->
 	<p>
+	<hr size="1" noshade="noshade" width="100%" color="#c8c8c8">
 	<div class="sub-header">
 		<ul>
 			<li>
-				<span id="commnet"><a href="#comment_div">댓글·문의</a></span>
+				<span id="commnet"><a href="#comment_div">답변</a></span>
 			</li>
 		</ul>
 	</div>

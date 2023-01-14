@@ -46,7 +46,7 @@
 				<li>
 					<c:if test="${empty cheerComment.photo}">
 						<img src="${pageContext.request.contextPath}/images/blank.png" 
-							 width="513" height="200" data-img="${cheerComment.photo}" class="my-photo">
+							 width="493" height="200" data-img="${cheerComment.photo}" class="my-photo">
 					</c:if>
 					<c:if test="${!empty cheerComment.photo}">
 						<img src="${pageContext.request.contextPath}/upload/${cheerBoardVO.photo}" 
