@@ -38,15 +38,15 @@ public class UpdateAction implements Action{
 		}
 		
 		//로그인한 회원번호와 작성자 회원번호가 일치
-		FundBoardVO board = new FundBoardVO();
-		board.setFund_num(fund_num);
-		board.setCategory_num(Integer.parseInt(multi.getParameter("Category_num")));
-		board.setFund_title(multi.getParameter("Fund_title"));
-		board.setFund_content(multi.getParameter("Fund_content"));
-		board.setFund_ip(request.getRemoteAddr());
-		board.setFund_filename(Fund_filename);
+		FundBoardVO fund = new FundBoardVO();
+		fund.setFund_num(fund_num);
+		fund.setCategory_num(Integer.parseInt(multi.getParameter("category_num")));
+		fund.setFund_title(multi.getParameter("fund_title"));
+		fund.setFund_content(multi.getParameter("fund_content"));
+		fund.setFund_ip(request.getRemoteAddr());
+		fund.setFund_filename(Fund_filename);
 		
-		dao.updateBoard(board);
+		dao.updateBoard(fund);
 		
 		if(Fund_filename!=null) {
 			//새파일로 교체할 때 원래 파일 제거
@@ -54,7 +54,7 @@ public class UpdateAction implements Action{
 					             db_board.getFund_filename());
 		}
 		
-		return "redirect:/fundboard/detail.do?board_num="+fund_num;
+		return "redirect:/fundBoard/detail.do?fund_num="+fund_num;
 	}
 
 }

@@ -36,7 +36,7 @@ public class DeleteAction implements Action{
 		//파일 삭제
 		FileUtil.removeFile(request, db_board.getFund_filename());
 		
-		return "redirect:/fundboard/list.do";
+		return "redirect:/fundBoard/list.do";
 	}
 
 }

@@ -46,15 +46,6 @@
 			</ul>
 		</form>
 		<!-- 검색 폼 끝 -->
-		<div class="list-space align-right">
-			<input type="button" value="글쓰기"
-			       onclick="location.href='writeForm.do'"
-			   <c:if test="${empty user_num}">disabled="disabled"</c:if>/>
-			<input type="button" value="목록"
-			    onclick="location.href='list.do'">
-			<input type="button" value="홈으로"
-			  onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
-		</div>
 		<c:if test="${count == 0}">
 		<div class="result-display">
 			표시할 게시물이 없습니다.
@@ -70,17 +61,28 @@
 				<th>작성일</th>
 				<th>조회</th>
 			</tr>
-			<c:forEach var="board" items="${list}">
+			<c:forEach var="fund" items="${list}">
 			<tr>
-				<td>${board.fund_num}</td>
-				<td>${board.category_num}</td>
-				<td><a href="detail.do?fund_num=${board.fund_num}">${board.fund_title}</a></td>
-				<td>${board.id}</td>
-				<td>${board.fund_reg_date}</td>
-				<td>${board.fund_hit}</td>
+				<td>${fund.fund_num}</td>
+				<c:if test="${fund.category_num == 1}"><td>가전</td></c:if>
+				<c:if test="${fund.category_num == 2}"><td>패션</td></c:if>
+				<c:if test="${fund.category_num == 3}"><td>식료품</td></c:if>
+				<td><a href="detail.do?fund_num=${fund.fund_num}">${fund.fund_title}</a></td>
+				<td>${fund.id}</td>
+				<td>${fund.fund_reg_date}</td>
+				<td>${fund.fund_hit}</td>
 			</tr>
 			</c:forEach>
 		</table>
+		<div class="list-space align-right">
+			<input type="button" value="글쓰기"
+			       onclick="location.href='${pageContext.request.contextPath}/fundBoard/writeForm.do'"
+			   <c:if test="${empty user_num}">disabled="disabled"</c:if>/>
+			<input type="button" value="목록"
+			    onclick="location.href='list.do'">
+			<input type="button" value="홈으로"
+			  onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+		</div>
 		<div class="align-center">${page}</div>
 		</c:if>
 	</div>

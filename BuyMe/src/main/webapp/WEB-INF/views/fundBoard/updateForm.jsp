@@ -16,6 +16,11 @@
 				$('#fund_title').val('').focus();
 				return false;
 			}
+			if($('#category').val().trim()==''){
+				alert('카테고리을 입력하세요!');
+				$('#category').val('').focus();
+				return false;
+			}
 			if($('#fund_content').val().trim()==''){
 				alert('내용을 입력하세요!');
 				$('#fund_content').val('').focus();
@@ -33,25 +38,33 @@
 		<form action="update.do" method="post" id="update_form"
 		              enctype="multipart/form-data">
 			<input type="hidden" name="fund_num" 
-			                       value="${board.fund_num}">
+			                       value="${fund.fund_num}">
 			<ul>
 				<li>
 					<label for="fund_title">제목</label>
 					<input type="text" name="fund_title" id="fund_title"
-					    value="${board.fund_title}" maxlength="50">
+					    value="${fund.fund_title}" maxlength="50">
+				</li>
+				<li>
+					<label for="category_num">카테고리</label>
+					<select name="category_num" id="category_num">
+						<option value="1">가전</option>
+						<option value="2">패션</option>
+						<option value="3">식료품</option>
+					</select>
 				</li>
 				<li>
 					<label for="fund_content">내용</label>
 					<textarea rows="5" cols="30" name="fund_content" 
-					   id="fund_content">${board.fund_content}</textarea>
+					   id="fund_content">${fund.fund_content}</textarea>
 				</li>
 				<li>
 					<label for="fund_filename">파일</label>
 					<input type="file" name="fund_filename" id="fund_filename"
 					     accept="image/gif,image/png,image/jpeg">
-					<c:if test="${!empty board.fund_filename}">
+					<c:if test="${!empty fund.fund_filename}">
 					<div id="file_detail">
-						(${board.fund_filename})파일이 등록되어 있습니다.
+						(${fund.fund_filename})파일이 등록되어 있습니다.
 						<input type="button" value="파일삭제" id="file_del">
 					</div>	
 					<script type="text/javascript">
@@ -62,7 +75,7 @@
 									$.ajax({
 										url:'deleteFile.do',
 										type:'post',
-										data:{board_num:${board.fund_num}},
+										data:{fund_num:${fund.fund_num}},
 										dataType:'json',
 										success:function(param){
 											if(param.result == 'logout'){
@@ -89,7 +102,7 @@
 			<div class="align-center">
 				<input type="submit" value="수정">
 				<input type="button" value="글상세"
-				  onclick="location.href='detail.do?fund_num=${board.fund_num}'">
+				  onclick="location.href='detail.do?fund_num=${fund.fund_num}'">
 			</div>                     
 		</form>
 	</div>

@@ -17,7 +17,7 @@ public class WriteFormAction implements Action{
 			return "redirect:/member/loginForm.do";
 		}
 		//로그인 된 경우
-		return "/WEB-INF/views/fundboard/writeForm.jsp";
+		return "/WEB-INF/views/fundBoard/writeForm.jsp";
 	}
 
 }

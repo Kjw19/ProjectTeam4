@@ -20,15 +20,15 @@ public class DetailAction implements Action{
 		//조회수 증가
 		dao.updateReadcount(fund_num);
 				
-		FundBoardVO board = dao.getFundBoard(fund_num);
+		FundBoardVO fund = dao.getFundBoard(fund_num);
 				
 		//HTML 태그를 허용하지 않음
-		board.setFund_title(StringUtil.useNoHtml(board.getFund_title()));
+		fund.setFund_title(StringUtil.useNoHtml(fund.getFund_title()));
 		//HTML 태그를 허용하지 않으면서 줄바꿈 처리
-		board.setFund_content(
-					StringUtil.useBrNoHtml(board.getFund_content()));
+		fund.setFund_content(
+					StringUtil.useBrNoHtml(fund.getFund_content()));
 			
-		request.setAttribute("board", board);
+		request.setAttribute("fund", fund);
 				
 		return "/WEB-INF/views/fundBoard/detail.jsp";
 	}

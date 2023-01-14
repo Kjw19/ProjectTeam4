@@ -27,8 +27,8 @@ public class UpdateFormAction implements Action{
 				request.getParameter("fund_num"));
 
 		FundBoardDAO dao = FundBoardDAO.getInstance();
-		FundBoardVO board = dao.getFundBoard(fund_num);
-		if(user_num!=board.getMem_num()) {
+		FundBoardVO fund = dao.getFundBoard(fund_num);
+		if(user_num!=fund.getMem_num()) {
 			//로그인한 회원번호와 작성자 회원번호가 불일치
 			return "/WEB-INF/views/common/notice.jsp";			
 		}
@@ -37,12 +37,12 @@ public class UpdateFormAction implements Action{
 		
 		//제목에 큰 따옴표가 있으면 input 태그에 데이터를 표시할 때
 		//오동작이 일어나기 때문에 " -> &quot; 로 변환
-		board.setFund_title(StringUtil.parseQuot(
-				                      board.getFund_title()));
+		fund.setFund_title(StringUtil.parseQuot(
+							fund.getFund_title()));
 		
-		request.setAttribute("fund_board", board);
+		request.setAttribute("fund", fund);
 
-		return "/WEB-INF/views/fundboard/updateForm.jsp";
+		return "/WEB-INF/views/fundBoard/updateForm.jsp";
 	}
 
 }

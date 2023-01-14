@@ -44,8 +44,11 @@
 				</li>
 				<li>
 					<label for="category_num">카테고리</label>
-					<input type="number" name="category_num" id="category_num"
-					                          maxlength="20">
+					<select name="category_num" id="category_num">
+						<option value="1">가전</option>
+						<option value="2">패션</option>
+						<option value="3">식료품</option>
+					</select>
 				</li>
 				<li>
 					<label for="fund_content">내용</label>

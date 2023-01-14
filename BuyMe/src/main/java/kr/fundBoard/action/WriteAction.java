@@ -23,17 +23,17 @@ public class WriteAction implements Action{
 		//로그인 된 경우
 		MultipartRequest multi = 
 				             FileUtil.createFile(request);
-		FundBoardVO board = new FundBoardVO();
-		board.setFund_title(multi.getParameter("fund_title"));
-		board.setCategory_num(Integer.parseInt(multi.getParameter("category_num")));
-		board.setFund_content(multi.getParameter("fund_content"));
-		board.setFund_ip(request.getRemoteAddr());
-		board.setFund_filename(multi.getFilesystemName("fund_filename"));
-		board.setMem_num(user_num);
+		FundBoardVO fund = new FundBoardVO();
+		fund.setFund_title(multi.getParameter("fund_title"));
+		fund.setCategory_num(Integer.parseInt(multi.getParameter("category_num")));
+		fund.setFund_content(multi.getParameter("fund_content"));
+		fund.setFund_ip(request.getRemoteAddr());
+		fund.setFund_filename(multi.getFilesystemName("fund_filename"));
+		fund.setMem_num(user_num);
 		
 		FundBoardDAO dao = FundBoardDAO.getInstance();
-		dao.insertBoard(board);
+		dao.insertBoard(fund);
 		
-		return "/WEB-INF/views/fundboard/write.jsp";
+		return "/WEB-INF/views/fundBoard/write.jsp";
 	}
 }

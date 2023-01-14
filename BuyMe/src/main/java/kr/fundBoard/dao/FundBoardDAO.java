@@ -246,7 +246,7 @@ public class FundBoardDAO {
 	}
 	
 	//펀딩 게시판 수정
-	public void updateBoard(FundBoardVO board)throws Exception{
+	public void updateBoard(FundBoardVO fund)throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
@@ -258,7 +258,7 @@ public class FundBoardDAO {
 			conn = DBUtil.getConnection();
 			
 			//전송된 파일 여부 체크
-			if(board.getFund_filename()!=null) {
+			if(fund.getFund_filename()!=null) {
 				sub_sql += ",fund_filename=?";
 			}
 			
@@ -269,14 +269,14 @@ public class FundBoardDAO {
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			//?에 데이터 바인딩
-			pstmt.setString(++cnt, board.getFund_title());
-			pstmt.setString(++cnt, board.getFund_content());
-			if(board.getFund_filename()!=null) {
-				pstmt.setString(++cnt, board.getFund_filename());
+			pstmt.setString(++cnt, fund.getFund_title());
+			pstmt.setString(++cnt, fund.getFund_content());
+			if(fund.getFund_filename()!=null) {
+				pstmt.setString(++cnt, fund.getFund_filename());
 			}
-			pstmt.setString(++cnt, board.getFund_ip());
-			pstmt.setInt(++cnt, board.getFund_num());
-			pstmt.setInt(++cnt, board.getCategory_num());
+			pstmt.setString(++cnt, fund.getFund_ip());
+			pstmt.setInt(++cnt, fund.getCategory_num());
+			pstmt.setInt(++cnt, fund.getFund_num());
 			
 			//SQL문 실행
 			pstmt.executeUpdate();
