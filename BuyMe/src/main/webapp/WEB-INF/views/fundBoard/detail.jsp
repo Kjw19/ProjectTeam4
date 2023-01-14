@@ -55,7 +55,7 @@
 				<%-- 로그인한 회원번호와 작성자 회원번호가 일치해야 수정,삭제 가능 --%>
 				<c:if test="${user_num == board.mem_num}">
 				<input type="button" value="수정" 
-				onclick="location.href='updateForm.do?board_num=${board.fund_num}'">
+				onclick="location.href='updateForm.do?fund_num=${board.fund_num}'">
 				<input type="button" value="삭제" id="delete_btn">
 				<script type="text/javascript">
 					let delete_btn = document.getElementById('delete_btn');

@@ -163,6 +163,20 @@ public class FundBoardDAO {
 		String sql = null;
 		
 		try {
+			//커넥션풀로부터 커넥션을 할당
+			conn = DBUtil.getConnection();
+			//SQL문 작성
+			sql = "SELECT * FROM fund_board b JOIN member m "
+				+ "USING(mem_num) JOIN member_detail d "
+				+ "USING(mem_num) WHERE b.fund_num=?";
+			//PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			//?에 데이터 바인딩
+			pstmt.setInt(1, fund_num);
+			//SQL문을 실행해서 결과행을 ResultSet에 담음
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
 			board = new FundBoardVO();
 			board.setFund_num(rs.getInt("fund_num"));
 			board.setFund_title(rs.getString("fund_title"));
@@ -173,8 +187,8 @@ public class FundBoardDAO {
 			board.setFund_filename(rs.getString("fund_filename"));//사진
 			board.setMem_num(rs.getInt("mem_num"));
 			board.setId(rs.getString("id"));
-			board.setCategory_num(rs.getInt("Category_num"));
-			board.setFund_photo(rs.getString("fund_photo")); //Fund_filename로 대체
+			board.setCategory_num(rs.getInt("category_num"));
+			}
 		}catch(Exception e) {
 			throw new Exception(e);
 		}finally {
@@ -194,7 +208,7 @@ public class FundBoardDAO {
 			//커넥션풀로부터 커넥션을 할당
 			conn = DBUtil.getConnection();
 			//SQL문 작성
-			sql = "UPDATE fund_board SET hit=hit+1 WHERE board_num=?";
+			sql = "UPDATE fund_board SET fund_hit=fund_hit+1 WHERE fund_num=?";
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			//?에 데이터를 바인딩

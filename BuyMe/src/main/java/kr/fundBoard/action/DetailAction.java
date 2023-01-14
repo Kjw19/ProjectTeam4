@@ -30,7 +30,7 @@ public class DetailAction implements Action{
 			
 		request.setAttribute("board", board);
 				
-		return "/WEB-INF/views/fundboard/detail.jsp";
+		return "/WEB-INF/views/fundBoard/detail.jsp";
 	}
 
 }
