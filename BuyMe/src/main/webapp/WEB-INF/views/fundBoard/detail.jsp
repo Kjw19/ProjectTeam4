@@ -14,6 +14,20 @@
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<div class="sub-header">
+	<ul>
+		<li>
+			<a href="detail.do?fund_num=${board.fund_num}">펀딩게시글</a>
+		</li>
+		<li>
+			<a href="${pageContext.request.contextPath}/fundBoard/detailComment.do?fund_num=${board.fund_num}">댓글</a>
+		</li>
+		<li>
+			<a href="${pageContext.request.contextPath}/fundBoard/detailInquiry.do?fund_num=${board.fund_num}">문의</a>
+		</li>
+	</ul>
+	<hr size="1" noshade="noshade" width="100%">
+	</div>
 	<div class="content-main">
 		<h2>${board.fund_title}</h2>
 		<ul class="detail-info">

@@ -19,13 +19,13 @@
 		<nav>
 			<ul>
 				<li>
-					<a href="#">펀딩게시글</a>
+					<a href="detail.do?fund_num=${fund.fund_num}">펀딩게시글</a>
 				</li>
 				<li>
-					<a href="${pageContext.request.contextPath}/fundBoard/detailComment.do?fund_num=${fund.fund_num}">댓글</a>
+					<a href="${pageContext.request.contextPath}/fundBoard/detailComment.do?fund_num=${board.fund_num}">댓글</a>
 				</li>
 				<li>
-					<a href="${pageContext.request.contextPath}/fundBoard/detailInquiry.do?fund_num=${fund.fund_num}">문의</a>
+					<a href="${pageContext.request.contextPath}/fundBoard/detailInquiry.do?fund_num=${board.fund_num}">문의</a>
 				</li>
 			</ul>
 		</nav>

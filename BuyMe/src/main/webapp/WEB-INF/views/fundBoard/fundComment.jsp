@@ -18,7 +18,7 @@
 <div class="sub-header">
 	<ul>
 		<li>
-			<a href="#">펀딩게시글</a>
+			<a href="detail.do?fund_num=${fund.fund_num}">펀딩게시글</a>
 		</li>
 		<li>
 			<a href="${pageContext.request.contextPath}/fundBoard/detailComment.do?fund_num=${fund.fund_num}">댓글</a>
