@@ -27,7 +27,7 @@
 			</li>
 			<li>
 				${board.id}<br>
-				조회 : ${board.hit}
+				조회 : ${board.fund_hit}
 			</li>
 		</ul>
 		<hr size="1" noshade="noshade" width="100%">

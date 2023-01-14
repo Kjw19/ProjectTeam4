@@ -74,10 +74,10 @@
 			<tr>
 				<td>${board.fund_num}</td>
 				<td>${board.category_num}</td>
-				<td><a href="detail.do?board_num=${board.board_num}">${board.title}</a></td>
+				<td><a href="detail.do?board_num=${board.fund_num}">${board.fund_title}</a></td>
 				<td>${board.id}</td>
-				<td>${board.reg_date}</td>
-				<td>${board.hit}</td>
+				<td>${board.fund_reg_date}</td>
+				<td>${board.fund_hit}</td>
 			</tr>
 			</c:forEach>
 		</table>

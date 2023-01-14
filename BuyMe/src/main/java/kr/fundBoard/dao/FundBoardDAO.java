@@ -76,7 +76,7 @@ public class FundBoardDAO {
 				
 				
 				//SQL문 작성
-				sql = "SELECT COUNT(*) FROM fund_board b JOIN fund_member m USING(mem_num) " + sub_sql;
+				sql = "SELECT COUNT(*) FROM fund_board b JOIN member m USING(mem_num) " + sub_sql;
 				//PreparedStatement 객체 생성
 				pstmt = conn.prepareStatement(sql);
 				if(keyword !=null && !"".equals(keyword)) {
