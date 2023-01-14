@@ -53,11 +53,20 @@
 						</div>
 						</c:if>
 					</div>
+					<c:if test="${empty user_num}">
 						<div id="inqu_second" class="align-right">
 							<input type="button" value="목록" 
-							onclick="location.href='${pageContext.request.contextPath}/fundBoard/list.do'">
+									onclick="location.href='${pageContext.request.contextPath}/fundBoard/list.do'">
 							<input type="submit" value="전송">
 						</div>
+					</c:if>
+					<c:if test="${user_num != null}">
+						<div id="inqu_third" class="align-right">
+							<input type="button" value="목록" 
+									onclick="location.href='${pageContext.request.contextPath}/fundBoard/list.do'">
+							<input type="submit" value="전송">
+						</div>
+					</c:if>
 				</form>
 			</div>
 			<!-- 댓글 목록 출력 시작 -->

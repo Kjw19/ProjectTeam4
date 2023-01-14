@@ -79,8 +79,6 @@
 				<input type="button" value="수정" 
 				onclick="location.href='${pageContext.request.contextPath}/fundBoard/upateForm.do?fund_num=${fund.fund_num}'">
 				<input type="button" value="삭제" id="delete_btn">
-				<input type="button" value="목록"
-			  		onclick="location.href='${pageContext.request.contextPath}/fundBoard/list.do'">
 				<script type="text/javascript">
 					let delete_btn = document.getElementById('delete_btn');
 					//이벤트 연결
