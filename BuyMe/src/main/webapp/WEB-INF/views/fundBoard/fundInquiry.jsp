@@ -54,6 +54,8 @@
 						</c:if>
 					</div>
 						<div id="inqu_second" class="align-right">
+							<input type="button" value="목록" 
+							onclick="location.href='${pageContext.request.contextPath}/fundBoard/list.do'">
 							<input type="submit" value="전송">
 						</div>
 				</form>

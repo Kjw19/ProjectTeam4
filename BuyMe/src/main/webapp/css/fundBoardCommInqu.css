@@ -66,7 +66,7 @@ form#inqu_form div#inqu_first,form#comm_form div#comm_first{
 	float:right; padding:10px 0 10px 10px;
 }
 form#inqu_form div#inqu_second, form#comm_form div#comm_second{
-	float:right; padding:10px 150px 10px 10px;
+	float:right; padding:10px 0px 10px 10px;
 }
 form#minqu_form, #mcomm_form{
 	width:530px;

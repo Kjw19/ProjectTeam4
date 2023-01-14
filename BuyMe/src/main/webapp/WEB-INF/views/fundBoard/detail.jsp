@@ -73,6 +73,8 @@
 				</c:if>
 				작성일 : ${fund.fund_reg_date}
 				<%-- 로그인한 회원번호와 작성자 회원번호가 일치해야 수정,삭제 가능 --%>
+				<input type="button" value="목록" 
+				onclick="location.href='${pageContext.request.contextPath}/fundBoard/list.do'">
 				<c:if test="${user_num == fund.mem_num}">
 				<input type="button" value="수정" 
 				onclick="location.href='${pageContext.request.contextPath}/fundBoard/upateForm.do?fund_num=${fund.fund_num}'">
