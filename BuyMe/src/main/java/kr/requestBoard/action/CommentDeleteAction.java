@@ -27,12 +27,14 @@ public class CommentDeleteAction implements Action{
 		RequestCommentVO db_comment = dao.getRequestComment(comment_num);
 		
 		HttpSession session = request.getSession();
+		
 		Integer user_num = (Integer)session.getAttribute("user_num");
-
+		Integer user_auth = (Integer)session.getAttribute("user_auth");
+		
 		if(user_num==null) { // 로그인이 되지 않은 경우
 			mapAjax.put("result", "logout");
-		}else if(user_num!=null && user_num==db_comment.getMem_num()) {
-			// 로그인이 되어 있고, 로그인 회원번호와 작성자 회원번호가 일치
+		}else if(user_num!=null && user_auth==5) {
+			// 로그인이 되어 있고, 회번번호가 관리자 회원번호일 경우
 			dao.deleteRequestComment(comment_num);
 			
 			mapAjax.put("result", "success");
