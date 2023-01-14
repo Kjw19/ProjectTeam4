@@ -34,7 +34,7 @@
 		<div class="category_name">	
 			<c:if test="${fund.category_num == 1}"><p>항목: 가전</p></c:if>	
 			<c:if test="${fund.category_num == 2}"><p>항목: 패션</p></c:if>
-			<c:if test="${fund.category_num == 3}"><p>항목: 식료품</p></c:if>
+			<c:if test="${fund.category_num == 3}"><p>항목: 푸드</p></c:if>
 		</div>
 		<ul class="detail-info">
 			<li>

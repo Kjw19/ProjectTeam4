@@ -25,6 +25,18 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
 		<h2>게시판 목록</h2>
+		<!-- 카테고리 검색 -->
+	<div class="fund_menu">
+		<nav>
+			<ul>
+				<li><a href="${pageContext.request.contextPath}/fundBoard/list.do"><img src="../images/all.png"><br>전체</a></li>
+				<li><a href="${pageContext.request.contextPath}/fundBoard/list.do?keyfield=4&keyword=1"><img src="../images/tv.png"><br>가전</a></li>
+				<li><a href="${pageContext.request.contextPath}/fundBoard/list.do?keyfield=4&keyword=2"><img src="../images/fashion.png"><br>패션</a></li>
+				<li><a href="${pageContext.request.contextPath}/fundBoard/list.do?keyfield=4&keyword=3"><img src="../images/food.png"><br>푸드</a></li>
+			</ul>
+		</nav>
+	</div>
+	<!-- 카테고리 검색 끝 -->
 		<!-- 검색 폼 시작 -->
 		<form id="search_form" action="list.do" method="get">
 			<ul class="search">
@@ -33,7 +45,6 @@
 						<option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>제목</option>
 						<option value="2" <c:if test="${param.keyfield==2}">selected</c:if>>작성자</option>
 						<option value="3" <c:if test="${param.keyfield==3}">selected</c:if>>내용</option>
-						<option value="4" <c:if test="${param.keyfield==4}">selected</c:if>>카테고리</option>
 					</select>
 				</li>
 				<li>
@@ -46,15 +57,6 @@
 			</ul>
 		</form>
 		<!-- 검색 폼 끝 -->
-		<div class="list-space align-right">
-			<input type="button" value="글쓰기"
-			       onclick="location.href='${pageContext.request.contextPath}/fundBoard/writeForm.do'"
-			   <c:if test="${empty user_num}">disabled="disabled"</c:if>/>
-			<input type="button" value="목록"
-			    onclick="location.href='list.do'">
-			<input type="button" value="홈으로"
-			  onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
-		</div>
 		<c:if test="${count == 0}">
 		<div class="result-display">
 			표시할 게시물이 없습니다.
@@ -83,6 +85,15 @@
 			</tr>
 			</c:forEach>
 		</table>
+		<div class="list-space align-right">
+			<input type="button" value="글쓰기"
+			       onclick="location.href='${pageContext.request.contextPath}/fundBoard/writeForm.do'"
+			   <c:if test="${empty user_num}">disabled="disabled"</c:if>/>
+			<input type="button" value="목록"
+			    onclick="location.href='list.do'">
+			<input type="button" value="홈으로"
+			  onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+		</div>
 		<div class="align-center">${page}</div>
 		</c:if>
 	</div>

@@ -48,7 +48,7 @@
 					<select name="category_num" id="category_num">
 						<option value="1">가전</option>
 						<option value="2">패션</option>
-						<option value="3">식료품</option>
+						<option value="3">푸드</option>
 					</select>
 				</li>
 				<li>
