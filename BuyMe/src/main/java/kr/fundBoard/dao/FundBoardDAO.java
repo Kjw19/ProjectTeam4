@@ -115,7 +115,7 @@ public class FundBoardDAO {
 				if(keyfield.equals("1")) sub_sql += "WHERE b.fund_title LIKE ?";
 				else if(keyfield.equals("2")) sub_sql += "WHERE m.id LIKE ?";
 				else if(keyfield.equals("3")) sub_sql += "WHERE b.fund_content LIKE ?";
-				else if(keyfield.equals("3")) sub_sql += "WHERE b.category_num LIKE ?";
+				else if(keyfield.equals("4")) sub_sql += "WHERE b.category_num LIKE ?";
 			}
 			
 			//SQL문 작성

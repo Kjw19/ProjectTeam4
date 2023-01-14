@@ -44,9 +44,9 @@
 	<div class="fund_menu">
 		<nav>
 			<ul>
-				<li><a href="#"><img src="../images/tv.png"><br>가전</a></li>
-				<li><a href="#"><img src="../images/fashion.png"><br>패션</a></li>
-				<li><a href="#"><img src="../images/food.png"><br>식료품</a></li>
+				<li><a href="${pageContext.request.contextPath}/fundBoard/list.do?keyfield=4&keyword=1"><img src="../images/tv.png"><br>가전</a></li>
+				<li><a href="${pageContext.request.contextPath}/fundBoard/list.do?keyfield=4&keyword=2"><img src="../images/fashion.png"><br>패션</a></li>
+				<li><a href="${pageContext.request.contextPath}/fundBoard/list.do?keyfield=4&keyword=3"><img src="../images/food.png"><br>식료품</a></li>
 			</ul>
 		</nav>
 	</div>

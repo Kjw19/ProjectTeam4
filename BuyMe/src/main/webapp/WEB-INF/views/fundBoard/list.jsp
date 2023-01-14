@@ -46,6 +46,15 @@
 			</ul>
 		</form>
 		<!-- 검색 폼 끝 -->
+		<div class="list-space align-right">
+			<input type="button" value="글쓰기"
+			       onclick="location.href='${pageContext.request.contextPath}/fundBoard/writeForm.do'"
+			   <c:if test="${empty user_num}">disabled="disabled"</c:if>/>
+			<input type="button" value="목록"
+			    onclick="location.href='list.do'">
+			<input type="button" value="홈으로"
+			  onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+		</div>
 		<c:if test="${count == 0}">
 		<div class="result-display">
 			표시할 게시물이 없습니다.
@@ -74,15 +83,6 @@
 			</tr>
 			</c:forEach>
 		</table>
-		<div class="list-space align-right">
-			<input type="button" value="글쓰기"
-			       onclick="location.href='${pageContext.request.contextPath}/fundBoard/writeForm.do'"
-			   <c:if test="${empty user_num}">disabled="disabled"</c:if>/>
-			<input type="button" value="목록"
-			    onclick="location.href='list.do'">
-			<input type="button" value="홈으로"
-			  onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
-		</div>
 		<div class="align-center">${page}</div>
 		</c:if>
 	</div>
