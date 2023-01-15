@@ -13,24 +13,24 @@
 	<div class="slideshow-container">
 	
 	<div class="mySlides fade">
-	  	<a href="#">
+	  	<a href="${pageContext.request.contextPath}/fundBoard/detail.do?fund_num=121">
 	  		<img src="../images/camera.jpg" style="width:100%; height:300px">
 	  	</a>
 	  <div class="text">새로운 카메라 펀딩!</div>
 	</div>
 	
 	<div class="mySlides fade">
-	  	<a href="#">
-	  		<img src="../images/github.png" style="width:100%; height:300px">
+	  	<a href="${pageContext.request.contextPath}/fundBoard/detail.do?fund_num=124">
+	  		<img src="../images/clothe.jpg" style="width:100%; height:300px">
 	  	</a>
-	  <div class="text">새로운 VCS 펀딩!</div>
+	  <div class="text">새로운 스웨터 펀딩!</div>
 	</div>
 	
 	<div class="mySlides fade">
-	  	<a href="#">
-	  		<img src="../images/laptop.png" style="width:100%; height:300px">
+	  	<a href="${pageContext.request.contextPath}/fundBoard/detail.do?fund_num=123">
+	  		<img src="../images/computer.jpg" style="width:100%; height:300px">
 	  	</a>
-	  <div class="text">새로운 Laptop 펀딩!</div>
+	  <div class="text">새로운 노트북 악세사리 펀딩!</div>
 	</div>
 	
 	</div>

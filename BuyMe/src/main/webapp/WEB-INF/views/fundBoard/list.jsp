@@ -68,6 +68,7 @@
 			</tr>
 			</c:forEach>
 		</table>
+		</c:if>
 				<!-- 검색 폼 시작 -->
 		<form id="search_form" action="list.do" method="get">
 			<ul class="search">
@@ -102,7 +103,6 @@
 			</ul>
 		</div>
 		<div class="align-center">${page}</div>
-		</c:if>
 	</div>
 </div>
 </body>
