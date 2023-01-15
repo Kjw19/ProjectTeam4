@@ -60,7 +60,7 @@
 				<td>${fund.fund_num}</td>
 				<c:if test="${fund.category_num == 1}"><td>가전</td></c:if>
 				<c:if test="${fund.category_num == 2}"><td>패션</td></c:if>
-				<c:if test="${fund.category_num == 3}"><td>식료품</td></c:if>
+				<c:if test="${fund.category_num == 3}"><td>푸드</td></c:if>
 				<td><a href="detail.do?fund_num=${fund.fund_num}">${fund.fund_title}</a></td>
 				<td>${fund.id}</td>
 				<td>${fund.fund_reg_date}</td>
