@@ -1,0 +1,195 @@
+@charset "UTF-8";
+
+/* 페이지 레이아웃 */
+.page-main{
+	background:#FFFFFF;
+}
+.content-main{
+	padding:10px 20px;
+	margin:50px auto;
+	padding:10px 20px;
+	width:950px;
+	border:1px solid #E8E8E8;
+	border-radius:7px;
+	line-height: 35px;
+}
+
+div.sub-header ul{
+	text-align:center;
+	margin:0; padding:0 0 5px 0;
+}
+div.sub-header ul li{
+	display:inline-block;
+	border-left:1px solid #999; /* 각 메뉴의 왼쪽에 "|" 표시(분류 표시) */
+	padding:0 100px;
+	font-style:normal; font-weight:500; font-size:19px; font-family: 'Noto Sans KR';
+	line-height:130%;
+}
+div.sub-header ul li:first-child{
+	border-left:none; /* 메뉴 분류중 제일 왼쪽의 "|"는 삭제 */
+}
+div.sub-header ul li a{
+	text-decoration:none;
+	color:#6C6C6C;
+}
+div.sub-header ul li a:hover{
+	color:#000000;
+}
+
+/* 버튼 */
+input[type="button"], input[type="submit"]{
+	width:60px;
+	height:27px;
+	border:none;
+	border-radius:3px;
+	background-color:#4B71DE;
+	color:white;
+	cursor:pointer;
+}
+#search_form{	
+	width:100%;
+	text-align: center;
+	display:inline-block;	
+}
+
+/* 버튼 종료 */
+/* 페이지 제목 */
+span.halfline{
+	font-size:30px; 
+	margin-bottom:20px;
+	background:linear-gradient(to top,#A0FAF0 30%,transparent 50%);
+}
+span.halfline h2{
+	font-style:italic;
+}
+div.fundboard-title{
+	height:130px;
+	text-align:center;
+	padding:30px 0 0 0;
+	font-size:15px;
+}
+/* list-button */
+#search_form li{
+	display: inline-block;
+}
+#search_form input{
+    margin-top: 30px;
+}
+/* list-button 종료*/
+/* list-button */
+.list-button{
+	padding-left : 160px;
+	  display:inline;
+}
+.list-button ul{
+	margin-left:700px;
+}
+
+.list-button li{
+	display: inline-block;
+}
+
+/* list-button 종료*/
+table{
+	text-align: center;
+}
+table tr{
+	margin-left:50px;
+}
+table td{
+	padding-left: 50px;
+}
+
+
+/* 펀딩게시판 작성 수정 폼
+-----------------------*/
+.fdwrite-main{
+	margin:35px auto;
+	padding:10px 20px;
+	width:950px;
+	border:1px solid #4B71DE;
+	border-radius:7px;
+}
+.fdwrite-title{
+	margin:50px auto 0 auto;
+	padding:10px 20px;
+	width:950px;
+	height:55px;
+	border:none;
+	border-radius:7px;
+	background-color:#4B71DE;
+	color:white;
+	text-align:center;
+	line-height:0.5;
+}
+.fdwrite-form{
+	margin:0 auto;
+	padding:20px 10px;
+	width:800px;
+	font-size:15pt;
+	vertical-align:middle;
+}
+.fdwrite-form #fund_title{
+	background-color: #F7F7F7;
+    border: none;
+    width: 93%;
+    height: 37px;
+    vertical-align: middle;
+}
+.fdwrite-form ul li:first-child label[for="fund_title"]{
+	vertical-align:middle;
+}
+.fdwrite-form ul li:nth-child(2){
+	padding:0 10px 30px 0;
+}
+.fdwrite-form ul li:nth-child(2) label[for="noti_content"]{
+	vertical-align:middle;
+}
+.fdwrite-form #fund_content{
+	background-color:#F7F7F7;
+	border:none;
+	width:100%;
+	height:400px;
+	vertical-align:middle;
+	font-size:11pt;
+}
+label[for="fund_filename"]{
+	font-size:10pt;
+}
+.file-deco{
+	width:85px;
+	height:30px;
+	border:none;
+	border-radius:7px;
+	background-color:#4B71DE;
+	text-align:center;
+	color:white;
+	cursor:pointer;
+	line-height:2;
+}
+#noti_filename{
+  display: none;
+}
+.submit-list{
+	padding-left : 160px;
+	  display:inline;
+}
+.submit-list ul{
+	margin-left:620px;
+}
+
+.submit-list li{
+	display: inline-block;
+}
+#category_num{
+	width:100px;
+	height:30px;
+	border:none;
+	border-radius:3px;
+	background-color:#4B71DE;
+	color:white;
+	cursor:pointer;
+	text-align:center
+}
+
+
