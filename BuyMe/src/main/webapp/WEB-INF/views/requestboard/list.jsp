@@ -80,7 +80,7 @@
 		</form>
 		<!-- 검색 폼 끝 -->
 		<div class="list-space align-right">
-			<input type="button" value="글쓰기"
+			<input type="button" value="문의작성"
 			       onclick="location.href='writeForm.do'"
 			   <c:if test="${empty user_num}">disabled="disabled"</c:if>/>
 			<input type="button" value="목록"
