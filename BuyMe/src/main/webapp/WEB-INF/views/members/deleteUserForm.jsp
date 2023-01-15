@@ -108,14 +108,19 @@
 					</li>
 					<li>
 						<input type="hidden" value="${member.passwd}" id="check_passwd">
-					</li>
-				
-					<li class="detail-li">
-						<input type="submit" value="회원탈퇴" class="detail-lookup" id="detail_lookup">
-						<input type="button" value="마이페이지"  onclick="location.href='${pageContext.request.contextPath}/members/myPage.do'" class="detail-lookup" id="modify_passwd">
-					</li>		
+					</li>	
 				</ul>
 			</div> <!--  end of mypage-simple, 간단 내 정보 끝 -->
+			<div class="delete-btn"><!-- 버튼 추가 -->
+				<ul>
+					<li>
+						<input type="submit" value="회원탈퇴" class="detail-lookup" id="detail_lookup">
+					</li>
+					<li>
+						<input type="button" value="마이페이지"  onclick="location.href='${pageContext.request.contextPath}/members/myPage.do'" class="detail-lookup" id="modify_passwd">
+					</li>
+				</ul>
+			</div><!-- 버튼 종료 -->
 			</form>
 			</div> <!--  end of mypage-second -->
 		

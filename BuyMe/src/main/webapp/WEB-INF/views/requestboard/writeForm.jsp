@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <title>게시판 글쓰기</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestBoard.css">
+
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -28,7 +30,11 @@
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
+	<div class="rqwrite-title">
 		<h2>게시판 글쓰기</h2>
+	</div>	
+	<div class="rqwrite-main">
+		<div class="rqwrite-form">
 		<form id="write_form" action="write.do" method="post"
 		                       enctype="multipart/form-data">
 			<ul>
@@ -49,12 +55,20 @@
 					 accept="image/gif,image/png,image/jpeg">
 				</li>
 			</ul> 
-			<div class="align-center">
-				<input type="submit" value="등록">
-				<input type="button" value="목록"
+			<div class="submit-list">
+			<ul>
+				<li>
+					<input type="submit" value="등록">
+				</li>
+				<li>
+					<input type="button" value="목록"
 				            onclick="location.href='list.do'">
-			</div>                      
+				</li>
+			</ul>
+			</div>                                          
 		</form>
+	</div>
+	</div>
 	</div>
 </div>
 </body>

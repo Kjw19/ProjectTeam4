@@ -35,7 +35,11 @@
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
+	<div class="fdwrite-title">
 		<h2>게시판 글수정</h2>
+	</div>	
+	<div class="fdwrite-main">
+		<div class="fdwrite-form">	
 		<form action="update.do" method="post" id="update_form"
 		              enctype="multipart/form-data">
 			<input type="hidden" name="fund_num" 
@@ -100,12 +104,20 @@
 					</c:if>     
 				</li>
 			</ul>  
-			<div class="align-center">
-				<input type="submit" value="수정">
-				<input type="button" value="글상세"
+			<div class="submit-list">
+			<ul>
+				<li>
+					<input type="submit" value="등록">
+				</li>
+				<li>
+					<input type="button" value="글상세"
 				  onclick="location.href='detail.do?fund_num=${fund.fund_num}'">
-			</div>                     
+				</li>
+			</ul>
+			</div>                
 		</form>
+	</div>
+	</div>
 	</div>
 </div>
 </body>

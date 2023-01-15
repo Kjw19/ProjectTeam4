@@ -34,7 +34,11 @@
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
+	<div class="fdwrite-title">
 		<h2>게시판 글쓰기</h2>
+	</div>
+	<div class="fdwrite-main">
+		<div class="fdwrite-form">	
 		<form id="write_form" action="write.do" method="post"
 		                       enctype="multipart/form-data">
 			<ul>
@@ -63,12 +67,20 @@
 					 accept="image/gif,image/png,image/jpeg">
 				</li>
 			</ul> 
-			<div class="align-center">
-				<input type="submit" value="등록">
-				<input type="button" value="목록"
+			<div class="submit-list">
+			<ul>
+				<li>
+					<input type="submit" value="등록">
+				</li>
+				<li>
+					<input type="button" value="목록"
 				            onclick="location.href='list.do'">
+				</li>
+			</ul>
 			</div>                      
 		</form>
+	</div>
+	</div>
 	</div>
 </div>
 </body>

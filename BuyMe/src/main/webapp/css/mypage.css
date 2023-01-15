@@ -672,3 +672,46 @@ ul li label{
     margin-top: 30px;
 }
 /* passwd-btn 종료*/
+/* delete-btn */
+.delete-btn{
+	padding-left : 160px;
+	  display:inline;
+}
+
+.delete-btn li{
+	width: 140px;
+	display: inline-block;
+}
+.delete-btn input{
+    width: 100%;
+    border: 1px solid #dddddd !important;
+    font-size: 1rem;
+    line-height: 1.1;
+    letter-spacing: -0.04rem;
+    border-radius: 8px;
+    margin-top: 30px;
+    margin-left: 160px;
+}
+/* detail-btn 종료*/
+
+/* delete-btn */
+.delete-btn{
+	padding-left : 160px;
+	  display:inline;
+}
+
+.delete-btn li{
+	width: 140px;
+	display: inline-block;
+}
+.delete-btn input{
+    width: 100%;
+    border: 1px solid #dddddd !important;
+    font-size: 1rem;
+    line-height: 1.1;
+    letter-spacing: -0.04rem;
+    border-radius: 8px;
+    margin-top: 30px;
+    margin-left: 160px;
+}
+/* detail-btn 종료*/

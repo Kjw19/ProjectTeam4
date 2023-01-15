@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>펀딩게시판 목록</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/fundBoard.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -24,7 +25,9 @@
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
-		<h2>게시판 목록</h2>
+	<div class="fundboard-title">
+			<h1>펀딩게시판</h1>
+	</div>
 		<!-- 카테고리 검색 -->
 	<div class="fund_menu">
 		<nav>
@@ -37,26 +40,6 @@
 		</nav>
 	</div>
 	<!-- 카테고리 검색 끝 -->
-		<!-- 검색 폼 시작 -->
-		<form id="search_form" action="list.do" method="get">
-			<ul class="search">
-				<li>
-					<select name="keyfield">
-						<option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>제목</option>
-						<option value="2" <c:if test="${param.keyfield==2}">selected</c:if>>작성자</option>
-						<option value="3" <c:if test="${param.keyfield==3}">selected</c:if>>내용</option>
-					</select>
-				</li>
-				<li>
-					<input type="search" size="16" name="keyword"
-					       id="keyword" value="${param.keyword}">
-				</li>
-				<li>
-					<input type="submit" value="검색">
-				</li>
-			</ul>
-		</form>
-		<!-- 검색 폼 끝 -->
 		<c:if test="${count == 0}">
 		<div class="result-display">
 			표시할 게시물이 없습니다.
@@ -85,14 +68,38 @@
 			</tr>
 			</c:forEach>
 		</table>
-		<div class="list-space align-right">
-			<input type="button" value="글쓰기"
-			       onclick="location.href='${pageContext.request.contextPath}/fundBoard/writeForm.do'"
-			   <c:if test="${empty user_num}">disabled="disabled"</c:if>/>
-			<input type="button" value="목록"
-			    onclick="location.href='list.do'">
-			<input type="button" value="홈으로"
-			  onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+				<!-- 검색 폼 시작 -->
+		<form id="search_form" action="list.do" method="get">
+			<ul class="search">
+				<li>
+					<select name="keyfield">
+						<option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>제목</option>
+						<option value="2" <c:if test="${param.keyfield==2}">selected</c:if>>작성자</option>
+						<option value="3" <c:if test="${param.keyfield==3}">selected</c:if>>내용</option>
+					</select>
+				</li>
+				<li>
+					<input type="search" size="16" name="keyword"
+					       id="keyword" value="${param.keyword}">
+				</li>
+				<li>
+					<input type="submit" value="검색">
+				</li>
+			</ul>
+		</form>
+		<!-- 검색 폼 끝 -->
+		<div class="list-button">
+			<ul>
+				<li>
+					<input type="button" value="글쓰기"
+			       		onclick="location.href='${pageContext.request.contextPath}/fundBoard/writeForm.do'"
+			   			<c:if test="${empty user_num}">disabled="disabled"</c:if>/>
+				</li>
+				<li>
+					<input type="button" value="홈으로"
+			  			onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+				</li>
+			</ul>
 		</div>
 		<div class="align-center">${page}</div>
 		</c:if>

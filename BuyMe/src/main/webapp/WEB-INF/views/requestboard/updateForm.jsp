@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>글수정</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestBoard.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -29,7 +30,11 @@
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
+	<div class="rqwrite-title">
 		<h2>게시판 글수정</h2>
+	</div>
+	<div class="rqwrite-main">
+		<div class="rqwrite-form">	
 		<form action="update.do" method="post" id="update_form"
 		              enctype="multipart/form-data">
 			<input type="hidden" name="req_num" 
@@ -85,13 +90,21 @@
 					</script>
 					</c:if>     
 				</li>
-			</ul>  
-			<div class="align-center">
-				<input type="submit" value="수정">
-				<input type="button" value="글상세"
+			</ul>
+			<div class="submit-list">
+			<ul>
+				<li>
+					<input type="submit" value="등록">
+				</li>
+				<li>
+					<input type="button" value="글상세"
 				  onclick="location.href='detail.do?req_num=${request_board.req_num}'">
-			</div>                     
+				</li>
+			</ul>
+			</div>            
 		</form>
+	</div>
+	</div>
 	</div>
 </div>
 </body>
