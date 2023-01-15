@@ -31,7 +31,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
 	<div class="rqwrite-title">
-		<h2>게시판 글쓰기</h2>
+		<h2>문의 작성</h2>
 	</div>	
 	<div class="rqwrite-main">
 		<div class="rqwrite-form">
