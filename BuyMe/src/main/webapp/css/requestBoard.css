@@ -117,9 +117,6 @@ form#mcheerComm_form div#mcheerComm_first{
 form#mcheerComm_form div#mcheerComm_second{
 	float:right; padding:10px 25px 10px 10px;
 }
-td{
-	text-align:center;
-}
 /* 문의게시판 작성 수정 폼
 -----------------------*/
 .rqwrite-main{
@@ -201,7 +198,6 @@ label[for="req_filename"]{
 	display: inline-block;
 }
 table{
-	text-align: center;
 	margin: auto;
 }
 h2{
