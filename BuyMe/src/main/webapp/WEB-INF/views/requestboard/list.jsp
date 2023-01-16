@@ -56,9 +56,7 @@
 			</tr>
 			</c:forEach>
 		</table>
-		<div class="align-center">${page}</div>
 		</c:if>
-	</div>
 	<!-- 검색 폼 시작 -->
 		<form id="search_form" action="list.do" method="get">
 			<ul class="search">
@@ -77,6 +75,7 @@
 					<input type="submit" value="검색">
 				</li>
 			</ul>
+								<div class="align-center">${page}</div>
 		</form>
 		<!-- 검색 폼 끝 -->
 		<div class="list-space align-right">
@@ -88,6 +87,7 @@
 			<input type="button" value="홈으로"
 			  onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 		</div>
+			</div>
 </div>
 </body>
 </html> 

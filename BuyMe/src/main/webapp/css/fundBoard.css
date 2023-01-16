@@ -92,6 +92,7 @@ div.fundboard-title{
 /* list-button 종료*/
 table{
 	text-align: center;
+	margin: auto;
 }
 table tr{
 	margin-left:50px;

@@ -200,3 +200,10 @@ label[for="req_filename"]{
 .submit-list li{
 	display: inline-block;
 }
+table{
+	text-align: center;
+	margin: auto;
+}
+h2{
+	text-align: center;
+}

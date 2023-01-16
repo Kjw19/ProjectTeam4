@@ -87,6 +87,7 @@
 					<input type="submit" value="검색">
 				</li>
 			</ul>
+					<div class="align-center">${page}</div>
 		</form>
 		<!-- 검색 폼 끝 -->
 		<div class="list-button">
@@ -102,7 +103,6 @@
 				</li>
 			</ul>
 		</div>
-		<div class="align-center">${page}</div>
 	</div>
 </div>
 </body>
